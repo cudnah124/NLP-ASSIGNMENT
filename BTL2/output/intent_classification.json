@@ -1,0 +1,572 @@
+[
+  {
+    "clause": "['BIRCH FIRST GLOBAL INVESTMENTS INC.', 'MA', 'Marketing Affiliate', 'MOUNT KNOWLEDGE HOLDINGS INC.', 'Company']",
+    "intent": "Prohibition",
+    "confidence": 0.3774,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['This agreement shall begin upon the date of its execution by MA and acceptance in writing by Company.",
+    "intent": "Prohibition",
+    "confidence": 0.2863,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Shall remain in effect until the end of the current calendar year.",
+    "intent": "Right",
+    "confidence": 0.3719,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Shall be automatically renewed for successive one (1) year periods.",
+    "intent": "Prohibition",
+    "confidence": 0.3033,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Unless otherwise terminated according to the cancellatio.",
+    "intent": "Termination Condition",
+    "confidence": 0.3149,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['This Agreement is accepted by Company in the State of Nevada.",
+    "intent": "Prohibition",
+    "confidence": 0.321,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Shall be governed by.",
+    "intent": "Prohibition",
+    "confidence": 0.3425,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Construed in accordance with the laws thereof, which laws shall prevail in the event of any conflict.'].",
+    "intent": "Prohibition",
+    "confidence": 0.3317,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['EuroMedia Holdings Corp.', 'Rogers', 'Rogers Cable Communications Inc.', 'Licensor']",
+    "intent": "Prohibition",
+    "confidence": 0.3457,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['The term of this Agreement (the \"Initial Term\") shall commence as of the Effective Date.",
+    "intent": "Prohibition",
+    "confidence": 0.4154,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Unless earlier terminated in accordance with this Agreement, shall terminate on June 30, 2010.'].",
+    "intent": "Termination Condition",
+    "confidence": 0.4417,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['This Agreement is subject to all laws, regulations, license conditions and decisions of the Canadian Radio-television and Telecommunications Commission (\"CRTC\") municipal, provincial and federal governments or other authorities which are applicable to Rogers and/or Licensor, and which are now in f",
+    "intent": "Right",
+    "confidence": 0.342,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['Producer', 'Fulucai Productions Ltd.', 'ConvergTV', 'CONVERGTV, INC.']",
+    "intent": "Prohibition",
+    "confidence": 0.3306,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['All questions with respect to the construction of this Agreement, and the rights and liabilities of the Parties hereto, shall be governed by the laws of the State of Florida.']",
+    "intent": "Prohibition",
+    "confidence": 0.3496,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['PSiTech Corporation', 'Licensor', 'Licensee', 'Empirical Ventures, Inc.']",
+    "intent": "Prohibition",
+    "confidence": 0.3517,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['The initial term of this Agreement commences as of the Effective Date and,.",
+    "intent": "Prohibition",
+    "confidence": 0.3918,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Unless terminated earlier pursuant to any express provision of this Agreement, shall continue until five (5) years following the Effective Date (the \"Initial Term\").'].",
+    "intent": "Termination Condition",
+    "confidence": 0.3586,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['This Agreement shall be governed by.",
+    "intent": "Prohibition",
+    "confidence": 0.3137,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Construed in accordance with the internal laws of the State of Nevada without giving effect to any choice or conflict of law provision or rule.'].",
+    "intent": "Right",
+    "confidence": 0.2933,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['YOU ON DEMAND HOLDINGS, INC.', 'Licensor', 'Licensee', 'Beijing Sun Seven Stars Culture Development Limited']",
+    "intent": "Right",
+    "confidence": 0.3626,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['The Term of this Agreement (the \"Term\") shall commence on the Effective Date listed above.",
+    "intent": "Prohibition",
+    "confidence": 0.421,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Continue for twenty (20) years,.",
+    "intent": "Prohibition",
+    "confidence": 0.3088,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Unless sooner terminated.",
+    "intent": "Termination Condition",
+    "confidence": 0.3149,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "As provided in Section 7(b).",
+    "intent": "Prohibition",
+    "confidence": 0.3747,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "[Term and Termination].']",
+    "intent": "Termination Condition",
+    "confidence": 0.3456,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['This Agreement shall be governed by.",
+    "intent": "Prohibition",
+    "confidence": 0.3137,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Construed in all respects in accordance with the laws of the State of New York, without giving effect to any conflicts of laws principles.'].",
+    "intent": "Prohibition",
+    "confidence": 0.3187,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['PrimeCall', 'deltathree.com, Inc. (formerly known as Delta Three, Inc.)', 'RSL COM PrimeCall, Inc.', 'DeltaThree']",
+    "intent": "Prohibition",
+    "confidence": 0.3341,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['The term of this Agreement shall be effective as of the date first stated above and shall continue for a term of three (3) years,.",
+    "intent": "Prohibition",
+    "confidence": 0.3851,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Unless terminated earlier in accordance with the provisions of this Agreement (the \"Term\"); provided, however, that PrimeCall may elect to terminate this Agreement, upo.",
+    "intent": "Termination Condition",
+    "confidence": 0.5005,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['This Agreement shall be governed by,.",
+    "intent": "Prohibition",
+    "confidence": 0.3137,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Construed in accordance with, the laws of the State of New York, without giving effect to the conflict of laws principles thereof.'].",
+    "intent": "Prohibition",
+    "confidence": 0.3148,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['Women.com', 'eDiets', 'WOMEN.COM NETWORKS, INC.', 'EDIETS.COM, INC.']",
+    "intent": "Prohibition",
+    "confidence": 0.3306,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['This Agreement will become effective as of the Effective Date.",
+    "intent": "Prohibition",
+    "confidence": 0.3484,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Unless sooner terminated pursuant to Sections 3.1<omitted>, shall remain effective for two (2) years from and after the Effective Date (the \"Initial Term\").'].",
+    "intent": "Prohibition",
+    "confidence": 0.3648,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['This Agreement shall be interpreted.",
+    "intent": "Prohibition",
+    "confidence": 0.3006,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Enforced in accordance with the laws of the State of California.",
+    "intent": "Right",
+    "confidence": 0.3211,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "As applied to agreements made, entered into.",
+    "intent": "Prohibition",
+    "confidence": 0.3285,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Performed entirely in California by California residents, notwithstanding the actual residence of the parties, without giving effect to any choice.",
+    "intent": "Prohibition",
+    "confidence": 0.294,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['d/b/a Time Life Music', 'Integrity', 'TL', 'TIME LIFE, INC.', 'INTEGRITY INCORPORATED']",
+    "intent": "Termination Condition",
+    "confidence": 0.487,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['This agreement shall commence as of date.",
+    "intent": "Prohibition",
+    "confidence": 0.3345,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "First above written,.",
+    "intent": "Termination Condition",
+    "confidence": 0.5482,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Shall Continue through December 31, 2004 (\"the Term\").'].",
+    "intent": "Prohibition",
+    "confidence": 0.3655,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['This Agreement has been entered into in the State of Tennessee,.",
+    "intent": "Prohibition",
+    "confidence": 0.3253,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "The validity, interpretation and legal effect of this Agreement will be governed by the laws of the State of Tennessee applicable to contracts entered into.",
+    "intent": "Prohibition",
+    "confidence": 0.3128,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Performed.",
+    "intent": "Prohibition",
+    "confidence": 0.322,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['Endorser', 'collectively, Lender, Endorser, and Fitness are referred to as the \"AS Parties\"', 'MusclePharm Corporation', 'Lender', 'Marine MP, LLC', 'Arnold Schwarzenegger', 'Fitness', 'collectively, \"MusclePharm\" or the \"Company\"', 'Fitness Publications, Inc.']",
+    "intent": "Prohibition",
+    "confidence": 0.3171,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['The Term shall commence on July 23, 2013 and shall expire on July 22, 2016,.",
+    "intent": "Prohibition",
+    "confidence": 0.3609,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Unless otherwise terminated earlier pursuant to Section 9 of this Agreement.', 'This Agreement shall have an Initial Term of three (3) years.'].",
+    "intent": "Termination Condition",
+    "confidence": 0.3758,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['This Agreement has been executed.",
+    "intent": "Termination Condition",
+    "confidence": 0.443,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Delivered in Los Angeles County in the State of California,.",
+    "intent": "Right",
+    "confidence": 0.3296,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Its interpretation, validity and performance shall be construed.",
+    "intent": "Prohibition",
+    "confidence": 0.3206,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Enforced in accordance with the laws of the State of California.'].",
+    "intent": "Right",
+    "confidence": 0.3211,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['Skype, Online BVI and the Company may be referred to individually as \"Party\" and collectively as \"Parties.\"",
+    "intent": "Prohibition",
+    "confidence": 0.3054,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Skype, Online BVI, the Company, Skype Holding and Tom Holding may be referred to individually as \"party to this Agreement\" and collectively as \"parties to this Agreement.",
+    "intent": "Prohibition",
+    "confidence": 0.3177,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "\"', 'Skype', 'Tel-On",
+    "intent": "Prohibition",
+    "confidence": 0.3306,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['The term of this Agreement shall continue for a period of five years following the initial date of execution of the Memorandum,.",
+    "intent": "Prohibition",
+    "confidence": 0.336,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Unless terminated earlier pursuant to Section 6.2 or Section 2.8 (\"Initial Term\").'].",
+    "intent": "Prohibition",
+    "confidence": 0.3238,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['This Agreement will be governed by.",
+    "intent": "Prohibition",
+    "confidence": 0.3146,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Construed in accordance with the laws of England and Wales, without regard to conflict of laws principles.'].",
+    "intent": "Right",
+    "confidence": 0.3217,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['also known as Stryker Orthopaedics (\"Stryker\")', 'Conformis', 'Howmedica Osteonics Corp.', 'Conformis, Inc.', 'Stryker and Conformis are collectively referred to herein as the \"Parties\" and individually as a \"Party.\"']",
+    "intent": "Prohibition",
+    "confidence": 0.3741,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['This Agreement shall be governed.",
+    "intent": "Prohibition",
+    "confidence": 0.3137,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Construed in accordance with the laws of New York State (without regard to the conflict of laws provisions thereof).'].",
+    "intent": "Prohibition",
+    "confidence": 0.3229,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['Aucta Pharmaceuticals, Inc.', 'Eton Pharmaceuticals, Inc.', 'Aucta', 'ETON']",
+    "intent": "Prohibition",
+    "confidence": 0.426,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['The term of this Agreement shall automatically become effective upon the occurrence of (i) ETON executing a commercial supply agreement with a contract manufacturing organization within forty-five (45) days of the Execution Date, provided that ETON has exercised best efforts to execute such agreem",
+    "intent": "Prohibition",
+    "confidence": 0.3296,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['The term of this Agreement shall automatically become effective upon the occurrence of (i) ETON executing a commercial supply agreement with a contract manufacturing organization within forty-five (45) days of the Execution Date, provided that ETON has exercised best efforts to execute such agreem",
+    "intent": "Prohibition",
+    "confidence": 0.3296,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['This Agreement shall be governed, interpreted.",
+    "intent": "Prohibition",
+    "confidence": 0.3137,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Construed in accordance with the substantive laws of the Delaware, in the country of the United State of America, without regard to its conflict of laws principles.'].",
+    "intent": "Prohibition",
+    "confidence": 0.3277,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['FuelCell Energy, Inc.', 'FCE', 'ExxonMobil', 'ExxonMobil Research and Engineering Company']",
+    "intent": "Prohibition",
+    "confidence": 0.3395,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['.",
+    "intent": "Prohibition",
+    "confidence": 0.3306,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Unless sooner terminated in accordance with this Article, this Agreement will continue in full force.",
+    "intent": "Termination Condition",
+    "confidence": 0.2969,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Beginning on the Effective Date.",
+    "intent": "Prohibition",
+    "confidence": 0.3871,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Ending two (2) years thereafter (\"Term\").'].",
+    "intent": "Prohibition",
+    "confidence": 0.3406,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['The validity and interpretation of this Agreement and the legal relations of the Parties to it will be governed by the laws of the State of New York without recourse to its conflicts of law rules.']",
+    "intent": "Prohibition",
+    "confidence": 0.3295,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['B C Marketing Concepts Inc., dba Full Sail Brewing Company', \"Reed's\", \"Reed's, Inc.\", 'Company']",
+    "intent": "Prohibition",
+    "confidence": 0.3372,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['This Agreement shall be governed by,.",
+    "intent": "Prohibition",
+    "confidence": 0.3137,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Any dispute arising hereunder shall be determined in accordance with, the laws of State of New York (without giving effect to conflict of laws principles) including all matters of construction, validity and performance.'].",
+    "intent": "Prohibition",
+    "confidence": 0.3143,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['CPM Medical Consultants, LLC', 'Signature Orthopaedics Pty Ltd']",
+    "intent": "Prohibition",
+    "confidence": 0.3271,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "[\"This agreement begins on the Commencement Date and, subject to clause 11.2, shall continue for an initial term of one (1) years (Initial Term) and indefinitely after that until terminated by either party giving at least twelve (12) months' prior written notice to expire on or after the expiry date",
+    "intent": "Termination Condition",
+    "confidence": 0.555,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['This agreement and any dispute or claim arising out of or in connection with it or its subject matter or formation (including non-contractual disputes or claims) shall be governed by.",
+    "intent": "Right",
+    "confidence": 0.3424,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Construed in accordance with Ohio law.'].",
+    "intent": "Right",
+    "confidence": 0.3298,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['XXXXXXXXXXXXXXXXXXXXX', 'Distributor', 'Company', 'B & C General Warehouse Corporation LLC']",
+    "intent": "Prohibition",
+    "confidence": 0.3891,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['This Agreement shall become effective on the date first written above.",
+    "intent": "Termination Condition",
+    "confidence": 0.4038,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Shall continue in effect for a period of Three (3) years.'].",
+    "intent": "Prohibition",
+    "confidence": 0.3456,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['This Agreement is a contract under the laws of the State of Florida and for all purposes shall be governed by.",
+    "intent": "Prohibition",
+    "confidence": 0.3465,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Construed in accordance with the substantive laws of the State of Florida, without regard to its principles of conflicts of laws provisions.'].",
+    "intent": "Right",
+    "confidence": 0.3169,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['SUNWAI Technology', 'Distributor', 'iMine Corporation', 'JRVS']",
+    "intent": "Prohibition",
+    "confidence": 0.422,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['This Agreement shall become effective upon the date first written above.",
+    "intent": "Termination Condition",
+    "confidence": 0.4038,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Shall remain in full force and effect for a period of two years (2),.",
+    "intent": "Prohibition",
+    "confidence": 0.3339,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Unless earlier terminated pursuant to the provisions in this Agreement.'].",
+    "intent": "Prohibition",
+    "confidence": 0.3504,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['This Agreement shall become effective upon the date first written above.",
+    "intent": "Termination Condition",
+    "confidence": 0.4038,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Shall remain in full force and effect for a period of two years (2),.",
+    "intent": "Prohibition",
+    "confidence": 0.3339,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Unless earlier terminated pursuant to the provisions in this Agreement.'].",
+    "intent": "Prohibition",
+    "confidence": 0.3504,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "['This Agreement shall be governed by.",
+    "intent": "Prohibition",
+    "confidence": 0.3137,
+    "method": "tfidf_logreg"
+  },
+  {
+    "clause": "Construed pursuant to the laws of the State of Indiana, U.S.A., without reference to principals of conflicts of laws.'].",
+    "intent": "Prohibition",
+    "confidence": 0.3285,
+    "method": "tfidf_logreg"
+  }
+]

@@ -1,0 +1,12 @@
+=== Intent Classification Performance ===
+
+                       precision    recall  f1-score   support
+
+           Obligation       1.00      0.96      0.98        23
+          Prohibition       0.73      0.95      0.83        20
+                Right       0.96      0.79      0.86        28
+Termination Condition       0.96      0.96      0.96        25
+
+             accuracy                           0.91        96
+            macro avg       0.91      0.91      0.91        96
+         weighted avg       0.92      0.91      0.91        96

@@ -1,0 +1,659 @@
+[
+  {
+    "clause": "['BIRCH FIRST GLOBAL INVESTMENTS INC.', 'MA', 'Marketing Affiliate', 'MOUNT KNOWLEDGE HOLDINGS INC.', 'Company']",
+    "entities": []
+  },
+  {
+    "clause": "['This agreement shall begin upon the date of its execution by MA and acceptance in writing by Company.",
+    "entities": []
+  },
+  {
+    "clause": "Shall remain in effect until the end of the current calendar year.",
+    "entities": []
+  },
+  {
+    "clause": "Shall be automatically renewed for successive one (1) year periods.",
+    "entities": []
+  },
+  {
+    "clause": "Unless otherwise terminated according to the cancellatio.",
+    "entities": []
+  },
+  {
+    "clause": "['This Agreement is accepted by Company in the State of Nevada.",
+    "entities": [
+      {
+        "text": "Nevada",
+        "label": "LAW",
+        "start_char": 56,
+        "end_char": 62
+      }
+    ]
+  },
+  {
+    "clause": "Shall be governed by.",
+    "entities": []
+  },
+  {
+    "clause": "Construed in accordance with the laws thereof, which laws shall prevail in the event of any conflict.'].",
+    "entities": []
+  },
+  {
+    "clause": "['EuroMedia Holdings Corp.', 'Rogers', 'Rogers Cable Communications Inc.', 'Licensor']",
+    "entities": [
+      {
+        "text": "Rogers",
+        "label": "DATE",
+        "start_char": 30,
+        "end_char": 36
+      },
+      {
+        "text": "Licensor",
+        "label": "DATE",
+        "start_char": 76,
+        "end_char": 84
+      }
+    ]
+  },
+  {
+    "clause": "['The term of this Agreement (the \"Initial Term\") shall commence as of the Effective Date.",
+    "entities": []
+  },
+  {
+    "clause": "Unless earlier terminated in accordance with this Agreement, shall terminate on June 30, 2010.'].",
+    "entities": [
+      {
+        "text": "June 30,",
+        "label": "LAW",
+        "start_char": 80,
+        "end_char": 88
+      }
+    ]
+  },
+  {
+    "clause": "['This Agreement is subject to all laws, regulations, license conditions and decisions of the Canadian Radio-television and Telecommunications Commission (\"CRTC\") municipal, provincial and federal governments or other authorities which are applicable to Rogers and/or Licensor, and which are now in f",
+    "entities": []
+  },
+  {
+    "clause": "['Producer', 'Fulucai Productions Ltd.', 'ConvergTV', 'CONVERGTV, INC.']",
+    "entities": [
+      {
+        "text": "Producer",
+        "label": "DATE",
+        "start_char": 2,
+        "end_char": 10
+      }
+    ]
+  },
+  {
+    "clause": "['All questions with respect to the construction of this Agreement, and the rights and liabilities of the Parties hereto, shall be governed by the laws of the State of Florida.']",
+    "entities": [
+      {
+        "text": "Florida",
+        "label": "LAW",
+        "start_char": 168,
+        "end_char": 175
+      }
+    ]
+  },
+  {
+    "clause": "['PSiTech Corporation', 'Licensor', 'Licensee', 'Empirical Ventures, Inc.']",
+    "entities": [
+      {
+        "text": "Licensor",
+        "label": "DATE",
+        "start_char": 25,
+        "end_char": 33
+      }
+    ]
+  },
+  {
+    "clause": "['The initial term of this Agreement commences as of the Effective Date and,.",
+    "entities": []
+  },
+  {
+    "clause": "Unless terminated earlier pursuant to any express provision of this Agreement, shall continue until five (5) years following the Effective Date (the \"Initial Term\").'].",
+    "entities": []
+  },
+  {
+    "clause": "['This Agreement shall be governed by.",
+    "entities": []
+  },
+  {
+    "clause": "Construed in accordance with the internal laws of the State of Nevada without giving effect to any choice or conflict of law provision or rule.'].",
+    "entities": [
+      {
+        "text": "Nevada",
+        "label": "LAW",
+        "start_char": 63,
+        "end_char": 69
+      }
+    ]
+  },
+  {
+    "clause": "['YOU ON DEMAND HOLDINGS, INC.', 'Licensor', 'Licensee', 'Beijing Sun Seven Stars Culture Development Limited']",
+    "entities": [
+      {
+        "text": "Licensor",
+        "label": "DATE",
+        "start_char": 34,
+        "end_char": 42
+      }
+    ]
+  },
+  {
+    "clause": "['The Term of this Agreement (the \"Term\") shall commence on the Effective Date listed above.",
+    "entities": []
+  },
+  {
+    "clause": "Continue for twenty (20) years,.",
+    "entities": []
+  },
+  {
+    "clause": "Unless sooner terminated.",
+    "entities": []
+  },
+  {
+    "clause": "As provided in Section 7(b).",
+    "entities": []
+  },
+  {
+    "clause": "[Term and Termination].']",
+    "entities": []
+  },
+  {
+    "clause": "['This Agreement shall be governed by.",
+    "entities": []
+  },
+  {
+    "clause": "Construed in all respects in accordance with the laws of the State of New York, without giving effect to any conflicts of laws principles.'].",
+    "entities": [
+      {
+        "text": "New York",
+        "label": "LAW",
+        "start_char": 70,
+        "end_char": 78
+      }
+    ]
+  },
+  {
+    "clause": "['PrimeCall', 'deltathree.com, Inc. (formerly known as Delta Three, Inc.)', 'RSL COM PrimeCall, Inc.', 'DeltaThree']",
+    "entities": [
+      {
+        "text": "PrimeCall",
+        "label": "DATE",
+        "start_char": 2,
+        "end_char": 11
+      }
+    ]
+  },
+  {
+    "clause": "['The term of this Agreement shall be effective as of the date first stated above and shall continue for a term of three (3) years,.",
+    "entities": []
+  },
+  {
+    "clause": "Unless terminated earlier in accordance with the provisions of this Agreement (the \"Term\"); provided, however, that PrimeCall may elect to terminate this Agreement, upo.",
+    "entities": []
+  },
+  {
+    "clause": "['This Agreement shall be governed by,.",
+    "entities": []
+  },
+  {
+    "clause": "Construed in accordance with, the laws of the State of New York, without giving effect to the conflict of laws principles thereof.'].",
+    "entities": [
+      {
+        "text": "New York",
+        "label": "LAW",
+        "start_char": 55,
+        "end_char": 63
+      }
+    ]
+  },
+  {
+    "clause": "['Women.com', 'eDiets', 'WOMEN.COM NETWORKS, INC.', 'EDIETS.COM, INC.']",
+    "entities": [
+      {
+        "text": "Women.com",
+        "label": "LAW",
+        "start_char": 2,
+        "end_char": 11
+      }
+    ]
+  },
+  {
+    "clause": "['This Agreement will become effective as of the Effective Date.",
+    "entities": []
+  },
+  {
+    "clause": "Unless sooner terminated pursuant to Sections 3.1<omitted>, shall remain effective for two (2) years from and after the Effective Date (the \"Initial Term\").'].",
+    "entities": []
+  },
+  {
+    "clause": "['This Agreement shall be interpreted.",
+    "entities": []
+  },
+  {
+    "clause": "Enforced in accordance with the laws of the State of California.",
+    "entities": [
+      {
+        "text": "California",
+        "label": "LAW",
+        "start_char": 53,
+        "end_char": 63
+      }
+    ]
+  },
+  {
+    "clause": "As applied to agreements made, entered into.",
+    "entities": []
+  },
+  {
+    "clause": "Performed entirely in California by California residents, notwithstanding the actual residence of the parties, without giving effect to any choice.",
+    "entities": [
+      {
+        "text": "Performed",
+        "label": "LAW",
+        "start_char": 0,
+        "end_char": 9
+      }
+    ]
+  },
+  {
+    "clause": "['d/b/a Time Life Music', 'Integrity', 'TL', 'TIME LIFE, INC.', 'INTEGRITY INCORPORATED']",
+    "entities": [
+      {
+        "text": "Music",
+        "label": "LAW",
+        "start_char": 18,
+        "end_char": 23
+      },
+      {
+        "text": "Integrity",
+        "label": "DATE",
+        "start_char": 27,
+        "end_char": 36
+      }
+    ]
+  },
+  {
+    "clause": "['This agreement shall commence as of date.",
+    "entities": []
+  },
+  {
+    "clause": "First above written,.",
+    "entities": []
+  },
+  {
+    "clause": "Shall Continue through December 31, 2004 (\"the Term\").'].",
+    "entities": []
+  },
+  {
+    "clause": "['This Agreement has been entered into in the State of Tennessee,.",
+    "entities": [
+      {
+        "text": "Tennessee",
+        "label": "LAW",
+        "start_char": 55,
+        "end_char": 64
+      }
+    ]
+  },
+  {
+    "clause": "The validity, interpretation and legal effect of this Agreement will be governed by the laws of the State of Tennessee applicable to contracts entered into.",
+    "entities": [
+      {
+        "text": "Tennessee",
+        "label": "LAW",
+        "start_char": 109,
+        "end_char": 118
+      }
+    ]
+  },
+  {
+    "clause": "Performed.",
+    "entities": [
+      {
+        "text": "Performed",
+        "label": "LAW",
+        "start_char": 0,
+        "end_char": 9
+      }
+    ]
+  },
+  {
+    "clause": "['Endorser', 'collectively, Lender, Endorser, and Fitness are referred to as the \"AS Parties\"', 'MusclePharm Corporation', 'Lender', 'Marine MP, LLC', 'Arnold Schwarzenegger', 'Fitness', 'collectively, \"MusclePharm\" or the \"Company\"', 'Fitness Publications, Inc.']",
+    "entities": [
+      {
+        "text": "Endorser",
+        "label": "LAW",
+        "start_char": 2,
+        "end_char": 10
+      },
+      {
+        "text": "Fitness",
+        "label": "DATE",
+        "start_char": 177,
+        "end_char": 184
+      }
+    ]
+  },
+  {
+    "clause": "['The Term shall commence on July 23, 2013 and shall expire on July 22, 2016,.",
+    "entities": []
+  },
+  {
+    "clause": "Unless otherwise terminated earlier pursuant to Section 9 of this Agreement.', 'This Agreement shall have an Initial Term of three (3) years.'].",
+    "entities": []
+  },
+  {
+    "clause": "['This Agreement has been executed.",
+    "entities": []
+  },
+  {
+    "clause": "Delivered in Los Angeles County in the State of California,.",
+    "entities": [
+      {
+        "text": "California",
+        "label": "LAW",
+        "start_char": 48,
+        "end_char": 58
+      }
+    ]
+  },
+  {
+    "clause": "Its interpretation, validity and performance shall be construed.",
+    "entities": []
+  },
+  {
+    "clause": "Enforced in accordance with the laws of the State of California.'].",
+    "entities": [
+      {
+        "text": "California",
+        "label": "LAW",
+        "start_char": 53,
+        "end_char": 63
+      }
+    ]
+  },
+  {
+    "clause": "['Skype, Online BVI and the Company may be referred to individually as \"Party\" and collectively as \"Parties.\"",
+    "entities": []
+  },
+  {
+    "clause": "Skype, Online BVI, the Company, Skype Holding and Tom Holding may be referred to individually as \"party to this Agreement\" and collectively as \"parties to this Agreement.",
+    "entities": []
+  },
+  {
+    "clause": "\"', 'Skype', 'Tel-On",
+    "entities": []
+  },
+  {
+    "clause": "['The term of this Agreement shall continue for a period of five years following the initial date of execution of the Memorandum,.",
+    "entities": [
+      {
+        "text": "Memorandum",
+        "label": "LAW",
+        "start_char": 118,
+        "end_char": 128
+      }
+    ]
+  },
+  {
+    "clause": "Unless terminated earlier pursuant to Section 6.2 or Section 2.8 (\"Initial Term\").'].",
+    "entities": []
+  },
+  {
+    "clause": "['This Agreement will be governed by.",
+    "entities": []
+  },
+  {
+    "clause": "Construed in accordance with the laws of England and Wales, without regard to conflict of laws principles.'].",
+    "entities": [
+      {
+        "text": "England",
+        "label": "LAW",
+        "start_char": 41,
+        "end_char": 48
+      }
+    ]
+  },
+  {
+    "clause": "['also known as Stryker Orthopaedics (\"Stryker\")', 'Conformis', 'Howmedica Osteonics Corp.', 'Conformis, Inc.', 'Stryker and Conformis are collectively referred to herein as the \"Parties\" and individually as a \"Party.\"']",
+    "entities": []
+  },
+  {
+    "clause": "['This Agreement shall be governed.",
+    "entities": []
+  },
+  {
+    "clause": "Construed in accordance with the laws of New York State (without regard to the conflict of laws provisions thereof).'].",
+    "entities": [
+      {
+        "text": "New York",
+        "label": "LAW",
+        "start_char": 41,
+        "end_char": 49
+      }
+    ]
+  },
+  {
+    "clause": "['Aucta Pharmaceuticals, Inc.', 'Eton Pharmaceuticals, Inc.', 'Aucta', 'ETON']",
+    "entities": [
+      {
+        "text": "Pharmaceuticals",
+        "label": "LAW",
+        "start_char": 38,
+        "end_char": 53
+      }
+    ]
+  },
+  {
+    "clause": "['The term of this Agreement shall automatically become effective upon the occurrence of (i) ETON executing a commercial supply agreement with a contract manufacturing organization within forty-five (45) days of the Execution Date, provided that ETON has exercised best efforts to execute such agreem",
+    "entities": []
+  },
+  {
+    "clause": "['The term of this Agreement shall automatically become effective upon the occurrence of (i) ETON executing a commercial supply agreement with a contract manufacturing organization within forty-five (45) days of the Execution Date, provided that ETON has exercised best efforts to execute such agreem",
+    "entities": []
+  },
+  {
+    "clause": "['This Agreement shall be governed, interpreted.",
+    "entities": []
+  },
+  {
+    "clause": "Construed in accordance with the substantive laws of the Delaware, in the country of the United State of America, without regard to its conflict of laws principles.'].",
+    "entities": [
+      {
+        "text": "Delaware",
+        "label": "LAW",
+        "start_char": 57,
+        "end_char": 65
+      }
+    ]
+  },
+  {
+    "clause": "['FuelCell Energy, Inc.', 'FCE', 'ExxonMobil', 'ExxonMobil Research and Engineering Company']",
+    "entities": [
+      {
+        "text": "FCE",
+        "label": "DATE",
+        "start_char": 27,
+        "end_char": 30
+      }
+    ]
+  },
+  {
+    "clause": "['.",
+    "entities": []
+  },
+  {
+    "clause": "Unless sooner terminated in accordance with this Article, this Agreement will continue in full force.",
+    "entities": []
+  },
+  {
+    "clause": "Beginning on the Effective Date.",
+    "entities": []
+  },
+  {
+    "clause": "Ending two (2) years thereafter (\"Term\").'].",
+    "entities": []
+  },
+  {
+    "clause": "['The validity and interpretation of this Agreement and the legal relations of the Parties to it will be governed by the laws of the State of New York without recourse to its conflicts of law rules.']",
+    "entities": [
+      {
+        "text": "New York",
+        "label": "LAW",
+        "start_char": 142,
+        "end_char": 150
+      }
+    ]
+  },
+  {
+    "clause": "['B C Marketing Concepts Inc., dba Full Sail Brewing Company', \"Reed's\", \"Reed's, Inc.\", 'Company']",
+    "entities": [
+      {
+        "text": "Inc.",
+        "label": "LAW",
+        "start_char": 25,
+        "end_char": 29
+      }
+    ]
+  },
+  {
+    "clause": "['This Agreement shall be governed by,.",
+    "entities": []
+  },
+  {
+    "clause": "Any dispute arising hereunder shall be determined in accordance with, the laws of State of New York (without giving effect to conflict of laws principles) including all matters of construction, validity and performance.'].",
+    "entities": [
+      {
+        "text": "New York",
+        "label": "LAW",
+        "start_char": 91,
+        "end_char": 99
+      }
+    ]
+  },
+  {
+    "clause": "['CPM Medical Consultants, LLC', 'Signature Orthopaedics Pty Ltd']",
+    "entities": []
+  },
+  {
+    "clause": "[\"This agreement begins on the Commencement Date and, subject to clause 11.2, shall continue for an initial term of one (1) years (Initial Term) and indefinitely after that until terminated by either party giving at least twelve (12) months' prior written notice to expire on or after the expiry date",
+    "entities": []
+  },
+  {
+    "clause": "['This agreement and any dispute or claim arising out of or in connection with it or its subject matter or formation (including non-contractual disputes or claims) shall be governed by.",
+    "entities": []
+  },
+  {
+    "clause": "Construed in accordance with Ohio law.'].",
+    "entities": [
+      {
+        "text": "Ohio",
+        "label": "LAW",
+        "start_char": 29,
+        "end_char": 33
+      }
+    ]
+  },
+  {
+    "clause": "['XXXXXXXXXXXXXXXXXXXXX', 'Distributor', 'Company', 'B & C General Warehouse Corporation LLC']",
+    "entities": [
+      {
+        "text": "Distributor",
+        "label": "DATE",
+        "start_char": 27,
+        "end_char": 38
+      }
+    ]
+  },
+  {
+    "clause": "['This Agreement shall become effective on the date first written above.",
+    "entities": []
+  },
+  {
+    "clause": "Shall continue in effect for a period of Three (3) years.'].",
+    "entities": [
+      {
+        "text": "Three",
+        "label": "LAW",
+        "start_char": 41,
+        "end_char": 46
+      }
+    ]
+  },
+  {
+    "clause": "['This Agreement is a contract under the laws of the State of Florida and for all purposes shall be governed by.",
+    "entities": [
+      {
+        "text": "Florida",
+        "label": "LAW",
+        "start_char": 62,
+        "end_char": 69
+      }
+    ]
+  },
+  {
+    "clause": "Construed in accordance with the substantive laws of the State of Florida, without regard to its principles of conflicts of laws provisions.'].",
+    "entities": [
+      {
+        "text": "Florida",
+        "label": "LAW",
+        "start_char": 66,
+        "end_char": 73
+      }
+    ]
+  },
+  {
+    "clause": "['SUNWAI Technology', 'Distributor', 'iMine Corporation', 'JRVS']",
+    "entities": [
+      {
+        "text": "Distributor",
+        "label": "DATE",
+        "start_char": 23,
+        "end_char": 34
+      }
+    ]
+  },
+  {
+    "clause": "['This Agreement shall become effective upon the date first written above.",
+    "entities": []
+  },
+  {
+    "clause": "Shall remain in full force and effect for a period of two years (2),.",
+    "entities": []
+  },
+  {
+    "clause": "Unless earlier terminated pursuant to the provisions in this Agreement.'].",
+    "entities": []
+  },
+  {
+    "clause": "['This Agreement shall become effective upon the date first written above.",
+    "entities": []
+  },
+  {
+    "clause": "Shall remain in full force and effect for a period of two years (2),.",
+    "entities": []
+  },
+  {
+    "clause": "Unless earlier terminated pursuant to the provisions in this Agreement.'].",
+    "entities": []
+  },
+  {
+    "clause": "['This Agreement shall be governed by.",
+    "entities": []
+  },
+  {
+    "clause": "Construed pursuant to the laws of the State of Indiana, U.S.A., without reference to principals of conflicts of laws.'].",
+    "entities": [
+      {
+        "text": "Indiana",
+        "label": "LAW",
+        "start_char": 47,
+        "end_char": 54
+      }
+    ]
+  }
+]

@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.env
+
+# Models & Weights
+BTL2/models/
+*.pkl
+*.bin
+*.h5
+*.pt
+
+# Large Datasets
+data/archive/
+
+# OS & IDE
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
