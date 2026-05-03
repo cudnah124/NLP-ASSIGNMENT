@@ -181,13 +181,15 @@ def train_transformer_model(texts, labels, model_dir, epochs=5):
     training_args = TrainingArguments(
         output_dir=os.path.join(model_dir, "checkpoints"),
         num_train_epochs=epochs,
-        per_device_train_batch_size=8,
-        warmup_steps=10,
+        per_device_train_batch_size=16,
+        per_device_eval_batch_size=64,
+        warmup_steps=500,
         weight_decay=0.01,
+        logging_dir=os.path.join(model_dir, "logs"),
         logging_steps=10,
+        evaluation_strategy="epoch",
         save_strategy="epoch",
-        report_to="none",
-        no_cuda=not torch.cuda.is_available(),
+        load_best_model_at_end=True,
     )
 
     trainer = Trainer(
