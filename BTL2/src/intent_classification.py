@@ -17,6 +17,8 @@ import json
 import os
 import warnings
 import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report
 
 warnings.filterwarnings("ignore")
 
@@ -248,7 +250,7 @@ def predict_transformer(texts, model_dir):
 
 def train(data_dir, model_dir, train_transformer=True):
     """
-    Train both baseline and advanced intent classification models.
+    Train both baseline and advanced intent classification models with evaluation.
 
     Args:
         data_dir:          Path to data directory with intent_training_data.json
@@ -261,17 +263,35 @@ def train(data_dir, model_dir, train_transformer=True):
 
     texts, labels = load_training_data(data_path)
     print(f"  Loaded {len(texts)} training samples")
-    print(f"  Label distribution: { {l: labels.count(l) for l in LABELS} }")
+    
+    # --- Split Data into Train (80%) and Test (20%) ---
+    train_texts, test_texts, train_labels, test_labels = train_test_split(
+        texts, labels, test_size=0.2, random_state=42, stratify=labels
+    )
+    print(f"  Split: {len(train_texts)} train, {len(test_texts)} test")
 
-    # Train baseline
+    # --- 1. Train & Evaluate Baseline (TF-IDF + LogReg) ---
+    print("\n--- Training Baseline (TF-IDF + LogReg) ---")
     tfidf_dir = os.path.join(model_dir, "tfidf_logreg")
-    train_tfidf_model(texts, labels, tfidf_dir)
+    train_tfidf_model(train_texts, train_labels, tfidf_dir)
+    
+    print("\n--- Evaluating Baseline on Test Set ---")
+    baseline_preds = predict_tfidf(test_texts, tfidf_dir)
+    baseline_labels = [p["intent"] for p in baseline_preds]
+    print(classification_report(test_labels, baseline_labels))
 
-    # Train advanced (optional)
+    # --- 2. Train & Evaluate Advanced (DistilBERT) ---
     if train_transformer:
+        print("\n--- Training Advanced (DistilBERT) ---")
         transformer_dir = os.path.join(model_dir, "distilbert")
-        success = train_transformer_model(texts, labels, transformer_dir, epochs=5)
-        if not success:
+        success = train_transformer_model(train_texts, train_labels, transformer_dir, epochs=5)
+        
+        if success:
+            print("\n--- Evaluating Advanced on Test Set ---")
+            advanced_preds = predict_transformer(test_texts, transformer_dir)
+            advanced_labels = [p["intent"] for p in advanced_preds]
+            print(classification_report(test_labels, advanced_labels))
+        else:
             print("  Transformer training skipped.")
 
 

@@ -1278,5 +1278,309 @@
   {
     "text": "['The insurance shall be in an amount of: $2,000,000 per occurrence and $2,000,000 aggregate with a $2,000,000 aggregate for products and completed operations.', \"During the term of this Agreement, and before any sponsorship or promotional activities are conducted under this Agreement, Company shall obtain and maintain at its expense, Commercial General Liability Insurance coverage with an insurance carrier with a Best's rating of A+.",
     "label": "Obligation"
+  },
+  {
+    "text": "The Service Provider shall maintain a log of all support requests received.",
+    "label": "Obligation"
+  },
+  {
+    "text": "Either party may terminate this Agreement immediately if the other party becomes insolvent.",
+    "label": "Termination Condition"
+  },
+  {
+    "text": "The Licensee is entitled to receive all updates and patches released during the Subscription Term.",
+    "label": "Right"
+  },
+  {
+    "text": "Developer shall not disclose any Confidential Information to any third party without prior written consent.",
+    "label": "Prohibition"
+  },
+  {
+    "text": "The Customer shall pay the invoice within 30 days of receipt.",
+    "label": "Obligation"
+  },
+  {
+    "text": "Company has the right to audit the records of the Contractor once per year.",
+    "label": "Right"
+  },
+  {
+    "text": "This Agreement will terminate automatically if the Project is not completed by the Deadline.",
+    "label": "Termination Condition"
+  },
+  {
+    "text": "Contractor shall not use the Client logo for any purpose other than as specified in this Agreement.",
+    "label": "Prohibition"
+  },
+  {
+    "text": "Both parties shall keep all information confidential during and after the term of this Agreement.",
+    "label": "Obligation"
+  },
+  {
+    "text": "The Provider may terminate this contract with 60 days written notice for any reason.",
+    "label": "Termination Condition"
+  },
+  {
+    "text": "The Client is granted a non-exclusive license to use the Software for internal business purposes.",
+    "label": "Right"
+  },
+  {
+    "text": "Neither party shall assign its rights under this Agreement without the other party prior consent.",
+    "label": "Prohibition"
+  },
+  {
+    "text": "The Executive shall devote his full business time and attention to the business of the Company.",
+    "label": "Obligation"
+  },
+  {
+    "text": "The Company may terminate the Executive employment for Cause at any time.",
+    "label": "Termination Condition"
+  },
+  {
+    "text": "The Executive shall be entitled to participate in all employee benefit plans of the Company.",
+    "label": "Right"
+  },
+  {
+    "text": "The Executive will not, during his employment, compete with the business of the Company.",
+    "label": "Prohibition"
+  },
+  {
+    "text": "Purchaser shall be responsible for all taxes arising from the sale of the Assets.",
+    "label": "Obligation"
+  },
+  {
+    "text": "The Seller may terminate this Agreement if the Purchaser fails to pay the Purchase Price.",
+    "label": "Termination Condition"
+  },
+  {
+    "text": "The Purchaser has the right to inspect the Assets prior to the Closing Date.",
+    "label": "Right"
+  },
+  {
+    "text": "The Seller shall not solicit any other offers for the Assets during the Exclusivity Period.",
+    "label": "Prohibition"
+  },
+  {
+    "text": "The Consultant shall perform the Services with the highest standard of professional care.",
+    "label": "Obligation"
+  },
+  {
+    "text": "The Client may terminate this Agreement if the Consultant fails to perform the Services.",
+    "label": "Termination Condition"
+  },
+  {
+    "text": "The Consultant shall own all intellectual property created during the performance of the Services.",
+    "label": "Right"
+  },
+  {
+    "text": "The Consultant shall not provide similar services to any competitor of the Client.",
+    "label": "Prohibition"
+  },
+  {
+    "text": "The Tenant shall pay the Rent on the first day of each month.",
+    "label": "Obligation"
+  },
+  {
+    "text": "The Landlord may terminate the Lease if the Tenant defaults on any payment.",
+    "label": "Termination Condition"
+  },
+  {
+    "text": "The Tenant has the right to use the common areas of the Building.",
+    "label": "Right"
+  },
+  {
+    "text": "The Tenant shall not make any alterations to the Premises without the Landlord consent.",
+    "label": "Prohibition"
+  },
+  {
+    "text": "The Borrower shall repay the Loan in accordance with the Payment Schedule.",
+    "label": "Obligation"
+  },
+  {
+    "text": "The Lender may terminate the Credit Facility if an Event of Default occurs.",
+    "label": "Termination Condition"
+  },
+  {
+    "text": "The Borrower is entitled to prepay the Loan at any time without penalty.",
+    "label": "Right"
+  },
+  {
+    "text": "The Borrower shall not incur any additional debt without the Lender prior consent.",
+    "label": "Prohibition"
+  },
+  {
+    "text": "The Supplier shall deliver the Goods to the Warehouse by the Delivery Date.",
+    "label": "Obligation"
+  },
+  {
+    "text": "The Buyer may terminate the Purchase Order if the Goods are not delivered on time.",
+    "label": "Termination Condition"
+  },
+  {
+    "text": "The Buyer is entitled to reject any Goods that do not conform to the Specifications.",
+    "label": "Right"
+  },
+  {
+    "text": "The Supplier shall not sell the Goods to any other customer in the Territory.",
+    "label": "Prohibition"
+  },
+  {
+    "text": "The Employee shall comply with all policies and procedures of the Employer.",
+    "label": "Obligation"
+  },
+  {
+    "text": "The Employer may terminate the Employee employment without notice for gross misconduct.",
+    "label": "Termination Condition"
+  },
+  {
+    "text": "The Employee is entitled to 20 days of paid vacation per year.",
+    "label": "Right"
+  },
+  {
+    "text": "The Employee shall not disclose any trade secrets of the Employer.",
+    "label": "Prohibition"
+  },
+  {
+    "text": "The Author shall submit the Manuscript to the Publisher by the Submission Date.",
+    "label": "Obligation"
+  },
+  {
+    "text": "The Publisher may terminate the Agreement if the Manuscript is not acceptable.",
+    "label": "Termination Condition"
+  },
+  {
+    "text": "The Author is entitled to receive royalties on all sales of the Book.",
+    "label": "Right"
+  },
+  {
+    "text": "The Author shall not publish any work that competes with the Book.",
+    "label": "Prohibition"
+  },
+  {
+    "text": "The Partner shall contribute the Capital to the Partnership by the Effective Date.",
+    "label": "Obligation"
+  },
+  {
+    "text": "The Partnership may be terminated by the mutual agreement of all Partners.",
+    "label": "Termination Condition"
+  },
+  {
+    "text": "Each Partner is entitled to a share of the profits of the Partnership.",
+    "label": "Right"
+  },
+  {
+    "text": "No Partner shall engage in any business that competes with the Partnership.",
+    "label": "Prohibition"
+  },
+  {
+    "text": "The Licensee shall display the Licensor trademark on all licensed products.",
+    "label": "Obligation"
+  },
+  {
+    "text": "The Licensor may terminate the License if the Licensee fails to meet quality standards.",
+    "label": "Termination Condition"
+  },
+  {
+    "text": "The Licensee has the right to use the Technology in the specified Territory.",
+    "label": "Right"
+  },
+  {
+    "text": "The Licensee shall not sublicense the Technology without the Licensor consent.",
+    "label": "Prohibition"
+  },
+  {
+    "text": "The Contractor shall provide all labor and materials for the Construction Project.",
+    "label": "Obligation"
+  },
+  {
+    "text": "The Owner may terminate the Contract if the Contractor fails to maintain the Schedule.",
+    "label": "Termination Condition"
+  },
+  {
+    "text": "The Contractor is entitled to progress payments in accordance with the Contract.",
+    "label": "Right"
+  },
+  {
+    "text": "The Contractor shall not subcontract any part of the Work without the Owner consent.",
+    "label": "Prohibition"
+  },
+  {
+    "text": "perpetual, 11/15/2014",
+    "label": "Right"
+  },
+  {
+    "text": "successive 12 months; successive 6 months;",
+    "label": "Right"
+  },
+  {
+    "text": "four successive 10 years",
+    "label": "Right"
+  },
+  {
+    "text": "2 successive 10 years",
+    "label": "Right"
+  },
+  {
+    "text": "England, United Kingdom; Wales, United Kingdom",
+    "label": "Obligation"
+  },
+  {
+    "text": "People's Republic of China; United Nations Convention on Contract for the International Sale of Goods",
+    "label": "Obligation"
+  },
+  {
+    "text": "Texas; Singapore; Belgium",
+    "label": "Obligation"
+  },
+  {
+    "text": "People's Republic of China",
+    "label": "Obligation"
+  },
+  {
+    "text": "California; the state in which the breach occurs",
+    "label": "Obligation"
+  },
+  {
+    "text": "British Columbia, Canada",
+    "label": "Obligation"
+  },
+  {
+    "text": "THE STATE IN WHICH THE FRANCHISED RESTAURANT IS LOCATED; THE UNITED STATES TRADEMARK ACT OF 1946",
+    "label": "Obligation"
+  },
+  {
+    "text": "England and Wales, UK",
+    "label": "Obligation"
+  },
+  {
+    "text": "Massachusetts; Netherlands",
+    "label": "Obligation"
+  },
+  {
+    "text": "Province of Ontario, Canada",
+    "label": "Obligation"
+  },
+  {
+    "text": "Republic of Kazakhstan",
+    "label": "Obligation"
+  },
+  {
+    "text": "Republic of South Africa",
+    "label": "Obligation"
+  },
+  {
+    "text": "New York; Massachussets",
+    "label": "Obligation"
+  },
+  {
+    "text": "California; Hong Kong",
+    "label": "Obligation"
+  },
+  {
+    "text": "British Columbia,Canada",
+    "label": "Obligation"
+  },
+  {
+    "text": "Federal Republic of Germany",
+    "label": "Obligation"
   }
 ]
