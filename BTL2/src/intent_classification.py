@@ -187,7 +187,7 @@ def train_transformer_model(texts, labels, model_dir, epochs=5):
         weight_decay=0.01,
         logging_dir=os.path.join(model_dir, "logs"),
         logging_steps=10,
-        evaluation_strategy="epoch",
+        eval_strategy="epoch",
         save_strategy="epoch",
         load_best_model_at_end=True,
     )
