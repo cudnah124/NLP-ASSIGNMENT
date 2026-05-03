@@ -181,15 +181,12 @@ def train_transformer_model(texts, labels, model_dir, epochs=5):
     training_args = TrainingArguments(
         output_dir=os.path.join(model_dir, "checkpoints"),
         num_train_epochs=epochs,
-        per_device_train_batch_size=16,
-        per_device_eval_batch_size=64,
-        warmup_steps=500,
+        per_device_train_batch_size=8,
+        warmup_steps=10,
         weight_decay=0.01,
-        logging_dir=os.path.join(model_dir, "logs"),
         logging_steps=10,
-        eval_strategy="epoch",
-        save_strategy="epoch",
-        load_best_model_at_end=True,
+        save_strategy="no",
+        report_to="none",
     )
 
     trainer = Trainer(
