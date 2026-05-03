@@ -1,0 +1,14 @@
+spacy>=3.0.0
+scikit-learn
+numpy
+pandas
+matplotlib
+torch
+transformers
+accelerate
+datasets
+joblib
+streamlit
+jupyter
+# allennlp (Optional for SRL, skip if installation fails on local Windows)
+# allennlp-models
