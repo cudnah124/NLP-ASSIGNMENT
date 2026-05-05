@@ -29,10 +29,10 @@ _use_hf = False
 try:
     from transformers import pipeline
 
-    # Using dslim/bert-base-srl, a popular SRL model on the Hub
-    _hf_srl_pipeline = pipeline("structured-data-extraction", model="dslim/bert-base-srl")
+    # Using liaad/srl-en_xlmr-base model
+    _hf_srl_pipeline = pipeline("token-classification", model="liaad/srl-en_xlmr-base", aggregation_strategy="simple")
     _use_hf = True
-    logger.info("Loaded Hugging Face (dslim/bert-base-srl) model.")
+    logger.info("Loaded Hugging Face (liaad/srl-en_xlmr-base) model.")
 except Exception:
     logger.info("Hugging Face Transformers not available. Using spaCy dependency-based SRL.")
 
@@ -69,30 +69,41 @@ def extract_roles_hf(clause_text: str) -> list[dict[str, Any]]:
     if not _hf_srl_pipeline:
         return []
 
+    # The pipeline now returns a list of entities for each verb
     prediction = _hf_srl_pipeline(clause_text)
+    
+    # The model might return a nested list if it finds multiple predicates
+    if not prediction or not isinstance(prediction[0], list):
+        srl_results = [prediction]
+    else:
+        srl_results = prediction
+
     all_frames: list[dict[str, Any]] = []
 
-    # The pipeline returns a list of verb frames
-    for frame in prediction:
-        predicate = frame.get("verb")
+    for frame_entities in srl_results:
         roles: dict[str, str] = {}
+        predicate = ""
         
-        # Description string looks like: "[ARG0: Party A] [V: delivers] [ARG1: goods]..."
-        description = frame.get("description", "")
-        
-        # Simple parsing of the description string
-        parts = description.strip().split("] [")
-        for part in parts:
-            part = part.replace("[", "").replace("]", "")
-            try:
-                tag, text = part.split(": ", 1)
-                # Map ARG tags to human-readable names, skip the verb itself
-                if tag != "V":
-                    role_name = ROLE_MAP.get(tag, tag)
-                    roles[role_name] = text
-            except ValueError:
-                continue # Ignore parts that don't fit the "TAG: text" format
+        for entity in frame_entities:
+            entity_group = entity.get('entity_group')
+            word = entity.get('word')
+            
+            if not entity_group or not word:
+                continue
 
+            # The predicate is tagged as 'V'
+            if entity_group == 'V':
+                predicate = word
+            
+            # Map other ARGs to human-readable roles
+            elif entity_group in ROLE_MAP:
+                role_name = ROLE_MAP[entity_group]
+                # Append to existing role if it's a multi-word span
+                if role_name in roles:
+                    roles[role_name] += " " + word
+                else:
+                    roles[role_name] = word
+        
         if predicate:
             all_frames.append({"predicate": predicate, "roles": roles})
 
