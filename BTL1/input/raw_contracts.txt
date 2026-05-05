@@ -1,100 +1,149 @@
-['BIRCH FIRST GLOBAL INVESTMENTS INC.', 'MA', 'Marketing Affiliate', 'MOUNT KNOWLEDGE HOLDINGS INC.', 'Company']
+--------------------------------------------------------------------------
+[EC-01] SIMPLE COMPOUND SENTENCE (coordinating conjunction: "and")
+--------------------------------------------------------------------------
+Party B shall pay the full rental amount before the 5th of each month, and if payment is delayed, a penalty of 1% per day shall apply.
 
-['This agreement shall begin upon the date of its execution by MA and acceptance in writing by Company and shall remain in effect until the end of the current calendar year and shall be automatically renewed for successive one (1) year periods unless otherwise terminated according to the cancellatio
+--------------------------------------------------------------------------
+[EC-02] COORDINATING CONJUNCTION "OR" WITH ALTERNATIVE OBLIGATION
+--------------------------------------------------------------------------
+The Tenant shall repair the damaged property within 30 days of written notice, or the Landlord shall arrange the repairs and deduct the cost from the security deposit.
 
-['This Agreement is accepted by Company in the State of Nevada and shall be governed by and construed in accordance with the laws thereof, which laws shall prevail in the event of any conflict.']
+--------------------------------------------------------------------------
+[EC-03] ADVERSATIVE CONJUNCTION "BUT" / "HOWEVER"
+--------------------------------------------------------------------------
+The Licensor grants the Licensee the right to use the software on up to five devices, but the Licensee shall not sublicense, sell, or transfer the software to any third party without prior written consent.
 
-['EuroMedia Holdings Corp.', 'Rogers', 'Rogers Cable Communications Inc.', 'Licensor']
+--------------------------------------------------------------------------
+[EC-04] CONDITIONAL CLAUSE (if ... then)
+--------------------------------------------------------------------------
+If the Contractor fails to complete the project by the agreed deadline, the Client shall be entitled to withhold 5% of the total contract value for each week of delay.
 
-['The term of this Agreement (the "Initial Term") shall commence as of the Effective Date and, unless earlier terminated in accordance with this Agreement, shall terminate on June 30, 2010.']
+--------------------------------------------------------------------------
+[EC-05] NEGATIVE CONDITIONAL (unless)
+--------------------------------------------------------------------------
+The Agreement shall renew automatically for successive one-year terms unless either party provides written notice of termination at least 60 days prior to the end of the current term.
 
-['This Agreement is subject to all laws, regulations, license conditions and decisions of the Canadian Radio-television and Telecommunications Commission ("CRTC") municipal, provincial and federal governments or other authorities which are applicable to Rogers and/or Licensor, and which are now in f
+--------------------------------------------------------------------------
+[EC-06] TEMPORAL CLAUSE (after / before / when / once / until)
+--------------------------------------------------------------------------
+After the Buyer has made full payment of the purchase price, the Seller shall transfer legal title of the property to the Buyer and deliver all relevant documents within 14 business days.
 
-['Producer', 'Fulucai Productions Ltd.', 'ConvergTV', 'CONVERGTV, INC.']
+--------------------------------------------------------------------------
+[EC-07] TEMPORAL CLAUSE (while / during)
+--------------------------------------------------------------------------
+While this Agreement remains in force, the Employee shall not engage in any business activity that directly or indirectly competes with the Company, and the Employee shall immediately disclose any potential conflicts of interest to the Board of Directors.
 
-['All questions with respect to the construction of this Agreement, and the rights and liabilities of the Parties hereto, shall be governed by the laws of the State of Florida.']
+--------------------------------------------------------------------------
+[EC-08] CONCESSIVE CLAUSE (although / even though / notwithstanding)
+--------------------------------------------------------------------------
+Although the Force Majeure Event has suspended the Supplier's delivery obligations, the Supplier shall notify the Buyer in writing within 48 hours of the occurrence of such event and shall use all reasonable endeavours to resume performance as soon as practicable.
 
-['PSiTech Corporation', 'Licensor', 'Licensee', 'Empirical Ventures, Inc.']
+--------------------------------------------------------------------------
+[EC-09] CAUSAL CLAUSE (because / since / as / given that)
+--------------------------------------------------------------------------
+Since the Borrower has failed to maintain the required debt-service coverage ratio for two consecutive quarters, the Lender may, at its sole discretion, declare the outstanding loan balance immediately due and payable.
 
-['The initial term of this Agreement commences as of the Effective Date and, unless terminated earlier pursuant to any express provision of this Agreement, shall continue until five (5) years following the Effective Date (the "Initial Term").']
+--------------------------------------------------------------------------
+[EC-10] PURPOSE CLAUSE (in order to / so that / to ensure that)
+--------------------------------------------------------------------------
+In order to protect the confidential information disclosed during the negotiation period, both parties shall execute a Non-Disclosure Agreement before any sensitive documents are shared, and each party shall limit access to such information to employees with a demonstrable need to know.
 
-['This Agreement shall be governed by and construed in accordance with the internal laws of the State of Nevada without giving effect to any choice or conflict of law provision or rule.']
+--------------------------------------------------------------------------
+[EC-11] RELATIVE CLAUSE (who / which / that) — NON-RESTRICTIVE
+--------------------------------------------------------------------------
+The Security Deposit, which amounts to two months' rent, shall be held in a dedicated escrow account and shall be returned to the Tenant within 30 days after the termination of this Lease, provided that the Tenant has fulfilled all obligations herein.
 
-['YOU ON DEMAND HOLDINGS, INC.', 'Licensor', 'Licensee', 'Beijing Sun Seven Stars Culture Development Limited']
+--------------------------------------------------------------------------
+[EC-12] RELATIVE CLAUSE — RESTRICTIVE (should NOT be split from main clause)
+--------------------------------------------------------------------------
+Any employee who has completed at least two years of continuous service shall be eligible to participate in the Company's profit-sharing programme.
 
-['The Term of this Agreement (the "Term") shall commence on the Effective Date listed above and continue for twenty (20) years, unless sooner terminated as provided in Section 7(b) [Term and Termination].']
+--------------------------------------------------------------------------
+[EC-13] SEMICOLON-SEPARATED CLAUSES
+--------------------------------------------------------------------------
+The Contractor shall provide all materials necessary for the completion of the works; the Client shall ensure unobstructed access to the site during normal working hours; any delay caused by the Client's failure to provide such access shall not be attributable to the Contractor.
 
-['This Agreement shall be governed by and construed in all respects in accordance with the laws of the State of New York, without giving effect to any conflicts of laws principles.']
+--------------------------------------------------------------------------
+[EC-14] INLINE ENUMERATION (three or more items separated by commas)
+--------------------------------------------------------------------------
+The Licensee shall not copy, modify, distribute, sell, sublicense, or reverse-engineer the Software or any component thereof without the express prior written consent of the Licensor.
 
-['PrimeCall', 'deltathree.com, Inc. (formerly known as Delta Three, Inc.)', 'RSL COM PrimeCall, Inc.', 'DeltaThree']
+--------------------------------------------------------------------------
+[EC-15] BLOCK ENUMERATION WITH NUMBERED SUB-ITEMS
+--------------------------------------------------------------------------
+The Tenant's obligations under this Agreement include the following: (i) paying rent on the due date specified herein, (ii) maintaining the premises in a clean and sanitary condition, (iii) notifying the Landlord promptly of any damage or required repairs, and (iv) complying with all applicable laws and regulations relating to the use of the premises.
 
-['The term of this Agreement shall be effective as of the date first stated above and shall continue for a term of three (3) years, unless terminated earlier in accordance with the provisions of this Agreement (the "Term"); provided, however, that PrimeCall may elect to terminate this Agreement, upo
+--------------------------------------------------------------------------
+[EC-16] MULTIPLE CHAINED CONDITIONS (nested if / where / provided that)
+--------------------------------------------------------------------------
+The Seller shall grant the Buyer a discount of 10% on the total invoice amount, provided that the Buyer places a minimum order of USD 50,000, the order is confirmed in writing no later than 30 days before the requested delivery date, and full payment is received within 15 days of the invoice date.
 
-['This Agreement shall be governed by, and construed in accordance with, the laws of the State of New York, without giving effect to the conflict of laws principles thereof.']
+--------------------------------------------------------------------------
+[EC-17] EXCEPTION CLAUSE (except / except where / save that / other than)
+--------------------------------------------------------------------------
+All notices under this Agreement shall be delivered by registered mail or courier to the address stated in Schedule A, except where the receiving party has notified the other in writing of a change of address, in which case the new address shall apply with immediate effect.
 
-['Women.com', 'eDiets', 'WOMEN.COM NETWORKS, INC.', 'EDIETS.COM, INC.']
+--------------------------------------------------------------------------
+[EC-18] PASSIVE VOICE WITH MULTIPLE OBLIGATIONS
+--------------------------------------------------------------------------
+The draft Agreement shall be reviewed by the Legal Department within five business days of receipt, any required amendments shall be communicated to the counterparty in writing, and the final executed version shall be retained in the corporate records management system for a minimum of seven years.
 
-['This Agreement will become effective as of the Effective Date and, unless sooner terminated pursuant to Sections 3.1<omitted>, shall remain effective for two (2) years from and after the Effective Date (the "Initial Term").']
+--------------------------------------------------------------------------
+[EC-19] NEGATION CLAUSE (shall not / must not / is prohibited from)
+--------------------------------------------------------------------------
+The Employee shall not, during the term of employment or for a period of 24 months thereafter, directly or indirectly solicit or attempt to solicit any client of the Company with whom the Employee had material contact during the last 12 months of employment, and the Employee shall not use any Confidential Information to compete with the Company.
 
-['This Agreement shall be interpreted and enforced in accordance with the laws of the State of California as applied to agreements made, entered into and performed entirely in California by California residents, notwithstanding the actual residence of the parties, without giving effect to any choice
+--------------------------------------------------------------------------
+[EC-20] CLAUSE CONTAINING LEGAL CROSS-REFERENCES (as defined in / pursuant to / in accordance with)
+--------------------------------------------------------------------------
+In accordance with Section 8.3 of this Agreement, the Indemnifying Party shall defend, indemnify, and hold harmless the Indemnified Party from and against any Losses arising out of or in connection with any Third-Party Claim, provided that the Indemnified Party has given prompt written notice of such claim and has not made any admission of liability without the prior written consent of the Indemnifying Party.
 
-['d/b/a Time Life Music', 'Integrity', 'TL', 'TIME LIFE, INC.', 'INTEGRITY INCORPORATED']
+--------------------------------------------------------------------------
+[EC-21] CLAUSE WITH MONETARY AMOUNTS, PERCENTAGES, AND DATES
+--------------------------------------------------------------------------
+The Client shall pay an initial deposit of USD 20,000 (20% of the total contract value of USD 100,000) within 5 business days of signing this Agreement, a second instalment of USD 50,000 upon completion of Milestone 2 as defined in Schedule B, and the remaining balance of USD 30,000 within 30 days of the issuance of the final invoice.
 
-['This agreement shall commence as of date first above written, and shall Continue through December 31, 2004 ("the Term").']
+--------------------------------------------------------------------------
+[EC-22] SINGLE-CLAUSE SENTENCE — SHOULD NOT BE SPLIT
+--------------------------------------------------------------------------
+The Governing Law of this Agreement shall be the laws of the Socialist Republic of Vietnam.
 
-['This Agreement has been entered into in the State of Tennessee, and the validity, interpretation and legal effect of this Agreement will be governed by the laws of the State of Tennessee applicable to contracts entered into and performed
+--------------------------------------------------------------------------
+[EC-23] ANOTHER SINGLE-CLAUSE SENTENCE — SHOULD NOT BE SPLIT
+--------------------------------------------------------------------------
+All disputes arising out of or in connection with this Agreement shall be finally resolved by arbitration administered by the Vietnam International Arbitration Centre in accordance with its Rules.
 
-['Endorser', 'collectively, Lender, Endorser, and Fitness are referred to as the "AS Parties"', 'MusclePharm Corporation', 'Lender', 'Marine MP, LLC', 'Arnold Schwarzenegger', 'Fitness', 'collectively, "MusclePharm" or the "Company"', 'Fitness Publications, Inc.']
+--------------------------------------------------------------------------
+[EC-24] PARENTHETICAL CLAUSE EMBEDDED MID-SENTENCE
+--------------------------------------------------------------------------
+The Borrower shall repay the principal amount of the Loan (together with all accrued and unpaid interest calculated at the rate of 8% per annum), on the Maturity Date, and shall provide the Lender with quarterly financial statements certified by an independent auditor throughout the loan term.
 
-['The Term shall commence on July 23, 2013 and shall expire on July 22, 2016, unless otherwise terminated earlier pursuant to Section 9 of this Agreement.', 'This Agreement shall have an Initial Term of three (3) years.']
+--------------------------------------------------------------------------
+[EC-25] MIXED CONJUNCTIONS IN ONE SENTENCE (and / or / but / if)
+--------------------------------------------------------------------------
+The Service Provider shall complete the deliverables by the agreed date and submit a completion report, but if an extension is required, the Service Provider must request approval in writing at least 14 days in advance, or the Client shall be entitled to apply the late-delivery penalty specified in Annex C.
 
-['This Agreement has been executed and delivered in Los Angeles County in the State of California, and its interpretation, validity and performance shall be construed and enforced in accordance with the laws of the State of California.']
+--------------------------------------------------------------------------
+[EC-26] PARALLEL STRUCTURE WITH REPEATED SUBJECT
+--------------------------------------------------------------------------
+The Lessor shall maintain the structural integrity of the building, shall ensure that all common areas are kept in good repair, shall carry adequate property insurance, and shall comply with all relevant health and safety legislation applicable to the premises.
 
-['Skype, Online BVI and the Company may be referred to individually as "Party" and collectively as "Parties." Skype, Online BVI, the Company, Skype Holding and Tom Holding may be referred to individually as "party to this Agreement" and collectively as "parties to this Agreement."', 'Skype', 'Tel-On
+--------------------------------------------------------------------------
+[EC-27] LONG SENTENCE WITH BOTH A CONDITIONAL AND A TEMPORAL CLAUSE
+--------------------------------------------------------------------------
+When the construction works have been certified as substantially complete by the appointed architect, and if the Employer has not raised any valid objection within 14 days of receiving such certificate, the Contractor shall be entitled to submit the final payment application and the Employer shall settle the same within 28 days of receipt.
 
-['The term of this Agreement shall continue for a period of five years following the initial date of execution of the Memorandum, unless terminated earlier pursuant to Section 6.2 or Section 2.8 ("Initial Term").']
+--------------------------------------------------------------------------
+[EC-28] CLAUSE WITH DEFINED TERMS IN QUOTATION MARKS / BRACKETS
+--------------------------------------------------------------------------
+For the purposes of this Agreement, "Intellectual Property Rights" means all patents, trademarks, copyright, design rights, and trade secrets, and the Assignor hereby assigns to the Assignee all Intellectual Property Rights in the Works created during the term of this Agreement, and such assignment shall be effective worldwide and in perpetuity.
 
-['This Agreement will be governed by and construed in accordance with the laws of England and Wales, without regard to conflict of laws principles.']
+--------------------------------------------------------------------------
+[EC-29] TERMINATION CLAUSE WITH MULTIPLE TRIGGERS
+--------------------------------------------------------------------------
+Either party may terminate this Agreement with immediate effect by written notice if the other party commits a material breach of any of its obligations and fails to remedy such breach within 30 days of receiving written notice requiring it to do so, or if the other party becomes insolvent, enters into liquidation, or has a receiver or administrator appointed over all or part of its assets.
 
-['also known as Stryker Orthopaedics ("Stryker")', 'Conformis', 'Howmedica Osteonics Corp.', 'Conformis, Inc.', 'Stryker and Conformis are collectively referred to herein as the "Parties" and individually as a "Party."']
-
-['This Agreement shall be governed and construed in accordance with the laws of New York State (without regard to the conflict of laws provisions thereof).']
-
-['Aucta Pharmaceuticals, Inc.', 'Eton Pharmaceuticals, Inc.', 'Aucta', 'ETON']
-
-['The term of this Agreement shall automatically become effective upon the occurrence of (i) ETON executing a commercial supply agreement with a contract manufacturing organization within forty-five (45) days of the Execution Date, provided that ETON has exercised best efforts to execute such agreem
-
-['The term of this Agreement shall automatically become effective upon the occurrence of (i) ETON executing a commercial supply agreement with a contract manufacturing organization within forty-five (45) days of the Execution Date, provided that ETON has exercised best efforts to execute such agreem
-
-['This Agreement shall be governed, interpreted and construed in accordance with the substantive laws of the Delaware, in the country of the United State of America, without regard to its conflict of laws principles.']
-
-['FuelCell Energy, Inc.', 'FCE', 'ExxonMobil', 'ExxonMobil Research and Engineering Company']
-
-['Unless sooner terminated in accordance with this Article, this Agreement will continue in full force beginning on the Effective Date and ending two (2) years thereafter ("Term").']
-
-['The validity and interpretation of this Agreement and the legal relations of the Parties to it will be governed by the laws of the State of New York without recourse to its conflicts of law rules.']
-
-['B C Marketing Concepts Inc., dba Full Sail Brewing Company', "Reed's", "Reed's, Inc.", 'Company']
-
-['This Agreement shall be governed by, and any dispute arising hereunder shall be determined in accordance with, the laws of State of New York (without giving effect to conflict of laws principles) including all matters of construction, validity and performance.']
-
-['CPM Medical Consultants, LLC', 'Signature Orthopaedics Pty Ltd']
-
-["This agreement begins on the Commencement Date and, subject to clause 11.2, shall continue for an initial term of one (1) years (Initial Term) and indefinitely after that until terminated by either party giving at least twelve (12) months' prior written notice to expire on or after the expiry date
-
-['This agreement and any dispute or claim arising out of or in connection with it or its subject matter or formation (including non-contractual disputes or claims) shall be governed by and construed in accordance with Ohio law.']
-
-['XXXXXXXXXXXXXXXXXXXXX', 'Distributor', 'Company', 'B & C General Warehouse Corporation LLC']
-
-['This Agreement shall become effective on the date first written above and shall continue in effect for a period of Three (3) years.']
-
-['This Agreement is a contract under the laws of the State of Florida and for all purposes shall be governed by and construed in accordance with the substantive laws of the State of Florida, without regard to its principles of conflicts of laws provisions.']
-
-['SUNWAI Technology', 'Distributor', 'iMine Corporation', 'JRVS']
-
-['This Agreement shall become effective upon the date first written above and shall remain in full force and effect for a period of two years (2), unless earlier terminated pursuant to the provisions in this Agreement.']
-
-['This Agreement shall become effective upon the date first written above and shall remain in full force and effect for a period of two years (2), unless earlier terminated pursuant to the provisions in this Agreement.']
-
-['This Agreement shall be governed by and construed pursuant to the laws of the State of Indiana, U.S.A., without reference to principals of conflicts of laws.']
-
+--------------------------------------------------------------------------
+[EC-30] AMBIGUOUS ATTACHMENT — "WHICH" COULD MODIFY EITHER PRECEDING NOUN
+--------------------------------------------------------------------------
+The Supplier delivered the goods to the warehouse of the Buyer, which was located in Hanoi, and the Buyer acknowledged receipt by signing the delivery note on the same day.
