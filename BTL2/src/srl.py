@@ -1,22 +1,30 @@
 """
 Task 2.2: Semantic Role Labeling (SRL)
 ========================================
-Uses yeomtong/srl_bert_model (HuggingFace) for BERT-based SRL.
+Uses yeomtong/srl_bert_model for BERT-based predicate-aware SRL.
 
-For each clause, the model is run once per detected verb (predicate-aware
-inference). BIO tags produced by the model are decoded and mapped to
-human-readable role names.
+Model is downloaded from HuggingFace Hub, then loaded via the repo's
+own `predictor` / `model` modules.  Output of `prediction_formatted()`
+mirrors the AllenNLP schema:
 
-If the HuggingFace model is unavailable, falls back to spaCy
-dependency-based extraction.
+    {
+      "words": ["I", "want", ...],
+      "verbs": [
+        {"verb": "want", "tags": ["B-ARG0", "B-V", "B-ARG1", ...], ...},
+        ...
+      ]
+    }
 
-Input:  Clauses from Assignment 1 + NER results from Task 2.1
+Falls back to spaCy dependency parsing if the model cannot be loaded.
+
+Input:  Clauses from Assignment 1  +  NER results from Task 2.1
 Output: output/srl_results.json
 """
 
 import json
 import logging
 import os
+import sys
 from pathlib import Path
 from typing import Any, Optional
 
@@ -25,36 +33,43 @@ logger = logging.getLogger(__name__)
 
 # ─── Model identifier ────────────────────────────────────────
 
-HF_MODEL_NAME = "yeomtong/srl_bert_model"
+HF_REPO_ID   = "yeomtong/srl_bert_model"
+HF_CKPT_FILE = "best_srl_Sep_29.ckpt"
+BERT_NAME    = "bert-base-cased"
 
-# ─── Attempt to load HuggingFace SRL model ───────────────────
+# ─── Load yeomtong/srl_bert_model ────────────────────────────
 
-_hf_tokenizer = None
-_hf_model = None
+_prediction_formatted = None   # callable: str -> dict
 _use_hf = False
 
 try:
-    import torch
-    from transformers import AutoTokenizer, AutoModelForTokenClassification
+    from huggingface_hub import hf_hub_download, snapshot_download
 
-    logger.info("Loading tokenizer from '%s' …", HF_MODEL_NAME)
-    _hf_tokenizer = AutoTokenizer.from_pretrained(HF_MODEL_NAME)
+    logger.info("Downloading checkpoint …")
+    ckpt_path = hf_hub_download(repo_id=HF_REPO_ID, filename=HF_CKPT_FILE)
 
-    logger.info("Loading model from '%s' …", HF_MODEL_NAME)
-    _hf_model = AutoModelForTokenClassification.from_pretrained(HF_MODEL_NAME)
-    _hf_model.eval()
+    logger.info("Downloading repo sources …")
+    repo_dir = snapshot_download(HF_REPO_ID)
+    if repo_dir not in sys.path:
+        sys.path.append(repo_dir)
 
+    from predictor import srl_init
+    from visualizer import prediction_formatted
+
+    logger.info("Initialising SRL model (bert-base-cased) …")
+    srl_init(ckpt_path, bert_name=BERT_NAME)
+
+    _prediction_formatted = prediction_formatted
     _use_hf = True
-    logger.info("HuggingFace SRL model loaded successfully.")
+    logger.info("yeomtong/srl_bert_model loaded successfully.")
+
 except Exception as exc:
-    logger.warning("HuggingFace model unavailable (%s). Falling back to spaCy.", exc)
+    logger.warning("Model unavailable (%s). Falling back to spaCy.", exc)
 
 
 # ─── PropBank → readable role name mapping ───────────────────
 
-# Labels come dynamically from model.config.id2label at runtime;
-# this dict maps the raw PropBank tag (without B-/I- prefix) to a
-# human-readable name used in the output JSON.
+# "V" is intentionally absent: the verb is stored as `predicate`, not in roles.
 ROLE_MAP: dict[str, str] = {
     "ARG0":     "Agent",
     "ARG1":     "Theme",
@@ -71,78 +86,17 @@ ROLE_MAP: dict[str, str] = {
     "ARGM-MOD": "Modal",
     "ARGM-DIR": "Direction",
     "ARGM-EXT": "Extent",
-    # "V" is intentionally absent: the verb is stored in `predicate`, not roles
 }
 
 
 # ─── HuggingFace BERT-based SRL ──────────────────────────────
 
-def _get_words(text: str) -> list[str]:
-    """Whitespace-tokenize text into words (pre-tokenization)."""
-    return text.strip().split()
-
-
-def _predict_tags_for_verb(
-    words: list[str],
-    verb_index: int,
-) -> list[str]:
+def _decode_bio_spans(words: list[str], tags: list[str]) -> dict[str, str]:
     """
-    Run one forward pass of the SRL model for a single predicate.
+    Convert a BIO tag sequence into {role_name: span_text}.
 
-    Many BERT SRL models (e.g. the AllenNLP family that yeomtong is based on)
-    expect a predicate *indicator* — a binary sequence marking which token is
-    the verb — passed as `token_type_ids`.  We encode this via token_type_ids:
-      0 for ordinary tokens, 1 for the predicate token.
-
-    Returns a list of raw BIO tags aligned to `words`.
-    """
-    import torch
-
-    # Tokenize with word-level offset tracking
-    encoding = _hf_tokenizer(
-        words,
-        is_split_into_words=True,
-        return_tensors="pt",
-        truncation=True,
-        max_length=512,
-    )
-
-    # Build predicate indicator aligned to subword tokens
-    word_ids: list[Optional[int]] = encoding.word_ids(batch_index=0)
-    token_type_ids = torch.zeros_like(encoding["input_ids"])
-    for pos, wid in enumerate(word_ids):
-        if wid == verb_index:
-            token_type_ids[0, pos] = 1
-    encoding["token_type_ids"] = token_type_ids
-
-    with torch.no_grad():
-        outputs = _hf_model(**encoding)
-
-    # Decode logits → label ids → label strings (keep only first subword per word)
-    label_ids: list[int] = outputs.logits.argmax(dim=-1)[0].tolist()
-    id2label: dict[int, str] = _hf_model.config.id2label
-
-    # Align subword predictions back to the original word list
-    word_tags: list[str] = []
-    seen_word: set[int] = set()
-    for pos, wid in enumerate(word_ids):
-        if wid is None or wid in seen_word:
-            continue
-        seen_word.add(wid)
-        word_tags.append(id2label[label_ids[pos]])
-
-    return word_tags
-
-
-def _decode_bio_spans(
-    words: list[str],
-    tags: list[str],
-) -> dict[str, str]:
-    """
-    Convert a BIO tag sequence into a {role_name: span_text} dict.
-
-    Handles both "B-LABEL / I-LABEL" and flat "LABEL" (no B/I prefix).
-    The "V" label (predicate) is skipped — it is stored separately.
+    Handles B-LABEL / I-LABEL scheme.
+    The "V" tag (predicate) is skipped — stored separately as `predicate`.
     """
     roles: dict[str, str] = {}
     current_tag: Optional[str] = None
@@ -154,75 +108,44 @@ def _decode_bio_spans(
             roles[role_name] = " ".join(current_tokens)
 
     for word, tag in zip(words, tags):
-        if tag.startswith("B-") or tag.startswith("I-"):
-            prefix, raw_tag = tag[:2], tag[2:]
-        else:
-            prefix, raw_tag = "", tag
-
         if tag == "O":
             _flush()
             current_tag, current_tokens = None, []
-        elif prefix == "B-":
+        elif tag.startswith("B-"):
             _flush()
-            current_tag, current_tokens = raw_tag, [word]
-        elif prefix == "I-" and current_tag == raw_tag:
+            current_tag  = tag[2:]
+            current_tokens = [word]
+        elif tag.startswith("I-") and current_tag == tag[2:]:
             current_tokens.append(word)
         else:
-            # Flat label (no BIO prefix) or unexpected I- without matching B-
+            # Unexpected I- without matching B- (treat as new span)
             _flush()
-            current_tag, current_tokens = raw_tag, [word]
+            current_tag  = tag[2:] if tag.startswith("I-") else tag
+            current_tokens = [word]
 
     _flush()
     return roles
-
-
-def _detect_verb_indices(words: list[str]) -> list[int]:
-    """
-    Return indices of verb tokens using spaCy POS tagging.
-    Falls back to a simple heuristic if spaCy is unavailable.
-    """
-    try:
-        nlp = _get_spacy()
-        doc = nlp(" ".join(words))
-        return [token.i for token in doc if token.pos_ == "VERB"]
-    except Exception:
-        COMMON_AUX = {
-            "is", "are", "was", "were", "be", "been", "being",
-            "has", "have", "had", "do", "does", "did",
-            "will", "would", "shall", "should", "may",
-            "might", "must", "can", "could",
-        }
-        return [
-            i for i, w in enumerate(words)
-            if w.lower() not in COMMON_AUX and len(w) > 2
-        ]
 
 
 def extract_roles_hf(clause_text: str) -> list[dict[str, Any]]:
     """
     Extract semantic role frames using yeomtong/srl_bert_model.
 
-    Runs one inference pass per detected verb and returns one frame per verb.
+    `prediction_formatted` already handles per-verb inference internally
+    and returns one frame per detected verb — matching the AllenNLP schema.
     """
-    words = _get_words(clause_text)
-    if not words:
-        return []
+    result = _prediction_formatted(clause_text.strip())
+    # result = {"words": [...], "verbs": [{"verb": ..., "tags": [...], ...}, ...]}
 
-    verb_indices = _detect_verb_indices(words)
-    if not verb_indices:
-        # No verbs found — attempt a single pass on index 0
-        verb_indices = [0]
-
+    words: list[str] = result.get("words", [])
     frames: list[dict[str, Any]] = []
-    for v_idx in verb_indices:
-        try:
-            tags  = _predict_tags_for_verb(words, v_idx)
-            roles = _decode_bio_spans(words, tags)
-            frames.append({"predicate": words[v_idx], "roles": roles})
-        except Exception as exc:
-            logger.debug(
-                "Skipping verb '%s' at index %d: %s", words[v_idx], v_idx, exc
-            )
+
+    for verb_info in result.get("verbs", []):
+        roles = _decode_bio_spans(words, verb_info["tags"])
+        frames.append({
+            "predicate": verb_info["verb"],
+            "roles":     roles,
+        })
 
     return frames
 
@@ -247,19 +170,15 @@ def _get_spacy():
 
 
 def _get_phrase(token) -> str:
-    """
-    Return the text of a token together with its close dependents
-    (determiners, modifiers, compounds), preserving original word order.
-    """
+    """Token text + close dependents (det, amod, compound…) in word order."""
     MODIFIER_DEPS = {"compound", "flat", "amod", "det", "nummod", "poss"}
     seen: set[int] = set()
     collected: list[Any] = []
 
     def _collect(t) -> None:
-        if t.i in seen:
-            return
-        seen.add(t.i)
-        collected.append(t)
+        if t.i not in seen:
+            seen.add(t.i)
+            collected.append(t)
 
     _collect(token)
     for child in token.children:
@@ -271,16 +190,16 @@ def _get_phrase(token) -> str:
 
 
 def _get_subtree(token) -> str:
-    """Return the full text of a token's subtree in sentence order."""
+    """Full subtree text of a token in sentence order."""
     return " ".join(t.text for t in sorted(token.subtree, key=lambda t: t.i))
 
 
 def extract_roles_spacy(clause_text: str) -> list[dict[str, Any]]:
     """Extract semantic roles using spaCy dependency parsing (fallback)."""
-    nlp = _get_spacy()
-    doc = nlp(clause_text.strip())
+    nlp  = _get_spacy()
+    doc  = nlp(clause_text.strip())
+    root = next((t for t in doc if t.dep_ == "ROOT"), None)
 
-    root = next((token for token in doc if token.dep_ == "ROOT"), None)
     if root is None:
         return [{"predicate": None, "roles": {}}]
 
@@ -338,15 +257,15 @@ def extract_semantic_roles(clause_text: str) -> dict[str, Any]:
     """
     Extract semantic roles from a single clause.
 
-    Uses yeomtong/srl_bert_model when available, otherwise falls back to
-    spaCy dependency-based extraction.
+    Uses yeomtong/srl_bert_model when available, otherwise falls back
+    to spaCy dependency-based extraction.
 
     Returns:
         {
             "clause":     original clause text,
-            "predicate":  main predicate string  (best frame),
-            "roles":      {role_name: span, …}   (best frame),
-            "all_frames": [{predicate, roles}, …],
+            "predicate":  main predicate  (frame with most roles),
+            "roles":      {role_name: span},
+            "all_frames": list of all verb frames,
             "method":     "hf_bert_srl" | "spacy_dependency"
         }
     """
@@ -381,7 +300,7 @@ def extract_semantic_roles(clause_text: str) -> dict[str, Any]:
 # ─── NER helper ──────────────────────────────────────────────
 
 def _load_ner_results(ner_path: Optional[str]) -> Optional[list[dict]]:
-    """Load NER results from JSON, returning None if unavailable."""
+    """Load NER results from JSON; return None if file is absent or invalid."""
     if not ner_path or not os.path.exists(ner_path):
         return None
     try:
@@ -430,13 +349,9 @@ def process_file(
     with open(output_path, "w", encoding="utf-8") as fh:
         json.dump(results, fh, indent=2, ensure_ascii=False)
 
-    method_label = "HuggingFace BERT SRL" if _use_hf else "spaCy dependency"
+    method_label = "yeomtong/srl_bert_model" if _use_hf else "spaCy dependency"
     roles_found  = sum(1 for r in results if r["roles"])
-    logger.info(
-        "Method    : %s (%s)",
-        method_label,
-        HF_MODEL_NAME if _use_hf else "en_core_web_sm",
-    )
+    logger.info("Method    : %s", method_label)
     logger.info("Clauses   : %d total, %d with roles", len(clauses), roles_found)
     logger.info("Output    : %s", output_path)
 
@@ -457,8 +372,7 @@ if __name__ == "__main__":
     project_dir = btl2_dir.parent
 
     btl1_clauses = project_dir / "BTL1" / "output" / "clauses.txt"
-    test_clauses = btl2_dir / "input" / "clauses.txt"  # For testing without BTL1 output
     output_path  = btl2_dir   / "output" / "srl_results.json"
     ner_path     = btl2_dir   / "output" / "ner_results.json"
 
-    process_file(str(test_clauses), str(output_path), str(ner_path))
+    process_file(str(btl1_clauses), str(output_path), str(ner_path))
