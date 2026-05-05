@@ -457,7 +457,8 @@ if __name__ == "__main__":
     project_dir = btl2_dir.parent
 
     btl1_clauses = project_dir / "BTL1" / "output" / "clauses.txt"
+    test_clauses = btl2_dir / "input" / "clauses.txt"  # For testing without BTL1 output
     output_path  = btl2_dir   / "output" / "srl_results.json"
     ner_path     = btl2_dir   / "output" / "ner_results.json"
 
-    process_file(str(btl1_clauses), str(output_path), str(ner_path))
+    process_file(str(test_clauses), str(output_path), str(ner_path))
