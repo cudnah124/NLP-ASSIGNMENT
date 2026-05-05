@@ -373,6 +373,7 @@ if __name__ == "__main__":
     btl2_dir    = project_dir / "BTL2"
 
     btl1_clauses = project_dir / "BTL1" / "output" / "clauses.txt"
+    test_clauses = btl2_dir / "input" / "clauses.txt"  
     output_path  = btl2_dir   / "output" / "srl_results.json"
     ner_path     = btl2_dir   / "output" / "ner_results.json"
 
@@ -382,4 +383,4 @@ if __name__ == "__main__":
         logger.error("Please make sure you have run the pipeline for BTL1.")
         sys.exit(1)
 
-    process_file(str(btl1_clauses), str(output_path), str(ner_path))
+    process_file(str(test_clauses), str(output_path), str(ner_path))
