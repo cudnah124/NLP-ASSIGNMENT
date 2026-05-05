@@ -362,25 +362,14 @@ def process_file(
 
 if __name__ == "__main__":
     # Expected layout:
-    #   <project_root>/
-    #       BTL1/output/clauses.txt
-    #       BTL2/task2_2_srl.py   ← this file
-    #       BTL2/output/ner_results.json
-    #       BTL2/output/srl_results.json
+    
     this_file   = Path(__file__).resolve()
     # Go up from srl.py -> src -> BTL2 -> project_root
     project_dir = this_file.parent.parent.parent
     btl2_dir    = project_dir / "BTL2"
 
-    btl1_clauses = project_dir / "BTL1" / "output" / "clauses.txt"
-    test_clauses = btl2_dir / "input" / "clauses.txt"  
+    btl1_clauses = btl2_dir / "input" / "clauses.txt"  
     output_path  = btl2_dir   / "output" / "srl_results.json"
     ner_path     = btl2_dir   / "output" / "ner_results.json"
 
-    # Ensure the input file from BTL1 exists
-    if not btl1_clauses.exists():
-        logger.error("Input file not found: %s", btl1_clauses)
-        logger.error("Please make sure you have run the pipeline for BTL1.")
-        sys.exit(1)
-
-    process_file(str(test_clauses), str(output_path), str(ner_path))
+    process_file(str(btl1_clauses), str(output_path), str(ner_path))
