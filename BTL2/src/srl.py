@@ -368,11 +368,18 @@ if __name__ == "__main__":
     #       BTL2/output/ner_results.json
     #       BTL2/output/srl_results.json
     this_file   = Path(__file__).resolve()
-    btl2_dir    = this_file.parent
-    project_dir = btl2_dir.parent
+    # Go up from srl.py -> src -> BTL2 -> project_root
+    project_dir = this_file.parent.parent.parent
+    btl2_dir    = project_dir / "BTL2"
 
     btl1_clauses = project_dir / "BTL1" / "output" / "clauses.txt"
     output_path  = btl2_dir   / "output" / "srl_results.json"
     ner_path     = btl2_dir   / "output" / "ner_results.json"
+
+    # Ensure the input file from BTL1 exists
+    if not btl1_clauses.exists():
+        logger.error("Input file not found: %s", btl1_clauses)
+        logger.error("Please make sure you have run the pipeline for BTL1.")
+        sys.exit(1)
 
     process_file(str(btl1_clauses), str(output_path), str(ner_path))
