@@ -1,7 +1,7 @@
 """
 Task 2.2: Semantic Role Labeling (SRL)
 ========================================
-Uses AllenNLP's pre-trained BERT-based SRL model to extract semantic roles.
+Uses Hugging Face's pre-trained BERT-based SRL model to extract semantic roles.
 
 Roles: Agent (ARG0), Predicate (V), Theme (ARG1), Recipient (ARG2),
        Time (ARGM-TMP), Condition (ARGM-ADV), Location (ARGM-LOC)
@@ -21,23 +21,21 @@ from typing import Any, Optional
 logging.basicConfig(level=logging.INFO, format="[SRL] %(message)s")
 logger = logging.getLogger(__name__)
 
-# ─── Attempt to load AllenNLP SRL ────────────────────────────
+# ─── Attempt to load Hugging Face SRL ──────────────────────
 
-_allennlp_predictor = None
-_use_allennlp = False
+_hf_srl_pipeline = None
+_use_hf = False
 
 try:
-    from allennlp.predictors.predictor import Predictor
-    import allennlp_models.structured_prediction  # noqa: F401  (registers models)
+    from transformers import pipeline
 
-    _allennlp_predictor = Predictor.from_path(
-        "https://storage.googleapis.com/allennlp-public-models/"
-        "structured-prediction-srl-bert.2020.12.15.tar.gz"
-    )
-    _use_allennlp = True
-    logger.info("Loaded AllenNLP BERT-based SRL model.")
+    # Using dslim/bert-base-srl, a popular SRL model on the Hub
+    _hf_srl_pipeline = pipeline("structured-data-extraction", model="dslim/bert-base-srl")
+    _use_hf = True
+    logger.info("Loaded Hugging Face (dslim/bert-base-srl) model.")
 except Exception:
-    logger.info("AllenNLP not available. Using spaCy dependency-based SRL.")
+    logger.info("Hugging Face Transformers not available. Using spaCy dependency-based SRL.")
+
 
 
 # ─── Role mapping ────────────────────────────────────────────
@@ -64,46 +62,42 @@ ROLE_MAP: dict[str, str] = {
 }
 
 
-# ─── AllenNLP-based SRL ──────────────────────────────────────
+# ─── Hugging Face Transformers-based SRL ───────────────────
 
-def extract_roles_allennlp(clause_text: str) -> list[dict[str, Any]]:
-    """Extract semantic roles using AllenNLP's BERT-based SRL model."""
-    prediction = _allennlp_predictor.predict(sentence=clause_text)
-    words: list[str] = prediction["words"]
+def extract_roles_hf(clause_text: str) -> list[dict[str, Any]]:
+    """Extract semantic roles using Hugging Face's SRL pipeline."""
+    if not _hf_srl_pipeline:
+        return []
+
+    prediction = _hf_srl_pipeline(clause_text)
     all_frames: list[dict[str, Any]] = []
 
-    for verb_info in prediction["verbs"]:
-        predicate: str = verb_info["verb"]
-        tags: list[str] = verb_info["tags"]
+    # The pipeline returns a list of verb frames
+    for frame in prediction:
+        predicate = frame.get("verb")
         roles: dict[str, str] = {}
-        current_tag: Optional[str] = None
-        current_tokens: list[str] = []
+        
+        # Description string looks like: "[ARG0: Party A] [V: delivers] [ARG1: goods]..."
+        description = frame.get("description", "")
+        
+        # Simple parsing of the description string
+        parts = description.strip().split("] [")
+        for part in parts:
+            part = part.replace("[", "").replace("]", "")
+            try:
+                tag, text = part.split(": ", 1)
+                # Map ARG tags to human-readable names, skip the verb itself
+                if tag != "V":
+                    role_name = ROLE_MAP.get(tag, tag)
+                    roles[role_name] = text
+            except ValueError:
+                continue # Ignore parts that don't fit the "TAG: text" format
 
-        def _flush_role() -> None:
-            """Save the current accumulated role span into `roles`."""
-            if current_tag and current_tokens:
-                # Skip "V" — already stored as `predicate`
-                if current_tag != "V":
-                    role_name = ROLE_MAP.get(current_tag, current_tag)
-                    roles[role_name] = " ".join(current_tokens)
-
-        for word, tag in zip(words, tags):
-            if tag.startswith("B-"):
-                _flush_role()
-                current_tag = tag[2:]
-                current_tokens = [word]
-            elif tag.startswith("I-") and current_tag:
-                current_tokens.append(word)
-            else:
-                _flush_role()
-                current_tag = None
-                current_tokens = []
-
-        _flush_role()  # flush the last span
-
-        all_frames.append({"predicate": predicate, "roles": roles})
+        if predicate:
+            all_frames.append({"predicate": predicate, "roles": roles})
 
     return all_frames
+
 
 
 # ─── spaCy dependency-based SRL (fallback) ───────────────────
@@ -224,21 +218,21 @@ def extract_roles_spacy(clause_text: str) -> list[dict[str, Any]]:
 
 def extract_semantic_roles(clause_text: str) -> dict[str, Any]:
     """
-    Extract semantic roles from a single clause.
+    Extracts semantic roles from a single clause.
 
-    Uses AllenNLP BERT-SRL when available, otherwise falls back to
+    Uses Hugging Face Transformers SRL when available, otherwise falls back to
     spaCy dependency-based extraction.
 
     Returns a dict with keys:
         clause     – original clause text
         predicate  – main predicate string
         roles      – dict of role_name → span
-        all_frames – all verb frames found (AllenNLP may find multiple)
+        all_frames – all verb frames found (HF may find multiple)
         method     – which backend was used
     """
     frames: list[dict[str, Any]] = (
-        extract_roles_allennlp(clause_text)
-        if _use_allennlp
+        extract_roles_hf(clause_text)
+        if _use_hf
         else extract_roles_spacy(clause_text)
     )
 
@@ -248,7 +242,7 @@ def extract_semantic_roles(clause_text: str) -> dict[str, Any]:
             "predicate": None,
             "roles": {},
             "all_frames": [],
-            "method": "allennlp_bert_srl" if _use_allennlp else "spacy_dependency",
+            "method": "huggingface_srl" if _use_hf else "spacy_dependency",
         }
 
     # Choose the frame that has the most roles as the primary one
@@ -259,7 +253,7 @@ def extract_semantic_roles(clause_text: str) -> dict[str, Any]:
         "predicate": best.get("predicate"),
         "roles": best.get("roles", {}),
         "all_frames": frames,
-        "method": "allennlp_bert_srl" if _use_allennlp else "spacy_dependency",
+        "method": "huggingface_srl" if _use_hf else "spacy_dependency",
     }
 
 
@@ -313,7 +307,7 @@ def process_file(
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
 
-    method_label = "AllenNLP BERT" if _use_allennlp else "spaCy dependency"
+    method_label = "Hugging Face BERT" if _use_hf else "spaCy dependency"
     roles_found = sum(1 for r in results if r["roles"])
     logger.info("Method    : %s", method_label)
     logger.info("Clauses   : %d total, %d with roles", len(clauses), roles_found)
