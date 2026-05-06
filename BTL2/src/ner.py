@@ -6,6 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from torch.utils.data import DataLoader, Dataset
 from transformers import AutoTokenizer, AutoModelForTokenClassification, get_linear_schedule_with_warmup
+from sklearn.metrics import classification_report
 
 # 1. Config labels
 ENTITY_LABELS = ["O", "PARTY", "MONEY", "DATE", "RATE", "PENALTY", "LAW"]
@@ -72,15 +73,23 @@ def train_ner_model(training_data, output_dir, n_iter=10):
     )
 
     random.shuffle(training_data)
-    split = int(len(training_data) * 0.8)
-    train_data = training_data[:split]
-    val_data = training_data[split:]
+    n = len(training_data)
+    train_split = int(n * 0.8)
+    val_split = int(n * 0.9)
+    
+    train_data = training_data[:train_split]
+    val_data = training_data[train_split:val_split]
+    test_data = training_data[val_split:]
+
+    print(f"Data split: Train={len(train_data)}, Val={len(val_data)}, Test={len(test_data)}")
 
     train_dataset = NERDataset(train_data, tokenizer)
     val_dataset = NERDataset(val_data, tokenizer)
+    test_dataset = NERDataset(test_data, tokenizer)
 
     train_loader = DataLoader(train_dataset, batch_size=8, shuffle=True)
     val_loader = DataLoader(val_dataset, batch_size=8)
+    test_loader = DataLoader(test_dataset, batch_size=8)
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model.to(device)
@@ -135,7 +144,67 @@ def train_ner_model(training_data, output_dir, n_iter=10):
         json.dump({"id2label": ID2LABEL, "label2id": LABEL2ID}, f)
 
     _save_training_plot(epoch_hist, loss_hist, val_loss_hist, output_dir)
+    
+    # Evaluate on Test Set
+    print("\nEvaluating on Test Set...")
+    evaluate_ner_model(model, tokenizer, test_loader, test_data, output_dir)
+    
     return model, tokenizer
+
+def evaluate_ner_model(model, tokenizer, test_loader, test_raw_data, output_dir):
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    model.eval()
+    
+    all_preds = []
+    all_labels = []
+    
+    with torch.no_grad():
+        for batch in test_loader:
+            input_ids = batch["input_ids"].to(device)
+            attention_mask = batch["attention_mask"].to(device)
+            labels = batch["labels"].to(device)
+            
+            outputs = model(input_ids, attention_mask=attention_mask)
+            preds = torch.argmax(outputs.logits, dim=2)
+            
+            # Mask out padding
+            for i in range(labels.shape[0]):
+                mask = attention_mask[i] == 1
+                all_preds.extend(preds[i][mask].cpu().numpy())
+                all_labels.extend(labels[i][mask].cpu().numpy())
+    
+    # Filter out special labels if any (though here we use all ENTITY_LABELS)
+    target_names = [ENTITY_LABELS[i] for i in range(len(ENTITY_LABELS))]
+    report = classification_report(all_labels, all_preds, target_names=target_names, labels=range(len(ENTITY_LABELS)))
+    print(report)
+    
+    # Save report
+    with open(os.path.join(output_dir, "test_metrics.txt"), "w", encoding="utf-8") as f:
+        f.write(report)
+    
+    # Error Analysis: Compare predicted entities vs ground truth for each test sample
+    error_analysis = []
+    for item in test_raw_data:
+        text = item["text"]
+        gt_entities = item["entities"]
+        
+        pred_result = recognize_entities(text, model, tokenizer)
+        pred_entities = pred_result["entities"]
+        
+        # Simple match check
+        is_match = (gt_entities == pred_entities)
+        
+        error_analysis.append({
+            "text": text,
+            "ground_truth": gt_entities,
+            "predictions": pred_entities,
+            "is_match": is_match
+        })
+    
+    error_file = os.path.join(output_dir, "test_error_analysis.json")
+    with open(error_file, "w", encoding="utf-8") as f:
+        json.dump(error_analysis, f, indent=2, ensure_ascii=False, cls=NumpyEncoder)
+    print(f"Error analysis saved to {error_file}")
 
 def _save_training_plot(epoch_hist, loss_hist, val_loss_hist, model_output_dir):
     try:
