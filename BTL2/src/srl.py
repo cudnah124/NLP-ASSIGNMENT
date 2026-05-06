@@ -1,23 +1,8 @@
 """
-Task 2.2: Semantic Role Labeling (SRL)
-========================================
-Uses yeomtong/srl_bert_model for BERT-based predicate-aware SRL.
+Task 2.2: Semantic Role Labeling (SRL).
 
-Model is downloaded from HuggingFace Hub, then loaded via the repo's
-own `predictor` / `model` modules.  Output of `prediction_formatted()`
-mirrors the AllenNLP schema:
-
-    {
-      "words": ["I", "want", ...],
-      "verbs": [
-        {"verb": "want", "tags": ["B-ARG0", "B-V", "B-ARG1", ...], ...},
-        ...
-      ]
-    }
-
-Falls back to spaCy dependency parsing if the model cannot be loaded.
-
-Input:  Clauses from Assignment 1  +  NER results from Task 2.1
+HF-only inference using `yeomtong/srl_bert_model`.
+Input: clauses.txt (from BTL1) + optional NER output.
 Output: output/srl_results.json
 """
 
@@ -31,16 +16,11 @@ from typing import Any, Optional
 logging.basicConfig(level=logging.INFO, format="[SRL] %(message)s")
 logger = logging.getLogger(__name__)
 
-# ─── Model identifier ────────────────────────────────────────
-
 HF_REPO_ID   = "yeomtong/srl_bert_model"
 HF_CKPT_FILE = "best_srl_Sep_29.ckpt"
 BERT_NAME    = "bert-base-cased"
 
-# ─── Load yeomtong/srl_bert_model ────────────────────────────
-
-_prediction_formatted = None   # callable: str -> dict
-_use_hf = False
+_prediction_formatted = None
 
 try:
     from huggingface_hub import hf_hub_download, snapshot_download
@@ -60,16 +40,16 @@ try:
     srl_init(ckpt_path, bert_name=BERT_NAME)
 
     _prediction_formatted = prediction_formatted
-    _use_hf = True
     logger.info("yeomtong/srl_bert_model loaded successfully.")
 
 except Exception as exc:
-    logger.warning("Model unavailable (%s). Falling back to spaCy.", exc)
+    raise RuntimeError(
+        "Failed to load SRL model from HuggingFace Hub. "
+        "BTL2 SRL requires HF-only inference; non-HF fallback is disabled.\n"
+        f"Original error: {exc}"
+    ) from exc
 
 
-# ─── PropBank → readable role name mapping ───────────────────
-
-# "V" is intentionally absent: the verb is stored as `predicate`, not in roles.
 ROLE_MAP: dict[str, str] = {
     "ARG0":     "Agent",
     "ARG1":     "Theme",
@@ -88,8 +68,6 @@ ROLE_MAP: dict[str, str] = {
     "ARGM-EXT": "Extent",
 }
 
-
-# ─── HuggingFace BERT-based SRL ──────────────────────────────
 
 def _decode_bio_spans(words: list[str], tags: list[str]) -> dict[str, str]:
     """
@@ -118,7 +96,6 @@ def _decode_bio_spans(words: list[str], tags: list[str]) -> dict[str, str]:
         elif tag.startswith("I-") and current_tag == tag[2:]:
             current_tokens.append(word)
         else:
-            # Unexpected I- without matching B- (treat as new span)
             _flush()
             current_tag  = tag[2:] if tag.startswith("I-") else tag
             current_tokens = [word]
@@ -132,10 +109,9 @@ def extract_roles_hf(clause_text: str) -> list[dict[str, Any]]:
     Extract semantic role frames using yeomtong/srl_bert_model.
 
     `prediction_formatted` already handles per-verb inference internally
-    and returns one frame per detected verb — matching the AllenNLP schema.
+    and returns one frame per detected verb.
     """
     result = _prediction_formatted(clause_text.strip())
-    # result = {"words": [...], "verbs": [{"verb": ..., "tags": [...], ...}, ...]}
 
     words: list[str] = result.get("words", [])
     frames: list[dict[str, Any]] = []
@@ -150,115 +126,11 @@ def extract_roles_hf(clause_text: str) -> list[dict[str, Any]]:
     return frames
 
 
-# ─── spaCy dependency-based SRL (fallback) ───────────────────
-
-_spacy_nlp = None
-
-
-def _get_spacy():
-    """Lazy-load spaCy model, downloading if necessary."""
-    global _spacy_nlp
-    if _spacy_nlp is None:
-        import spacy
-        try:
-            _spacy_nlp = spacy.load("en_core_web_sm")
-        except OSError:
-            from spacy.cli import download
-            download("en_core_web_sm")
-            _spacy_nlp = spacy.load("en_core_web_sm")
-    return _spacy_nlp
-
-
-def _get_phrase(token) -> str:
-    """Token text + close dependents (det, amod, compound…) in word order."""
-    MODIFIER_DEPS = {"compound", "flat", "amod", "det", "nummod", "poss"}
-    seen: set[int] = set()
-    collected: list[Any] = []
-
-    def _collect(t) -> None:
-        if t.i not in seen:
-            seen.add(t.i)
-            collected.append(t)
-
-    _collect(token)
-    for child in token.children:
-        if child.dep_ in MODIFIER_DEPS:
-            for t in child.subtree:
-                _collect(t)
-
-    return " ".join(t.text for t in sorted(collected, key=lambda t: t.i))
-
-
-def _get_subtree(token) -> str:
-    """Full subtree text of a token in sentence order."""
-    return " ".join(t.text for t in sorted(token.subtree, key=lambda t: t.i))
-
-
-def extract_roles_spacy(clause_text: str) -> list[dict[str, Any]]:
-    """Extract semantic roles using spaCy dependency parsing (fallback)."""
-    nlp  = _get_spacy()
-    doc  = nlp(clause_text.strip())
-    root = next((t for t in doc if t.dep_ == "ROOT"), None)
-
-    if root is None:
-        return [{"predicate": None, "roles": {}}]
-
-    auxiliaries = sorted(
-        (c for c in root.children if c.dep_ in ("aux", "auxpass")),
-        key=lambda t: t.i,
-    )
-    predicate = " ".join(t.text for t in auxiliaries + [root]).strip()
-
-    roles: dict[str, str] = {}
-    time_parts: list[str] = []
-
-    TIME_PREPS      = {"before", "after", "by", "within", "during", "until", "from", "on"}
-    CONDITION_MARKS = {"if", "unless", "provided", "when", "should"}
-
-    for child in root.children:
-        dep = child.dep_
-
-        if dep == "nsubj":
-            roles["Agent"] = _get_phrase(child)
-        elif dep == "nsubjpass":
-            roles["Patient"] = _get_phrase(child)
-        elif dep in ("dobj", "obj", "attr"):
-            roles["Theme"] = _get_phrase(child)
-        elif dep == "dative":
-            roles["Recipient"] = _get_phrase(child)
-        elif dep == "prep":
-            pobj = next(
-                (gc for gc in child.children if gc.dep_ in ("pobj", "obj")), None
-            )
-            if pobj:
-                prep_text = child.text.lower()
-                obj_text  = _get_phrase(pobj)
-                if prep_text in ("to", "unto") and "Recipient" not in roles:
-                    roles["Recipient"] = obj_text
-                elif prep_text in TIME_PREPS:
-                    time_parts.append(f"{prep_text} {obj_text}")
-        elif dep == "advcl":
-            mark = next(
-                (gc.text.lower() for gc in child.children if gc.dep_ == "mark"),
-                None,
-            )
-            if mark in CONDITION_MARKS:
-                roles["Condition"] = _get_subtree(child)
-
-    if time_parts:
-        roles["Time"] = "; ".join(time_parts)
-
-    return [{"predicate": predicate, "roles": roles}]
-
-
-# ─── Unified interface ───────────────────────────────────────
-
 def extract_semantic_roles(clause_text: str) -> dict[str, Any]:
     """
     Extract semantic roles from a single clause.
 
-    Uses yeomtong/srl_bert_model when available, otherwise falls back
-    to spaCy dependency-based extraction.
+    Uses yeomtong/srl_bert_model (HF-only SRL).
 
     Returns:
         {
@@ -266,16 +138,11 @@ def extract_semantic_roles(clause_text: str) -> dict[str, Any]:
             "predicate":  main predicate  (frame with most roles),
             "roles":      {role_name: span},
             "all_frames": list of all verb frames,
-            "method":     "hf_bert_srl" | "spacy_dependency"
+            "method":     "hf_bert_srl"
         }
     """
-    frames: list[dict[str, Any]] = (
-        extract_roles_hf(clause_text)
-        if _use_hf
-        else extract_roles_spacy(clause_text)
-    )
-
-    method = "hf_bert_srl" if _use_hf else "spacy_dependency"
+    frames: list[dict[str, Any]] = extract_roles_hf(clause_text)
+    method = "hf_bert_srl"
 
     if not frames:
         return {
@@ -297,8 +164,6 @@ def extract_semantic_roles(clause_text: str) -> dict[str, Any]:
     }
 
 
-# ─── NER helper ──────────────────────────────────────────────
-
 def _load_ner_results(ner_path: Optional[str]) -> Optional[list[dict]]:
     """Load NER results from JSON; return None if file is absent or invalid."""
     if not ner_path or not os.path.exists(ner_path):
@@ -310,8 +175,6 @@ def _load_ner_results(ner_path: Optional[str]) -> Optional[list[dict]]:
         logger.warning("Could not parse NER file '%s': %s", ner_path, exc)
         return None
 
-
-# ─── File-level processing ───────────────────────────────────
 
 def process_file(
     input_path: str,
@@ -349,22 +212,16 @@ def process_file(
     with open(output_path, "w", encoding="utf-8") as fh:
         json.dump(results, fh, indent=2, ensure_ascii=False)
 
-    method_label = "yeomtong/srl_bert_model" if _use_hf else "spaCy dependency"
     roles_found  = sum(1 for r in results if r["roles"])
-    logger.info("Method    : %s", method_label)
+    logger.info("Method    : yeomtong/srl_bert_model (HF only)")
     logger.info("Clauses   : %d total, %d with roles", len(clauses), roles_found)
     logger.info("Output    : %s", output_path)
 
     return results
 
 
-# ─── Entry point ─────────────────────────────────────────────
-
 if __name__ == "__main__":
-    # Expected layout:
-    
     this_file   = Path(__file__).resolve()
-    # Go up from srl.py -> src -> BTL2 -> project_root
     project_dir = this_file.parent.parent.parent
     btl2_dir    = project_dir / "BTL2"
 
