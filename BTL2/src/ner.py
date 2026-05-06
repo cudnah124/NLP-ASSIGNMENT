@@ -189,7 +189,7 @@ def recognize_entities(text, model, tokenizer):
         if current_ent and current_ent["label"] == label:
             # Gộp vào entity hiện tại
             current_ent["text"] = text[current_ent["start"]:end]
-            current_ent["end"] = end
+            current_ent["end"] = int(end.item())
         else:
             # Lưu entity cũ nếu có
             if current_ent:
@@ -207,6 +207,12 @@ def recognize_entities(text, model, tokenizer):
         entities.append(current_ent)
             
     return {"clause": text, "entities": entities}
+
+class NumpyEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, np.integer):
+            return int(obj)
+        return super(NumpyEncoder, self).default(obj)
 
 def train(data_dir, model_dir, n_iter=10):
     data_path = os.path.join(data_dir, "ner_training_data.json")
@@ -236,7 +242,7 @@ def process_file(input_path, output_path, model_dir):
 
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(results, f, indent=2, ensure_ascii=False)
+        json.dump(results, f, indent=2, ensure_ascii=False, cls=NumpyEncoder)
     print(f"Results saved to {output_path}")
 
 if __name__ == "__main__":
