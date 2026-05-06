@@ -157,27 +157,56 @@ def _save_training_plot(epoch_hist, loss_hist, val_loss_hist, model_output_dir):
 
 def recognize_entities(text, model, tokenizer):
     device = next(model.parameters()).device
-    inputs = tokenizer(text, return_tensors="pt", truncation=True, max_length=MAX_LEN).to(device)
+    inputs = tokenizer(
+        text, 
+        return_tensors="pt", 
+        truncation=True, 
+        max_length=MAX_LEN, 
+        return_offsets_mapping=True
+    ).to(device)
+    
+    offsets = inputs.pop("offset_mapping")[0].cpu().numpy()
     
     with torch.no_grad():
         outputs = model(**inputs)
     
     predictions = torch.argmax(outputs.logits, dim=2)[0].cpu().numpy()
-    # Get tokens and their offsets
-    tokens = tokenizer.convert_ids_to_tokens(inputs["input_ids"][0])
     
-    results = []
-    for token, label_id in zip(tokens, predictions):
-        if token in ["[CLS]", "[SEP]", "[PAD]"]:
-            continue
-        
+    entities = []
+    current_ent = None
+
+    for idx, label_id in enumerate(predictions):
         label = ID2LABEL[label_id]
-        if label != "O":
-            # Clean up BERT subword tokens (##)
-            clean_token = token.replace("##", "")
-            results.append({"token": clean_token, "label": label})
+        start, end = offsets[idx]
+        
+        # Bỏ qua special tokens và nhãn "O"
+        if start == end or label == "O":
+            if current_ent:
+                entities.append(current_ent)
+                current_ent = None
+            continue
+
+        if current_ent and current_ent["label"] == label:
+            # Gộp vào entity hiện tại
+            current_ent["text"] = text[current_ent["start"]:end]
+            current_ent["end"] = end
+        else:
+            # Lưu entity cũ nếu có
+            if current_ent:
+                entities.append(current_ent)
             
-    return {"clause": text, "entities": results}
+            # Tạo entity mới
+            current_ent = {
+                "text": text[start:end],
+                "label": label,
+                "start": int(start),
+                "end": int(end)
+            }
+            
+    if current_ent:
+        entities.append(current_ent)
+            
+    return {"clause": text, "entities": entities}
 
 def train(data_dir, model_dir, n_iter=10):
     data_path = os.path.join(data_dir, "ner_training_data.json")
