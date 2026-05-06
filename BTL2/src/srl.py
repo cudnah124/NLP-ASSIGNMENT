@@ -249,8 +249,9 @@ if __name__ == "__main__":
     this_file   = Path(__file__).resolve()
     project_dir = this_file.parent.parent.parent
     btl2_dir    = project_dir / "BTL2"
-
-    btl1_clauses = btl2_dir / "input" / "clauses.txt"  
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    
+    btl1_clauses = os.path.join(base_dir, "..", "BTL1", "output", "clauses.txt")
     output_path  = btl2_dir   / "output" / "srl_results.json"
     ner_path     = btl2_dir   / "output" / "ner_results.json"
 
