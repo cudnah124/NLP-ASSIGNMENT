@@ -199,8 +199,8 @@ def recognize_entities(text, model, tokenizer):
             current_ent = {
                 "text": text[start:end],
                 "label": label,
-                "start": int(start),
-                "end": int(end)
+                "start": int(start.item()),
+                "end": int(end.item())
             }
             
     if current_ent:
