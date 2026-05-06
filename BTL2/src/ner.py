@@ -186,13 +186,19 @@ def evaluate_ner_model(model, tokenizer, test_loader, test_raw_data, output_dir)
     error_analysis = []
     for item in test_raw_data:
         text = item["text"]
-        gt_entities = item["entities"]
+        gt_entities = item["entities"] # list of [start, end, label]
         
         pred_result = recognize_entities(text, model, tokenizer)
-        pred_entities = pred_result["entities"]
+        pred_entities = pred_result["entities"] # list of dicts
         
-        # Simple match check
-        is_match = (gt_entities == pred_entities)
+        # Convert predictions to [start, end, label] for comparison
+        pred_triples = [[e["start"], e["end"], e["label"]] for e in pred_entities]
+        
+        # Sort both for comparison
+        gt_sorted = sorted(gt_entities, key=lambda x: x[0])
+        pred_sorted = sorted(pred_triples, key=lambda x: x[0])
+        
+        is_match = (gt_sorted == pred_sorted)
         
         error_analysis.append({
             "text": text,
@@ -231,7 +237,8 @@ def recognize_entities(text, model, tokenizer):
         return_tensors="pt", 
         truncation=True, 
         max_length=MAX_LEN, 
-        return_offsets_mapping=True
+        return_offsets_mapping=True,
+        padding=True
     ).to(device)
     
     offsets = inputs.pop("offset_mapping")[0].cpu().numpy()
@@ -244,32 +251,37 @@ def recognize_entities(text, model, tokenizer):
     entities = []
     current_ent = None
 
+    # Get word_ids to handle sub-tokens correctly
+    word_ids = inputs.word_ids(batch_index=0)
+
     for idx, label_id in enumerate(predictions):
         label = ID2LABEL[label_id]
         start, end = offsets[idx]
         
-        # Bỏ qua special tokens và nhãn "O"
-        if start == end or label == "O":
+        # Skip special tokens
+        if word_ids[idx] is None:
+            continue
+            
+        if label == "O":
             if current_ent:
                 entities.append(current_ent)
                 current_ent = None
             continue
 
         if current_ent and current_ent["label"] == label:
-            # Gộp vào entity hiện tại
-            current_ent["text"] = text[current_ent["start"]:end]
-            current_ent["end"] = int(end.item())
+            # Check if this is a continuation of the same word or consecutive word
+            # Just extend the end offset
+            current_ent["end"] = int(end)
+            current_ent["text"] = text[current_ent["start"]:current_ent["end"]]
         else:
-            # Lưu entity cũ nếu có
             if current_ent:
                 entities.append(current_ent)
             
-            # Tạo entity mới
             current_ent = {
                 "text": text[start:end],
                 "label": label,
-                "start": int(start.item()),
-                "end": int(end.item())
+                "start": int(start),
+                "end": int(end)
             }
             
     if current_ent:
