@@ -5,7 +5,7 @@ import torch
 import numpy as np
 import matplotlib.pyplot as plt
 from torch.utils.data import DataLoader, Dataset
-from transformers import AutoTokenizer, AutoModelForTokenClassification, AdamW, get_linear_schedule_with_warmup
+from transformers import AutoTokenizer, AutoModelForTokenClassification, get_linear_schedule_with_warmup
 
 # 1. Config labels
 ENTITY_LABELS = ["O", "PARTY", "MONEY", "DATE", "RATE", "PENALTY", "LAW"]
@@ -85,7 +85,7 @@ def train_ner_model(training_data, output_dir, n_iter=10):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model.to(device)
 
-    optimizer = AdamW(model.parameters(), lr=3e-5)
+    optimizer = torch.optim.AdamW(model.parameters(), lr=3e-5)
     total_steps = len(train_loader) * n_iter
     scheduler = get_linear_schedule_with_warmup(optimizer, num_warmup_steps=0, num_training_steps=total_steps)
 
