@@ -1,37 +1,15 @@
-"""
-Task 2.3: Clause Intent Classification
-=========================================
-Classify each clause into: Obligation, Prohibition, Right, or Termination Condition.
-
-Two approaches (trained and compared):
-  1. Baseline:  TF-IDF + Logistic Regression (scikit-learn)
-  2. Advanced:  Fine-tuned DistilBERT transformer (Hugging Face)
-
-Training data:  data/intent_training_data.json
-Input:          Clauses from Assignment 1
-Output:         output/intent_classification.txt
-                output/intent_classification.json
-"""
-
 import json
 import os
 import warnings
 import numpy as np
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report
 
 warnings.filterwarnings("ignore")
 
-# ─── Label definitions ───────────────────────────────────────
 LABELS = ["Obligation", "Prohibition", "Right", "Termination Condition"]
 LABEL2ID = {label: i for i, label in enumerate(LABELS)}
 ID2LABEL = {i: label for i, label in enumerate(LABELS)}
-
-
-# ─── Data loading ────────────────────────────────────────────
-
 def load_training_data(data_path):
-    """Load labeled training data from JSON."""
     with open(data_path, "r", encoding="utf-8") as f:
         data = json.load(f)
     texts = [item["text"] for item in data]
@@ -39,30 +17,12 @@ def load_training_data(data_path):
     return texts, labels
 
 
-# ══════════════════════════════════════════════════════════════
-# BASELINE: TF-IDF + Logistic Regression
-# ══════════════════════════════════════════════════════════════
-
 def train_tfidf_model(texts, labels, model_dir):
-    """
-    Train a TF-IDF + Logistic Regression classifier.
-
-    Args:
-        texts:     List of clause strings.
-        labels:    List of intent label strings.
-        model_dir: Path to save the trained model.
-
-    Returns:
-        (vectorizer, classifier) tuple.
-    """
     from sklearn.feature_extraction.text import TfidfVectorizer
     from sklearn.linear_model import LogisticRegression
     from sklearn.model_selection import cross_val_score
     import joblib
 
-    print("  Training TF-IDF + Logistic Regression...")
-
-    # TF-IDF vectorization
     vectorizer = TfidfVectorizer(
         max_features=5000,
         ngram_range=(1, 2),
@@ -71,7 +31,6 @@ def train_tfidf_model(texts, labels, model_dir):
     X = vectorizer.fit_transform(texts)
     y = np.array([LABEL2ID[label] for label in labels])
 
-    # Train Logistic Regression
     clf = LogisticRegression(
         max_iter=1000,
         C=1.0,
@@ -79,22 +38,15 @@ def train_tfidf_model(texts, labels, model_dir):
         random_state=42
     )
     clf.fit(X, y)
-
-    # Cross-validation evaluation
     scores = cross_val_score(clf, X, y, cv=min(5, len(texts)), scoring="accuracy")
-    print(f"  Cross-validation accuracy: {scores.mean():.4f} (+/- {scores.std():.4f})")
 
-    # Save model
     os.makedirs(model_dir, exist_ok=True)
     joblib.dump(vectorizer, os.path.join(model_dir, "tfidf_vectorizer.pkl"))
     joblib.dump(clf, os.path.join(model_dir, "logreg_classifier.pkl"))
-    print(f"  Model saved to: {model_dir}")
-
     return vectorizer, clf
 
 
 def predict_tfidf(texts, model_dir):
-    """Run inference with the trained TF-IDF + LogReg model."""
     import joblib
     vectorizer = joblib.load(os.path.join(model_dir, "tfidf_vectorizer.pkl"))
     clf = joblib.load(os.path.join(model_dir, "logreg_classifier.pkl"))
@@ -116,23 +68,7 @@ def predict_tfidf(texts, model_dir):
     return results
 
 
-# ══════════════════════════════════════════════════════════════
-# ADVANCED: Fine-tuned DistilBERT
-# ══════════════════════════════════════════════════════════════
-
 def train_transformer_model(texts, labels, model_dir, epochs=5):
-    """
-    Fine-tune a DistilBERT model for intent classification.
-
-    Args:
-        texts:     List of clause strings.
-        labels:    List of intent label strings.
-        model_dir: Path to save the fine-tuned model.
-        epochs:    Number of training epochs.
-
-    Returns:
-        True if training succeeded, False otherwise.
-    """
     try:
         from transformers import (
             DistilBertTokenizerFast,
@@ -143,18 +79,12 @@ def train_transformer_model(texts, labels, model_dir, epochs=5):
         import torch
         from torch.utils.data import Dataset
     except ImportError:
-        print("  [SKIP] transformers/torch not installed. "
-              "Install with: pip install transformers torch")
         return False
 
-    print("  Fine-tuning DistilBERT for intent classification...")
-
-    # Tokenize
     tokenizer = DistilBertTokenizerFast.from_pretrained("distilbert-base-uncased")
     encodings = tokenizer(texts, truncation=True, padding=True, max_length=128)
     label_ids = [LABEL2ID[l] for l in labels]
 
-    # Dataset class
     class IntentDataset(Dataset):
         def __init__(self, encodings, labels):
             self.encodings = encodings
@@ -171,15 +101,12 @@ def train_transformer_model(texts, labels, model_dir, epochs=5):
 
     dataset = IntentDataset(encodings, label_ids)
 
-    # Load model
     model = DistilBertForSequenceClassification.from_pretrained(
         "distilbert-base-uncased",
         num_labels=len(LABELS),
         id2label=ID2LABEL,
         label2id=LABEL2ID,
     )
-
-    # Training arguments
     training_args = TrainingArguments(
         output_dir=os.path.join(model_dir, "checkpoints"),
         num_train_epochs=epochs,
@@ -198,17 +125,13 @@ def train_transformer_model(texts, labels, model_dir, epochs=5):
     )
 
     trainer.train()
-
-    # Save model and tokenizer
     os.makedirs(model_dir, exist_ok=True)
     model.save_pretrained(model_dir)
     tokenizer.save_pretrained(model_dir)
-    print(f"  DistilBERT model saved to: {model_dir}")
     return True
 
 
 def predict_transformer(texts, model_dir):
-    """Run inference with the fine-tuned DistilBERT model."""
     try:
         from transformers import (
             DistilBertTokenizerFast,
@@ -244,81 +167,36 @@ def predict_transformer(texts, model_dir):
     return results
 
 
-# ══════════════════════════════════════════════════════════════
-# Full pipeline
-# ══════════════════════════════════════════════════════════════
-
 def train(data_dir, model_dir, train_transformer=True):
-    """
-    Train both baseline and advanced intent classification models with evaluation.
-
-    Args:
-        data_dir:          Path to data directory with intent_training_data.json
-        model_dir:         Path to save models
-        train_transformer: Whether to also train the DistilBERT model
-    """
     data_path = os.path.join(data_dir, "intent_training_data.json")
     if not os.path.exists(data_path):
         raise FileNotFoundError(f"Training data not found: {data_path}")
-
     texts, labels = load_training_data(data_path)
-    print(f"  Loaded {len(texts)} training samples")
-    
-    # --- Split Data into Train (80%) and Test (20%) ---
     train_texts, test_texts, train_labels, test_labels = train_test_split(
         texts, labels, test_size=0.2, random_state=42, stratify=labels
     )
-    print(f"  Split: {len(train_texts)} train, {len(test_texts)} test")
-
-    # --- 1. Train & Evaluate Baseline (TF-IDF + LogReg) ---
-    print("\n--- Training Baseline (TF-IDF + LogReg) ---")
     tfidf_dir = os.path.join(model_dir, "tfidf_logreg")
     train_tfidf_model(train_texts, train_labels, tfidf_dir)
-    
-    print("\n--- Evaluating Baseline on Test Set ---")
-    baseline_preds = predict_tfidf(test_texts, tfidf_dir)
-    baseline_labels = [p["intent"] for p in baseline_preds]
-    print(classification_report(test_labels, baseline_labels))
-
-    # --- 2. Train & Evaluate Advanced (DistilBERT) ---
+    predict_tfidf(test_texts, tfidf_dir)
     if train_transformer:
-        print("\n--- Training Advanced (DistilBERT) ---")
         transformer_dir = os.path.join(model_dir, "distilbert")
         success = train_transformer_model(train_texts, train_labels, transformer_dir, epochs=5)
         
         if success:
-            print("\n--- Evaluating Advanced on Test Set ---")
-            advanced_preds = predict_transformer(test_texts, transformer_dir)
-            advanced_labels = [p["intent"] for p in advanced_preds]
-            print(classification_report(test_labels, advanced_labels))
+            predict_transformer(test_texts, transformer_dir)
         else:
-            print("  Transformer training skipped.")
+            pass
 
 
 def process_file(input_path, output_path, model_dir=None):
-    """
-    Run intent classification inference and write results.
-    Uses both baseline and advanced models, comparing their outputs.
-
-    Args:
-        input_path:  Path to clauses file
-        output_path: Path to output text file
-        model_dir:   Path to trained models directory
-    """
     with open(input_path, "r", encoding="utf-8") as f:
         clauses = [line.strip() for line in f if line.strip()]
-
-    # Run baseline (TF-IDF + LogReg)
     tfidf_dir = os.path.join(model_dir, "tfidf_logreg")
     baseline_results = predict_tfidf(clauses, tfidf_dir)
-
-    # Try advanced (DistilBERT)
     transformer_dir = os.path.join(model_dir, "distilbert")
     advanced_results = None
     if os.path.exists(transformer_dir):
         advanced_results = predict_transformer(clauses, transformer_dir)
-
-    # Merge results: prefer transformer if available, else use baseline
     final_results = []
     for i, clause in enumerate(clauses):
         baseline = baseline_results[i]
@@ -334,31 +212,12 @@ def process_file(input_path, output_path, model_dir=None):
             })
         else:
             final_results.append(baseline)
-
-    # Count intents
-    intent_counts = {l: 0 for l in LABELS}
-    for r in final_results:
-        intent_counts[r["intent"]] += 1
-
-    # Write text output (clause + label)
     with open(output_path, "w", encoding="utf-8") as f:
         for r in final_results:
             f.write(f"{r['clause']}\t{r['intent']}\n")
-
-    # Write detailed JSON
     json_path = output_path.replace(".txt", ".json")
     with open(json_path, "w", encoding="utf-8") as f:
         json.dump(final_results, f, indent=2, ensure_ascii=False)
-
-    # Print comparison if both models ran
-    if advanced_results:
-        agree = sum(1 for b, a in zip(baseline_results, advanced_results)
-                    if b["intent"] == a["intent"])
-        print(f"  Model agreement: {agree}/{len(clauses)} "
-              f"({agree/len(clauses)*100:.1f}%)")
-
-    print(f"  Distribution: {dict(intent_counts)}")
-    print(f"  Output: {output_path}")
     return final_results
 
 
@@ -370,8 +229,5 @@ if __name__ == "__main__":
     output_path = os.path.join(base_dir, "output", "intent_classification.txt")
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
-    print("=== Training Intent Models ===")
     train(data_dir, model_dir, train_transformer=True)
-
-    print("\n=== Running Intent Classification ===")
     process_file(btl1_clauses, output_path, model_dir)
