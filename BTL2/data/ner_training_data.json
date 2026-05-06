@@ -4574,41 +4574,17 @@
   {
     "text": "The Employee shall receive a monthly salary of $5,000 starting from June 1, 2025.",
     "entities": [
-      [
-        4,
-        12,
-        "PARTY"
-      ],
-      [
-        47,
-        53,
-        "MONEY"
-      ],
-      [
-        68,
-        80,
-        "DATE"
-      ]
+      [4, 12, "PARTY"],
+      [47, 53, "MONEY"],
+      [68, 80, "DATE"]
     ]
   },
   {
     "text": "In the event of breach, the Vendor shall pay a penalty equal to 15% of the total contract value to the Client.",
     "entities": [
-      [
-        28,
-        34,
-        "PARTY"
-      ],
-      [
-        47,
-        95,
-        "PENALTY"
-      ],
-      [
-        103,
-        109,
-        "PARTY"
-      ]
+      [28, 34, "PARTY"],
+      [47, 95, "PENALTY"],
+      [103, 109, "PARTY"]
     ]
   },
   {
@@ -4669,36 +4645,16 @@
   {
     "text": "Failure to deliver on time shall result in a penalty of $10,000 per week of delay payable by the Supplier to the Buyer.",
     "entities": [
-      [
-        45,
-        118,
-        "PENALTY"
-      ]
+      [45, 118, "PENALTY"]
     ]
   },
   {
     "text": "Hanoi Tech JSC shall invoice Saigon Retail Co. for services rendered, totaling 1,200,000,000 VND, no later than December 31, 2024.",
     "entities": [
-      [
-        0,
-        14,
-        "PARTY"
-      ],
-      [
-        29,
-        46,
-        "PARTY"
-      ],
-      [
-        79,
-        96,
-        "MONEY"
-      ],
-      [
-        112,
-        129,
-        "DATE"
-      ]
+      [0, 14, "PARTY"],
+      [29, 46, "PARTY"],
+      [79, 96, "MONEY"],
+      [112, 129, "DATE"]
     ]
   },
   {
@@ -5031,128 +4987,56 @@
     ]
   },
   {
-    "text": "Pursuant to the Law on Real Estate Business 2023, Sunrise Real Estate Co. must complete handover to Buyers by August 31, 2026, or pay compensation of 0.05% of the apartment value per day of delay.",
+    "text": "Pursuant to the Law on Real Estate Business 2023, the Sunrise Real Estate Co. must complete handover to the Buyers by August 31, 2026, or pay compensation of 0.05% of the apartment value per day of delay.",
     "entities": [
-      [
-        16,
-        48,
-        "LAW"
-      ],
-      [
-        50,
-        73,
-        "PARTY"
-      ],
-      [
-        100,
-        106,
-        "PARTY"
-      ],
-      [
-        110,
-        125,
-        "DATE"
-      ],
-      [
-        134,
-        195,
-        "PENALTY"
-      ]
+      [16, 48, "LAW"],
+      [54, 77, "PARTY"],
+      [104, 110, "PARTY"],
+      [117, 132, "DATE"],
+      [153, 158, "RATE"]
     ]
   },
   {
     "text": "The Agreement shall come into force on 01/03/2025 and shall remain effective until 28/02/2030, unless either Party serves a written termination notice at least ninety (90) days prior to the expiry date.",
     "entities": [
-      [
-        39,
-        49,
-        "DATE"
-      ],
-      [
-        83,
-        93,
-        "DATE"
-      ]
+      [39, 49, "DATE"],
+      [83, 93, "DATE"]
     ]
   },
   {
     "text": "Payment of the first installment shall be due on the fifteenth (15th) day of the month following the month in which the contract is executed, with subsequent installments due on the same date each calendar month until 31/12/2027.",
     "entities": [
-      [
-        218,
-        228,
-        "DATE"
-      ]
+      [218, 228, "DATE"]
     ]
   },
   {
     "text": "The probationary period shall commence on September 1, 2025 and shall not exceed sixty (60) calendar days, ending no later than October 31, 2025, subject to the Labor Code 2019.",
     "entities": [
-      [
-        42,
-        59,
-        "DATE"
-      ],
-      [
-        128,
-        144,
-        "DATE"
-      ],
-      [
-        161,
-        176,
-        "LAW"
-      ]
+      [42, 59, "DATE"],
+      [128, 144, "DATE"],
+      [161, 176, "LAW"]
     ]
   },
   {
     "text": "Force majeure events occurring between March 15, 2025 and June 15, 2025 shall suspend all delivery obligations; the suspension period shall not exceed ninety (90) days from the date of written notification.",
     "entities": [
-      [
-        39,
-        53,
-        "DATE"
-      ],
-      [
-        58,
-        71,
-        "DATE"
-      ]
+      [39, 53, "DATE"],
+      [58, 71, "DATE"]
     ]
   },
   {
     "text": "The Lessor shall provide written notice of any rent adjustment no later than sixty (60) days before the commencement of the new rental period, being January 1, 2026, in accordance with the Housing Law 2023.",
     "entities": [
-      [
-        77,
-        92,
-        "DATE"
-      ],
-      [
-        149,
-        164,
-        "DATE"
-      ],
-      [
-        189,
-        205,
-        "LAW"
-      ]
+      [4, 10, "PARTY"],
+      [149, 164, "DATE"],
+      [189, 205, "LAW"]
     ]
   },
   {
     "text": "All milestones set forth in Annex B must be completed by the dates specified therein; the final milestone shall be achieved no later than December 31, 2026, being eighteen (18) months from the Effective Date of July 1, 2025.",
     "entities": [
-      [
-        138,
-        155,
-        "DATE"
-      ],
-      [
-        211,
-        223,
-        "DATE"
-      ]
+      [138, 155, "DATE"],
+      [211, 223, "DATE"]
     ]
   },
   {
@@ -5232,81 +5116,33 @@
   {
     "text": "Insurance coverage under this Agreement shall be maintained continuously from the Inception Date, 01/07/2025, through to the Expiry Date, 30/06/2028, with annual renewal no later than fifteen (15) days before each anniversary.",
     "entities": [
-      [
-        98,
-        108,
-        "DATE"
-      ],
-      [
-        138,
-        148,
-        "DATE"
-      ]
+      [98, 108, "DATE"],
+      [138, 148, "DATE"]
     ]
   },
   {
     "text": "The pre-emptive right to purchase additional shares may be exercised within twenty-one (21) days of the offer notice date; any offer issued on August 1, 2025 must therefore be accepted or rejected by August 22, 2025.",
     "entities": [
-      [
-        143,
-        157,
-        "DATE"
-      ],
-      [
-        200,
-        215,
-        "DATE"
-      ]
+      [143, 157, "DATE"],
+      [200, 215, "DATE"]
     ]
   },
   {
     "text": "Construction shall proceed in three phases: Phase I from 01/01/2025 to 30/06/2025, Phase II from 01/07/2025 to 31/12/2025, and Phase III from 01/01/2026 to 30/06/2026.",
     "entities": [
-      [
-        57,
-        67,
-        "DATE"
-      ],
-      [
-        71,
-        81,
-        "DATE"
-      ],
-      [
-        97,
-        107,
-        "DATE"
-      ],
-      [
-        111,
-        121,
-        "DATE"
-      ],
-      [
-        142,
-        152,
-        "DATE"
-      ],
-      [
-        156,
-        166,
-        "DATE"
-      ]
+      [57, 67, "DATE"],
+      [71, 81, "DATE"],
+      [97, 107, "DATE"],
+      [111, 121, "DATE"],
+      [142, 152, "DATE"],
+      [156, 166, "DATE"]
     ]
   },
   {
     "text": "The non-compete obligation shall commence on the date of termination and shall remain in force for twenty-four (24) months thereafter; if termination occurs on May 1, 2025, the non-compete period shall expire on April 30, 2027.",
     "entities": [
-      [
-        160,
-        171,
-        "DATE"
-      ],
-      [
-        212,
-        226,
-        "DATE"
-      ]
+      [160, 171, "DATE"],
+      [212, 226, "DATE"]
     ]
   },
   {
@@ -5320,7 +5156,7 @@
     "text": "Pursuant to the Circular No. 06/2023/TT-NHNN, all interest rate adjustments must be communicated in writing at least thirty (30) days before the effective date of such adjustment, which in this case is September 1, 2025.",
     "entities": [
       [12, 44, "LAW"],
-      [202, 219, "DATE"]
+      [201, 217, "DATE"]
     ]
   },
   {
@@ -5347,6 +5183,20 @@
       [129, 139, "DATE"],
       [141, 151, "DATE"],
       [157, 167, "DATE"]
+    ]
+  },
+  {
+    "text": "Notice of renewal must be provided no later than ninety (90) days before the current term expires; the current term expires on 31/08/2025, so renewal notice must be submitted by 02/06/2025.",
+    "entities": [
+      [127, 137, "DATE"],
+      [178, 188, "DATE"]
+    ]
+  },
+  {
+    "text": "Pursuant to the Circular No. 06/2023/TT-NHNN, all interest rate adjustments must be communicated in writing at least thirty (30) days before the effective date of such adjustment, which in this case is September 1, 2025.",
+    "entities": [
+      [12, 44, "LAW"],
+      [201, 217, "DATE"]
     ]
   },
   {
@@ -5388,118 +5238,54 @@
     ]
   },
   {
-    "text": "Pursuant to Decree No. 65/2022/ND-CP, the bond yield shall not exceed 300 basis points above the government bond yield of equivalent maturity; the applicable cap as of the issuance date is approximately 12.5% per annum.",
+    "text": "Pursuant to the Decree No. 65/2022/ND-CP, the bond yield shall not exceed 300 basis points above the government bond yield of equivalent maturity; the applicable cap as of the issuance date is approximately 12.5% per annum.",
     "entities": [
-      [
-        12,
-        36,
-        "LAW"
-      ],
-      [
-        203,
-        218,
-        "RATE"
-      ]
+      [12, 40, "LAW"],
+      [207, 211, "RATE"]
     ]
   },
   {
     "text": "The royalty rate for sales in the domestic market shall be 6% of net revenues; for export sales the rate shall be reduced to 4% of net revenues, with both rates subject to annual review and adjustment by mutual consent.",
     "entities": [
-      [
-        59,
-        61,
-        "RATE"
-      ],
-      [
-        125,
-        127,
-        "RATE"
-      ]
+      [59, 61, "RATE"],
+      [125, 127, "RATE"]
     ]
   },
   {
     "text": "Default interest shall be charged at a rate equal to one and a half (1.5) times the contract interest rate; if the contract interest rate is 8% per annum, the default rate shall therefore be 12% per annum.",
     "entities": [
-      [
-        69,
-        72,
-        "RATE"
-      ],
-      [
-        141,
-        153,
-        "RATE"
-      ],
-      [
-        191,
-        204,
-        "RATE"
-      ]
+      [69, 72, "RATE"],
+      [141, 143, "RATE"],
+      [191, 194, "RATE"]
     ]
   },
   {
     "text": "The value-added tax rate applicable to the services under this Agreement is 10% in accordance with the Law on Value Added Tax 2008 as amended; input tax credits may be claimed by the Purchaser where eligible.",
     "entities": [
-      [
-        76,
-        79,
-        "RATE"
-      ],
-      [
-        103,
-        130,
-        "LAW"
-      ]
+      [76, 79, "RATE"],
+      [103, 130, "LAW"]
     ]
   },
   {
     "text": "Annual salary increments shall not be less than 5% nor more than 15% of the preceding year's base salary, and shall be reviewed each year in March taking into account the Consumer Price Index increase.",
     "entities": [
-      [
-        48,
-        50,
-        "RATE"
-      ],
-      [
-        65,
-        68,
-        "RATE"
-      ]
+      [48, 50, "RATE"],
+      [65, 68, "RATE"]
     ]
   },
   {
     "text": "The variable component of remuneration shall constitute no more than 30% of total annual compensation; the fixed component shall be not less than 70%, consistent with guidelines under the Labor Code 2019.",
     "entities": [
-      [
-        69,
-        72,
-        "RATE"
-      ],
-      [
-        146,
-        149,
-        "RATE"
-      ],
-      [
-        188,
-        203,
-        "LAW"
-      ]
+      [69, 72, "RATE"],
+      [146, 149, "RATE"],
+      [188, 203, "LAW"]
     ]
   },
   {
     "text": "Processing fees shall be assessed at 0.5% of each disbursement, subject to a minimum fee of $500 and a maximum fee of $5,000, with an additional administrative surcharge of 0.1% applied to disbursements exceeding $1,000,000.",
     "entities": [
-      [
-        37,
-        41,
-        "RATE"
-      ],
-      [
-        173,
-        177,
-        "RATE"
-      ]
+      [37, 41, "RATE"],
+      [173, 177, "RATE"]
     ]
   },
   {
@@ -5582,83 +5368,43 @@
   {
     "text": "The Escrow Account shall earn interest at the prevailing three-month treasury bill rate, currently 4.75% per annum, which shall accrue to the account of the Seller upon successful completion of conditions precedent.",
     "entities": [
-      [
-        99,
-        114,
-        "RATE"
-      ]
+      [99, 114, "RATE"]
     ]
   },
   {
     "text": "Carbon credit revenues shall be shared between the Landowner and the Project Developer at a ratio of 40% to 60% respectively for the first five years, adjusting to 45% to 55% thereafter.",
     "entities": [
-      [
-        101,
-        104,
-        "RATE"
-      ],
-      [
-        108,
-        111,
-        "RATE"
-      ],
-      [
-        164,
-        167,
-        "RATE"
-      ],
-      [
-        171,
-        174,
-        "RATE"
-      ]
+      [101, 104, "RATE"],
+      [108, 111, "RATE"],
+      [164, 167, "RATE"],
+      [171, 174, "RATE"]
     ]
   },
   {
     "text": "The tiered interest structure provides for: (a) 7% per annum on balances up to $100,000; (b) 8.5% per annum on balances between $100,001 and $500,000; and (c) 10% per annum on balances exceeding $500,000.",
     "entities": [
-      [
-        48,
-        60,
-        "RATE"
-      ],
-      [
-        93,
-        107,
-        "RATE"
-      ],
-      [
-        159,
-        172,
-        "RATE"
-      ]
+      [48, 60, "RATE"],
+      [93, 107, "RATE"],
+      [159, 172, "RATE"]
     ]
   },
   {
     "text": "In the event that the Contractor abandons the project prior to completion, the Contractor shall be liable to pay a penalty comprising: (i) forfeiture of the full performance bond; (ii) reimbursement of all documented remobilization costs; and (iii) liquidated damages equal to 15% of the total uncompleted contract value.",
     "entities": [
-      [
-        115,
-        320,
-        "PENALTY"
-      ]
+      [115, 320, "PENALTY"]
     ]
   },
   {
     "text": "Should the Supplier deliver goods that fail to meet the agreed specifications on two or more occasions within any rolling twelve-month period, the Buyer shall be entitled to impose a cumulative quality penalty of 5% of the total annual purchase value, in addition to its right to terminate the Agreement for cause.",
     "entities": [
-      [
-        183,
-        313,
-        "PENALTY"
-      ]
+      [183, 313, "PENALTY"]
     ]
   },
   {
     "text": "The Licensor may impose a penalty for unauthorized use of intellectual property equal to three (3) times the standard licensing fee that would have been payable, plus all legal costs and investigative expenses reasonably incurred, in accordance with the Law on Intellectual Property 2022.",
     "entities": [
       [0, 12, "PARTY"],
-      [24, 229, "PENALTY"],
+      [26, 229, "PENALTY"],
       [254, 287, "LAW"]
     ]
   },
@@ -5737,58 +5483,42 @@
     ]
   },
   {
-    "text": "In accordance with Article 418 of the Civil Code 2015, the agreed penalty for delayed performance is 0.05% of the delayed obligation value per day; this rate shall apply from the date performance was due, being 01/10/2025, until actual completion.",
+    "text": "In accordance with the Article 418 of the Civil Code 2015, the agreed penalty for delayed performance is 0.05% of the delayed obligation value per day; this rate shall apply from the date performance was due, being 01/10/2025, until actual completion.",
     "entities": [
-      [
-        38,
-        53,
-        "LAW"
-      ],
-      [
-        59,
-        146,
-        "PENALTY"
-      ],
-      [
-        211,
-        221,
-        "DATE"
-      ]
+      [23, 57, "LAW"],
+      [63, 150, "PENALTY"],
+      [215, 225, "DATE"]
     ]
   },
   {
     "text": "The Employer shall pay a wrongful termination penalty of thirty-six (36) months' gross salary to the Employee if this Agreement is terminated without cause and without the minimum notice period required under the Labor Code 2019.",
     "entities": [
-      [
-        25,
-        228,
-        "PENALTY"
-      ]
+      [0, 12, "PARTY"],
+      [25, 228, "PENALTY"],
+      [101, 113, "PARTY"],
+      [213, 228, "LAW"]
     ]
   },
   {
     "text": "Where the insurance premium is not paid within thirty (30) days of the due date, the Insurer shall impose a reinstatement penalty equal to 5% of the annual premium, and coverage shall be deemed suspended from the date of non-payment until the penalty and overdue premium are fully settled.",
     "entities": [
-      [
-        108,
-        288,
-        "PENALTY"
-      ]
+      [85, 96, "PARTY"],
+      [108, 288, "PENALTY"]
     ]
   },
   {
     "text": "The Contractor's liability for defective works discovered during the defects liability period shall include: (i) the cost of rectification at no charge; (ii) a quality penalty of 3% of the contract price for each category of structural defect; and (iii) an extension of the warranty period by a duration equal to twice the rectification period.",
     "entities": [
       [0, 14, "PARTY"],
-      [143, 242, "PENALTY"]
+      [143, 335, "PENALTY"]
     ]
   },
   {
     "text": "Any attempt by the Assignor to assign its rights under this Agreement without prior written consent of the Assignee shall be void ab initio and shall trigger an unauthorized assignment penalty of $30,000, payable within ten (10) business days of discovery.",
     "entities": [
-      [11, 26, "PARTY"],
-      [104, 116, "PARTY"],
-      [174, 255, "PENALTY"]
+      [15, 30, "PARTY"],
+      [107, 119, "PARTY"],
+      [177, 258, "PENALTY"]
     ]
   },
   {
@@ -5802,7 +5532,7 @@
   {
     "text": "If the Borrower's debt-service coverage ratio falls below 1.20x for two consecutive quarters, the Lender shall have the right to impose a covenant breach fee of 1% of the outstanding principal balance per quarter until the ratio is restored above 1.20x.",
     "entities": [
-      [3, 15, "PARTY"],
+      [7, 19, "PARTY"],
       [94, 104, "PARTY"],
       [138, 252, "PENALTY"]
     ]
@@ -5818,11 +5548,11 @@
   {
     "text": "Should the Operator's system uptime fall below 99.5% in any calendar month, the Operator shall credit the Client an amount equal to ten (10) times the pro-rata monthly fee for the period of unavailability, as a service-level breach penalty.",
     "entities": [
-      [7, 19, "PARTY"],
+      [11, 23, "PARTY"],
       [47, 52, "RATE"],
-      [76, 88, "PARTY"],
-      [102, 112, "PARTY"],
-      [211, 239, "PENALTY"]
+      [80, 92, "PARTY"],
+      [106, 116, "PARTY"],
+      [215, 243, "PENALTY"]
     ]
   },
   {
@@ -5836,9 +5566,9 @@
     "entities": [
       [0, 10, "PARTY"],
       [23, 76, "PENALTY"],
-      [80, 89, "PARTY"],
-      [108, 118, "PARTY"],
-      [261, 276, "LAW"]
+      [84, 93, "PARTY"],
+      [112, 122, "PARTY"],
+      [265, 280, "LAW"]
     ]
   },
   {
@@ -5862,51 +5592,28 @@
   {
     "text": "The lump-sum fine for anti-competitive conduct, including price-fixing or market-sharing arrangements prohibited under the Law on Competition 2018, shall be assessed at up to 10% of the total revenue of the infringing enterprise in the fiscal year preceding the infringement finding.",
     "entities": [
-      [
-        4,
-        282,
-        "PENALTY"
-      ]
+      [0, 151, "PENALTY"],
+      [119, 142, "LAW"]
     ]
   },
   {
     "text": "This Agreement is subject to, and shall be construed in accordance with, the laws of the Socialist Republic of Vietnam, including in particular the Civil Code 2015, the Commercial Law 2005, and all applicable sub-laws, regulations, and ministerial circulars.",
     "entities": [
-      [
-        148,
-        163,
-        "LAW"
-      ],
-      [
-        169,
-        188,
-        "LAW"
-      ]
+      [148, 163, "LAW"],
+      [169, 188, "LAW"]
     ]
   },
   {
     "text": "The Parties agree that any dispute, controversy, or claim arising out of or in connection with this Agreement shall be finally settled by arbitration administered by the Vietnam International Arbitration Centre (VIAC) in accordance with its Rules of Arbitration, as supplemented by the Law on Commercial Arbitration 2010.",
     "entities": [
-      [
-        286,
-        320,
-        "LAW"
-      ]
+      [286, 320, "LAW"]
     ]
   },
   {
-    "text": "Environmental obligations under this Agreement shall be governed by the Law on Environmental Protection 2020 and Decree No. 08/2022/ND-CP guiding the implementation thereof, both as amended from time to time.",
+    "text": "Environmental obligations under this Agreement shall be governed by the Law on Environmental Protection 2020 and the Decree No. 08/2022/ND-CP guiding the implementation thereof, both as amended from time to time.",
     "entities": [
-      [
-        72,
-        108,
-        "LAW"
-      ],
-      [
-        113,
-        137,
-        "LAW"
-      ]
+      [72, 108, "LAW"],
+      [113, 141, "LAW"]
     ]
   },
   {
@@ -6004,91 +5711,44 @@
   {
     "text": "Maritime transport obligations shall be governed by the Vietnam Maritime Code 2015 and the International Convention for the Safety of Life at Sea (SOLAS) as ratified by Vietnam, and in case of conflict the Vietnam Maritime Code 2015 shall prevail.",
     "entities": [
-      [
-        56,
-        82,
-        "LAW"
-      ],
-      [
-        91,
-        153,
-        "LAW"
-      ],
-      [
-        206,
-        232,
-        "LAW"
-      ]
+      [56, 82, "LAW"],
+      [91, 153, "LAW"],
+      [206, 232, "LAW"]
     ]
   },
   {
-    "text": "Consumer protection obligations shall be fulfilled in accordance with the Law on Consumer Rights Protection 2023, and the Supplier shall maintain a complaint resolution mechanism meeting the standards prescribed under Decree No. 55/2024/ND-CP.",
+    "text": "Consumer protection obligations shall be fulfilled in accordance with the Law on Consumer Rights Protection 2023, and the Supplier shall maintain a complaint resolution mechanism meeting the standards prescribed under the Decree No. 55/2024/ND-CP.",
     "entities": [
-      [
-        74,
-        112,
-        "LAW"
-      ],
-      [
-        218,
-        242,
-        "LAW"
-      ]
+      [74, 112, "LAW"],
+      [218, 246, "LAW"]
     ]
   },
   {
-    "text": "Cybersecurity measures implemented under this Agreement shall comply with the Law on Cybersecurity 2018, Decree No. 13/2023/ND-CP on personal data protection, and all technical standards issued by the Ministry of Public Security's cybersecurity agency.",
+    "text": "Cybersecurity measures implemented under this Agreement shall comply with the Law on Cybersecurity 2018, the Decree No. 13/2023/ND-CP on personal data protection, and all technical standards issued by the Ministry of Public Security's cybersecurity agency.",
     "entities": [
-      [
-        78,
-        103,
-        "LAW"
-      ],
-      [
-        105,
-        157,
-        "LAW"
-      ]
+      [78, 103, "LAW"],
+      [105, 161, "LAW"]
     ]
   },
   {
-    "text": "Accounting records and financial statements shall be prepared in accordance with the Accounting Law 2015 and Vietnamese Accounting Standards (VAS) promulgated by the Ministry of Finance, with consolidation prepared under IFRS where required by the parent entity.",
+    "text": "Accounting records and financial statements shall be prepared in accordance with the Accounting Law 2015 and the Vietnamese Accounting Standards (VAS) promulgated by the Ministry of Finance, with consolidation prepared under the IFRS where required by the parent entity.",
     "entities": [
-      [
-        85,
-        104,
-        "LAW"
-      ]
+      [85, 104, "LAW"],
+      [113, 148, "LAW"]
     ]
   },
   {
-    "text": "The insurance policies required under this Agreement shall be placed and maintained in compliance with the Law on Insurance Business 2022 and Decree No. 46/2023/ND-CP guiding the implementation thereof, with insurers licensed by the Ministry of Finance.",
+    "text": "The insurance policies required under this Agreement shall be placed and maintained in compliance with the Law on Insurance Business 2022 and the Decree No. 46/2023/ND-CP guiding the implementation thereof, with insurers licensed by the Ministry of Finance.",
     "entities": [
-      [
-        107,
-        137,
-        "LAW"
-      ],
-      [
-        142,
-        166,
-        "LAW"
-      ]
+      [107, 137, "LAW"],
+      [142, 170, "LAW"]
     ]
   },
   {
-    "text": "Anti-money laundering and counter-terrorist financing obligations shall be observed in accordance with the Law on Anti-Money Laundering 2022 and Decree No. 19/2023/ND-CP elaborating thereon, and the Parties shall conduct customer due diligence as required.",
+    "text": "Anti-money laundering and counter-terrorist financing obligations shall be observed in accordance with the Law on Anti-Money Laundering 2022 and the Decree No. 19/2023/ND-CP elaborating thereon, and the Parties shall conduct customer due diligence as required.",
     "entities": [
-      [
-        107,
-        140,
-        "LAW"
-      ],
-      [
-        145,
-        169,
-        "LAW"
-      ]
+      [107, 140, "LAW"],
+      [145, 173, "LAW"]
     ]
   },
   {
@@ -6178,78 +5838,38 @@
     ]
   },
   {
-    "text": "Failure by XYZ Retail Inc. results in termination of the contract.",
+    "text": "Failure by the XYZ Retail Inc. results in termination of the contract.",
     "entities": [
-      [
-        11,
-        26,
-        "PARTY"
-      ],
-      [
-        38,
-        65,
-        "PENALTY"
-      ]
+      [11, 30, "PARTY"],
+      [42, 69, "PENALTY"]
     ]
   },
   {
-    "text": "ABC Tech Inc. owns 50% of the joint venture.",
+    "text": "The ABC Tech Inc. owns 50% of the joint venture.",
     "entities": [
-      [
-        0,
-        13,
-        "PARTY"
-      ],
-      [
-        19,
-        22,
-        "RATE"
-      ]
+      [0, 17, "PARTY"],
+      [23, 26, "RATE"]
     ]
   },
   {
-    "text": "$500,000 must be transferred to XYZ Innovations Ltd. on July 1, 2024.",
+    "text": "$500,000 must be transferred to the XYZ Innovations Ltd. on July 1, 2024.",
     "entities": [
-      [
-        0,
-        8,
-        "MONEY"
-      ],
-      [
-        32,
-        52,
-        "PARTY"
-      ],
-      [
-        56,
-        68,
-        "DATE"
-      ]
+      [0, 8, "MONEY"],
+      [32, 56, "PARTY"],
+      [60, 72, "DATE"]
     ]
   },
   {
     "text": "This contract follows the laws of the State of Illinois.",
     "entities": [
-      [
-        26,
-        55,
-        "LAW"
-      ]
+      [26, 55, "LAW"]
     ]
   },
   {
     "text": "Any delay past 01/01/2024 triggers a late payment fee.",
     "entities": [
-      [
-        15,
-        25,
-        "DATE"
-      ],
-      [
-        37,
-        53,
-        "PENALTY"
-      ]
+      [15, 25, "DATE"],
+      [35, 53, "PENALTY"]
     ]
   },
   {
@@ -6273,38 +5893,18 @@
     ]
   },
   {
-    "text": "A 8.25% tax is added for John Doe.",
+    "text": "A 8.25% tax is added for the John Doe.",
     "entities": [
-      [
-        2,
-        7,
-        "RATE"
-      ],
-      [
-        25,
-        33,
-        "PARTY"
-      ]
+      [2, 7, "RATE"],
+      [29, 37, "PARTY"]
     ]
   },
   {
-    "text": "Party A agrees to return the Goods for a replacement before June 5, 2025.",
+    "text": "The Party A agrees to return the Goods for a replacement before June 5, 2025.",
     "entities": [
-      [
-        0,
-        7,
-        "PARTY"
-      ],
-      [
-        18,
-        52,
-        "PENALTY"
-      ],
-      [
-        60,
-        72,
-        "DATE"
-      ]
+      [4, 11, "PARTY"],
+      [18, 42, "PENALTY"],
+      [64, 76, "DATE"]
     ]
   },
   {
@@ -6382,108 +5982,48 @@
     ]
   },
   {
-    "text": "Civil Code 2015 governs the $100.00 fee.",
+    "text": "The Civil Code 2015 governs the $100.00 fee.",
     "entities": [
-      [
-        0,
-        15,
-        "LAW"
-      ],
-      [
-        28,
-        35,
-        "MONEY"
-      ]
+      [4, 19, "LAW"],
+      [32, 39, "MONEY"]
     ]
   },
   {
-    "text": "A 8.25% interest applies if John Doe is late.",
+    "text": "A 8.25% interest applies if the John Doe is late.",
     "entities": [
-      [
-        2,
-        7,
-        "RATE"
-      ],
-      [
-        28,
-        36,
-        "PARTY"
-      ]
+      [2, 7, "RATE"],
+      [32, 40, "PARTY"]
     ]
   },
   {
-    "text": "On 01/01/2024, Buyer enacts the forfeiture of the deposit.",
+    "text": "On 01/01/2024, the Buyer enacts the forfeiture of the deposit.",
     "entities": [
-      [
-        3,
-        13,
-        "DATE"
-      ],
-      [
-        15,
-        20,
-        "PARTY"
-      ],
-      [
-        32,
-        57,
-        "PENALTY"
-      ]
+      [3, 13, "DATE"],
+      [19, 24, "PARTY"],
+      [36, 61, "PENALTY"]
     ]
   },
   {
-    "text": "ABC Tech Inc. and Party B agree to Vietnamese law.",
+    "text": "The ABC Tech Inc. and the Party B agree to the Vietnamese law.",
     "entities": [
-      [
-        0,
-        13,
-        "PARTY"
-      ],
-      [
-        18,
-        25,
-        "PARTY"
-      ],
-      [
-        35,
-        49,
-        "LAW"
-      ]
+      [4, 17, "PARTY"],
+      [26, 33, "PARTY"],
+      [47, 61, "LAW"]
     ]
   },
   {
-    "text": "Employee receives $8,000.00 every June 5, 2025.",
+    "text": "The Employee receives $8,000.00 every June 5, 2025.",
     "entities": [
-      [
-        0,
-        8,
-        "PARTY"
-      ],
-      [
-        18,
-        27,
-        "MONEY"
-      ],
-      [
-        34,
-        46,
-        "DATE"
-      ]
+      [4, 12, "PARTY"],
+      [22, 31, "MONEY"],
+      [38, 50, "DATE"]
     ]
   },
   {
-    "text": "ABC Manufacturing Co. must enforce a return the Goods for a replacement.",
+    "text": "The ABC Manufacturing Co. must enforce a return of the Goods for a replacement.",
     "entities": [
-      [
-        0,
-        21,
-        "PARTY"
-      ],
-      [
-        37,
-        71,
-        "PENALTY"
-      ]
+      [4, 25, "PARTY"],
+      [41, 78, "PENALTY"]
     ]
   },
   {
@@ -6571,158 +6111,66 @@
     ]
   },
   {
-    "text": "Employee suffers a forfeiture of the deposit on 01/01/2024.",
+    "text": "The Employee suffers a forfeiture of the deposit on 01/01/2024.",
     "entities": [
-      [
-        0,
-        8,
-        "PARTY"
-      ],
-      [
-        19,
-        44,
-        "PENALTY"
-      ],
-      [
-        48,
-        58,
-        "DATE"
-      ]
+      [4, 12, "PARTY"],
+      [23, 48, "PENALTY"],
+      [52, 62, "DATE"]
     ]
   },
   {
-    "text": "Party A transfers $500,000 to ABC Manufacturing Co.",
+    "text": "The Party A transfers $500,000 to the ABC Manufacturing Co.",
     "entities": [
-      [
-        0,
-        7,
-        "PARTY"
-      ],
-      [
-        18,
-        26,
-        "MONEY"
-      ],
-      [
-        30,
-        51,
-        "PARTY"
-      ]
+      [4, 11, "PARTY"],
+      [22, 30, "MONEY"],
+      [38, 59, "PARTY"]
     ]
   },
   {
-    "text": "The 8.25% rate is bound by laws of the State of California.",
+    "text": "The 8.25% rate is bound by the laws of the State of California.",
     "entities": [
-      [
-        4,
-        9,
-        "RATE"
-      ],
-      [
-        27,
-        58,
-        "LAW"
-      ]
+      [4, 9, "RATE"],
+      [31, 62, "LAW"]
     ]
   },
   {
-    "text": "Seller will apply a late payment fee to Party B.",
+    "text": "The Seller will apply a late payment fee to the Party B.",
     "entities": [
-      [
-        0,
-        6,
-        "PARTY"
-      ],
-      [
-        20,
-        36,
-        "PENALTY"
-      ],
-      [
-        40,
-        47,
-        "PARTY"
-      ]
+      [4, 10, "PARTY"],
+      [24, 40, "PENALTY"],
+      [48, 55, "PARTY"]
     ]
   },
   {
-    "text": "By June 5, 2025, John Doe must deliver $13,250.00.",
+    "text": "By June 5, 2025, the John Doe must deliver $13,250.00.",
     "entities": [
-      [
-        3,
-        15,
-        "DATE"
-      ],
-      [
-        17,
-        25,
-        "PARTY"
-      ],
-      [
-        39,
-        49,
-        "MONEY"
-      ]
+      [3, 15, "DATE"],
+      [21, 29, "PARTY"],
+      [43, 53, "MONEY"]
     ]
   },
   {
-    "text": "Buyer seeks return the Goods for a replacement from Company.",
+    "text": "The Buyer seeks return of the Goods for a replacement from the Company.",
     "entities": [
-      [
-        0,
-        5,
-        "PARTY"
-      ],
-      [
-        12,
-        46,
-        "PENALTY"
-      ],
-      [
-        52,
-        59,
-        "PARTY"
-      ]
+      [4, 9, "PARTY"],
+      [15, 52, "PENALTY"],
+      [59, 70, "PARTY"]
     ]
   },
   {
-    "text": "Employer owes $100.00 under laws of the State of Illinois.",
+    "text": "The Employer owes $100.00 under the laws of the State of Illinois.",
     "entities": [
-      [
-        0,
-        8,
-        "PARTY"
-      ],
-      [
-        14,
-        21,
-        "MONEY"
-      ],
-      [
-        28,
-        57,
-        "LAW"
-      ]
+      [4, 12, "PARTY"],
+      [18, 25, "MONEY"],
+      [32, 65, "LAW"]
     ]
   },
   {
-    "text": "XYZ Innovations Ltd. commands 50% by 2024-07-10.",
+    "text": "The XYZ Innovations Ltd. commands 50% by 2024-07-10.",
     "entities": [
-      [
-        0,
-        20,
-        "PARTY"
-      ],
-      [
-        30,
-        33,
-        "RATE"
-      ],
-      [
-        37,
-        47,
-        "DATE"
-      ]
+      [4, 24, "PARTY"],
+      [34, 37, "RATE"],
+      [41, 51, "DATE"]
     ]
   }
 ]

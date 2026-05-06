@@ -3,6 +3,7 @@ import os
 import warnings
 import numpy as np
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report, confusion_matrix
 
 warnings.filterwarnings("ignore")
 
@@ -125,6 +126,15 @@ def train_transformer_model(texts, labels, model_dir, epochs=5):
     )
 
     trainer.train()
+    
+    # Evaluation
+    print("\n" + "="*50)
+    print("TRANSFORMER MODEL (DistilBERT) EVALUATION")
+    print("="*50)
+    
+    metrics = trainer.evaluate(eval_dataset=dataset)
+    print(f"Evaluation Metrics: {metrics}")
+
     os.makedirs(model_dir, exist_ok=True)
     model.save_pretrained(model_dir)
     tokenizer.save_pretrained(model_dir)
@@ -177,15 +187,29 @@ def train(data_dir, model_dir, train_transformer=True):
     )
     tfidf_dir = os.path.join(model_dir, "tfidf_logreg")
     train_tfidf_model(train_texts, train_labels, tfidf_dir)
-    predict_tfidf(test_texts, tfidf_dir)
+    
+    # Evaluate TF-IDF
+    tfidf_preds = predict_tfidf(test_texts, tfidf_dir)
+    y_pred_tfidf = [p["intent"] for p in tfidf_preds]
+    
+    print("\n" + "="*50)
+    print("TF-IDF + LOGISTIC REGRESSION EVALUATION")
+    print("="*50)
+    print(classification_report(test_labels, y_pred_tfidf))
+
     if train_transformer:
         transformer_dir = os.path.join(model_dir, "distilbert")
         success = train_transformer_model(train_texts, train_labels, transformer_dir, epochs=5)
         
         if success:
-            predict_transformer(test_texts, transformer_dir)
+            transformer_preds = predict_transformer(test_texts, transformer_dir)
+            y_pred_trans = [p["intent"] for p in transformer_preds]
+            print("\n" + "="*50)
+            print("TRANSFORMER (DistilBERT) FINAL TEST EVALUATION")
+            print("="*50)
+            print(classification_report(test_labels, y_pred_trans))
         else:
-            pass
+            print("Transformer training skipped or failed.")
 
 
 def process_file(input_path, output_path, model_dir=None):
