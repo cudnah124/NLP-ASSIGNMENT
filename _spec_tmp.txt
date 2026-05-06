@@ -1,0 +1,580 @@
+VIETNAM NATIONAL UNIVERSITY HO CHI MINH CITY
+ HO CHI MINH CITY UNIVERSITY OF TECHNOLOGY
+FACULTY OF COMPUTER SCIENCE AND ENGINEERING
+
+
+
+
+           ASSIGNMENT SPECIFICATION
+                 COURSE PROJECT
+      SEMESTER 252 ACADEMIC YEAR 2025-2026
+
+
+  LEGAL CONTRACT INFORMATION
+EXTRACTION AND SEMANTIC ANALYSIS
+
+           MAJOR: COMPUTER SCIENCE
+    COURSE:          Natural Language Processing
+    PROJECT TYPE: Group Assignment (2–4 students)
+                  ——o0o——
+DELIVERABLES:       Source Code + Technical Report
+SUBMISSION FORMAT: PDF Report and Git Repository Link
+
+
+           HO CHI MINH CITY, February 2026
+Contents
+
+1   Preprocessing and Syntax Analysis                                                     2
+    1.1   Clause Splitting . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    2
+          1.1.1   Problem Statement and Objective . . . . . . . . . . . . . . . .         2
+          1.1.2   Input and Output Format . . . . . . . . . . . . . . . . . . . . .       3
+          1.1.3   Example and Explanation . . . . . . . . . . . . . . . . . . . .         3
+    1.2   Noun Phrase Chunking . . . . . . . . . . . . . . . . . . . . . . . . . .        3
+          1.2.1   Problem Statement and Objective . . . . . . . . . . . . . . . .         3
+          1.2.2   Input and Output Format . . . . . . . . . . . . . . . . . . . . .       4
+          1.2.3   Example and Explanation . . . . . . . . . . . . . . . . . . . .         4
+    1.3   Dependency Analysis . . . . . . . . . . . . . . . . . . . . . . . . . . .       5
+          1.3.1   Problem Statement and Objective . . . . . . . . . . . . . . . .         5
+          1.3.2   Input and Output Format . . . . . . . . . . . . . . . . . . . . .       5
+          1.3.3   Example and Explanation . . . . . . . . . . . . . . . . . . . .         6
+
+2   Information Extraction and Semantic Analysis                                          7
+    2.1   Custom Named Entity Recognition (NER) . . . . . . . . . . . . . . . .           7
+          2.1.1   Problem Statement and Objective . . . . . . . . . . . . . . . .         7
+          2.1.2   Input and Output Format . . . . . . . . . . . . . . . . . . . . .       8
+          2.1.3   Example and Explanation . . . . . . . . . . . . . . . . . . . .         8
+    2.2   Semantic Role Labeling (SRL) . . . . . . . . . . . . . . . . . . . . . .        9
+          2.2.1   Problem Statement and Objective . . . . . . . . . . . . . . . .         9
+          2.2.2   Input and Output Format . . . . . . . . . . . . . . . . . . . . .       9
+          2.2.3   Example and Explanation . . . . . . . . . . . . . . . . . . . .        10
+    2.3   Clause Intent Classification . . . . . . . . . . . . . . . . . . . . . . . .   10
+
+                                             i
+          2.3.1   Problem Statement and Objective . . . . . . . . . . . . . . . .       10
+          2.3.2   Input and Output Format . . . . . . . . . . . . . . . . . . . . .     11
+          2.3.3   Example and Explanation . . . . . . . . . . . . . . . . . . . .       11
+
+3   Contract Question Answering Application                                             12
+    3.1   Problem Statement and Objective . . . . . . . . . . . . . . . . . . . .       12
+    3.2   Option 1: Rule-Based Query System . . . . . . . . . . . . . . . . . . .       13
+          3.2.1   Objective . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   13
+          3.2.2   Example . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     13
+          3.2.3   Requirements . . . . . . . . . . . . . . . . . . . . . . . . . . .    14
+    3.3   Option 2: Retrieval-Augmented Generation (RAG) Chatbot . . . . . . .          14
+          3.3.1   Objective . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   14
+          3.3.2   Example . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     14
+          3.3.3   Requirements . . . . . . . . . . . . . . . . . . . . . . . . . . .    15
+
+
+
+
+                                            1
+Assignment 1
+
+Preprocessing and Syntax Analy-
+sis
+
+This assignment focuses on building the foundational components for processing legal
+contract documents. Students are required to implement core Natural Language Pro-
+cessing modules that transform unstructured contract text into syntactically structured
+representations. The objective is to prepare the data for higher-level semantic analysis
+in subsequent assignments.
+
+
+
+1.1     Clause Splitting
+
+1.1.1 Problem Statement and Objective
+
+Legal contracts often contain long and complex sentences with multiple subordinate
+clauses, conditions, and enumerations. Such sentences are difficult to process directly
+for downstream information extraction tasks.
+The objective of this task is to develop an algorithm that splits a complex sentence into
+semantically independent clauses. Each resulting clause should represent a meaningful
+unit that can be analyzed separately.
+
+
+
+
+                                           2
+1.1.2 Input and Output Format
+
+Input:
+
+     • File: input/raw_contracts.txt
+
+     • Content: Raw legal contract text selected by the student.
+
+Output:
+
+     • File: output/clauses.txt
+
+     • Each line must contain exactly one independent clause.
+
+
+1.1.3 Example and Explanation
+
+Input sentence:
+
+Party B shall pay the full rental amount before the 5th of each
+,→    month,
+and if payment is delayed, a penalty of 1\% per day shall apply.
+
+Output:
+
+Party B shall pay the full rental amount before the 5th of each month.
+If payment is delayed, a penalty of 1% per day shall apply.
+
+Explanation:
+The original sentence contains a main clause and a conditional clause. The algorithm
+must correctly separate them while preserving semantic integrity.
+
+
+
+1.2      Noun Phrase Chunking
+
+1.2.1 Problem Statement and Objective
+
+In legal documents, noun phrases often represent key entities such as contracting parties,
+financial amounts, deadlines, or contractual objects. Identifying these noun phrases is
+essential for later semantic role labeling and information extraction.
+
+                                            3
+The objective of this task is to detect and label noun phrases in each clause using the IOB
+tagging scheme.
+
+
+1.2.2 Input and Output Format
+
+Input:
+
+    • File: output/clauses.txt
+
+    • Each clause obtained from Task 1.1 will be processed independently.
+
+Output:
+
+    • File: output/chunks.txt
+
+    • Each token must be labeled using the IOB format:
+
+         – B-NP: Beginning of a noun phrase
+
+         – I-NP: Inside a noun phrase
+
+         – O: Outside any noun phrase
+
+
+1.2.3 Example and Explanation
+
+Input clause:
+
+Party B shall pay the rental amount.
+
+Output (IOB format):
+
+Party     B-NP
+B         I-NP
+shall     O
+pay       O
+the       B-NP
+rental    I-NP
+amount    I-NP
+.         O
+
+                                            4
+Explanation:
+”Party B” and ”the rental amount” are noun phrases. The tagging scheme identifies the
+boundaries of each noun phrase explicitly.
+
+
+
+1.3      Dependency Analysis
+
+1.3.1 Problem Statement and Objective
+
+Understanding the grammatical relationships between words in a clause is crucial for
+identifying syntactic roles such as subject, predicate, and object.
+The objective of this task is to perform dependency parsing on each clause to determine
+head-dependent relationships and syntactic roles.
+Students may use an existing dependency parser. Training a parser from scratch is not
+required.
+
+
+1.3.2 Input and Output Format
+
+Input:
+
+   • File: output/clauses.txt
+
+   • Each clause is parsed independently.
+
+Output:
+
+   • File: output/dependency.json (or CoNLL-U format)
+
+   • For each token, the output must include:
+
+         – Token
+
+         – Head
+
+         – Dependency relation (e.g., root, nsubj, obj, advcl)
+
+
+
+
+                                             5
+1.3.3 Example and Explanation
+
+Input clause:
+
+Party B shall pay the rental amount.
+
+Output (simplified):
+
+pay             -> root
+Party_B         -> nsubj (head: pay)
+amount          -> obj    (head: pay)
+
+Explanation:
+The dependency tree identifies:
+
+    • The main verb (root)
+
+    • The nominal subject (nsubj)
+
+    • The direct object (obj)
+
+This syntactic structure supports accurate clause understanding and enables later seman-
+tic extraction tasks.
+
+
+
+
+                                           6
+Assignment 2
+
+Information Extraction and Seman-
+tic Analysis
+
+This assignment focuses on extracting structured semantic information from legal con-
+tract clauses. Building upon the syntactic processing modules developed in Assignment
+1, students are required to implement advanced Natural Language Processing techniques
+to identify domain-specific entities, determine semantic roles, and classify clause intent.
+The objective is to transform syntactically structured clauses into meaningful represen-
+tations that capture “who does what” and the legal function of each clause within the
+contract.
+
+
+
+2.1     Custom Named Entity Recognition (NER)
+
+2.1.1 Problem Statement and Objective
+
+Legal contracts contain domain-specific entities that are not fully covered by general-
+purpose NER systems. Examples include contracting parties, financial quantities, legal
+deadlines, penalty clauses, and governing laws.
+The objective of this task is to design and train (or fine-tune) a domain-specific Named
+Entity Recognition (NER) model capable of identifying contract-related entities.
+Students must define a clear entity schema, which may include (but is not limited to):
+
+   • PARTY (e.g., Party A, Party B, Employee, Employer)
+
+                                            7
+    • MONEY (e.g., 10,000,000 VND)
+
+    • DATE (e.g., Effective date, Payment deadline)
+
+    • RATE (e.g., Interest rate, Penalty rate)
+
+    • PENALTY
+
+    • LAW
+
+
+2.1.2 Input and Output Format
+
+Input:
+
+    • Clauses produced from Assignment 1 (output/clauses.txt)
+
+    • Annotated training dataset created by students
+
+Output:
+
+    • File: output/ner_results.json
+
+    • Each clause must include identified entities with their spans and labels.
+
+
+2.1.3 Example and Explanation
+
+Input clause:
+
+Party B shall pay 10,000,000 VND before 05 May 2024.
+
+Output (simplified JSON format):
+
+{
+    "entities": [
+        {"text": "Party B", "label": "PARTY"},
+        {"text": "10,000,000 VND", "label": "MONEY"},
+        {"text": "05 May 2024", "label": "DATE"}
+    ]
+}
+
+
+                                            8
+Explanation:
+The model must correctly recognize domain-specific entities and classify them according
+to the predefined schema.
+
+
+
+2.2      Semantic Role Labeling (SRL)
+
+2.2.1 Problem Statement and Objective
+
+While NER identifies entities, it does not determine their semantic roles within a sen-
+tence. In legal text processing, it is crucial to understand “who does what to whom”.
+The objective of this task is to apply a deep learning model (e.g., BERT-based architec-
+ture) to perform Semantic Role Labeling (SRL), assigning semantic roles to entities with
+respect to the main predicate of each clause.
+Typical roles include:
+
+   • Agent
+
+   • Predicate
+
+   • Theme
+
+   • Recipient
+
+   • Time
+
+   • Condition
+
+
+2.2.2 Input and Output Format
+
+Input:
+
+   • Clauses from Assignment 1
+
+   • Named entities detected in Task 3.1
+
+Output:
+
+   • File: output/srl_results.json
+
+   • Structured representation of semantic roles for each clause.
+
+                                           9
+2.2.3 Example and Explanation
+
+Input clause:
+
+Party A delivers goods to Party B.
+
+Output (simplified):
+
+{
+    "predicate": "delivers",
+    "roles": {
+        "Agent": "Party A",
+        "Theme": "goods",
+        "Recipient": "Party B"
+    }
+}
+
+Explanation:
+The SRL model must identify the main predicate and assign appropriate semantic roles
+to the related entities.
+
+
+
+2.3       Clause Intent Classification
+
+2.3.1 Problem Statement and Objective
+
+Beyond identifying entities and roles, legal clauses must be categorized according to
+their functional intent within the contract.
+The objective of this task is to classify each clause into one of the following categories:
+
+    • Obligation
+
+    • Prohibition
+
+    • Right
+
+    • Termination Condition
+
+Students may implement a baseline model (e.g., TF-IDF + Logistic Regression) and
+compare it with a fine-tuned transformer-based classifier.
+
+                                               10
+2.3.2 Input and Output Format
+
+Input:
+
+   • Clauses from Assignment 1
+
+Output:
+
+   • File: output/intent_classification.txt
+
+   • Each line must contain a clause and its predicted label.
+
+
+2.3.3 Example and Explanation
+
+Input clause:
+
+Party B shall pay the rental fee before the 5th of each month.
+
+Output:
+
+Obligation
+
+Explanation:
+The clause expresses a mandatory duty, therefore it is classified as an Obligation.
+
+
+
+
+                                           11
+Assignment 3
+
+Contract Question Answering Ap-
+plication
+
+This is an optional assignment. Students that successfully deliver this assignment get
+bonus point for other assignments.
+This assignment focuses on building an interactive contract question answering system
+based on the structured outputs generated in Assignments 1 and 2. Students are required
+to transform their information extraction pipeline into a usable application that allows
+end users to query contract information in natural language. The objective is to integrate
+syntactic and semantic representations into a functional and demonstrable system.
+
+
+
+3.1     Problem Statement and Objective
+After extracting structured information (clauses, entities, semantic roles, and clause in-
+tent), the next step is to build a user-facing application capable of answering questions
+about the contract.
+The system must:
+
+   • Accept user queries in natural language.
+
+   • Retrieve relevant contract information.
+
+   • Generate a clear and accurate response.
+
+
+                                           12
+   • Provide traceability to the original clause.
+
+Students must implement a simple interactive interface, which can be:
+
+   • Console-based application, or
+
+   • Web-based interface (e.g., Flask, FastAPI, Streamlit, etc.).
+
+Students must choose one of the following implementation approaches.
+
+
+
+3.2      Option 1: Rule-Based Query System
+
+3.2.1 Objective
+
+Students must design a deterministic query engine that operates on the structured JSON
+outputs generated in Assignment 2.
+The system should map user queries to structured representations such as:
+
+   • Agent
+
+   • Predicate
+
+   • Theme
+
+   • Time
+
+   • Intent
+
+
+3.2.2 Example
+
+Input:
+
+When is Party B penalized?
+
+Internal Logic:
+
+   • Identify Agent = Party B
+
+   • Identify Intent = Penalty
+
+
+                                           13
+   • Retrieve corresponding clause
+
+Output:
+
+Party B is penalized if payment is delayed for more than 5 days.
+(Source: ...)
+
+
+3.2.3 Requirements
+
+   • The logic must be clearly implemented and explainable.
+
+   • The answer must be grounded in structured data.
+
+   • The system must reference the original clause.
+
+
+
+3.3       Option 2: Retrieval-Augmented Generation (RAG)
+          Chatbot
+
+3.3.1 Objective
+
+Students must implement a Retrieval-Augmented Generation (RAG) system that inte-
+grates:
+
+   • A vector database built from contract clauses.
+
+   • An embedding model for semantic search.
+
+   • A large language model (LLM) for answer generation.
+
+The chatbot must retrieve relevant clauses before generating an answer.
+
+
+3.3.2 Example
+
+Input:
+
+What happens if Party B delays payment?
+
+Output:
+
+If Party B delays payment, a penalty of 1% per day shall apply.
+(Source: ...)
+
+                                          14
+3.3.3 Requirements
+
+  • The system must retrieve top-k relevant clauses.
+
+  • The generated answer must include explicit citation.
+
+  • The system must not hallucinate unsupported information.
+
+
+
+
+                                        15
+

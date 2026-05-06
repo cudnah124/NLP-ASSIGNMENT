@@ -68,6 +68,30 @@ ROLE_MAP: dict[str, str] = {
     "ARGM-EXT": "Extent",
 }
 
+ROLE_PREP_STRIP: dict[str, list[str]] = {
+    "Recipient": ["to", "for"],
+    "Beneficiary": ["for"],
+    "Purpose": ["to", "for"],
+    "Condition": ["if", "unless", "when", "provided"],
+    "Location": ["in", "at", "on", "into", "inside", "within", "from", "to"],
+    "Direction": ["to", "toward", "towards", "into", "onto", "from"],
+    "Source": ["from"],
+}
+
+
+def _normalize_role_span(role_name: str, span_text: str) -> str:
+    """Normalize role spans by stripping role-specific prepositions and punctuation."""
+    text = span_text.strip()
+
+    for prep in ROLE_PREP_STRIP.get(role_name, []):
+        lower_text = text.lower()
+        if lower_text.startswith(prep + " "):
+            text = text[len(prep) + 1 :].lstrip()
+            break
+
+    text = text.strip(" \t\n\r,.;:!?")
+    return text
+
 
 def _decode_bio_spans(words: list[str], tags: list[str]) -> dict[str, str]:
     """
@@ -83,7 +107,8 @@ def _decode_bio_spans(words: list[str], tags: list[str]) -> dict[str, str]:
     def _flush() -> None:
         if current_tag and current_tokens and current_tag != "V":
             role_name = ROLE_MAP.get(current_tag, current_tag)
-            roles[role_name] = " ".join(current_tokens)
+            span_text = " ".join(current_tokens)
+            roles[role_name] = _normalize_role_span(role_name, span_text)
 
     for word, tag in zip(words, tags):
         if tag == "O":
