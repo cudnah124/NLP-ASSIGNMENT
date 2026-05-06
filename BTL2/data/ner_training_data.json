@@ -336,11 +336,6 @@
         0,
         25,
         "PENALTY"
-      ],
-      [
-        13,
-        25,
-        "RATE"
       ]
     ]
   },
@@ -866,11 +861,6 @@
         70,
         100,
         "PENALTY"
-      ],
-      [
-        88,
-        100,
-        "RATE"
       ]
     ]
   },
@@ -976,11 +966,6 @@
         60,
         106,
         "PENALTY"
-      ],
-      [
-        73,
-        84,
-        "RATE"
       ]
     ]
   },
@@ -1101,11 +1086,6 @@
         18,
         54,
         "PENALTY"
-      ],
-      [
-        41,
-        54,
-        "RATE"
       ]
     ]
   },
@@ -1221,6 +1201,9586 @@
         42,
         56,
         "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "The Employer agrees to pay the Employee a monthly salary of 5,000,000 VND starting from March 1, 2024.",
+    "entities": [
+      [
+        4,
+        12,
+        "PARTY"
+      ],
+      [
+        31,
+        39,
+        "PARTY"
+      ],
+      [
+        60,
+        73,
+        "MONEY"
+      ],
+      [
+        88,
+        101,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "ABC Corporation shall deliver the goods to XYZ Limited no later than June 30, 2025, failing which a penalty of 2,000,000 VND per day of delay shall apply.",
+    "entities": [
+      [
+        0,
+        15,
+        "PARTY"
+      ],
+      [
+        43,
+        54,
+        "PARTY"
+      ],
+      [
+        69,
+        82,
+        "DATE"
+      ],
+      [
+        100,
+        153,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "This Agreement shall be governed by and construed in accordance with Vietnamese law.",
+    "entities": [
+      [
+        69,
+        83,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The Borrower shall repay the Lender the principal amount of $50,000 with an annual interest rate of 8% per annum by December 31, 2026.",
+    "entities": [
+      [
+        4,
+        12,
+        "PARTY"
+      ],
+      [
+        29,
+        35,
+        "PARTY"
+      ],
+      [
+        60,
+        67,
+        "MONEY"
+      ],
+      [
+        100,
+        102,
+        "RATE"
+      ],
+      [
+        116,
+        133,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Seller warrants that title to all goods passes to Buyer free and clear of any encumbrances upon receipt of full payment of 20,000,000 VND.",
+    "entities": [
+      [
+        0,
+        6,
+        "PARTY"
+      ],
+      [
+        50,
+        55,
+        "PARTY"
+      ],
+      [
+        123,
+        137,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "Should Tenant fail to pay rent by the 5th of each month, Landlord shall be entitled to impose a late payment penalty of 500,000 VND per occurrence.",
+    "entities": [
+      [
+        7,
+        13,
+        "PARTY"
+      ],
+      [
+        57,
+        65,
+        "PARTY"
+      ],
+      [
+        96,
+        146,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Pursuant to the Civil Code 2015, all disputes arising from this contract shall be resolved by arbitration.",
+    "entities": [
+      [
+        16,
+        31,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The Service Provider shall complete the project by September 15, 2025, and any delay shall incur a penalty equal to 1% of the total contract value per week.",
+    "entities": [
+      [
+        4,
+        20,
+        "PARTY"
+      ],
+      [
+        51,
+        69,
+        "DATE"
+      ],
+      [
+        99,
+        155,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "GlobalTech Inc. agrees to license its software to DataSoft Vietnam for a licensing fee of $120,000 payable on January 1, 2025.",
+    "entities": [
+      [
+        0,
+        15,
+        "PARTY"
+      ],
+      [
+        50,
+        66,
+        "PARTY"
+      ],
+      [
+        90,
+        98,
+        "MONEY"
+      ],
+      [
+        110,
+        125,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The Contractor shall maintain professional indemnity insurance of at least 500,000,000 VND throughout the term of this Agreement, as required under Decree No. 15/2021/ND-CP.",
+    "entities": [
+      [
+        4,
+        14,
+        "PARTY"
+      ],
+      [
+        75,
+        90,
+        "MONEY"
+      ],
+      [
+        148,
+        172,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Pursuant to Article 35 of the Labor Code 2019, the Employee shall receive severance pay equivalent to one month's salary for each year of service.",
+    "entities": [
+      [
+        12,
+        45,
+        "LAW"
+      ],
+      [
+        51,
+        59,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "Vendor shall invoice Client monthly at a rate of 3.5% of total project costs, not to exceed $200,000 per quarter.",
+    "entities": [
+      [
+        0,
+        6,
+        "PARTY"
+      ],
+      [
+        21,
+        27,
+        "PARTY"
+      ],
+      [
+        49,
+        53,
+        "RATE"
+      ],
+      [
+        92,
+        100,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "The Franchisor grants Franchisee a non-exclusive license to operate under the brand name for five years commencing April 1, 2024.",
+    "entities": [
+      [
+        4,
+        14,
+        "PARTY"
+      ],
+      [
+        22,
+        32,
+        "PARTY"
+      ],
+      [
+        115,
+        128,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Should Consultant breach any confidentiality obligation, Client may seek liquidated damages of $75,000 as a penalty for unauthorized disclosure of proprietary information.",
+    "entities": [
+      [
+        7,
+        17,
+        "PARTY"
+      ],
+      [
+        57,
+        63,
+        "PARTY"
+      ],
+      [
+        95,
+        102,
+        "MONEY"
+      ],
+      [
+        108,
+        170,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Licensor and Licensee agree that royalty payments shall accrue at a rate of 12% of net revenues, payable quarterly beginning July 1, 2024.",
+    "entities": [
+      [
+        0,
+        8,
+        "PARTY"
+      ],
+      [
+        13,
+        21,
+        "PARTY"
+      ],
+      [
+        76,
+        79,
+        "RATE"
+      ],
+      [
+        125,
+        137,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "This contract is subject to and interpreted under the Law on Enterprises 2020 of the Socialist Republic of Vietnam.",
+    "entities": [
+      [
+        54,
+        77,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The Principal shall remit 15,000,000 VND to the Agent within 30 days of invoice receipt, referencing the signed document dated February 28, 2025.",
+    "entities": [
+      [
+        4,
+        13,
+        "PARTY"
+      ],
+      [
+        26,
+        40,
+        "MONEY"
+      ],
+      [
+        48,
+        53,
+        "PARTY"
+      ],
+      [
+        127,
+        144,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Distributor shall purchase a minimum of 1,000 units at 200,000 VND per unit from Manufacturer each calendar quarter.",
+    "entities": [
+      [
+        0,
+        11,
+        "PARTY"
+      ],
+      [
+        55,
+        66,
+        "MONEY"
+      ],
+      [
+        81,
+        93,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "The penalty for early termination by either Party A or Party B shall be equivalent to three months' service fees, not less than 30,000,000 VND.",
+    "entities": [
+      [
+        4,
+        112,
+        "PENALTY"
+      ],
+      [
+        128,
+        142,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "Insurer agrees to provide coverage to Insured up to a maximum of $1,000,000 per claim, effective from 01/06/2025 to 31/05/2026.",
+    "entities": [
+      [
+        0,
+        7,
+        "PARTY"
+      ],
+      [
+        38,
+        45,
+        "PARTY"
+      ],
+      [
+        65,
+        75,
+        "MONEY"
+      ],
+      [
+        102,
+        112,
+        "DATE"
+      ],
+      [
+        116,
+        126,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "All payments under this Agreement shall bear interest at 6.5% per annum in accordance with the provisions of the Civil Code 2015.",
+    "entities": [
+      [
+        57,
+        61,
+        "RATE"
+      ],
+      [
+        113,
+        128,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Tenant shall deposit 3,000,000 VND as a security deposit with Landlord prior to taking possession on March 15, 2024.",
+    "entities": [
+      [
+        0,
+        6,
+        "PARTY"
+      ],
+      [
+        21,
+        34,
+        "MONEY"
+      ],
+      [
+        62,
+        70,
+        "PARTY"
+      ],
+      [
+        101,
+        115,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The penalty clause stipulates that Supplier shall pay Buyer 0.1% of the undelivered goods value per day of delay, up to a maximum of 8% of the total contract value.",
+    "entities": [
+      [
+        4,
+        163,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Employer shall contribute 20,000,000 VND annually to the Employee's pension fund, as mandated by the Social Insurance Law 2014.",
+    "entities": [
+      [
+        0,
+        8,
+        "PARTY"
+      ],
+      [
+        26,
+        40,
+        "MONEY"
+      ],
+      [
+        57,
+        65,
+        "PARTY"
+      ],
+      [
+        101,
+        126,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The Joint Venture between Alpha Holdings and Beta Ventures shall commence on 01/07/2024 and terminate on 30/06/2029.",
+    "entities": [
+      [
+        26,
+        40,
+        "PARTY"
+      ],
+      [
+        45,
+        58,
+        "PARTY"
+      ],
+      [
+        77,
+        87,
+        "DATE"
+      ],
+      [
+        105,
+        115,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Subcontractor shall be subject to a delay penalty of 500,000 VND for each calendar day beyond the agreed completion date of November 30, 2024, constituting a penalty for failure to meet delivery milestones.",
+    "entities": [
+      [
+        0,
+        13,
+        "PARTY"
+      ],
+      [
+        36,
+        120,
+        "PENALTY"
+      ],
+      [
+        124,
+        141,
+        "DATE"
+      ],
+      [
+        158,
+        205,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "The interest rate applicable to overdue invoices shall be 9% per annum as specified under the Commercial Law 2005.",
+    "entities": [
+      [
+        58,
+        60,
+        "RATE"
+      ],
+      [
+        94,
+        113,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Buyer shall wire transfer $300,000 to Seller's designated account no later than three business days after execution of this Agreement on 05/05/2025.",
+    "entities": [
+      [
+        0,
+        5,
+        "PARTY"
+      ],
+      [
+        26,
+        34,
+        "MONEY"
+      ],
+      [
+        38,
+        44,
+        "PARTY"
+      ],
+      [
+        137,
+        147,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The lessor, Nguyen Van An, shall receive rental payments of 8,000,000 VND per month from the lessee, Tran Thi Bich, starting 01/01/2025.",
+    "entities": [
+      [
+        12,
+        25,
+        "PARTY"
+      ],
+      [
+        60,
+        73,
+        "MONEY"
+      ],
+      [
+        101,
+        114,
+        "PARTY"
+      ],
+      [
+        125,
+        135,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Failure by Borrower to repay the loan by its maturity date of August 15, 2027 shall result in a penalty interest charge of 15% per annum on all outstanding balances.",
+    "entities": [
+      [
+        11,
+        19,
+        "PARTY"
+      ],
+      [
+        62,
+        77,
+        "DATE"
+      ],
+      [
+        96,
+        164,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "This Memorandum of Understanding between TechVision Co. and SmartBuild Ltd. is governed by the laws of Vietnam and entered into on 10/10/2024.",
+    "entities": [
+      [
+        41,
+        55,
+        "PARTY"
+      ],
+      [
+        60,
+        75,
+        "PARTY"
+      ],
+      [
+        95,
+        110,
+        "LAW"
+      ],
+      [
+        131,
+        141,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The Employee's base salary shall be 12,000,000 VND per month, subject to an annual increment of 5% provided performance targets are met.",
+    "entities": [
+      [
+        4,
+        12,
+        "PARTY"
+      ],
+      [
+        36,
+        50,
+        "MONEY"
+      ],
+      [
+        96,
+        98,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Developer shall deliver the software prototype to Client by March 31, 2025, with a penalty of 10,000,000 VND for each month of delay beyond the due date.",
+    "entities": [
+      [
+        0,
+        9,
+        "PARTY"
+      ],
+      [
+        50,
+        56,
+        "PARTY"
+      ],
+      [
+        60,
+        74,
+        "DATE"
+      ],
+      [
+        83,
+        152,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "In accordance with Circular 39/2016/TT-NHNN, the Lender shall not charge interest exceeding 20% per annum on any consumer loan.",
+    "entities": [
+      [
+        19,
+        43,
+        "LAW"
+      ],
+      [
+        49,
+        55,
+        "PARTY"
+      ],
+      [
+        92,
+        95,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Consignor authorizes Consignee to sell goods on its behalf and shall receive 70% of the proceeds, with the remaining 30% retained by Consignee as a commission fee.",
+    "entities": [
+      [
+        0,
+        9,
+        "PARTY"
+      ],
+      [
+        21,
+        30,
+        "PARTY"
+      ],
+      [
+        77,
+        80,
+        "RATE"
+      ],
+      [
+        117,
+        120,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Any breach of the non-compete clause by the Employee shall constitute a penalty obligating payment of 50,000,000 VND to the Employer within 30 days of the breach.",
+    "entities": [
+      [
+        44,
+        52,
+        "PARTY"
+      ],
+      [
+        72,
+        161,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Sigma Tech Solutions and Omega Digital agree to split net profits equally, each receiving 50%, subject to annual review beginning December 1, 2024.",
+    "entities": [
+      [
+        0,
+        20,
+        "PARTY"
+      ],
+      [
+        25,
+        38,
+        "PARTY"
+      ],
+      [
+        90,
+        93,
+        "RATE"
+      ],
+      [
+        130,
+        146,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The escrow amount of 100,000,000 VND held by the Escrow Agent shall be released to Seller upon satisfaction of all conditions precedent by 01/03/2025.",
+    "entities": [
+      [
+        21,
+        36,
+        "MONEY"
+      ],
+      [
+        49,
+        61,
+        "PARTY"
+      ],
+      [
+        83,
+        89,
+        "PARTY"
+      ],
+      [
+        139,
+        149,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Pursuant to the Investment Law 2020, the Foreign Investor shall not repatriate capital until the project has operated for a minimum period of three years.",
+    "entities": [
+      [
+        16,
+        35,
+        "LAW"
+      ],
+      [
+        41,
+        57,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "The management fee payable by Fund Manager to Administrator shall be 0.5% of net asset value, calculated monthly and payable by the 15th of each month.",
+    "entities": [
+      [
+        30,
+        42,
+        "PARTY"
+      ],
+      [
+        46,
+        59,
+        "PARTY"
+      ],
+      [
+        69,
+        73,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "If Seller fails to deliver the contracted quantity by July 15, 2025, Buyer shall be entitled to a penalty of $10,000 per day of delay until full delivery is made.",
+    "entities": [
+      [
+        3,
+        9,
+        "PARTY"
+      ],
+      [
+        54,
+        67,
+        "DATE"
+      ],
+      [
+        69,
+        74,
+        "PARTY"
+      ],
+      [
+        98,
+        161,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "The Guarantor unconditionally guarantees payment of all amounts owed by Obligor to Creditor, up to a maximum of 200,000,000 VND, under the terms of the Civil Code 2015.",
+    "entities": [
+      [
+        4,
+        13,
+        "PARTY"
+      ],
+      [
+        72,
+        79,
+        "PARTY"
+      ],
+      [
+        83,
+        91,
+        "PARTY"
+      ],
+      [
+        112,
+        127,
+        "MONEY"
+      ],
+      [
+        152,
+        167,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Licensee shall pay Licensor a one-time upfront fee of $25,000 on the Effective Date of May 1, 2025, and thereafter a recurring fee at a rate of 4% of monthly gross revenue.",
+    "entities": [
+      [
+        0,
+        8,
+        "PARTY"
+      ],
+      [
+        19,
+        27,
+        "PARTY"
+      ],
+      [
+        54,
+        61,
+        "MONEY"
+      ],
+      [
+        87,
+        98,
+        "DATE"
+      ],
+      [
+        144,
+        146,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Green Energy Ltd. shall supply electricity to Industrial Park JSC at a tariff of 1,800 VND per kWh from 01/01/2025 through 31/12/2027.",
+    "entities": [
+      [
+        0,
+        17,
+        "PARTY"
+      ],
+      [
+        46,
+        65,
+        "PARTY"
+      ],
+      [
+        81,
+        90,
+        "MONEY"
+      ],
+      [
+        104,
+        114,
+        "DATE"
+      ],
+      [
+        123,
+        133,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Pursuant to Resolution No. 326/2023/UBTVQH15, all penalty provisions in this Agreement shall be enforced in accordance with the dispute resolution mechanisms therein.",
+    "entities": [
+      [
+        12,
+        44,
+        "LAW"
+      ],
+      [
+        50,
+        165,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "The Assignor hereby assigns all rights and obligations under this contract to Assignee, effective 15/08/2025, for a consideration of 5,000,000 VND.",
+    "entities": [
+      [
+        4,
+        12,
+        "PARTY"
+      ],
+      [
+        78,
+        86,
+        "PARTY"
+      ],
+      [
+        98,
+        108,
+        "DATE"
+      ],
+      [
+        133,
+        146,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "Prime Contractor shall impose a back-charge penalty on Subcontractor equal to 150% of the remediation costs if defects are not rectified within 14 days of written notice.",
+    "entities": [
+      [
+        0,
+        16,
+        "PARTY"
+      ],
+      [
+        32,
+        169,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "The Parties, namely Vietnam State Bank and Agribank, agree that any overdue debt shall accrue default interest at 10% per annum as prescribed by Decree 21/2021/ND-CP.",
+    "entities": [
+      [
+        20,
+        38,
+        "PARTY"
+      ],
+      [
+        43,
+        51,
+        "PARTY"
+      ],
+      [
+        114,
+        117,
+        "RATE"
+      ],
+      [
+        145,
+        165,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Owner shall pay Contractor the sum of 450,000,000 VND in three installments: 150,000,000 VND upon signing on 01/04/2025, 150,000,000 VND upon completion of Phase 1, and the final 150,000,000 VND upon project handover no later than 01/10/2026.",
+    "entities": [
+      [
+        0,
+        5,
+        "PARTY"
+      ],
+      [
+        16,
+        26,
+        "PARTY"
+      ],
+      [
+        38,
+        53,
+        "MONEY"
+      ],
+      [
+        77,
+        92,
+        "MONEY"
+      ],
+      [
+        109,
+        119,
+        "DATE"
+      ],
+      [
+        121,
+        136,
+        "MONEY"
+      ],
+      [
+        179,
+        194,
+        "MONEY"
+      ],
+      [
+        231,
+        241,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Party A acknowledges receipt of the deposit paid by Party A on behalf of Party B.",
+    "entities": [
+      [
+        0,
+        7,
+        "PARTY"
+      ],
+      [
+        52,
+        59,
+        "PARTY"
+      ],
+      [
+        73,
+        80,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "The arbitration fees shall be borne by Claimant and shall range from 5,000,000 VND to 50,000,000 VND depending on the claim value.",
+    "entities": [
+      [
+        39,
+        47,
+        "PARTY"
+      ],
+      [
+        69,
+        82,
+        "MONEY"
+      ],
+      [
+        86,
+        100,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "The warranty period commences on 01/01/2025 and expires on 31/12/2025, with an optional extension until 30/06/2026 upon written agreement between Vendor and Purchaser.",
+    "entities": [
+      [
+        33,
+        43,
+        "DATE"
+      ],
+      [
+        59,
+        69,
+        "DATE"
+      ],
+      [
+        104,
+        114,
+        "DATE"
+      ],
+      [
+        146,
+        152,
+        "PARTY"
+      ],
+      [
+        157,
+        166,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "The spread payable by Debtor to Creditor shall be 250 basis points (2.5%) above the reference rate published by the State Bank of Vietnam on each reset date.",
+    "entities": [
+      [
+        22,
+        28,
+        "PARTY"
+      ],
+      [
+        32,
+        40,
+        "PARTY"
+      ],
+      [
+        68,
+        72,
+        "RATE"
+      ],
+      [
+        116,
+        137,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "In the event of delayed delivery, Supplier shall pay Buyer a penalty as follows: 0.5% of the contract value for delays up to 7 days, and 1% per day thereafter, as a penalty for breach of delivery schedule.",
+    "entities": [
+      [
+        34,
+        42,
+        "PARTY"
+      ],
+      [
+        53,
+        58,
+        "PARTY"
+      ],
+      [
+        61,
+        204,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "This clause is drafted in compliance with Article 17, Clause 3 of the Law on Cybersecurity 2018, and Franchisor shall ensure full adherence.",
+    "entities": [
+      [
+        42,
+        95,
+        "LAW"
+      ],
+      [
+        101,
+        111,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "The Seller shall receive fifty million Vietnamese Dong (50,000,000 VND) as full and final settlement from Buyer.",
+    "entities": [
+      [
+        4,
+        10,
+        "PARTY"
+      ],
+      [
+        56,
+        70,
+        "MONEY"
+      ],
+      [
+        106,
+        111,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "Interest shall accrue at a floating rate equal to LIBOR plus 3.5% per annum, payable by Borrower to Noteholder on each quarterly payment date.",
+    "entities": [
+      [
+        61,
+        65,
+        "RATE"
+      ],
+      [
+        88,
+        96,
+        "PARTY"
+      ],
+      [
+        100,
+        110,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "The total aggregate penalty payable by Contractor to Owner shall not exceed 10% of the total contract price of 2,000,000,000 VND under any circumstances.",
+    "entities": [
+      [
+        4,
+        107,
+        "PENALTY"
+      ],
+      [
+        111,
+        128,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "This Agreement is governed by the Civil Code 2015 and the Commercial Law 2005, and any unresolved disputes shall be referred to the Vietnam International Arbitration Centre.",
+    "entities": [
+      [
+        34,
+        49,
+        "LAW"
+      ],
+      [
+        58,
+        77,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Hanoi Infrastructure Investment Joint Stock Company (hereinafter \"HIIJSC\") shall pay Ho Chi Minh City Urban Development Corporation (hereinafter \"HCUD\") 80,000,000,000 VND by 30/09/2025.",
+    "entities": [
+      [
+        0,
+        51,
+        "PARTY"
+      ],
+      [
+        85,
+        131,
+        "PARTY"
+      ],
+      [
+        153,
+        171,
+        "MONEY"
+      ],
+      [
+        175,
+        185,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Lender agrees to charge 0% interest for the first six months of the loan term to Borrower as a promotional concession.",
+    "entities": [
+      [
+        0,
+        6,
+        "PARTY"
+      ],
+      [
+        24,
+        26,
+        "RATE"
+      ],
+      [
+        81,
+        89,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "Licensor may terminate this Agreement and claim a penalty of $500,000 from Licensee for any act of reverse engineering of the licensed software.",
+    "entities": [
+      [
+        0,
+        8,
+        "PARTY"
+      ],
+      [
+        50,
+        143,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "This Agreement shall be deemed effective retroactively from January 1, 2024, notwithstanding its execution date of March 10, 2025, between Alpha Corp and Beta Corp.",
+    "entities": [
+      [
+        60,
+        75,
+        "DATE"
+      ],
+      [
+        115,
+        129,
+        "DATE"
+      ],
+      [
+        139,
+        149,
+        "PARTY"
+      ],
+      [
+        154,
+        163,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "Jointly and severally, ABC Ltd., DEF Co., and GHI Inc. shall be liable to pay 15,000,000 VND to Plaintiff no later than 15/07/2025.",
+    "entities": [
+      [
+        23,
+        31,
+        "PARTY"
+      ],
+      [
+        33,
+        40,
+        "PARTY"
+      ],
+      [
+        46,
+        54,
+        "PARTY"
+      ],
+      [
+        78,
+        92,
+        "MONEY"
+      ],
+      [
+        96,
+        105,
+        "PARTY"
+      ],
+      [
+        120,
+        130,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Should Lessor fail to maintain the premises in a habitable condition, Lessee shall be entitled, as a penalty remedy, to withhold up to 30% of the monthly rent of 10,000,000 VND until the defect is remedied.",
+    "entities": [
+      [
+        7,
+        13,
+        "PARTY"
+      ],
+      [
+        70,
+        76,
+        "PARTY"
+      ],
+      [
+        101,
+        158,
+        "PENALTY"
+      ],
+      [
+        162,
+        176,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "The tax obligations of Taxpayer shall be calculated in accordance with Circular No. 80/2021/TT-BTC issued by the Ministry of Finance.",
+    "entities": [
+      [
+        23,
+        31,
+        "PARTY"
+      ],
+      [
+        71,
+        98,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The total consideration is USD 200,000 (equivalent to approximately 5,000,000,000 VND at the prevailing exchange rate), payable by Investor to Target Company on the Closing Date of 01/12/2025.",
+    "entities": [
+      [
+        27,
+        38,
+        "MONEY"
+      ],
+      [
+        68,
+        85,
+        "MONEY"
+      ],
+      [
+        131,
+        139,
+        "PARTY"
+      ],
+      [
+        143,
+        157,
+        "PARTY"
+      ],
+      [
+        181,
+        191,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Escrow Agent shall hold 100,000,000 VND in trust; upon successful completion, 100,000,000 VND shall be released to Beneficiary.",
+    "entities": [
+      [
+        0,
+        12,
+        "PARTY"
+      ],
+      [
+        24,
+        39,
+        "MONEY"
+      ],
+      [
+        78,
+        93,
+        "MONEY"
+      ],
+      [
+        115,
+        126,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "The variable interest rate charged by Bank to Corporate Borrower shall not fall below 4% nor exceed 12% per annum in any calculation period.",
+    "entities": [
+      [
+        38,
+        42,
+        "PARTY"
+      ],
+      [
+        46,
+        64,
+        "PARTY"
+      ],
+      [
+        86,
+        88,
+        "RATE"
+      ],
+      [
+        100,
+        103,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Obligor shall have a 10-day cure period; thereafter, a penalty of 0.05% of the outstanding amount per day shall accrue in favour of Obligee until full cure.",
+    "entities": [
+      [
+        0,
+        7,
+        "PARTY"
+      ],
+      [
+        55,
+        155,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "The fundamental rights of Employee are protected under the Constitution of the Socialist Republic of Vietnam 2013, and Employer shall not act in contravention thereof.",
+    "entities": [
+      [
+        26,
+        34,
+        "PARTY"
+      ],
+      [
+        59,
+        113,
+        "LAW"
+      ],
+      [
+        119,
+        127,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "Service Provider shall deliver the final report no later than the last business day of Q3 2025 (i.e., September 30, 2025) to Client.",
+    "entities": [
+      [
+        0,
+        16,
+        "PARTY"
+      ],
+      [
+        102,
+        120,
+        "DATE"
+      ],
+      [
+        125,
+        131,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "Developer shall pay Landowner 10,000,000,000 VND in four tranches: 25% on 01/03/2025, 25% on 01/06/2025, 25% on 01/09/2025, and the remaining 25% on 01/12/2025.",
+    "entities": [
+      [
+        0,
+        9,
+        "PARTY"
+      ],
+      [
+        20,
+        29,
+        "PARTY"
+      ],
+      [
+        30,
+        48,
+        "MONEY"
+      ],
+      [
+        67,
+        70,
+        "RATE"
+      ],
+      [
+        74,
+        84,
+        "DATE"
+      ],
+      [
+        86,
+        89,
+        "RATE"
+      ],
+      [
+        93,
+        103,
+        "DATE"
+      ],
+      [
+        105,
+        108,
+        "RATE"
+      ],
+      [
+        112,
+        122,
+        "DATE"
+      ],
+      [
+        142,
+        145,
+        "RATE"
+      ],
+      [
+        149,
+        159,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Pursuant to Article 300 of the Commercial Law 2005, the penalty for Seller's failure to deliver conforming goods shall not exceed 8% of the value of the non-conforming portion.",
+    "entities": [
+      [
+        12,
+        50,
+        "LAW"
+      ],
+      [
+        56,
+        175,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "This Agreement shall automatically renew on January 1, 2026 for successive one-year terms unless either Party A or Party B provides 90 days' written notice of non-renewal.",
+    "entities": [
+      [
+        44,
+        59,
+        "DATE"
+      ],
+      [
+        104,
+        111,
+        "PARTY"
+      ],
+      [
+        115,
+        122,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "Neither Contractor nor Employer shall be liable for penalties or damages exceeding 500,000,000 VND in the event of a force majeure event lasting more than 30 consecutive days.",
+    "entities": [
+      [
+        8,
+        18,
+        "PARTY"
+      ],
+      [
+        23,
+        31,
+        "PARTY"
+      ],
+      [
+        41,
+        174,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Assignor transfers all intellectual property rights to Assignee for a lump-sum payment of $80,000 plus an ongoing royalty of 2% of annual net sales from the Effective Date of 01/01/2026.",
+    "entities": [
+      [
+        0,
+        8,
+        "PARTY"
+      ],
+      [
+        55,
+        63,
+        "PARTY"
+      ],
+      [
+        90,
+        97,
+        "MONEY"
+      ],
+      [
+        125,
+        127,
+        "RATE"
+      ],
+      [
+        175,
+        185,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "This Agreement shall be governed by the laws of Vietnam, specifically the Civil Code 2015, and the parties irrevocably submit to the exclusive jurisdiction of the courts of Hanoi.",
+    "entities": [
+      [
+        74,
+        89,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Franchisee shall pay Franchisor a penalty of 20,000,000 VND for each instance of unauthorized use of the trademark, and a separate penalty of 50,000,000 VND for any disclosure of trade secrets.",
+    "entities": [
+      [
+        0,
+        10,
+        "PARTY"
+      ],
+      [
+        21,
+        31,
+        "PARTY"
+      ],
+      [
+        34,
+        114,
+        "PENALTY"
+      ],
+      [
+        131,
+        192,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "As an incentive, Bank shall credit Depositor with a bonus rate of 0.25% per month on balances exceeding 100,000,000 VND maintained through December 31, 2025.",
+    "entities": [
+      [
+        17,
+        21,
+        "PARTY"
+      ],
+      [
+        35,
+        44,
+        "PARTY"
+      ],
+      [
+        66,
+        71,
+        "RATE"
+      ],
+      [
+        104,
+        119,
+        "MONEY"
+      ],
+      [
+        139,
+        156,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "All procurement activities conducted by Procuring Entity shall comply with Decree No. 24/2024/ND-CP on public procurement, and any non-compliance shall render the contract void.",
+    "entities": [
+      [
+        40,
+        56,
+        "PARTY"
+      ],
+      [
+        75,
+        99,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The aggregate liability of Service Provider to Client under this Agreement shall not exceed the total fees paid in the 12 months preceding the claim, capped at $1,500,000.",
+    "entities": [
+      [
+        27,
+        43,
+        "PARTY"
+      ],
+      [
+        47,
+        53,
+        "PARTY"
+      ],
+      [
+        160,
+        170,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "The final payment of 75,000,000 VND shall be due 30 days after the issuance of the Completion Certificate, which is expected no later than June 30, 2026.",
+    "entities": [
+      [
+        21,
+        35,
+        "MONEY"
+      ],
+      [
+        139,
+        152,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Principal hereby instructs Agent to remit 200,000,000 VND collected from Sub-Agent to the Principal's designated account by the 10th of each calendar month.",
+    "entities": [
+      [
+        0,
+        9,
+        "PARTY"
+      ],
+      [
+        27,
+        32,
+        "PARTY"
+      ],
+      [
+        42,
+        57,
+        "MONEY"
+      ],
+      [
+        73,
+        82,
+        "PARTY"
+      ],
+      [
+        90,
+        99,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "Owner shall be entitled to withhold 5% of each progress payment as a retention sum, to be released to Contractor within 28 days of Final Completion, as a performance security penalty mechanism.",
+    "entities": [
+      [
+        0,
+        5,
+        "PARTY"
+      ],
+      [
+        27,
+        192,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "CÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â´ng ty TNHH Minh PhÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡t (hereinafter \"Minh Phat\") shall pay Nguyen Hoang Linh 25,000,000 VND per month for consultancy services commencing 01/02/2025.",
+    "entities": [
+      [
+        0,
+        22,
+        "PARTY"
+      ],
+      [
+        59,
+        76,
+        "PARTY"
+      ],
+      [
+        77,
+        91,
+        "MONEY"
+      ],
+      [
+        138,
+        148,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Overdue amounts shall bear interest at the rate prescribed under Article 357 of the Civil Code 2015, currently set at 10% per annum, until fully settled by Debtor.",
+    "entities": [
+      [
+        65,
+        99,
+        "LAW"
+      ],
+      [
+        118,
+        121,
+        "RATE"
+      ],
+      [
+        156,
+        162,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "The escrow deposit of $250,000 shall be released: (i) $100,000 to Seller on 01/06/2025 upon delivery; (ii) the remaining $150,000 to Seller on 01/09/2025 upon final acceptance.",
+    "entities": [
+      [
+        22,
+        30,
+        "MONEY"
+      ],
+      [
+        54,
+        62,
+        "MONEY"
+      ],
+      [
+        66,
+        72,
+        "PARTY"
+      ],
+      [
+        76,
+        86,
+        "DATE"
+      ],
+      [
+        121,
+        129,
+        "MONEY"
+      ],
+      [
+        133,
+        139,
+        "PARTY"
+      ],
+      [
+        143,
+        153,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Any public disparagement of Licensor's brand by Licensee shall constitute a material breach and result in a penalty of $200,000 for reputational harm, payable within 15 days of written demand.",
+    "entities": [
+      [
+        28,
+        36,
+        "PARTY"
+      ],
+      [
+        48,
+        56,
+        "PARTY"
+      ],
+      [
+        108,
+        191,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "In the event of conflict between the Law on Investment 2020 and the Law on Enterprises 2020, the provisions of the Law on Investment 2020 shall prevail with respect to Foreign Investor's rights.",
+    "entities": [
+      [
+        37,
+        59,
+        "LAW"
+      ],
+      [
+        68,
+        91,
+        "LAW"
+      ],
+      [
+        115,
+        137,
+        "LAW"
+      ],
+      [
+        168,
+        184,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "Employee agrees that 10,000,000 VND of the monthly salary shall be deferred and placed in an interest-bearing account at 5% per annum, to be paid in full by Employer on December 31, 2025.",
+    "entities": [
+      [
+        0,
+        8,
+        "PARTY"
+      ],
+      [
+        21,
+        35,
+        "MONEY"
+      ],
+      [
+        121,
+        123,
+        "RATE"
+      ],
+      [
+        157,
+        165,
+        "PARTY"
+      ],
+      [
+        169,
+        186,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Willful misconduct by Contractor shall attract double the standard penalty, amounting to 60,000,000 VND as a penalty for aggravated breach, recoverable by Owner.",
+    "entities": [
+      [
+        22,
+        32,
+        "PARTY"
+      ],
+      [
+        47,
+        160,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "This Agreement shall be governed by and construed in accordance with the laws of England and Wales, notwithstanding the location of business of Seller and Buyer in Vietnam.",
+    "entities": [
+      [
+        73,
+        98,
+        "LAW"
+      ],
+      [
+        144,
+        150,
+        "PARTY"
+      ],
+      [
+        155,
+        160,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "Publisher shall pay Author a royalty of 8% of the cover price per copy sold, subject to a minimum annual guarantee of 50,000,000 VND regardless of actual sales.",
+    "entities": [
+      [
+        0,
+        9,
+        "PARTY"
+      ],
+      [
+        20,
+        26,
+        "PARTY"
+      ],
+      [
+        40,
+        42,
+        "RATE"
+      ],
+      [
+        118,
+        132,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "In the event of a personal data breach caused by Processor, Processor shall pay Controller a penalty of 100,000,000 VND per affected data subject, up to an aggregate cap of 1,000,000,000 VND, as required under Decree 13/2023/ND-CP.",
+    "entities": [
+      [
+        49,
+        58,
+        "PARTY"
+      ],
+      [
+        60,
+        69,
+        "PARTY"
+      ],
+      [
+        80,
+        90,
+        "PARTY"
+      ],
+      [
+        93,
+        190,
+        "PENALTY"
+      ],
+      [
+        210,
+        230,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The parties agree that the liquidated damages of $30,000 represent a genuine pre-estimate of loss and shall not be construed as a penalty under the governing law, being the Civil Code 2015.",
+    "entities": [
+      [
+        49,
+        56,
+        "MONEY"
+      ],
+      [
+        173,
+        188,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Agent shall earn a commission of 2% on sales up to $500,000, and 3.5% on any amount exceeding $500,000, payable by Principal on the last business day of each month.",
+    "entities": [
+      [
+        0,
+        5,
+        "PARTY"
+      ],
+      [
+        33,
+        35,
+        "RATE"
+      ],
+      [
+        51,
+        59,
+        "MONEY"
+      ],
+      [
+        65,
+        69,
+        "RATE"
+      ],
+      [
+        94,
+        102,
+        "MONEY"
+      ],
+      [
+        115,
+        124,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "For every day that Lessee fails to vacate the premises after expiry of the lease term on 31/03/2026, Lessor shall charge a holding-over penalty of 2,000,000 VND per day.",
+    "entities": [
+      [
+        19,
+        25,
+        "PARTY"
+      ],
+      [
+        89,
+        99,
+        "DATE"
+      ],
+      [
+        101,
+        107,
+        "PARTY"
+      ],
+      [
+        123,
+        168,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "To the extent applicable, the parties shall comply with both the Anti-Money Laundering Law 2022 of Vietnam and the relevant FATF Recommendations, as acknowledged by Financial Institution and Customer.",
+    "entities": [
+      [
+        65,
+        95,
+        "LAW"
+      ],
+      [
+        165,
+        186,
+        "PARTY"
+      ],
+      [
+        191,
+        199,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "Contractor shall achieve Structural Completion by August 31, 2025, and Practical Completion by February 28, 2026; failure to meet either milestone shall incur a delay penalty of 0.1% of the contract sum of 50,000,000,000 VND per day.",
+    "entities": [
+      [
+        0,
+        10,
+        "PARTY"
+      ],
+      [
+        50,
+        65,
+        "DATE"
+      ],
+      [
+        95,
+        112,
+        "DATE"
+      ],
+      [
+        161,
+        232,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "The One Member Limited Liability Company known as Viet Xanh Trading (hereinafter \"Seller\") shall transfer title of the asset to the Joint Stock Company known as Nam Phong Real Estate (hereinafter \"Buyer\") for 3,500,000,000 VND on 15/11/2025.",
+    "entities": [
+      [
+        50,
+        67,
+        "PARTY"
+      ],
+      [
+        161,
+        182,
+        "PARTY"
+      ],
+      [
+        209,
+        226,
+        "MONEY"
+      ],
+      [
+        230,
+        240,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The discount rate granted by Supplier to Distributor shall be 5% for Year 1 (ending December 31, 2025), 7% for Year 2 (ending December 31, 2026), and 10% from Year 3 onwards.",
+    "entities": [
+      [
+        29,
+        37,
+        "PARTY"
+      ],
+      [
+        41,
+        52,
+        "PARTY"
+      ],
+      [
+        62,
+        64,
+        "RATE"
+      ],
+      [
+        84,
+        101,
+        "DATE"
+      ],
+      [
+        104,
+        106,
+        "RATE"
+      ],
+      [
+        126,
+        143,
+        "DATE"
+      ],
+      [
+        150,
+        153,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Infringer shall pay Rights Holder a penalty of 300,000,000 VND for each infringing act, as a penalty for unauthorized reproduction, in addition to any injunctive relief available under the Law on Intellectual Property 2005 (as amended in 2022).",
+    "entities": [
+      [
+        0,
+        9,
+        "PARTY"
+      ],
+      [
+        20,
+        33,
+        "PARTY"
+      ],
+      [
+        36,
+        130,
+        "PENALTY"
+      ],
+      [
+        189,
+        243,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Seller shall be entitled to an earn-out payment of up to $5,000,000 from Buyer if the acquired business achieves EBITDA of at least $2,000,000 in the fiscal year ending December 31, 2026.",
+    "entities": [
+      [
+        0,
+        6,
+        "PARTY"
+      ],
+      [
+        57,
+        67,
+        "MONEY"
+      ],
+      [
+        73,
+        78,
+        "PARTY"
+      ],
+      [
+        132,
+        142,
+        "MONEY"
+      ],
+      [
+        169,
+        186,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "In the event of termination for convenience by Client, Client shall pay Service Provider a termination fee equal to 15% of the remaining contract value, as a penalty for early exit.",
+    "entities": [
+      [
+        47,
+        53,
+        "PARTY"
+      ],
+      [
+        55,
+        61,
+        "PARTY"
+      ],
+      [
+        72,
+        88,
+        "PARTY"
+      ],
+      [
+        91,
+        180,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "The transfer of land use rights from Transferor to Transferee shall be executed in compliance with the Land Law 2024 and notarized before a competent notary public.",
+    "entities": [
+      [
+        37,
+        47,
+        "PARTY"
+      ],
+      [
+        51,
+        61,
+        "PARTY"
+      ],
+      [
+        103,
+        116,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Tenant shall pay Landlord monthly rent of 15,000,000 VND for the first two years, increasing to 18,000,000 VND per month from the third year of the lease commencing 01/05/2025.",
+    "entities": [
+      [
+        0,
+        6,
+        "PARTY"
+      ],
+      [
+        17,
+        25,
+        "PARTY"
+      ],
+      [
+        42,
+        56,
+        "MONEY"
+      ],
+      [
+        96,
+        110,
+        "MONEY"
+      ],
+      [
+        165,
+        175,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Performance Bond Provider unconditionally guarantees, in favour of Employer, performance by Contractor; the bond amount is 10% of the contract price of 8,000,000,000 VND, valid until 01/01/2027.",
+    "entities": [
+      [
+        0,
+        25,
+        "PARTY"
+      ],
+      [
+        67,
+        75,
+        "PARTY"
+      ],
+      [
+        92,
+        102,
+        "PARTY"
+      ],
+      [
+        123,
+        126,
+        "RATE"
+      ],
+      [
+        152,
+        169,
+        "MONEY"
+      ],
+      [
+        183,
+        193,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "During the period from 01/07/2025 to 31/07/2025, Operator shall pay Platform 500,000 VND per transaction processed, subject to a monthly cap of 100,000,000 VND.",
+    "entities": [
+      [
+        23,
+        33,
+        "DATE"
+      ],
+      [
+        37,
+        47,
+        "DATE"
+      ],
+      [
+        49,
+        57,
+        "PARTY"
+      ],
+      [
+        68,
+        76,
+        "PARTY"
+      ],
+      [
+        77,
+        88,
+        "MONEY"
+      ],
+      [
+        144,
+        159,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "Whereas Borrower was previously Lender under the Original Agreement dated March 1, 2023, the parties agree to novate all obligations effective April 1, 2025.",
+    "entities": [
+      [
+        8,
+        16,
+        "PARTY"
+      ],
+      [
+        32,
+        38,
+        "PARTY"
+      ],
+      [
+        74,
+        87,
+        "DATE"
+      ],
+      [
+        143,
+        156,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Should Operator fail to renew its operating license by June 30, 2025, it shall indemnify Investor against any regulatory penalty imposed under Decree No. 98/2020/ND-CP, up to 500,000,000 VND.",
+    "entities": [
+      [
+        7,
+        15,
+        "PARTY"
+      ],
+      [
+        55,
+        68,
+        "DATE"
+      ],
+      [
+        79,
+        190,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Unpaid invoices shall accrue compound interest at 1.5% per month, calculated on the last day of each month, until fully discharged by Debtor to Creditor.",
+    "entities": [
+      [
+        50,
+        54,
+        "RATE"
+      ],
+      [
+        134,
+        140,
+        "PARTY"
+      ],
+      [
+        144,
+        152,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "JV Partner may earn a 40% participating interest in the project by contributing $3,000,000 by December 31, 2025 and a further $2,000,000 by December 31, 2026.",
+    "entities": [
+      [
+        0,
+        10,
+        "PARTY"
+      ],
+      [
+        22,
+        25,
+        "RATE"
+      ],
+      [
+        80,
+        90,
+        "MONEY"
+      ],
+      [
+        94,
+        111,
+        "DATE"
+      ],
+      [
+        126,
+        136,
+        "MONEY"
+      ],
+      [
+        140,
+        157,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Any violation of anti-bribery obligations by Representative shall be treated as a gross misconduct penalty event, entitling Principal to terminate and claim damages of 1,000,000,000 VND under the Anti-Corruption Law 2018.",
+    "entities": [
+      [
+        45,
+        59,
+        "PARTY"
+      ],
+      [
+        82,
+        185,
+        "PENALTY"
+      ],
+      [
+        196,
+        220,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The Consortium comprising Firm A, Firm B, and Firm C shall submit a joint bid and, if awarded, shall execute the works for 120,000,000,000 VND by December 31, 2027.",
+    "entities": [
+      [
+        26,
+        32,
+        "PARTY"
+      ],
+      [
+        34,
+        40,
+        "PARTY"
+      ],
+      [
+        46,
+        52,
+        "PARTY"
+      ],
+      [
+        123,
+        142,
+        "MONEY"
+      ],
+      [
+        146,
+        163,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Counterparty shall pay Beneficiary EUR 45,000 as a breakup fee if the proposed merger is not consummated by March 31, 2026.",
+    "entities": [
+      [
+        0,
+        12,
+        "PARTY"
+      ],
+      [
+        23,
+        34,
+        "PARTY"
+      ],
+      [
+        35,
+        45,
+        "MONEY"
+      ],
+      [
+        108,
+        122,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The penalty rates set out in Schedule 3 of this Agreement shall apply to Supplier's delay, with the maximum penalty not exceeding 5% of the annual contract value of 1,200,000,000 VND.",
+    "entities": [
+      [
+        73,
+        81,
+        "PARTY"
+      ],
+      [
+        100,
+        182,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Guarantor A and Guarantor B jointly and severally guarantee all payment obligations of Principal Debtor up to 400,000,000 VND, in accordance with the Civil Code 2015.",
+    "entities": [
+      [
+        0,
+        11,
+        "PARTY"
+      ],
+      [
+        16,
+        27,
+        "PARTY"
+      ],
+      [
+        87,
+        103,
+        "PARTY"
+      ],
+      [
+        110,
+        125,
+        "MONEY"
+      ],
+      [
+        150,
+        165,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Either Party A or Party B may terminate this Agreement immediately upon the occurrence of an insolvency event, with no penalty payable if termination occurs after January 1, 2026.",
+    "entities": [
+      [
+        7,
+        14,
+        "PARTY"
+      ],
+      [
+        18,
+        25,
+        "PARTY"
+      ],
+      [
+        163,
+        178,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Employer grants Employee an option to purchase 10,000 shares at $2.50 per share, vesting equally over four years from the grant date of 01/01/2025.",
+    "entities": [
+      [
+        0,
+        8,
+        "PARTY"
+      ],
+      [
+        16,
+        24,
+        "PARTY"
+      ],
+      [
+        64,
+        69,
+        "MONEY"
+      ],
+      [
+        136,
+        146,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Departing Employee shall not solicit any client of Employer for a period of 24 months after the termination date; breach shall incur a penalty of 200,000,000 VND as liquidated damages for non-solicitation violation.",
+    "entities": [
+      [
+        0,
+        18,
+        "PARTY"
+      ],
+      [
+        51,
+        59,
+        "PARTY"
+      ],
+      [
+        135,
+        214,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Client shall advance 30,000,000 VND to Consultant on 01/04/2025; if the engagement is cancelled by Client within 60 days, 50% of the advance shall be returned as a clawback penalty.",
+    "entities": [
+      [
+        0,
+        6,
+        "PARTY"
+      ],
+      [
+        21,
+        35,
+        "MONEY"
+      ],
+      [
+        39,
+        49,
+        "PARTY"
+      ],
+      [
+        53,
+        63,
+        "DATE"
+      ],
+      [
+        99,
+        105,
+        "PARTY"
+      ],
+      [
+        122,
+        180,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Lessor shall charge Lessee a storage fee of 50,000 VND per pallet per day, commencing from the date of deposit on 15/01/2025.",
+    "entities": [
+      [
+        0,
+        6,
+        "PARTY"
+      ],
+      [
+        20,
+        26,
+        "PARTY"
+      ],
+      [
+        44,
+        54,
+        "MONEY"
+      ],
+      [
+        114,
+        124,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Force majeure events as defined under Article 156 of the Civil Code 2015 shall excuse Contractor from penalty liability, provided written notice is given to Employer within 5 days of the event.",
+    "entities": [
+      [
+        38,
+        72,
+        "LAW"
+      ],
+      [
+        86,
+        96,
+        "PARTY"
+      ],
+      [
+        157,
+        165,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "Shareholder A shall have the right to sell its shares to Shareholder B at a price of 50,000 VND per share (the \"Put Price\") exercisable between January 1, 2026 and June 30, 2026.",
+    "entities": [
+      [
+        0,
+        13,
+        "PARTY"
+      ],
+      [
+        57,
+        70,
+        "PARTY"
+      ],
+      [
+        85,
+        95,
+        "MONEY"
+      ],
+      [
+        144,
+        159,
+        "DATE"
+      ],
+      [
+        164,
+        177,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Contractor shall pay Owner: (a) a delay penalty of 0.2% per day for late completion; (b) a defect penalty of 100,000,000 VND per uncured defect; and (c) a termination penalty of 10% of the contract value for wrongful abandonment.",
+    "entities": [
+      [
+        0,
+        10,
+        "PARTY"
+      ],
+      [
+        21,
+        26,
+        "PARTY"
+      ],
+      [
+        34,
+        83,
+        "PENALTY"
+      ],
+      [
+        91,
+        143,
+        "PENALTY"
+      ],
+      [
+        155,
+        228,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "The Employment Contract shall comply with the Labor Code 2019 (as amended by Law No. 38/2019/QH14) and all regulations issued thereunder, binding on both Employer and Employee.",
+    "entities": [
+      [
+        46,
+        98,
+        "LAW"
+      ],
+      [
+        154,
+        162,
+        "PARTY"
+      ],
+      [
+        167,
+        175,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "The deferred purchase price of 500,000,000 VND shall accrue interest at 7% per annum from the Signing Date of 01/09/2025 until paid in full by Buyer to Seller.",
+    "entities": [
+      [
+        31,
+        46,
+        "MONEY"
+      ],
+      [
+        72,
+        74,
+        "RATE"
+      ],
+      [
+        110,
+        120,
+        "DATE"
+      ],
+      [
+        143,
+        148,
+        "PARTY"
+      ],
+      [
+        152,
+        158,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "Each shareholder shall be jointly liable for the penalty of 1,000,000,000 VND in proportion to their ownership stake: Investor A at 60% and Investor B at 40%.",
+    "entities": [
+      [
+        49,
+        116,
+        "PENALTY"
+      ],
+      [
+        118,
+        128,
+        "PARTY"
+      ],
+      [
+        132,
+        135,
+        "RATE"
+      ],
+      [
+        140,
+        150,
+        "PARTY"
+      ],
+      [
+        154,
+        157,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Employer shall pay Employee a performance bonus of 5,000,000 VND if monthly revenue targets exceed 500,000,000 VND for three consecutive months.",
+    "entities": [
+      [
+        0,
+        8,
+        "PARTY"
+      ],
+      [
+        19,
+        27,
+        "PARTY"
+      ],
+      [
+        51,
+        64,
+        "MONEY"
+      ],
+      [
+        99,
+        114,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "If Platform Operator fails to maintain 99.9% system uptime in any calendar month, it shall credit Client an amount equal to 10% of the monthly service fee of 20,000,000 VND as a service level penalty.",
+    "entities": [
+      [
+        3,
+        20,
+        "PARTY"
+      ],
+      [
+        39,
+        44,
+        "RATE"
+      ],
+      [
+        91,
+        199,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Unless extended by mutual written agreement, this Agreement shall automatically terminate on December 31, 2030, without any penalty to either Grantor or Grantee.",
+    "entities": [
+      [
+        93,
+        110,
+        "DATE"
+      ],
+      [
+        142,
+        149,
+        "PARTY"
+      ],
+      [
+        153,
+        160,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "Should Employee voluntarily resign within 12 months of receiving the signing bonus of 30,000,000 VND paid on 01/03/2025, Employee shall repay Employer the full amount plus interest at 6% per annum.",
+    "entities": [
+      [
+        7,
+        15,
+        "PARTY"
+      ],
+      [
+        86,
+        100,
+        "MONEY"
+      ],
+      [
+        109,
+        119,
+        "DATE"
+      ],
+      [
+        121,
+        129,
+        "PARTY"
+      ],
+      [
+        142,
+        150,
+        "PARTY"
+      ],
+      [
+        184,
+        186,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "If Distributor fails to purchase the minimum annual quota of 10,000,000,000 VND in any contract year, Distributor shall pay Supplier a shortfall penalty of 5% of the unfulfilled quota amount.",
+    "entities": [
+      [
+        3,
+        14,
+        "PARTY"
+      ],
+      [
+        61,
+        79,
+        "MONEY"
+      ],
+      [
+        102,
+        113,
+        "PARTY"
+      ],
+      [
+        124,
+        132,
+        "PARTY"
+      ],
+      [
+        135,
+        190,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "All amounts expressed in USD shall be converted to VND at the selling rate published by Vietcombank on the date of payment, in accordance with Ordinance on Foreign Exchange 2005.",
+    "entities": [
+      [
+        88,
+        99,
+        "PARTY"
+      ],
+      [
+        143,
+        177,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Recipient shall procure an advance payment bank guarantee in the amount of 15% of the contract sum of 2,500,000,000 VND, valid from 01/06/2025 to 01/06/2026, in favour of Payor.",
+    "entities": [
+      [
+        0,
+        9,
+        "PARTY"
+      ],
+      [
+        75,
+        78,
+        "RATE"
+      ],
+      [
+        102,
+        119,
+        "MONEY"
+      ],
+      [
+        132,
+        142,
+        "DATE"
+      ],
+      [
+        146,
+        156,
+        "DATE"
+      ],
+      [
+        171,
+        176,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "Any fraudulent misrepresentation by Counterparty shall expose it to civil penalties under the Civil Code 2015 and criminal liability under the Penal Code 2015 (amended 2017), recoverable by Aggrieved Party.",
+    "entities": [
+      [
+        36,
+        48,
+        "PARTY"
+      ],
+      [
+        68,
+        173,
+        "PENALTY"
+      ],
+      [
+        190,
+        205,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "Purchaser deposits 500,000,000 VND with Seller as earnest money; if Purchaser defaults, the deposit shall be forfeited to Seller as a penalty for non-performance.",
+    "entities": [
+      [
+        0,
+        9,
+        "PARTY"
+      ],
+      [
+        19,
+        34,
+        "MONEY"
+      ],
+      [
+        40,
+        46,
+        "PARTY"
+      ],
+      [
+        68,
+        77,
+        "PARTY"
+      ],
+      [
+        92,
+        161,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "The Consortium Leader, being VN Build Corp, shall ensure compliance with Decree No. 15/2021/ND-CP on construction project management, and any non-compliance shall attract a 2% penalty on the project value of 300,000,000,000 VND.",
+    "entities": [
+      [
+        29,
+        42,
+        "PARTY"
+      ],
+      [
+        73,
+        97,
+        "LAW"
+      ],
+      [
+        173,
+        227,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Owner shall retain 3% of each certified payment as a defect holdback, to be released to Contractor no later than 12 months after the Defects Liability Certificate is issued, expected on 01/04/2027.",
+    "entities": [
+      [
+        0,
+        5,
+        "PARTY"
+      ],
+      [
+        19,
+        21,
+        "RATE"
+      ],
+      [
+        88,
+        98,
+        "PARTY"
+      ],
+      [
+        186,
+        196,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "All payments from Obligor to Obligee shall be made free and clear of withholding tax; if any withholding is required by law at a rate of 5%, Obligor shall gross up such payment so that Obligee receives the full net amount.",
+    "entities": [
+      [
+        18,
+        25,
+        "PARTY"
+      ],
+      [
+        29,
+        36,
+        "PARTY"
+      ],
+      [
+        137,
+        139,
+        "RATE"
+      ],
+      [
+        141,
+        148,
+        "PARTY"
+      ],
+      [
+        185,
+        192,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "Supplier warrants that the price of 500,000 VND per unit offered to Distributor is no less favourable than the price offered to any other distributor, effective from 01/07/2025.",
+    "entities": [
+      [
+        0,
+        8,
+        "PARTY"
+      ],
+      [
+        36,
+        47,
+        "MONEY"
+      ],
+      [
+        68,
+        79,
+        "PARTY"
+      ],
+      [
+        166,
+        176,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Operator shall comply with the Law on Environmental Protection 2020; any violation resulting in environmental damage shall incur a penalty of 2,000,000,000 VND and mandatory remediation costs payable to the State.",
+    "entities": [
+      [
+        0,
+        8,
+        "PARTY"
+      ],
+      [
+        31,
+        67,
+        "LAW"
+      ],
+      [
+        131,
+        212,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Borrower may drawdown up to 10,000,000,000 VND from the revolving credit facility established by Lender, at an interest rate of 9.5% per annum, with the facility expiring on 31/12/2026.",
+    "entities": [
+      [
+        0,
+        8,
+        "PARTY"
+      ],
+      [
+        28,
+        46,
+        "MONEY"
+      ],
+      [
+        97,
+        103,
+        "PARTY"
+      ],
+      [
+        128,
+        132,
+        "RATE"
+      ],
+      [
+        174,
+        184,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Investor's equity stake shall increase from 20% to 35% if Founder fails to achieve revenue of $1,000,000 by June 30, 2026, acting as a dilution penalty for underperformance.",
+    "entities": [
+      [
+        0,
+        8,
+        "PARTY"
+      ],
+      [
+        44,
+        47,
+        "RATE"
+      ],
+      [
+        51,
+        54,
+        "RATE"
+      ],
+      [
+        58,
+        65,
+        "PARTY"
+      ],
+      [
+        94,
+        104,
+        "MONEY"
+      ],
+      [
+        108,
+        121,
+        "DATE"
+      ],
+      [
+        135,
+        172,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "If the exchange rate between USD and VND moves by more than 15% from the rate prevailing on the Signing Date of 01/01/2025, either Seller or Buyer may invoke this hardship clause and request renegotiation.",
+    "entities": [
+      [
+        60,
+        63,
+        "RATE"
+      ],
+      [
+        112,
+        122,
+        "DATE"
+      ],
+      [
+        131,
+        137,
+        "PARTY"
+      ],
+      [
+        141,
+        146,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "Asset Manager shall submit quarterly reports to Fund no later than the 15th day after each quarter end; late submission shall incur a penalty of 10,000,000 VND per day of delay.",
+    "entities": [
+      [
+        0,
+        13,
+        "PARTY"
+      ],
+      [
+        48,
+        52,
+        "PARTY"
+      ],
+      [
+        134,
+        176,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "The formal validity of this Agreement shall be governed by Vietnamese law, while the substantive rights of Licensor and Licensee shall be governed by the Law on Intellectual Property 2005 (as amended in 2022).",
+    "entities": [
+      [
+        59,
+        73,
+        "LAW"
+      ],
+      [
+        107,
+        115,
+        "PARTY"
+      ],
+      [
+        120,
+        128,
+        "PARTY"
+      ],
+      [
+        154,
+        208,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "In full and final settlement, Respondent shall pay Claimant 750,000,000 VND on or before 01/08/2025, whereupon both parties shall execute mutual releases and all penalty claims shall be extinguished.",
+    "entities": [
+      [
+        30,
+        40,
+        "PARTY"
+      ],
+      [
+        51,
+        59,
+        "PARTY"
+      ],
+      [
+        60,
+        75,
+        "MONEY"
+      ],
+      [
+        89,
+        99,
+        "DATE"
+      ],
+      [
+        158,
+        198,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "The outstanding balance shall accrue interest at a rate of 8% per annum from the date of default until full settlement.",
+    "entities": [
+      [
+        59,
+        71,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Late payment charges shall be applied at 1.5% per month on any unpaid invoice amount.",
+    "entities": [
+      [
+        41,
+        55,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "The annual escalation of the service fee shall not exceed 5% per year as agreed by both parties.",
+    "entities": [
+      [
+        58,
+        69,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "A discount of 10% shall be applied to the total contract value if payment is received within 7 days of invoice issuance.",
+    "entities": [
+      [
+        14,
+        17,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "The borrower agrees to repay the principal at an interest rate of 12% per annum, calculated on a daily basis.",
+    "entities": [
+      [
+        66,
+        79,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Commission payable to the Agent shall be calculated at 3% of the gross sales revenue generated each quarter.",
+    "entities": [
+      [
+        55,
+        57,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "The withholding tax rate applicable under this agreement shall be 20% of the total remuneration paid.",
+    "entities": [
+      [
+        66,
+        69,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Overdue invoices shall attract a penalty surcharge of 2% per month compounded monthly until fully discharged.",
+    "entities": [
+      [
+        33,
+        50,
+        "PENALTY"
+      ],
+      [
+        54,
+        66,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "The profit-sharing ratio between the joint-venture partners shall be fixed at 60% and 40% respectively.",
+    "entities": [
+      [
+        78,
+        81,
+        "RATE"
+      ],
+      [
+        86,
+        89,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "A value-added tax (VAT) of 10% shall be levied on all taxable supplies made under this contract.",
+    "entities": [
+      [
+        27,
+        30,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "The retention money shall amount to 5% of each progress payment and shall be released upon issuance of the final completion certificate.",
+    "entities": [
+      [
+        36,
+        38,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Royalties shall be payable at a rate of 7% of net sales and shall be remitted quarterly within 30 days of each quarter-end.",
+    "entities": [
+      [
+        40,
+        42,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "The early repayment fee shall be equivalent to 3% of the outstanding loan principal at the time of prepayment.",
+    "entities": [
+      [
+        47,
+        49,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Interest on overdue amounts shall accrue at the rate of 15% per annum, compounded semi-annually.",
+    "entities": [
+      [
+        56,
+        69,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "The management fee shall be set at 2.5% of assets under management, reviewed annually.",
+    "entities": [
+      [
+        35,
+        39,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Performance bonuses shall be calculated at 18% of the base salary upon achievement of all KPIs.",
+    "entities": [
+      [
+        43,
+        46,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "The financing cost shall be determined at the inter-bank offered rate plus a margin of 2.75% per annum.",
+    "entities": [
+      [
+        87,
+        102,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "A facility fee of 0.5% of the total committed loan amount shall be charged upon signing of this agreement.",
+    "entities": [
+      [
+        18,
+        22,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "The dividend reinvestment option entitles shareholders to subscribe to new shares at a 5% discount to market price.",
+    "entities": [
+      [
+        87,
+        89,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Currency conversion shall be performed at the official exchange rate published by the State Bank, plus a spread of 0.25%.",
+    "entities": [
+      [
+        115,
+        120,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "This agreement shall be governed by and construed in accordance with the Civil Code of Vietnam 2015.",
+    "entities": [
+      [
+        73,
+        99,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "All disputes arising under this contract shall be resolved pursuant to the Vietnamese Law on Commercial Arbitration 2010.",
+    "entities": [
+      [
+        75,
+        120,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The parties agree that this contract is subject to the provisions of the Law on Enterprises of Vietnam No. 59/2020/QH14.",
+    "entities": [
+      [
+        73,
+        119,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Intellectual property rights arising from this engagement shall be regulated under the Intellectual Property Law 2005, as amended in 2019.",
+    "entities": [
+      [
+        87,
+        137,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Data protection obligations of the parties shall comply with Decree No. 13/2023/ND-CP on Personal Data Protection.",
+    "entities": [
+      [
+        61,
+        113,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Employment conditions under this contract are governed by the Labour Code of Vietnam 2019 (Law No. 45/2019/QH14).",
+    "entities": [
+      [
+        62,
+        112,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Real property transactions hereunder shall conform to the Land Law of Vietnam 2013, effective from 01 July 2014.",
+    "entities": [
+      [
+        58,
+        82,
+        "LAW"
+      ],
+      [
+        99,
+        111,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Tax obligations of the contracting parties are subject to the Law on Corporate Income Tax No. 14/2008/QH12 and its amending legislation.",
+    "entities": [
+      [
+        62,
+        106,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Construction activities shall be carried out in compliance with the Construction Law No. 50/2014/QH13 and relevant technical standards.",
+    "entities": [
+      [
+        68,
+        101,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Environmental obligations under this agreement are governed by the Law on Environmental Protection No. 72/2020/QH14.",
+    "entities": [
+      [
+        67,
+        115,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "This contract shall be interpreted in accordance with the provisions of the Vienna Convention on Contracts for the International Sale of Goods (CISG).",
+    "entities": [
+      [
+        76,
+        149,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The arbitration procedure shall be conducted under the Rules of the Vietnam International Arbitration Centre (VIAC).",
+    "entities": [
+      [
+        55,
+        115,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Securities-related obligations in this agreement are regulated by the Law on Securities No. 54/2019/QH14, as amended.",
+    "entities": [
+      [
+        70,
+        104,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Consumer protection rights mentioned herein are established under the Law on Consumer Rights Protection No. 59/2010/QH12.",
+    "entities": [
+      [
+        70,
+        120,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Insurance provisions of this contract are subject to the Law on Insurance Business No. 24/2000/QH10, as amended by Law No. 61/2010/QH12.",
+    "entities": [
+      [
+        57,
+        135,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Anti-corruption compliance requirements under this contract are governed by the Anti-Corruption Law No. 36/2018/QH14.",
+    "entities": [
+      [
+        80,
+        116,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Procurement procedures shall adhere strictly to the Law on Bidding No. 43/2013/QH13 and its implementing decrees.",
+    "entities": [
+      [
+        52,
+        83,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Technology transfer obligations herein must comply with the Law on Technology Transfer No. 07/2017/QH14.",
+    "entities": [
+      [
+        60,
+        103,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Banking activities conducted under this agreement are subject to the Law on Credit Institutions No. 47/2010/QH12.",
+    "entities": [
+      [
+        69,
+        112,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The governing law of this agreement is the law of Singapore, specifically the Contract Act (Cap. 53).",
+    "entities": [
+      [
+        43,
+        59,
+        "LAW"
+      ],
+      [
+        78,
+        100,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "In the event of breach of confidentiality, the breaching party shall pay a penalty equivalent to the total contract value as liquidated damages.",
+    "entities": [
+      [
+        69,
+        143,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Failure to deliver the goods by the agreed deadline shall result in a penalty of 500,000 VND per day of delay, not exceeding 8% of the total order value.",
+    "entities": [
+      [
+        70,
+        80,
+        "PENALTY"
+      ],
+      [
+        81,
+        92,
+        "MONEY"
+      ],
+      [
+        125,
+        127,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Should the Contractor abandon the project without cause, the Contractor shall forfeit the performance bond and pay a compensation equal to 10% of the remaining contract sum.",
+    "entities": [
+      [
+        78,
+        138,
+        "PENALTY"
+      ],
+      [
+        139,
+        142,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Any unauthorized disclosure of trade secrets shall subject the disclosing party to a fixed penalty of 200,000,000 VND per incident, regardless of actual damages.",
+    "entities": [
+      [
+        85,
+        101,
+        "PENALTY"
+      ],
+      [
+        102,
+        117,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "In case of early termination by the Licensee without cause, the Licensee shall be liable to pay a termination penalty equal to three months of the applicable license fee.",
+    "entities": [
+      [
+        98,
+        169,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Late payment charges of 1.5% per month shall apply on any overdue invoice amount exceeding 30 days.",
+    "entities": [
+      [
+        24,
+        38,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "The loan shall bear a fixed interest rate of 6.5% per year, compounded annually throughout the term.",
+    "entities": [
+      [
+        45,
+        58,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "A commission of 3% of net revenue shall be payable to the Agent upon successful deal closure.",
+    "entities": [
+      [
+        16,
+        33,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "The Licensor is entitled to receive a royalty of 12% of gross sales generated from licensed products.",
+    "entities": [
+      [
+        49,
+        67,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Dividends shall be distributed at a rate of 7% per annum on the paid-up capital of each shareholder.",
+    "entities": [
+      [
+        44,
+        56,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "The variable interest rate shall not exceed 15% per year under any circumstances during the loan tenure.",
+    "entities": [
+      [
+        44,
+        56,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "A management fee equivalent to 2% of total assets under management shall be charged quarterly.",
+    "entities": [
+      [
+        31,
+        66,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Interest on delayed payments shall be calculated at 0.05% per day from the due date to the actual payment date.",
+    "entities": [
+      [
+        52,
+        65,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "The referral bonus is set at 5% of the first-year contract value introduced by the referring party.",
+    "entities": [
+      [
+        29,
+        64,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "A retention amount of 10% of each progress payment shall be withheld until final project acceptance.",
+    "entities": [
+      [
+        22,
+        50,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "The penalty interest rate applicable upon breach shall be 18% per annum above the base lending rate.",
+    "entities": [
+      [
+        58,
+        71,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Service charges shall be revised annually, not exceeding a 4% increase over the preceding year's rate.",
+    "entities": [
+      [
+        59,
+        70,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "The Franchisor shall receive 6% of monthly gross turnover as a franchise fee from the Franchisee.",
+    "entities": [
+      [
+        4,
+        14,
+        "PARTY"
+      ],
+      [
+        29,
+        57,
+        "RATE"
+      ],
+      [
+        86,
+        96,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "An early repayment fee of 2.5% of the outstanding principal shall apply if the loan is repaid before maturity.",
+    "entities": [
+      [
+        26,
+        59,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "This Agreement shall be governed by and construed in accordance with the Civil Code of Vietnam 2015.",
+    "entities": [
+      [
+        73,
+        99,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "All disputes arising from this contract shall be resolved pursuant to the Commercial Law of Vietnam No. 36/2005/QH11.",
+    "entities": [
+      [
+        74,
+        116,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The parties agree that this contract is subject to the Labor Code of Vietnam 2019 and all applicable amendments.",
+    "entities": [
+      [
+        55,
+        81,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Intellectual property rights shall be governed in accordance with the Law on Intellectual Property No. 50/2005/QH11.",
+    "entities": [
+      [
+        70,
+        115,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Data protection obligations herein comply with Decree No. 13/2023/ND-CP on personal data protection.",
+    "entities": [
+      [
+        47,
+        99,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The construction works shall conform to the Construction Law No. 50/2014/QH13 and its implementing regulations.",
+    "entities": [
+      [
+        44,
+        77,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Tax obligations of both parties are governed by the Law on Corporate Income Tax No. 14/2008/QH12.",
+    "entities": [
+      [
+        52,
+        96,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The leasing arrangement is subject to the Land Law of Vietnam 2013 and any subsequent amendments thereto.",
+    "entities": [
+      [
+        42,
+        66,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Environmental compliance requirements shall be fulfilled pursuant to the Law on Environmental Protection No. 72/2020/QH14.",
+    "entities": [
+      [
+        73,
+        121,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Consumer protection rights referenced herein arise under the Law on Consumer Protection No. 59/2010/QH12.",
+    "entities": [
+      [
+        61,
+        104,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The arbitration clause shall be governed by the Law on Commercial Arbitration No. 54/2010/QH12 of Vietnam.",
+    "entities": [
+      [
+        48,
+        105,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Securities transactions conducted under this agreement are regulated by the Securities Law No. 54/2019/QH14.",
+    "entities": [
+      [
+        76,
+        107,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Anti-corruption obligations of the parties shall comply with the Anti-Corruption Law No. 36/2018/QH14.",
+    "entities": [
+      [
+        65,
+        101,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Insurance coverage maintained under this contract must satisfy the Insurance Business Law No. 24/2000/QH10.",
+    "entities": [
+      [
+        67,
+        106,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The parties shall comply with Circular No. 09/2015/TT-BTP governing the registration of secured transactions.",
+    "entities": [
+      [
+        30,
+        108,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "In the event of breach of confidentiality obligations, the breaching party shall pay a penalty equivalent to 500,000,000 VND as liquidated damages.",
+    "entities": [
+      [
+        81,
+        146,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Failure to deliver the goods within the stipulated time shall result in a penalty of 0.1% of the contract value per day of delay.",
+    "entities": [
+      [
+        74,
+        128,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Should the Contractor abandon the project without valid cause, a termination penalty of 200,000,000 VND shall be immediately enforceable.",
+    "entities": [
+      [
+        11,
+        21,
+        "PARTY"
+      ],
+      [
+        65,
+        136,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Any unauthorized disclosure of trade secrets shall subject the disclosing party to a fine of $10,000 per occurrence.",
+    "entities": [
+      [
+        85,
+        115,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Non-compliance with quality standards shall trigger a deduction penalty of 5% from the monthly service fee for each identified defect.",
+    "entities": [
+      [
+        54,
+        133,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Early termination by the Tenant shall result in forfeiture of the security deposit and an additional penalty of three months' rent.",
+    "entities": [
+      [
+        25,
+        31,
+        "PARTY"
+      ],
+      [
+        48,
+        130,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "The Supplier shall be liable for a warranty breach penalty not exceeding 10% of the total purchase price of the defective goods.",
+    "entities": [
+      [
+        4,
+        12,
+        "PARTY"
+      ],
+      [
+        35,
+        127,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "A delay penalty of 50,000,000 VND per week shall accrue for each calendar week the handover date is missed.",
+    "entities": [
+      [
+        2,
+        106,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Violation of the non-compete clause shall render the Employee liable to pay damages of 300,000,000 VND to the Employer.",
+    "entities": [
+      [
+        53,
+        61,
+        "PARTY"
+      ],
+      [
+        62,
+        118,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Should either party fail to maintain required insurance coverage, that party shall indemnify the other for all resulting losses up to $50,000.",
+    "entities": [
+      [
+        83,
+        141,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "The penalty for late submission of financial reports shall be 1,000,000 VND per business day beyond the deadline.",
+    "entities": [
+      [
+        4,
+        112,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Premature termination of this lease without sixty days' written notice shall incur a penalty equal to two months' base rent.",
+    "entities": [
+      [
+        85,
+        123,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Any attempt to assign rights under this Agreement without prior written consent shall be void and subject to a penalty of 100,000,000 VND.",
+    "entities": [
+      [
+        98,
+        137,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Breach of payment obligations beyond 15 days shall automatically trigger a compound penalty of 2% per month on the unpaid amount.",
+    "entities": [
+      [
+        75,
+        128,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "The Developer shall pay a performance penalty of 0.5% of project value for each week construction progress falls below 80% of the approved schedule.",
+    "entities": [
+      [
+        4,
+        13,
+        "PARTY"
+      ],
+      [
+        26,
+        147,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Interest on overdue payments shall accrue at 9% per annum as permitted under the Civil Code of Vietnam 2015.",
+    "entities": [
+      [
+        45,
+        57,
+        "RATE"
+      ],
+      [
+        81,
+        107,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Pursuant to the Labor Code of Vietnam 2019, overtime compensation shall be paid at 150% of the standard hourly rate.",
+    "entities": [
+      [
+        16,
+        42,
+        "LAW"
+      ],
+      [
+        83,
+        115,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Under the Commercial Law of Vietnam No. 36/2005/QH11, the maximum penalty rate shall not exceed 8% of the breached obligation value.",
+    "entities": [
+      [
+        10,
+        52,
+        "LAW"
+      ],
+      [
+        96,
+        131,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "The royalty rate of 4.5% per unit sold is calculated in accordance with Decree No. 22/2018/ND-CP on copyright implementation.",
+    "entities": [
+      [
+        20,
+        38,
+        "RATE"
+      ],
+      [
+        72,
+        124,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "As stipulated by the Law on Credit Institutions No. 47/2010/QH12, lending rates shall not surpass 20% per annum.",
+    "entities": [
+      [
+        21,
+        64,
+        "LAW"
+      ],
+      [
+        98,
+        111,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "In accordance with the Civil Code of Vietnam 2015, the penalty for non-performance shall not exceed 8% of the unperformed obligation.",
+    "entities": [
+      [
+        23,
+        49,
+        "LAW"
+      ],
+      [
+        55,
+        132,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Pursuant to Decree No. 98/2020/ND-CP, violations of consumer protection obligations shall be penalized by suspension of business operations for 30 days.",
+    "entities": [
+      [
+        12,
+        36,
+        "LAW"
+      ],
+      [
+        93,
+        151,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "The penalty for breach of data confidentiality under Decree No. 13/2023/ND-CP on personal data protection may reach 5% of total annual revenue.",
+    "entities": [
+      [
+        4,
+        46,
+        "PENALTY"
+      ],
+      [
+        53,
+        105,
+        "LAW"
+      ],
+      [
+        116,
+        142,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Under the Anti-Corruption Law No. 36/2018/QH14, any bribery offense shall result in contract nullification and forfeiture of all received payments as penalty.",
+    "entities": [
+      [
+        10,
+        46,
+        "LAW"
+      ],
+      [
+        84,
+        157,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Violations of environmental obligations as defined by the Law on Environmental Protection No. 72/2020/QH14 shall trigger remediation penalties of up to 1,000,000,000 VND.",
+    "entities": [
+      [
+        58,
+        106,
+        "LAW"
+      ],
+      [
+        121,
+        169,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "A surcharge of 3% per month shall be imposed as a penalty for each month payment remains outstanding beyond the grace period.",
+    "entities": [
+      [
+        2,
+        124,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Performance below 70% of agreed KPIs shall attract a penalty reduction of 15% of the quarterly service fee.",
+    "entities": [
+      [
+        18,
+        21,
+        "RATE"
+      ],
+      [
+        53,
+        106,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "In the event of quality failure, a penalty of 10% of the invoice value shall apply, with additional interest of 1.5% per month on the withheld amount.",
+    "entities": [
+      [
+        35,
+        70,
+        "PENALTY"
+      ],
+      [
+        112,
+        126,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Delays in milestone delivery shall attract penalties calculated at 0.2% of contract value per day, capped at 12% of total contract price.",
+    "entities": [
+      [
+        43,
+        97,
+        "PENALTY"
+      ],
+      [
+        109,
+        136,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "The penalty for every defective unit returned shall equal 120% of the original unit price, serving as deterrent damages.",
+    "entities": [
+      [
+        4,
+        119,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "A deposit of 50,000,000 VND must be transferred by 15/03/2024 to secure the reservation of the leased premises.",
+    "entities": [
+      [
+        13,
+        27,
+        "MONEY"
+      ],
+      [
+        51,
+        61,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The final installment of $25,000 is due on June 30, 2025 without further notice or demand.",
+    "entities": [
+      [
+        25,
+        32,
+        "MONEY"
+      ],
+      [
+        43,
+        56,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "An advance payment of 200,000,000 VND shall be remitted by the Buyer within five business days of 01/02/2024.",
+    "entities": [
+      [
+        22,
+        37,
+        "MONEY"
+      ],
+      [
+        63,
+        68,
+        "PARTY"
+      ],
+      [
+        98,
+        108,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The total contract price of 1,500,000,000 VND shall be fully disbursed no later than December 31, 2024.",
+    "entities": [
+      [
+        28,
+        45,
+        "MONEY"
+      ],
+      [
+        85,
+        102,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Payment of $100,000 representing the second milestone shall be released on or before March 1, 2025.",
+    "entities": [
+      [
+        11,
+        19,
+        "MONEY"
+      ],
+      [
+        85,
+        98,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "This Agreement shall take effect from 01/01/2024 and shall be governed by the Civil Code of Vietnam 2015.",
+    "entities": [
+      [
+        38,
+        48,
+        "DATE"
+      ],
+      [
+        78,
+        104,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Effective March 15, 2024, all transactions under this contract shall comply with the Law on E-Transactions No. 20/2023/QH15.",
+    "entities": [
+      [
+        10,
+        24,
+        "DATE"
+      ],
+      [
+        85,
+        123,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The lease commences on July 1, 2024 and is subject to the Land Law of Vietnam 2013 and applicable land regulations.",
+    "entities": [
+      [
+        23,
+        35,
+        "DATE"
+      ],
+      [
+        58,
+        82,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Starting from 01/06/2024, the parties shall adhere to reporting requirements under Circular No. 80/2021/TT-BTC on tax administration.",
+    "entities": [
+      [
+        14,
+        24,
+        "DATE"
+      ],
+      [
+        83,
+        132,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "All obligations created before January 1, 2025 shall remain subject to the Commercial Law of Vietnam No. 36/2005/QH11.",
+    "entities": [
+      [
+        31,
+        46,
+        "DATE"
+      ],
+      [
+        75,
+        117,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "VinaTech JSC agrees to pay GlobalSoft Ltd a licensing fee of $75,000 annually for use of the proprietary software platform.",
+    "entities": [
+      [
+        0,
+        12,
+        "PARTY"
+      ],
+      [
+        27,
+        41,
+        "PARTY"
+      ],
+      [
+        61,
+        68,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "The Employer shall reimburse the Employee for documented business expenses up to 10,000,000 VND per calendar month.",
+    "entities": [
+      [
+        4,
+        12,
+        "PARTY"
+      ],
+      [
+        33,
+        41,
+        "PARTY"
+      ],
+      [
+        81,
+        95,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "Hanoi Construction Corp shall advance Mekong Builders Co. a mobilization payment of 500,000,000 VND upon contract signing.",
+    "entities": [
+      [
+        0,
+        23,
+        "PARTY"
+      ],
+      [
+        38,
+        57,
+        "PARTY"
+      ],
+      [
+        84,
+        99,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "The Lessor shall return the security deposit of 30,000,000 VND to the Tenant within 30 days of lease expiration.",
+    "entities": [
+      [
+        4,
+        10,
+        "PARTY"
+      ],
+      [
+        48,
+        62,
+        "MONEY"
+      ],
+      [
+        70,
+        76,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "Saigon Media Group shall compensate the Consultant with a retainer fee of 15,000,000 VND per month.",
+    "entities": [
+      [
+        0,
+        18,
+        "PARTY"
+      ],
+      [
+        40,
+        50,
+        "PARTY"
+      ],
+      [
+        74,
+        88,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "Party A shall deliver to Party B a payment of 80,000,000 VND no later than 30/04/2024.",
+    "entities": [
+      [
+        0,
+        7,
+        "PARTY"
+      ],
+      [
+        25,
+        32,
+        "PARTY"
+      ],
+      [
+        46,
+        60,
+        "MONEY"
+      ],
+      [
+        75,
+        85,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Sunrise Holdings Ltd must transfer $500,000 to the Escrow Agent by September 1, 2024 as a good-faith deposit.",
+    "entities": [
+      [
+        0,
+        20,
+        "PARTY"
+      ],
+      [
+        35,
+        43,
+        "MONEY"
+      ],
+      [
+        51,
+        63,
+        "PARTY"
+      ],
+      [
+        67,
+        84,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The Franchisee shall remit 120,000,000 VND to the Franchisor before 01/07/2024 as the initial franchise fee.",
+    "entities": [
+      [
+        4,
+        14,
+        "PARTY"
+      ],
+      [
+        27,
+        42,
+        "MONEY"
+      ],
+      [
+        50,
+        60,
+        "PARTY"
+      ],
+      [
+        68,
+        78,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Vietnam Bank JSC agrees to extend a loan of 2,000,000,000 VND to Phu Quy Real Estate Co. by February 28, 2025.",
+    "entities": [
+      [
+        0,
+        16,
+        "PARTY"
+      ],
+      [
+        44,
+        61,
+        "MONEY"
+      ],
+      [
+        65,
+        88,
+        "PARTY"
+      ],
+      [
+        92,
+        109,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The Distributor shall pay the Manufacturer 45,000,000 VND for each quarterly order, due on the 5th of each quarter's first month.",
+    "entities": [
+      [
+        4,
+        15,
+        "PARTY"
+      ],
+      [
+        30,
+        42,
+        "PARTY"
+      ],
+      [
+        43,
+        57,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "Interest on the principal of 300,000,000 VND shall accrue at 7.5% per annum from the disbursement date.",
+    "entities": [
+      [
+        29,
+        44,
+        "MONEY"
+      ],
+      [
+        61,
+        75,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "The Agent shall earn a 4% commission on all sales exceeding 1,000,000,000 VND in a calendar year.",
+    "entities": [
+      [
+        23,
+        25,
+        "RATE"
+      ],
+      [
+        60,
+        77,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "A performance bonus of 10% of net profit, subject to a ceiling of $20,000, shall be disbursed annually.",
+    "entities": [
+      [
+        23,
+        40,
+        "RATE"
+      ],
+      [
+        66,
+        73,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "The penalty interest of 2% per month applies to the unpaid invoice of 75,000,000 VND from the due date onward.",
+    "entities": [
+      [
+        24,
+        36,
+        "RATE"
+      ],
+      [
+        70,
+        84,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "A withholding tax rate of 5% shall be deducted from each payment above 20,000,000 VND remitted to the foreign contractor.",
+    "entities": [
+      [
+        26,
+        28,
+        "RATE"
+      ],
+      [
+        71,
+        85,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "The interest rate shall be fixed at 8.5% per annum for the initial period ending December 31, 2025.",
+    "entities": [
+      [
+        36,
+        50,
+        "RATE"
+      ],
+      [
+        81,
+        98,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "From 01/01/2025, the applicable penalty rate shall increase to 12% per annum in line with the revised schedule.",
+    "entities": [
+      [
+        5,
+        15,
+        "DATE"
+      ],
+      [
+        63,
+        76,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "The promotional discount rate of 20% is valid only for orders placed before March 31, 2024.",
+    "entities": [
+      [
+        33,
+        36,
+        "RATE"
+      ],
+      [
+        76,
+        90,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Effective from June 1, 2024, the royalty rate shall be adjusted to 8% of net sales in accordance with annual review provisions.",
+    "entities": [
+      [
+        15,
+        27,
+        "DATE"
+      ],
+      [
+        67,
+        82,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "The variable rate clause permits adjustment of up to 3% annually, subject to review on January 1 of each year starting 01/01/2025.",
+    "entities": [
+      [
+        53,
+        64,
+        "RATE"
+      ],
+      [
+        119,
+        129,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "If delivery is not completed by 30/06/2024, the Supplier shall be liable for a penalty of 200,000,000 VND for unexcused delay.",
+    "entities": [
+      [
+        32,
+        42,
+        "DATE"
+      ],
+      [
+        48,
+        56,
+        "PARTY"
+      ],
+      [
+        79,
+        125,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Failure to vacate the premises by August 31, 2024 shall trigger a holdover penalty of double the monthly rent for each day of overstay.",
+    "entities": [
+      [
+        34,
+        49,
+        "DATE"
+      ],
+      [
+        66,
+        134,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "If the project is not commissioned by December 1, 2024, a liquidated damages clause activating a penalty of 500,000,000 VND shall apply.",
+    "entities": [
+      [
+        38,
+        54,
+        "DATE"
+      ],
+      [
+        58,
+        135,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Non-payment beyond October 15, 2024 shall activate an automatic default penalty equal to 20% of the principal balance due.",
+    "entities": [
+      [
+        19,
+        35,
+        "DATE"
+      ],
+      [
+        54,
+        121,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Pursuant to the Civil Code of Vietnam 2015, the Contractor must pay a penalty of 8% of the unperformed contract value to the Client.",
+    "entities": [
+      [
+        16,
+        42,
+        "LAW"
+      ],
+      [
+        48,
+        58,
+        "PARTY"
+      ],
+      [
+        70,
+        131,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Under the Commercial Law of Vietnam No. 36/2005/QH11, the Buyer shall pay a late delivery penalty to the Seller at the agreed rate.",
+    "entities": [
+      [
+        10,
+        52,
+        "LAW"
+      ],
+      [
+        58,
+        63,
+        "PARTY"
+      ],
+      [
+        76,
+        97,
+        "PENALTY"
+      ],
+      [
+        105,
+        111,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "The Employer shall be subject to a reinstatement penalty under the Labor Code of Vietnam 2019 if wrongful termination of the Employee is established.",
+    "entities": [
+      [
+        4,
+        12,
+        "PARTY"
+      ],
+      [
+        35,
+        56,
+        "PENALTY"
+      ],
+      [
+        67,
+        93,
+        "LAW"
+      ],
+      [
+        125,
+        133,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "Effective 01/01/2024, interest of 9% per annum accrues on the overdue balance of 150,000,000 VND, with a late penalty of 2% per month under the Civil Code of Vietnam 2015.",
+    "entities": [
+      [
+        10,
+        20,
+        "DATE"
+      ],
+      [
+        34,
+        46,
+        "RATE"
+      ],
+      [
+        81,
+        96,
+        "MONEY"
+      ],
+      [
+        105,
+        133,
+        "PENALTY"
+      ],
+      [
+        144,
+        170,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Under the Commercial Law of Vietnam No. 36/2005/QH11, from March 1, 2024, a penalty of 8% of contract value applies if deliverables worth $200,000 are delayed, at an interest rate of 6% per annum.",
+    "entities": [
+      [
+        10,
+        52,
+        "LAW"
+      ],
+      [
+        59,
+        72,
+        "DATE"
+      ],
+      [
+        76,
+        158,
+        "PENALTY"
+      ],
+      [
+        183,
+        195,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "The Borrower shall repay 500,000,000 VND at an interest rate of 10% per annum by 31/12/2025, failing which a default penalty of 15% of the outstanding balance shall apply under the Civil Code of Vietnam 2015.",
+    "entities": [
+      [
+        4,
+        12,
+        "PARTY"
+      ],
+      [
+        25,
+        40,
+        "MONEY"
+      ],
+      [
+        64,
+        77,
+        "RATE"
+      ],
+      [
+        81,
+        91,
+        "DATE"
+      ],
+      [
+        109,
+        170,
+        "PENALTY"
+      ],
+      [
+        181,
+        207,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Vietnam Tech Ltd shall pay $300,000 to SmartSoft Inc. by June 1, 2025 with a 5% early payment discount, governed by the Law on E-Transactions No. 20/2023/QH15.",
+    "entities": [
+      [
+        0,
+        16,
+        "PARTY"
+      ],
+      [
+        27,
+        35,
+        "MONEY"
+      ],
+      [
+        39,
+        53,
+        "PARTY"
+      ],
+      [
+        57,
+        69,
+        "DATE"
+      ],
+      [
+        77,
+        79,
+        "RATE"
+      ],
+      [
+        120,
+        158,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The Lessor shall charge a 3% annual escalation on the base rent of 100,000,000 VND starting from January 1, 2025, subject to the Land Law of Vietnam 2013.",
+    "entities": [
+      [
+        4,
+        10,
+        "PARTY"
+      ],
+      [
+        26,
+        46,
+        "RATE"
+      ],
+      [
+        67,
+        82,
+        "MONEY"
+      ],
+      [
+        97,
+        112,
+        "DATE"
+      ],
+      [
+        129,
+        153,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Should Mekong Delta Corp breach the supply terms before 30/09/2024, Green Fields Ltd is entitled to a compensation penalty of 400,000,000 VND plus 1.5% monthly interest under the Commercial Law of Vietnam No. 36/2005/QH11.",
+    "entities": [
+      [
+        7,
+        24,
+        "PARTY"
+      ],
+      [
+        56,
+        66,
+        "DATE"
+      ],
+      [
+        68,
+        84,
+        "PARTY"
+      ],
+      [
+        102,
+        168,
+        "PENALTY"
+      ],
+      [
+        179,
+        221,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Any dispute not resolved amicably shall be submitted to arbitration under the Law on Commercial Arbitration No. 54/2010/QH12 of Vietnam.",
+    "entities": [
+      [
+        78,
+        135,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The employment relationship established herein is regulated exclusively by the Labor Code of Vietnam 2019.",
+    "entities": [
+      [
+        79,
+        105,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "All financial reporting obligations under this contract shall comply with Circular No. 200/2014/TT-BTC on accounting standards.",
+    "entities": [
+      [
+        74,
+        126,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Force majeure events shall be defined and treated pursuant to Article 156 of the Civil Code of Vietnam 2015.",
+    "entities": [
+      [
+        81,
+        107,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The pledge of assets as collateral shall be registered in accordance with Decree No. 99/2022/ND-CP on secured transaction registration.",
+    "entities": [
+      [
+        74,
+        134,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The Consultant's hourly billing rate is set at $150 per hour, subject to a 10% annual increment review.",
+    "entities": [
+      [
+        47,
+        60,
+        "RATE"
+      ],
+      [
+        75,
+        95,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Profit sharing shall be distributed at a ratio of 60% to the Investor and 40% to the Operating Partner.",
+    "entities": [
+      [
+        50,
+        53,
+        "RATE"
+      ],
+      [
+        61,
+        69,
+        "PARTY"
+      ],
+      [
+        74,
+        77,
+        "RATE"
+      ],
+      [
+        85,
+        102,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "The value-added tax rate of 10% shall be applied to all taxable services rendered under this Agreement.",
+    "entities": [
+      [
+        28,
+        31,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Currency conversion losses shall be absorbed at a fixed exchange rate of 25,000 VND per USD as agreed at contract execution.",
+    "entities": [
+      [
+        73,
+        91,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "The Subcontractor shall be entitled to a markup rate of 15% over material costs for all change order works.",
+    "entities": [
+      [
+        4,
+        17,
+        "PARTY"
+      ],
+      [
+        56,
+        59,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "The penalty for submission of falsified compliance documents shall be permanent disqualification from future procurement processes.",
+    "entities": [
+      [
+        4,
+        130,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Any misrepresentation of financial statements shall attract a penalty comprising rescission of the contract and recovery of all sums disbursed.",
+    "entities": [
+      [
+        62,
+        142,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "The penalty for unauthorized subletting shall include immediate lease termination and forfeiture of all advance rent payments made.",
+    "entities": [
+      [
+        4,
+        130,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Improper handling of hazardous materials shall subject the responsible party to an environmental remediation penalty and suspension from site activities.",
+    "entities": [
+      [
+        83,
+        152,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "The penalty applicable to systematic invoice fraud shall be treble damages of all amounts fraudulently claimed under this agreement.",
+    "entities": [
+      [
+        4,
+        131,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "The term of this Agreement shall commence on January 1, 2024 and remain in force for a period of three years.",
+    "entities": [
+      [
+        45,
+        60,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "All outstanding obligations must be discharged in full no later than 31/03/2025.",
+    "entities": [
+      [
+        69,
+        79,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The warranty period shall expire on December 31, 2025, after which no claims for defects shall be entertained.",
+    "entities": [
+      [
+        36,
+        53,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Notice of termination must be served at least 90 days prior to the renewal date of November 1, 2024.",
+    "entities": [
+      [
+        83,
+        99,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The probationary period concludes on 01/04/2024, after which employment terms become permanent.",
+    "entities": [
+      [
+        37,
+        47,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The total consideration payable under this Agreement amounts to 5,000,000,000 VND exclusive of applicable taxes.",
+    "entities": [
+      [
+        64,
+        81,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "A performance bond of $250,000 must be furnished by the Contractor prior to commencement of works.",
+    "entities": [
+      [
+        22,
+        30,
+        "MONEY"
+      ],
+      [
+        56,
+        66,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "The arbitration filing fee of 15,000,000 VND shall be shared equally between the disputing parties.",
+    "entities": [
+      [
+        30,
+        44,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "Consulting services rendered under this engagement shall not exceed a total cost of $80,000.",
+    "entities": [
+      [
+        84,
+        91,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "The insurance policy must maintain minimum coverage of 2,000,000,000 VND throughout the contract period.",
+    "entities": [
+      [
+        55,
+        72,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "The Seller warrants that all goods delivered meet the quality standards of TCVN 9385:2012, and failure to comply shall attract a replacement penalty.",
+    "entities": [
+      [
+        4,
+        10,
+        "PARTY"
+      ],
+      [
+        75,
+        89,
+        "LAW"
+      ],
+      [
+        129,
+        148,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Pursuant to Decree No. 15/2020/ND-CP on administrative sanctions in information technology, the penalty for unauthorized data processing shall not be less than 50,000,000 VND.",
+    "entities": [
+      [
+        12,
+        90,
+        "LAW"
+      ],
+      [
+        96,
+        174,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "The Lender shall apply a prepayment penalty of 1.5% on any early principal repayment made within the first three years, in line with banking regulations under Circular No. 39/2016/TT-NHNN.",
+    "entities": [
+      [
+        4,
+        10,
+        "PARTY"
+      ],
+      [
+        25,
+        118,
+        "PENALTY"
+      ],
+      [
+        159,
+        187,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Reimbursement for approved travel expenses shall be processed at 100% of submitted receipts, capped at 5,000,000 VND per trip.",
+    "entities": [
+      [
+        65,
+        69,
+        "RATE"
+      ],
+      [
+        103,
+        116,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "The currency hedging rate for USD-denominated payments is locked at 24,500 VND per USD for all transactions before June 30, 2024.",
+    "entities": [
+      [
+        68,
+        86,
+        "RATE"
+      ],
+      [
+        115,
+        128,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Under Decree No. 52/2013/ND-CP on e-commerce, digital transaction records must be retained for a minimum of five years from 01/01/2024.",
+    "entities": [
+      [
+        6,
+        44,
+        "LAW"
+      ],
+      [
+        124,
+        134,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The Employee's base salary of 25,000,000 VND per month shall be reviewed annually at a minimum increment rate of 5%.",
+    "entities": [
+      [
+        4,
+        12,
+        "PARTY"
+      ],
+      [
+        30,
+        44,
+        "MONEY"
+      ],
+      [
+        113,
+        115,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Should the Insurer deny a valid claim without reasonable cause, it shall be liable for a bad-faith penalty of three times the insured sum under the Insurance Business Law No. 24/2000/QH10.",
+    "entities": [
+      [
+        11,
+        18,
+        "PARTY"
+      ],
+      [
+        89,
+        137,
+        "PENALTY"
+      ],
+      [
+        148,
+        187,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The project completion date is set for September 30, 2025, with a retention release of 50,000,000 VND upon final acceptance.",
+    "entities": [
+      [
+        39,
+        57,
+        "DATE"
+      ],
+      [
+        87,
+        101,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "An escrow amount of $150,000 shall be held until all representations made as of January 15, 2024 are verified and confirmed accurate.",
+    "entities": [
+      [
+        20,
+        28,
+        "MONEY"
+      ],
+      [
+        80,
+        96,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The interest rate applicable to convertible notes shall be fixed at 5.5% per annum until the conversion date.",
+    "entities": [
+      [
+        68,
+        82,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "A service level penalty of 0.5% of monthly fees applies for each hour of unplanned downtime exceeding the agreed 99.9% uptime threshold.",
+    "entities": [
+      [
+        2,
+        135,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "The licensing fee structure shall comply with Circular No. 219/2013/TT-BTC on value-added tax and shall be adjusted at a rate of 3% per year.",
+    "entities": [
+      [
+        46,
+        93,
+        "LAW"
+      ],
+      [
+        129,
+        140,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "In cases of wrongful IP use, the infringer shall be subject to a penalty of 50,000,000 VND per infringement under the Law on Intellectual Property No. 50/2005/QH11.",
+    "entities": [
+      [
+        65,
+        107,
+        "PENALTY"
+      ],
+      [
+        118,
+        163,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The annual cap on total penalty exposure under this Agreement shall not exceed 1,000,000,000 VND regardless of the number of breaches.",
+    "entities": [
+      [
+        4,
+        40,
+        "PENALTY"
+      ],
+      [
+        79,
+        96,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "Foreign exchange gains and losses shall be accounted for at the exchange rate published by the State Bank of Vietnam, pursuant to Circular No. 200/2014/TT-BTC on accounting standards.",
+    "entities": [
+      [
+        130,
+        182,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The Investor and the Company agree that dividends of 8% per annum shall be distributed semi-annually starting from July 1, 2024.",
+    "entities": [
+      [
+        4,
+        12,
+        "PARTY"
+      ],
+      [
+        21,
+        28,
+        "PARTY"
+      ],
+      [
+        53,
+        65,
+        "RATE"
+      ],
+      [
+        115,
+        127,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The price adjustment mechanism shall not allow increases exceeding 5% per quarter, effective from 01/03/2025.",
+    "entities": [
+      [
+        67,
+        81,
+        "RATE"
+      ],
+      [
+        98,
+        108,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Delta Logistics shall deliver all shipments by April 15, 2025, failing which Alpha Retail Ltd may claim a delay penalty of 0.3% of shipment value per day.",
+    "entities": [
+      [
+        0,
+        15,
+        "PARTY"
+      ],
+      [
+        47,
+        61,
+        "DATE"
+      ],
+      [
+        77,
+        93,
+        "PARTY"
+      ],
+      [
+        106,
+        153,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "The Guarantor shall be jointly liable with the Borrower for repayment of 750,000,000 VND under the terms of the Civil Code of Vietnam 2015.",
+    "entities": [
+      [
+        4,
+        13,
+        "PARTY"
+      ],
+      [
+        47,
+        55,
+        "PARTY"
+      ],
+      [
+        73,
+        88,
+        "MONEY"
+      ],
+      [
+        112,
+        138,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "A rebate of 2% shall be credited to the Buyer upon annual purchases exceeding 5,000,000,000 VND.",
+    "entities": [
+      [
+        12,
+        14,
+        "RATE"
+      ],
+      [
+        40,
+        45,
+        "PARTY"
+      ],
+      [
+        78,
+        95,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "The penalty for failure to maintain prescribed staffing levels shall be a deduction of 10% of the monthly contract fee for each month of non-compliance, as measured against standards in the Labor Code of Vietnam 2019.",
+    "entities": [
+      [
+        4,
+        151,
+        "PENALTY"
+      ],
+      [
+        190,
+        216,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Party A shall pay Party B 10,000,000 VND before 01/01/2024.",
+    "entities": [
+      [
+        0,
+        7,
+        "PARTY"
+      ],
+      [
+        18,
+        25,
+        "PARTY"
+      ],
+      [
+        26,
+        40,
+        "MONEY"
+      ],
+      [
+        48,
+        58,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The Employee shall receive a monthly salary of $5,000 starting from June 1, 2025.",
+    "entities": [
+      [
+        4,
+        12,
+        "PARTY"
+      ],
+      [
+        47,
+        53,
+        "MONEY"
+      ],
+      [
+        68,
+        80,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "In the event of breach, the Vendor shall pay a penalty equal to 15% of the total contract value to the Client.",
+    "entities": [
+      [
+        28,
+        34,
+        "PARTY"
+      ],
+      [
+        47,
+        95,
+        "PENALTY"
+      ],
+      [
+        103,
+        109,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "This Agreement is governed by Vietnamese law and the Civil Code 2015.",
+    "entities": [
+      [
+        30,
+        44,
+        "LAW"
+      ],
+      [
+        53,
+        68,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "ABC Corporation agrees to deliver goods worth 500,000,000 VND to XYZ Limited by March 15, 2025.",
+    "entities": [
+      [
+        0,
+        15,
+        "PARTY"
+      ],
+      [
+        46,
+        61,
+        "MONEY"
+      ],
+      [
+        65,
+        76,
+        "PARTY"
+      ],
+      [
+        80,
+        94,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The Borrower shall repay the principal amount of $250,000 at an interest rate of 8% per annum.",
+    "entities": [
+      [
+        4,
+        12,
+        "PARTY"
+      ],
+      [
+        49,
+        57,
+        "MONEY"
+      ],
+      [
+        81,
+        93,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Should the Contractor fail to complete the project by 30/06/2025, a late penalty of 0.1% of the contract value per day shall be imposed.",
+    "entities": [
+      [
+        11,
+        21,
+        "PARTY"
+      ],
+      [
+        54,
+        64,
+        "DATE"
+      ],
+      [
+        68,
+        135,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "All disputes arising under this contract shall be resolved in accordance with the Law on Commercial Arbitration 2010 of Vietnam.",
+    "entities": [
+      [
+        82,
+        127,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Tenant shall pay Landlord a monthly rent of 15,000,000 VND, due on the 5th of each month.",
+    "entities": [
+      [
+        0,
+        6,
+        "PARTY"
+      ],
+      [
+        17,
+        25,
+        "PARTY"
+      ],
+      [
+        44,
+        58,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "The Licensor grants the Licensee a non-exclusive license effective from 01/04/2024 through 31/03/2026.",
+    "entities": [
+      [
+        4,
+        12,
+        "PARTY"
+      ],
+      [
+        24,
+        32,
+        "PARTY"
+      ],
+      [
+        72,
+        82,
+        "DATE"
+      ],
+      [
+        91,
+        101,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Failure to deliver on time shall result in a penalty of $10,000 per week of delay payable by the Supplier to the Buyer.",
+    "entities": [
+      [
+        45,
+        118,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Hanoi Tech JSC shall invoice Saigon Retail Co. for services rendered, totaling 1,200,000,000 VND, no later than December 31, 2024.",
+    "entities": [
+      [
+        0,
+        14,
+        "PARTY"
+      ],
+      [
+        29,
+        46,
+        "PARTY"
+      ],
+      [
+        79,
+        96,
+        "MONEY"
+      ],
+      [
+        112,
+        129,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The annual interest rate applicable to overdue payments shall be 12% per year, as permitted under the Civil Code 2015.",
+    "entities": [
+      [
+        65,
+        77,
+        "RATE"
+      ],
+      [
+        102,
+        117,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Employer shall provide Employee with health insurance benefits valued at no less than $1,500 per year beginning January 1, 2025.",
+    "entities": [
+      [
+        0,
+        8,
+        "PARTY"
+      ],
+      [
+        23,
+        31,
+        "PARTY"
+      ],
+      [
+        86,
+        92,
+        "MONEY"
+      ],
+      [
+        112,
+        127,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "This Service Agreement is subject to the Law on Enterprises 2020 and applicable decrees issued by the Government of Vietnam.",
+    "entities": [
+      [
+        41,
+        64,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "In case of early termination by Party B, Party B shall forfeit the security deposit of 50,000,000 VND as liquidated damages.",
+    "entities": [
+      [
+        32,
+        39,
+        "PARTY"
+      ],
+      [
+        41,
+        48,
+        "PARTY"
+      ],
+      [
+        55,
+        123,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "The Franchisee agrees to pay the Franchisor a royalty fee of 5% of gross monthly revenue.",
+    "entities": [
+      [
+        4,
+        14,
+        "PARTY"
+      ],
+      [
+        33,
+        43,
+        "PARTY"
+      ],
+      [
+        61,
+        63,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Payment of 75,000 USD must be remitted by the Distributor to Global Imports Ltd. within 30 days of invoice date.",
+    "entities": [
+      [
+        11,
+        21,
+        "MONEY"
+      ],
+      [
+        46,
+        57,
+        "PARTY"
+      ],
+      [
+        61,
+        80,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "This contract shall take effect on 15/08/2024 and shall remain valid until 14/08/2027, unless terminated earlier.",
+    "entities": [
+      [
+        35,
+        45,
+        "DATE"
+      ],
+      [
+        75,
+        85,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Any penalty imposed under this clause shall not exceed 8% of the total contract value, consistent with Vietnamese commercial law.",
+    "entities": [
+      [
+        4,
+        85,
+        "PENALTY"
+      ],
+      [
+        103,
+        128,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Vietnam Construction Corp. shall complete Phase I of the project no later than September 30, 2025, or pay liquidated damages of 200,000,000 VND.",
+    "entities": [
+      [
+        0,
+        26,
+        "PARTY"
+      ],
+      [
+        79,
+        97,
+        "DATE"
+      ],
+      [
+        106,
+        143,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "The Seller warrants that goods are free from defects, pursuant to the Law on Consumer Protection 2010.",
+    "entities": [
+      [
+        4,
+        10,
+        "PARTY"
+      ],
+      [
+        70,
+        101,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Overdue amounts shall accrue interest at a rate of 1.5% per month until fully settled by the Debtor.",
+    "entities": [
+      [
+        51,
+        65,
+        "RATE"
+      ],
+      [
+        93,
+        99,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "FPT Software Ltd. shall pay Vietcombank a processing fee of $2,500 on or before February 28, 2025.",
+    "entities": [
+      [
+        0,
+        17,
+        "PARTY"
+      ],
+      [
+        28,
+        39,
+        "PARTY"
+      ],
+      [
+        60,
+        66,
+        "MONEY"
+      ],
+      [
+        80,
+        97,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The Guarantor unconditionally guarantees the performance of the Principal Debtor under this Agreement governed by Vietnamese civil law.",
+    "entities": [
+      [
+        4,
+        13,
+        "PARTY"
+      ],
+      [
+        64,
+        80,
+        "PARTY"
+      ],
+      [
+        114,
+        134,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Should the Service Provider fail to meet the SLA targets, a service credit equal to 10% of the monthly fee shall be issued to the Customer.",
+    "entities": [
+      [
+        11,
+        27,
+        "PARTY"
+      ],
+      [
+        60,
+        138,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Mega Bank JSC shall disburse a loan of 2,000,000,000 VND to Green Energy Co. at an interest rate of 9.5% per annum, effective March 1, 2025.",
+    "entities": [
+      [
+        0,
+        13,
+        "PARTY"
+      ],
+      [
+        39,
+        56,
+        "MONEY"
+      ],
+      [
+        60,
+        76,
+        "PARTY"
+      ],
+      [
+        100,
+        114,
+        "RATE"
+      ],
+      [
+        126,
+        139,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "This lease is governed by the Land Law 2024 and relevant circulars issued by the Ministry of Natural Resources.",
+    "entities": [
+      [
+        30,
+        43,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The Consultant shall submit deliverables to the Client no later than July 15, 2025, with a consulting fee of $18,000.",
+    "entities": [
+      [
+        4,
+        14,
+        "PARTY"
+      ],
+      [
+        48,
+        54,
+        "PARTY"
+      ],
+      [
+        69,
+        82,
+        "DATE"
+      ],
+      [
+        109,
+        116,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "Non-compliance with data protection obligations shall result in a penalty of 100,000,000 VND imposed on the Data Processor.",
+    "entities": [
+      [
+        66,
+        122,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Party A and Party B agree that all intellectual property created after 01/01/2025 shall be jointly owned.",
+    "entities": [
+      [
+        0,
+        7,
+        "PARTY"
+      ],
+      [
+        12,
+        19,
+        "PARTY"
+      ],
+      [
+        71,
+        81,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The Importer shall pay customs duties in accordance with Vietnam's Law on Import and Export Duties 2016.",
+    "entities": [
+      [
+        4,
+        12,
+        "PARTY"
+      ],
+      [
+        67,
+        103,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Saigon Beverages Inc. grants a credit line of $500,000 to Mekong Trading LLC, repayable at 6.5% per year by December 31, 2026.",
+    "entities": [
+      [
+        0,
+        21,
+        "PARTY"
+      ],
+      [
+        46,
+        54,
+        "MONEY"
+      ],
+      [
+        58,
+        76,
+        "PARTY"
+      ],
+      [
+        91,
+        104,
+        "RATE"
+      ],
+      [
+        108,
+        125,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The Subcontractor shall indemnify the Main Contractor for any loss exceeding 50,000,000 VND caused by substandard workmanship.",
+    "entities": [
+      [
+        4,
+        17,
+        "PARTY"
+      ],
+      [
+        38,
+        53,
+        "PARTY"
+      ],
+      [
+        77,
+        91,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "Penalty for delayed commissioning shall accrue at 0.05% of the contract price per calendar day, with a maximum cap of 10% of the total value.",
+    "entities": [
+      [
+        0,
+        140,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Pursuant to the Labor Code 2019, the Employer must pay severance allowance of at least one month's salary for each year of service.",
+    "entities": [
+      [
+        16,
+        31,
+        "LAW"
+      ],
+      [
+        37,
+        45,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "Sun Capital Fund shall transfer 3,500,000 USD to Horizon Ventures by no later than April 5, 2025.",
+    "entities": [
+      [
+        0,
+        16,
+        "PARTY"
+      ],
+      [
+        32,
+        45,
+        "MONEY"
+      ],
+      [
+        49,
+        65,
+        "PARTY"
+      ],
+      [
+        83,
+        96,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The Insurer shall compensate the Insured up to 800,000,000 VND per incident, subject to the Law on Insurance Business 2022.",
+    "entities": [
+      [
+        4,
+        11,
+        "PARTY"
+      ],
+      [
+        33,
+        40,
+        "PARTY"
+      ],
+      [
+        47,
+        62,
+        "MONEY"
+      ],
+      [
+        92,
+        122,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "If the Lessee subleases the premises without written consent from the Lessor, the Lessee shall pay a penalty equal to three months' rent.",
+    "entities": [
+      [
+        7,
+        13,
+        "PARTY"
+      ],
+      [
+        70,
+        76,
+        "PARTY"
+      ],
+      [
+        82,
+        88,
+        "PARTY"
+      ],
+      [
+        101,
+        136,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "The Escrow Agent shall release funds of $120,000 to the Seller upon successful delivery verification on 30/09/2025.",
+    "entities": [
+      [
+        4,
+        16,
+        "PARTY"
+      ],
+      [
+        40,
+        48,
+        "MONEY"
+      ],
+      [
+        56,
+        62,
+        "PARTY"
+      ],
+      [
+        104,
+        114,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "This Agreement shall be interpreted in accordance with the Law on Investment 2020 and the Law on Enterprises 2020 of Vietnam.",
+    "entities": [
+      [
+        59,
+        81,
+        "LAW"
+      ],
+      [
+        90,
+        113,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The Author assigns all copyright to Publisher Co. Ltd. in exchange for a royalty of 12% of net sales revenue.",
+    "entities": [
+      [
+        4,
+        10,
+        "PARTY"
+      ],
+      [
+        36,
+        54,
+        "PARTY"
+      ],
+      [
+        84,
+        87,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Vingroup JSC shall fund 10,000,000,000 VND into the joint account held with BIDV Bank by February 1, 2025.",
+    "entities": [
+      [
+        0,
+        12,
+        "PARTY"
+      ],
+      [
+        24,
+        42,
+        "MONEY"
+      ],
+      [
+        76,
+        85,
+        "PARTY"
+      ],
+      [
+        89,
+        105,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Under the Decree No. 13/2023/ND-CP on personal data protection, the Controller must notify the Authority within 72 hours of a data breach.",
+    "entities": [
+      [
+        10,
+        62,
+        "LAW"
+      ],
+      [
+        68,
+        78,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "The Developer shall pay the Investor a penalty of 2% of the disbursed amount for every month of construction delay beyond June 30, 2026.",
+    "entities": [
+      [
+        4,
+        13,
+        "PARTY"
+      ],
+      [
+        28,
+        36,
+        "PARTY"
+      ],
+      [
+        39,
+        135,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Both Parties agree that the total liability of either Party shall not exceed $300,000 under any circumstances.",
+    "entities": [
+      [
+        77,
+        85,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "The Pledgor pledges assets valued at 400,000,000 VND to the Pledgee as security, in accordance with the Civil Code 2015.",
+    "entities": [
+      [
+        4,
+        11,
+        "PARTY"
+      ],
+      [
+        37,
+        52,
+        "MONEY"
+      ],
+      [
+        60,
+        67,
+        "PARTY"
+      ],
+      [
+        104,
+        119,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Pacific Logistics JSC must pay Ho Chi Minh Port Authority fees amounting to 350,000,000 VND by 15/12/2024 or face a surcharge of 5% per month.",
+    "entities": [
+      [
+        0,
+        21,
+        "PARTY"
+      ],
+      [
+        31,
+        57,
+        "PARTY"
+      ],
+      [
+        76,
+        91,
+        "MONEY"
+      ],
+      [
+        95,
+        105,
+        "DATE"
+      ],
+      [
+        116,
+        141,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "The Employee's base salary of 25,000,000 VND per month shall increase by 10% annually, effective from the second year of employment.",
+    "entities": [
+      [
+        4,
+        12,
+        "PARTY"
+      ],
+      [
+        30,
+        44,
+        "MONEY"
+      ],
+      [
+        73,
+        76,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Pursuant to the Law on Real Estate Business 2023, Sunrise Real Estate Co. must complete handover to Buyers by August 31, 2026, or pay compensation of 0.05% of the apartment value per day of delay.",
+    "entities": [
+      [
+        16,
+        48,
+        "LAW"
+      ],
+      [
+        50,
+        73,
+        "PARTY"
+      ],
+      [
+        100,
+        106,
+        "PARTY"
+      ],
+      [
+        110,
+        125,
+        "DATE"
+      ],
+      [
+        134,
+        195,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "The Agreement shall come into force on 01/03/2025 and shall remain effective until 28/02/2030, unless either Party serves a written termination notice at least ninety (90) days prior to the expiry date.",
+    "entities": [
+      [
+        39,
+        49,
+        "DATE"
+      ],
+      [
+        83,
+        93,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Payment of the first installment shall be due on the fifteenth (15th) day of the month following the month in which the contract is executed, with subsequent installments due on the same date each calendar month until 31/12/2027.",
+    "entities": [
+      [
+        218,
+        228,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The probationary period shall commence on September 1, 2025 and shall not exceed sixty (60) calendar days, ending no later than October 31, 2025, subject to the Labor Code 2019.",
+    "entities": [
+      [
+        42,
+        59,
+        "DATE"
+      ],
+      [
+        128,
+        144,
+        "DATE"
+      ],
+      [
+        161,
+        176,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Force majeure events occurring between March 15, 2025 and June 15, 2025 shall suspend all delivery obligations; the suspension period shall not exceed ninety (90) days from the date of written notification.",
+    "entities": [
+      [
+        39,
+        53,
+        "DATE"
+      ],
+      [
+        58,
+        71,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The Lessor shall provide written notice of any rent adjustment no later than sixty (60) days before the commencement of the new rental period, being January 1, 2026, in accordance with the Housing Law 2023.",
+    "entities": [
+      [
+        77,
+        92,
+        "DATE"
+      ],
+      [
+        149,
+        164,
+        "DATE"
+      ],
+      [
+        189,
+        205,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "All milestones set forth in Annex B must be completed by the dates specified therein; the final milestone shall be achieved no later than December 31, 2026, being eighteen (18) months from the Effective Date of July 1, 2025.",
+    "entities": [
+      [
+        138,
+        155,
+        "DATE"
+      ],
+      [
+        211,
+        223,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The escrow funds shall be held for a period commencing on the Closing Date, 15/05/2025, and terminating on the earlier of: (i) 15/11/2025, or (ii) the date of final acceptance by the Client.",
+    "entities": [
+      [
+        76,
+        86,
+        "DATE"
+      ],
+      [
+        127,
+        137,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The Borrower shall submit audited financial statements to the Lender within one hundred and twenty (120) days after the end of each fiscal year, the first submission deadline falling on April 30, 2026.",
+    "entities": [
+      [
+        186,
+        200,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Delivery of the completed software system shall occur no later than 30/09/2025; if delayed beyond 15/10/2025, the Contractor shall be deemed in material breach of this Agreement.",
+    "entities": [
+      [
+        68,
+        78,
+        "DATE"
+      ],
+      [
+        98,
+        108,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The warranty period shall begin on the date of final handover, which must occur before June 30, 2025, and shall extend for twenty-four (24) months thereafter, expiring no later than June 30, 2027.",
+    "entities": [
+      [
+        87,
+        100,
+        "DATE"
+      ],
+      [
+        182,
+        195,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "All regulatory filings required under the Law on Investment 2020 shall be submitted no later than thirty (30) business days prior to the planned commencement date of February 1, 2026.",
+    "entities": [
+      [
+        42,
+        64,
+        "LAW"
+      ],
+      [
+        166,
+        182,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The option to purchase shall be exercisable at any time between July 15, 2025 and July 14, 2026, after which it shall lapse automatically without further notice.",
+    "entities": [
+      [
+        64,
+        77,
+        "DATE"
+      ],
+      [
+        82,
+        95,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Upon occurrence of an Event of Default, the Lender may declare all outstanding sums immediately due and payable within five (5) business days; if unpaid by 01/01/2026, enforcement proceedings shall commence.",
+    "entities": [
+      [
+        156,
+        166,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The transition-out services shall be provided for a maximum period of six (6) months following the termination date; if termination occurs on March 31, 2026, transition services shall end no later than September 30, 2026.",
+    "entities": [
+      [
+        142,
+        156,
+        "DATE"
+      ],
+      [
+        202,
+        220,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Dividend distributions shall be made semi-annually, with the first distribution on June 30, 2025 and the second on December 31, 2025, in accordance with the Law on Enterprises 2020.",
+    "entities": [
+      [
+        83,
+        96,
+        "DATE"
+      ],
+      [
+        115,
+        132,
+        "DATE"
+      ],
+      [
+        157,
+        180,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The notice period for voluntary resignation shall be thirty (30) calendar days, commencing on the date the written notice is received; resignation notices received after November 30, 2025 shall take effect no earlier than January 1, 2026.",
+    "entities": [
+      [
+        170,
+        187,
+        "DATE"
+      ],
+      [
+        222,
+        237,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Insurance coverage under this Agreement shall be maintained continuously from the Inception Date, 01/07/2025, through to the Expiry Date, 30/06/2028, with annual renewal no later than fifteen (15) days before each anniversary.",
+    "entities": [
+      [
+        98,
+        108,
+        "DATE"
+      ],
+      [
+        138,
+        148,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The pre-emptive right to purchase additional shares may be exercised within twenty-one (21) days of the offer notice date; any offer issued on August 1, 2025 must therefore be accepted or rejected by August 22, 2025.",
+    "entities": [
+      [
+        143,
+        157,
+        "DATE"
+      ],
+      [
+        200,
+        215,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Construction shall proceed in three phases: Phase I from 01/01/2025 to 30/06/2025, Phase II from 01/07/2025 to 31/12/2025, and Phase III from 01/01/2026 to 30/06/2026.",
+    "entities": [
+      [
+        57,
+        67,
+        "DATE"
+      ],
+      [
+        71,
+        81,
+        "DATE"
+      ],
+      [
+        97,
+        107,
+        "DATE"
+      ],
+      [
+        111,
+        121,
+        "DATE"
+      ],
+      [
+        142,
+        152,
+        "DATE"
+      ],
+      [
+        156,
+        166,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The non-compete obligation shall commence on the date of termination and shall remain in force for twenty-four (24) months thereafter; if termination occurs on May 1, 2025, the non-compete period shall expire on April 30, 2027.",
+    "entities": [
+      [
+        160,
+        171,
+        "DATE"
+      ],
+      [
+        212,
+        226,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Notice of renewal must be provided no later than ninety (90) days before the current term expires; the current term expires on 31/08/2025, so renewal notice must be submitted by 02/06/2025.",
+    "entities": [
+      [
+        127,
+        137,
+        "DATE"
+      ],
+      [
+        178,
+        188,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Pursuant to Circular No. 06/2023/TT-NHNN, all interest rate adjustments must be communicated in writing at least thirty (30) days before the effective date of such adjustment, which in this case is September 1, 2025.",
+    "entities": [
+      [
+        12,
+        40,
+        "LAW"
+      ],
+      [
+        198,
+        215,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The lock-up period for all founder shares shall begin on the IPO date, expected to be 15/10/2025, and shall expire on 14/10/2026, unless extended by mutual written agreement of all Parties.",
+    "entities": [
+      [
+        86,
+        96,
+        "DATE"
+      ],
+      [
+        118,
+        128,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The Contractor shall achieve practical completion by 31/03/2026; the defects liability period shall then run for twelve (12) months, concluding on 31/03/2027, after which the retention sum shall be released.",
+    "entities": [
+      [
+        53,
+        63,
+        "DATE"
+      ],
+      [
+        147,
+        157,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Tax filings required under the Law on Tax Administration 2019 must be submitted quarterly, with deadlines falling on 30/04/2025, 31/07/2025, 31/10/2025, and 31/01/2026 respectively.",
+    "entities": [
+      [
+        31,
+        61,
+        "LAW"
+      ],
+      [
+        117,
+        127,
+        "DATE"
+      ],
+      [
+        129,
+        139,
+        "DATE"
+      ],
+      [
+        141,
+        151,
+        "DATE"
+      ],
+      [
+        157,
+        167,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The base lending rate shall be fixed at 7.5% per annum for the first three (3) years, after which it shall be recalculated as the State Bank of Vietnam reference rate plus a margin of 3.5% per annum.",
+    "entities": [
+      [
+        40,
+        54,
+        "RATE"
+      ],
+      [
+        184,
+        198,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Late payment interest shall accrue at the higher of: (i) 150% of the prevailing State Bank of Vietnam prime rate, or (ii) 18% per annum, from the due date until the date of actual payment in full.",
+    "entities": [
+      [
+        57,
+        61,
+        "RATE"
+      ],
+      [
+        122,
+        135,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "The success fee shall be calculated as 2% of the first 5,000,000,000 VND of transaction value, plus 1.5% of any amount between 5,000,000,000 VND and 10,000,000,000 VND, and 1% of any excess above 10,000,000,000 VND.",
+    "entities": [
+      [
+        39,
+        41,
+        "RATE"
+      ],
+      [
+        100,
+        104,
+        "RATE"
+      ],
+      [
+        173,
+        175,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Interest on the subordinated loan shall accrue at 11.5% per annum, compounding quarterly, with an effective annual yield of approximately 12.01%, as calculated in accordance with the Civil Code 2015.",
+    "entities": [
+      [
+        50,
+        65,
+        "RATE"
+      ],
+      [
+        138,
+        144,
+        "RATE"
+      ],
+      [
+        183,
+        198,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The management fee shall be 0.75% per annum of the net asset value of the fund, payable monthly in arrears, together with a performance fee of 20% of returns exceeding the benchmark rate of 8% per annum.",
+    "entities": [
+      [
+        28,
+        43,
+        "RATE"
+      ],
+      [
+        143,
+        146,
+        "RATE"
+      ],
+      [
+        190,
+        202,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Pursuant to Decree No. 65/2022/ND-CP, the bond yield shall not exceed 300 basis points above the government bond yield of equivalent maturity; the applicable cap as of the issuance date is approximately 12.5% per annum.",
+    "entities": [
+      [
+        12,
+        36,
+        "LAW"
+      ],
+      [
+        203,
+        218,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "The royalty rate for sales in the domestic market shall be 6% of net revenues; for export sales the rate shall be reduced to 4% of net revenues, with both rates subject to annual review and adjustment by mutual consent.",
+    "entities": [
+      [
+        59,
+        61,
+        "RATE"
+      ],
+      [
+        125,
+        127,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Default interest shall be charged at a rate equal to one and a half (1.5) times the contract interest rate; if the contract interest rate is 8% per annum, the default rate shall therefore be 12% per annum.",
+    "entities": [
+      [
+        69,
+        72,
+        "RATE"
+      ],
+      [
+        141,
+        153,
+        "RATE"
+      ],
+      [
+        191,
+        204,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "The value-added tax rate applicable to the services under this Agreement is 10% in accordance with the Law on Value Added Tax 2008 as amended; input tax credits may be claimed by the Purchaser where eligible.",
+    "entities": [
+      [
+        76,
+        79,
+        "RATE"
+      ],
+      [
+        103,
+        130,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Annual salary increments shall not be less than 5% nor more than 15% of the preceding year's base salary, and shall be reviewed each year in March taking into account the Consumer Price Index increase.",
+    "entities": [
+      [
+        48,
+        50,
+        "RATE"
+      ],
+      [
+        65,
+        68,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "The variable component of remuneration shall constitute no more than 30% of total annual compensation; the fixed component shall be not less than 70%, consistent with guidelines under the Labor Code 2019.",
+    "entities": [
+      [
+        69,
+        72,
+        "RATE"
+      ],
+      [
+        146,
+        149,
+        "RATE"
+      ],
+      [
+        188,
+        203,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Processing fees shall be assessed at 0.5% of each disbursement, subject to a minimum fee of $500 and a maximum fee of $5,000, with an additional administrative surcharge of 0.1% applied to disbursements exceeding $1,000,000.",
+    "entities": [
+      [
+        37,
+        41,
+        "RATE"
+      ],
+      [
+        173,
+        177,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "The discount rate applied to future cash flows for the purpose of computing present value under this Agreement shall be 9.25% per annum, reflecting the Parties' agreed weighted average cost of capital.",
+    "entities": [
+      [
+        120,
+        135,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Pursuant to the Law on Credit Institutions 2024, the maximum short-term VND lending rate applicable to priority sectors shall not exceed 4% per annum, while the standard short-term rate cap is 5.5% per annum.",
+    "entities": [
+      [
+        16,
+        47,
+        "LAW"
+      ],
+      [
+        137,
+        149,
+        "RATE"
+      ],
+      [
+        193,
+        207,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "The Tenant shall pay a deposit equivalent to three (3) months' rent; such deposit shall earn interest at the demand deposit rate published by Vietcombank, currently 0.5% per annum, to be returned at lease expiry.",
+    "entities": [
+      [
+        165,
+        179,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Late filing of reports shall attract a surcharge of 0.03% per day of the outstanding tax liability, not exceeding 10% of the total unpaid tax, in accordance with the Law on Tax Administration 2019.",
+    "entities": [
+      [
+        52,
+        65,
+        "RATE"
+      ],
+      [
+        114,
+        117,
+        "RATE"
+      ],
+      [
+        166,
+        196,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The convertible note shall bear interest at 6% per annum; upon conversion the accrued interest shall be added to principal and converted at a 20% discount to the share price at the time of the qualified financing event.",
+    "entities": [
+      [
+        44,
+        56,
+        "RATE"
+      ],
+      [
+        142,
+        145,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Prepayment fees shall apply as follows: 3% of the outstanding principal if prepaid within the first year, 2% if prepaid in the second year, and 1% if prepaid in the third year; no fee applies thereafter.",
+    "entities": [
+      [
+        40,
+        42,
+        "RATE"
+      ],
+      [
+        106,
+        108,
+        "RATE"
+      ],
+      [
+        144,
+        146,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "The withholding tax rate on dividend payments to foreign investors is 5% under the current double taxation agreement between Vietnam and Singapore, or 10% in the absence of such treaty protection.",
+    "entities": [
+      [
+        70,
+        72,
+        "RATE"
+      ],
+      [
+        151,
+        154,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Interest on overdue trade payables shall accrue at the European Central Bank main refinancing rate plus 8 percentage points per annum; any such interest exceeding 20% per annum shall be automatically reduced to 20% per annum.",
+    "entities": [
+      [
+        163,
+        176,
+        "RATE"
+      ],
+      [
+        211,
+        224,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "The Franchisor may increase the royalty fee by no more than the percentage increase in the Consumer Price Index plus 2% in any given year, subject to a maximum single-year increase of 7.5%.",
+    "entities": [
+      [
+        117,
+        119,
+        "RATE"
+      ],
+      [
+        184,
+        188,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Pursuant to Circular No. 39/2016/TT-NHNN on lending activities of credit institutions, the interest rate for medium-term loans shall not exceed the maximum rate prescribed by the State Bank of Vietnam, currently set at 9% per annum.",
+    "entities": [
+      [
+        12,
+        85,
+        "LAW"
+      ],
+      [
+        219,
+        231,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "The Escrow Account shall earn interest at the prevailing three-month treasury bill rate, currently 4.75% per annum, which shall accrue to the account of the Seller upon successful completion of conditions precedent.",
+    "entities": [
+      [
+        99,
+        114,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Carbon credit revenues shall be shared between the Landowner and the Project Developer at a ratio of 40% to 60% respectively for the first five years, adjusting to 45% to 55% thereafter.",
+    "entities": [
+      [
+        101,
+        104,
+        "RATE"
+      ],
+      [
+        108,
+        111,
+        "RATE"
+      ],
+      [
+        164,
+        167,
+        "RATE"
+      ],
+      [
+        171,
+        174,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "The tiered interest structure provides for: (a) 7% per annum on balances up to $100,000; (b) 8.5% per annum on balances between $100,001 and $500,000; and (c) 10% per annum on balances exceeding $500,000.",
+    "entities": [
+      [
+        48,
+        60,
+        "RATE"
+      ],
+      [
+        93,
+        107,
+        "RATE"
+      ],
+      [
+        159,
+        172,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "In the event that the Contractor abandons the project prior to completion, the Contractor shall be liable to pay a penalty comprising: (i) forfeiture of the full performance bond; (ii) reimbursement of all documented remobilization costs; and (iii) liquidated damages equal to 15% of the total uncompleted contract value.",
+    "entities": [
+      [
+        115,
+        320,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Should the Supplier deliver goods that fail to meet the agreed specifications on two or more occasions within any rolling twelve-month period, the Buyer shall be entitled to impose a cumulative quality penalty of 5% of the total annual purchase value, in addition to its right to terminate the Agreement for cause.",
+    "entities": [
+      [
+        183,
+        313,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "The Licensor may impose a penalty for unauthorized use of intellectual property equal to three (3) times the standard licensing fee that would have been payable, plus all legal costs and investigative expenses reasonably incurred, in accordance with the Law on Intellectual Property 2022.",
+    "entities": [
+      [
+        26,
+        229,
+        "PENALTY"
+      ],
+      [
+        254,
+        287,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "For each day of delay beyond the agreed commissioning date of 30/06/2026, the EPC Contractor shall pay the Owner liquidated damages of 0.1% of the total EPC Contract Price per day, subject to a maximum aggregate cap of 10% of the total EPC Contract Price, beyond which the Owner may exercise its right of termination.",
+    "entities": [
+      [
+        62,
+        72,
+        "DATE"
+      ],
+      [
+        113,
+        316,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Failure by the Data Controller to implement the data security measures mandated under Decree No. 13/2023/ND-CP within the stipulated remediation period shall result in a contractual penalty of 200,000,000 VND per breach event, in addition to any administrative fines imposed by competent authorities.",
+    "entities": [
+      [
+        86,
+        110,
+        "LAW"
+      ],
+      [
+        170,
+        299,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Any breach of the confidentiality obligations set out in Article 7 shall entitle the non-breaching Party to claim a lump-sum penalty of $50,000 per incident of unauthorized disclosure, without prejudice to claims for actual damages proven to exceed such amount.",
+    "entities": [
+      [
+        116,
+        260,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "The Distributor shall be subject to a termination penalty equal to twelve (12) months of the average monthly Net Revenue earned in the preceding twenty-four (24) months if it unilaterally terminates this Agreement before the expiry date of 31/12/2027.",
+    "entities": [
+      [
+        38,
+        250,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "In the event of a material misrepresentation by the Seller that results in the Buyer overpaying, the Seller shall: (a) refund the excess payment within fifteen (15) business days; (b) pay an indemnity penalty of 200% of the excess amount; and (c) bear all transaction costs incurred by the Buyer.",
+    "entities": [
+      [
+        191,
+        237,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Non-delivery of the agreed monthly quota for three consecutive months shall automatically trigger a shortage penalty equal to the difference between the contracted volume and actual volume multiplied by 150% of the prevailing market price, as published by the Vietnam Commodity Exchange.",
+    "entities": [
+      [
+        100,
+        286,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Pursuant to Article 300 of the Commercial Law 2005, the total penalty for breach of contract shall not exceed 8% of the value of the breached contractual obligation; any agreed penalty in excess of this statutory cap shall be automatically reduced to 8%.",
+    "entities": [
+      [
+        31,
+        50,
+        "LAW"
+      ],
+      [
+        56,
+        253,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Should the Franchisee open a competing business within the restricted territory during or within twenty-four (24) months after termination of this Agreement, the Franchisee shall pay a covenant breach penalty of $200,000, plus the Franchisor's legal fees and costs of enforcement.",
+    "entities": [
+      [
+        185,
+        279,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "The penalty for premature withdrawal from the joint venture shall be calculated as follows: (i) forfeiture of all capital contributions made to date; (ii) payment of a withdrawal fee equal to 25% of the withdrawing Party's attributed enterprise value; and (iii) assumption of all liabilities attributable to the withdrawing Party.",
+    "entities": [
+      [
+        4,
+        329,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "In accordance with Article 418 of the Civil Code 2015, the agreed penalty for delayed performance is 0.05% of the delayed obligation value per day; this rate shall apply from the date performance was due, being 01/10/2025, until actual completion.",
+    "entities": [
+      [
+        38,
+        53,
+        "LAW"
+      ],
+      [
+        59,
+        146,
+        "PENALTY"
+      ],
+      [
+        211,
+        221,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The Employer shall pay a wrongful termination penalty of thirty-six (36) months' gross salary to the Employee if this Agreement is terminated without cause and without the minimum notice period required under the Labor Code 2019.",
+    "entities": [
+      [
+        25,
+        228,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Where the insurance premium is not paid within thirty (30) days of the due date, the Insurer shall impose a reinstatement penalty equal to 5% of the annual premium, and coverage shall be deemed suspended from the date of non-payment until the penalty and overdue premium are fully settled.",
+    "entities": [
+      [
+        108,
+        288,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "The Contractor's liability for defective works discovered during the defects liability period shall include: (i) the cost of rectification at no charge; (ii) a quality penalty of 3% of the contract price for each category of structural defect; and (iii) an extension of the warranty period by a duration equal to twice the rectification period.",
+    "entities": [
+      [
+        160,
+        242,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Any attempt by the Assignor to assign its rights under this Agreement without prior written consent of the Assignee shall be void ab initio and shall trigger an unauthorized assignment penalty of $30,000, payable within ten (10) business days of discovery.",
+    "entities": [
+      [
+        161,
+        255,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Violation of the minimum local content requirements set out in Decision No. 38/2020/QD-TTg shall subject the Investor to a local content deficiency penalty calculated at 2% of the shortfall value per quarter until full compliance is achieved.",
+    "entities": [
+      [
+        63,
+        90,
+        "LAW"
+      ],
+      [
+        123,
+        241,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "If the Borrower's debt-service coverage ratio falls below 1.20x for two consecutive quarters, the Lender shall have the right to impose a covenant breach fee of 1% of the outstanding principal balance per quarter until the ratio is restored above 1.20x.",
+    "entities": [
+      [
+        138,
+        252,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "The exporter shall face a trade penalty comprising: (a) return of all export incentives and tax refunds previously granted; (b) a fine of 150% of the value of non-compliant goods; and (c) suspension from the preferential tariff program for a period of twenty-four (24) months, in accordance with the Law on Foreign Trade Management 2017.",
+    "entities": [
+      [
+        26,
+        275,
+        "PENALTY"
+      ],
+      [
+        300,
+        336,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Should the Operator's system uptime fall below 99.5% in any calendar month, the Operator shall credit the Client an amount equal to ten (10) times the pro-rata monthly fee for the period of unavailability, as a service-level breach penalty.",
+    "entities": [
+      [
+        47,
+        52,
+        "RATE"
+      ],
+      [
+        211,
+        239,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Repeated late submission of financial reports, defined as three or more late submissions within any twelve-month period, shall result in a reporting default penalty equal to 0.5% of the Facility Amount per occurrence, accumulating without cap until the default is cured.",
+    "entities": [
+      [
+        139,
+        269,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "The Seller shall pay a rescission penalty of 10% of the total purchase price to the Buyer in the event that the Seller exercises its right of rescission after the contract has been duly executed and the deposit has been received, pursuant to Article 423 of the Civil Code 2015.",
+    "entities": [
+      [
+        23,
+        228,
+        "PENALTY"
+      ],
+      [
+        261,
+        276,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The Construction Authority may impose an administrative stop-work order, and the Developer shall be liable for a delay propagation penalty of 0.02% of the total project investment per day for every day the stop-work order remains in effect due to the Developer's non-compliance with the Construction Law 2020.",
+    "entities": [
+      [
+        113,
+        308,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Where the Guarantor fails to honor a valid demand under the guarantee within five (5) business days of receipt, the Guarantor shall, in addition to the guaranteed sum, pay a guarantee default penalty equal to the guaranteed sum plus interest at 15% per annum from the date of demand until full payment.",
+    "entities": [
+      [
+        174,
+        301,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "The lump-sum fine for anti-competitive conduct, including price-fixing or market-sharing arrangements prohibited under the Law on Competition 2018, shall be assessed at up to 10% of the total revenue of the infringing enterprise in the fiscal year preceding the infringement finding.",
+    "entities": [
+      [
+        4,
+        282,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "This Agreement is subject to, and shall be construed in accordance with, the laws of the Socialist Republic of Vietnam, including in particular the Civil Code 2015, the Commercial Law 2005, and all applicable sub-laws, regulations, and ministerial circulars.",
+    "entities": [
+      [
+        148,
+        163,
+        "LAW"
+      ],
+      [
+        169,
+        188,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The Parties agree that any dispute, controversy, or claim arising out of or in connection with this Agreement shall be finally settled by arbitration administered by the Vietnam International Arbitration Centre (VIAC) in accordance with its Rules of Arbitration, as supplemented by the Law on Commercial Arbitration 2010.",
+    "entities": [
+      [
+        286,
+        320,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Environmental obligations under this Agreement shall be governed by the Law on Environmental Protection 2020 and Decree No. 08/2022/ND-CP guiding the implementation thereof, both as amended from time to time.",
+    "entities": [
+      [
+        72,
+        108,
+        "LAW"
+      ],
+      [
+        113,
+        137,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The security interest created under this Agreement shall be perfected by registration with the competent registration authority in accordance with Decree No. 99/2022/ND-CP on registration of security interests, and shall have priority over subsequently registered interests.",
+    "entities": [
+      [
+        147,
+        209,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Corporate governance obligations of each Party that is a Vietnamese legal entity shall be fulfilled in accordance with the Law on Enterprises 2020 and the relevant Charter of each such entity; any conflict between this Agreement and the Charter shall be resolved in favor of this Agreement to the extent permitted by law.",
+    "entities": [
+      [
+        123,
+        146,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The treatment of personal data collected in connection with this Agreement shall comply strictly with Decree No. 13/2023/ND-CP on personal data protection, and the Parties shall execute a separate Data Processing Agreement incorporating the requirements thereof by 30/06/2025.",
+    "entities": [
+      [
+        102,
+        154,
+        "LAW"
+      ],
+      [
+        265,
+        275,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "All foreign exchange transactions and currency conversions required under this Agreement shall be conducted in compliance with Ordinance No. 06/2013/UBTVQH13 on Foreign Exchange and the guiding Decree No. 70/2014/ND-CP, as may be amended.",
+    "entities": [
+      [
+        127,
+        177,
+        "LAW"
+      ],
+      [
+        194,
+        218,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Employment terms and conditions shall be governed by the Labor Code 2019, Decree No. 145/2020/ND-CP on elaboration of the Labor Code, and all applicable collective bargaining agreements, which shall prevail over this contract in the event of inconsistency.",
+    "entities": [
+      [
+        57,
+        72,
+        "LAW"
+      ],
+      [
+        74,
+        132,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The issuance of bonds under this Agreement shall comply with Decree No. 65/2022/ND-CP as amended by Decree No. 08/2023/ND-CP on private placement of corporate bonds, and all relevant State Securities Commission regulations.",
+    "entities": [
+      [
+        61,
+        85,
+        "LAW"
+      ],
+      [
+        100,
+        164,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Intellectual property rights in the deliverables shall vest in the Client from the date of full payment, subject to the Law on Intellectual Property 2005 as amended by Law No. 07/2022/QH15, including provisions on copyright, industrial designs, and trademarks.",
+    "entities": [
+      [
+        120,
+        153,
+        "LAW"
+      ],
+      [
+        168,
+        188,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "All construction activities shall be carried out in strict compliance with the Construction Law 2020, National Technical Regulations QCVN 06:2022/BXD, and any site-specific permits issued by the Department of Construction of Ho Chi Minh City.",
+    "entities": [
+      [
+        79,
+        100,
+        "LAW"
+      ],
+      [
+        102,
+        149,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The Parties acknowledge that this transaction may constitute a concentration of economic power and shall obtain prior approval from the National Competition Commission as required under Article 33 of the Law on Competition 2018 before completing the transaction.",
+    "entities": [
+      [
+        204,
+        227,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Tax obligations of the Project Company shall be governed by the Law on Corporate Income Tax 2008 as amended and the Law on Value Added Tax 2008 as amended, together with all implementing decrees and circulars issued by the Ministry of Finance.",
+    "entities": [
+      [
+        64,
+        96,
+        "LAW"
+      ],
+      [
+        116,
+        143,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The transfer of land use rights contemplated under this Agreement is subject to the Land Law 2024, Decree No. 43/2014/ND-CP on land registration as amended, and all applicable provincial People's Committee regulations governing land transactions.",
+    "entities": [
+      [
+        84,
+        97,
+        "LAW"
+      ],
+      [
+        99,
+        144,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Maritime transport obligations shall be governed by the Vietnam Maritime Code 2015 and the International Convention for the Safety of Life at Sea (SOLAS) as ratified by Vietnam, and in case of conflict the Vietnam Maritime Code 2015 shall prevail.",
+    "entities": [
+      [
+        56,
+        82,
+        "LAW"
+      ],
+      [
+        91,
+        153,
+        "LAW"
+      ],
+      [
+        206,
+        232,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Consumer protection obligations shall be fulfilled in accordance with the Law on Consumer Rights Protection 2023, and the Supplier shall maintain a complaint resolution mechanism meeting the standards prescribed under Decree No. 55/2024/ND-CP.",
+    "entities": [
+      [
+        74,
+        112,
+        "LAW"
+      ],
+      [
+        218,
+        242,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Cybersecurity measures implemented under this Agreement shall comply with the Law on Cybersecurity 2018, Decree No. 13/2023/ND-CP on personal data protection, and all technical standards issued by the Ministry of Public Security's cybersecurity agency.",
+    "entities": [
+      [
+        78,
+        103,
+        "LAW"
+      ],
+      [
+        105,
+        157,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Accounting records and financial statements shall be prepared in accordance with the Accounting Law 2015 and Vietnamese Accounting Standards (VAS) promulgated by the Ministry of Finance, with consolidation prepared under IFRS where required by the parent entity.",
+    "entities": [
+      [
+        85,
+        104,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The insurance policies required under this Agreement shall be placed and maintained in compliance with the Law on Insurance Business 2022 and Decree No. 46/2023/ND-CP guiding the implementation thereof, with insurers licensed by the Ministry of Finance.",
+    "entities": [
+      [
+        107,
+        137,
+        "LAW"
+      ],
+      [
+        142,
+        166,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Anti-money laundering and counter-terrorist financing obligations shall be observed in accordance with the Law on Anti-Money Laundering 2022 and Decree No. 19/2023/ND-CP elaborating thereon, and the Parties shall conduct customer due diligence as required.",
+    "entities": [
+      [
+        107,
+        140,
+        "LAW"
+      ],
+      [
+        145,
+        169,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The import of goods under this Agreement shall be subject to the Law on Foreign Trade Management 2017, Decree No. 69/2018/ND-CP detailing import and export activities, and all relevant Ministry of Industry and Trade regulations, including applicable import licensing requirements.",
+    "entities": [
+      [
+        65,
+        101,
+        "LAW"
+      ],
+      [
+        103,
+        127,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Real estate transactions under this Agreement shall comply with the Law on Real Estate Business 2023, the Land Law 2024, and Circular No. 11/2024/TT-BXD on procedures for real estate registration, all as may be amended from time to time.",
+    "entities": [
+      [
+        68,
+        100,
+        "LAW"
+      ],
+      [
+        106,
+        119,
+        "LAW"
+      ],
+      [
+        125,
+        195,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "The collection, storage, and use of health and biometric data in connection with this Agreement shall be governed by the Law on Examination and Treatment 2023 and Decree No. 13/2023/ND-CP on personal data protection, and shall require explicit informed consent of each data subject.",
+    "entities": [
+      [
+        121,
+        158,
+        "LAW"
+      ],
+      [
+        163,
+        215,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Enforcement of this Agreement shall be subject to the Law on Enforcement of Civil Judgments 2008 as amended by Law No. 64/2014/QH13, and any enforcement action must be commenced within the limitation period prescribed by the Civil Code 2015.",
+    "entities": [
+      [
+        54,
+        96,
+        "LAW"
+      ],
+      [
+        111,
+        131,
+        "LAW"
+      ],
+      [
+        225,
+        240,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Buyer shall pay $13,250.00 before July 20, 2024.",
+    "entities": [
+      [
+        0,
+        5,
+        "PARTY"
+      ],
+      [
+        16,
+        26,
+        "MONEY"
+      ],
+      [
+        34,
+        47,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "The laws of the State of California governs this agreement between ABC Tech Inc. and XYZ Innovations Ltd.",
+    "entities": [
+      [
+        4,
+        35,
+        "LAW"
+      ],
+      [
+        67,
+        80,
+        "PARTY"
+      ],
+      [
+        85,
+        105,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "Seller offers a full refund of the purchase price if defective.",
+    "entities": [
+      [
+        0,
+        6,
+        "PARTY"
+      ],
+      [
+        16,
+        49,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "A 5% late payment fee applies to John Doe.",
+    "entities": [
+      [
+        2,
+        4,
+        "RATE"
+      ],
+      [
+        5,
+        21,
+        "PENALTY"
+      ],
+      [
+        33,
+        41,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "ABC Manufacturing Co. will deliver by 2024-07-10.",
+    "entities": [
+      [
+        0,
+        21,
+        "PARTY"
+      ],
+      [
+        38,
+        48,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Under Civil Code 2015, Party A gives 10,000,000 VND to Party B.",
+    "entities": [
+      [
+        6,
+        21,
+        "LAW"
+      ],
+      [
+        23,
+        30,
+        "PARTY"
+      ],
+      [
+        37,
+        51,
+        "MONEY"
+      ],
+      [
+        55,
+        62,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "Employer deducts 10% from the salary of Employee.",
+    "entities": [
+      [
+        0,
+        8,
+        "PARTY"
+      ],
+      [
+        17,
+        20,
+        "RATE"
+      ],
+      [
+        40,
+        48,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "Failure by XYZ Retail Inc. results in termination of the contract.",
+    "entities": [
+      [
+        11,
+        26,
+        "PARTY"
+      ],
+      [
+        38,
+        65,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "ABC Tech Inc. owns 50% of the joint venture.",
+    "entities": [
+      [
+        0,
+        13,
+        "PARTY"
+      ],
+      [
+        19,
+        22,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "$500,000 must be transferred to XYZ Innovations Ltd. on July 1, 2024.",
+    "entities": [
+      [
+        0,
+        8,
+        "MONEY"
+      ],
+      [
+        32,
+        52,
+        "PARTY"
+      ],
+      [
+        56,
+        68,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "This contract follows the laws of the State of Illinois.",
+    "entities": [
+      [
+        26,
+        55,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Any delay past 01/01/2024 triggers a late payment fee.",
+    "entities": [
+      [
+        15,
+        25,
+        "DATE"
+      ],
+      [
+        37,
+        53,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Buyer owes $100.00 to Seller.",
+    "entities": [
+      [
+        0,
+        5,
+        "PARTY"
+      ],
+      [
+        11,
+        18,
+        "MONEY"
+      ],
+      [
+        22,
+        28,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "A 8.25% tax is added for John Doe.",
+    "entities": [
+      [
+        2,
+        7,
+        "RATE"
+      ],
+      [
+        25,
+        33,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "Party A agrees to return the Goods for a replacement before June 5, 2025.",
+    "entities": [
+      [
+        0,
+        7,
+        "PARTY"
+      ],
+      [
+        18,
+        52,
+        "PENALTY"
+      ],
+      [
+        60,
+        72,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "According to Vietnamese law, Company will pay $8,000.00.",
+    "entities": [
+      [
+        13,
+        27,
+        "LAW"
+      ],
+      [
+        29,
+        36,
+        "PARTY"
+      ],
+      [
+        46,
+        55,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "XYZ Retail Inc. assumes 50% liability.",
+    "entities": [
+      [
+        0,
+        15,
+        "PARTY"
+      ],
+      [
+        24,
+        27,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "forfeiture of the deposit is required from Employee.",
+    "entities": [
+      [
+        0,
+        25,
+        "PENALTY"
+      ],
+      [
+        44,
+        52,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "Payment of $500,000 from Party B is due on 2024-07-10.",
+    "entities": [
+      [
+        11,
+        19,
+        "MONEY"
+      ],
+      [
+        25,
+        32,
+        "PARTY"
+      ],
+      [
+        43,
+        53,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "ABC Manufacturing Co. applies the laws of the State of California.",
+    "entities": [
+      [
+        0,
+        21,
+        "PARTY"
+      ],
+      [
+        34,
+        65,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "By July 1, 2024, Employer shall submit $13,250.00.",
+    "entities": [
+      [
+        3,
+        15,
+        "DATE"
+      ],
+      [
+        17,
+        25,
+        "PARTY"
+      ],
+      [
+        39,
+        49,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "The full refund of the purchase price is valid under laws of the State of Illinois.",
+    "entities": [
+      [
+        4,
+        37,
+        "PENALTY"
+      ],
+      [
+        53,
+        82,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Company grants a 10% discount.",
+    "entities": [
+      [
+        0,
+        7,
+        "PARTY"
+      ],
+      [
+        17,
+        20,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "XYZ Innovations Ltd. accepts the termination of the contract terms.",
+    "entities": [
+      [
+        0,
+        20,
+        "PARTY"
+      ],
+      [
+        33,
+        60,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Seller requests 10,000,000 VND by July 20, 2024.",
+    "entities": [
+      [
+        0,
+        6,
+        "PARTY"
+      ],
+      [
+        16,
+        30,
+        "MONEY"
+      ],
+      [
+        34,
+        47,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Civil Code 2015 governs the $100.00 fee.",
+    "entities": [
+      [
+        0,
+        15,
+        "LAW"
+      ],
+      [
+        28,
+        35,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "A 8.25% interest applies if John Doe is late.",
+    "entities": [
+      [
+        2,
+        7,
+        "RATE"
+      ],
+      [
+        28,
+        36,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "On 01/01/2024, Buyer enacts the forfeiture of the deposit.",
+    "entities": [
+      [
+        3,
+        13,
+        "DATE"
+      ],
+      [
+        15,
+        20,
+        "PARTY"
+      ],
+      [
+        32,
+        57,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "ABC Tech Inc. and Party B agree to Vietnamese law.",
+    "entities": [
+      [
+        0,
+        13,
+        "PARTY"
+      ],
+      [
+        18,
+        25,
+        "PARTY"
+      ],
+      [
+        35,
+        49,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Employee receives $8,000.00 every June 5, 2025.",
+    "entities": [
+      [
+        0,
+        8,
+        "PARTY"
+      ],
+      [
+        18,
+        27,
+        "MONEY"
+      ],
+      [
+        34,
+        46,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "ABC Manufacturing Co. must enforce a return the Goods for a replacement.",
+    "entities": [
+      [
+        0,
+        21,
+        "PARTY"
+      ],
+      [
+        37,
+        71,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "Party A pays a 5% late payment fee.",
+    "entities": [
+      [
+        0,
+        7,
+        "PARTY"
+      ],
+      [
+        15,
+        17,
+        "RATE"
+      ],
+      [
+        18,
+        34,
+        "PENALTY"
+      ]
+    ]
+  },
+  {
+    "text": "As per laws of the State of California, $500,000 is the limit.",
+    "entities": [
+      [
+        7,
+        38,
+        "LAW"
+      ],
+      [
+        40,
+        48,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "XYZ Retail Inc. takes 50% of $13,250.00.",
+    "entities": [
+      [
+        0,
+        15,
+        "PARTY"
+      ],
+      [
+        22,
+        25,
+        "RATE"
+      ],
+      [
+        29,
+        39,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "2024-07-10 is the deadline for Employer.",
+    "entities": [
+      [
+        0,
+        10,
+        "DATE"
+      ],
+      [
+        31,
+        39,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "Seller invokes termination of the contract under laws of the State of Illinois.",
+    "entities": [
+      [
+        0,
+        6,
+        "PARTY"
+      ],
+      [
+        15,
+        42,
+        "PENALTY"
+      ],
+      [
+        49,
+        78,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Company claims full refund of the purchase price by July 1, 2024.",
+    "entities": [
+      [
+        0,
+        7,
+        "PARTY"
+      ],
+      [
+        15,
+        48,
+        "PENALTY"
+      ],
+      [
+        52,
+        64,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Party B provides 10,000,000 VND to John Doe.",
+    "entities": [
+      [
+        0,
+        7,
+        "PARTY"
+      ],
+      [
+        17,
+        31,
+        "MONEY"
+      ],
+      [
+        35,
+        43,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "XYZ Innovations Ltd. charges 10% extra.",
+    "entities": [
+      [
+        0,
+        20,
+        "PARTY"
+      ],
+      [
+        29,
+        32,
+        "RATE"
+      ]
+    ]
+  },
+  {
+    "text": "Civil Code 2015 requires Buyer to pay $100.00.",
+    "entities": [
+      [
+        0,
+        15,
+        "LAW"
+      ],
+      [
+        25,
+        30,
+        "PARTY"
+      ],
+      [
+        38,
+        45,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "On July 20, 2024, ABC Tech Inc. will issue $8,000.00.",
+    "entities": [
+      [
+        3,
+        16,
+        "DATE"
+      ],
+      [
+        18,
+        31,
+        "PARTY"
+      ],
+      [
+        43,
+        52,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "XYZ Retail Inc. is subject to Vietnamese law.",
+    "entities": [
+      [
+        0,
+        15,
+        "PARTY"
+      ],
+      [
+        30,
+        44,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Employee suffers a forfeiture of the deposit on 01/01/2024.",
+    "entities": [
+      [
+        0,
+        8,
+        "PARTY"
+      ],
+      [
+        19,
+        44,
+        "PENALTY"
+      ],
+      [
+        48,
+        58,
+        "DATE"
+      ]
+    ]
+  },
+  {
+    "text": "Party A transfers $500,000 to ABC Manufacturing Co.",
+    "entities": [
+      [
+        0,
+        7,
+        "PARTY"
+      ],
+      [
+        18,
+        26,
+        "MONEY"
+      ],
+      [
+        30,
+        51,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "The 8.25% rate is bound by laws of the State of California.",
+    "entities": [
+      [
+        4,
+        9,
+        "RATE"
+      ],
+      [
+        27,
+        58,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "Seller will apply a late payment fee to Party B.",
+    "entities": [
+      [
+        0,
+        6,
+        "PARTY"
+      ],
+      [
+        20,
+        36,
+        "PENALTY"
+      ],
+      [
+        40,
+        47,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "By June 5, 2025, John Doe must deliver $13,250.00.",
+    "entities": [
+      [
+        3,
+        15,
+        "DATE"
+      ],
+      [
+        17,
+        25,
+        "PARTY"
+      ],
+      [
+        39,
+        49,
+        "MONEY"
+      ]
+    ]
+  },
+  {
+    "text": "Buyer seeks return the Goods for a replacement from Company.",
+    "entities": [
+      [
+        0,
+        5,
+        "PARTY"
+      ],
+      [
+        12,
+        46,
+        "PENALTY"
+      ],
+      [
+        52,
+        59,
+        "PARTY"
+      ]
+    ]
+  },
+  {
+    "text": "Employer owes $100.00 under laws of the State of Illinois.",
+    "entities": [
+      [
+        0,
+        8,
+        "PARTY"
+      ],
+      [
+        14,
+        21,
+        "MONEY"
+      ],
+      [
+        28,
+        57,
+        "LAW"
+      ]
+    ]
+  },
+  {
+    "text": "XYZ Innovations Ltd. commands 50% by 2024-07-10.",
+    "entities": [
+      [
+        0,
+        20,
+        "PARTY"
+      ],
+      [
+        30,
+        33,
+        "RATE"
+      ],
+      [
+        37,
+        47,
+        "DATE"
       ]
     ]
   }

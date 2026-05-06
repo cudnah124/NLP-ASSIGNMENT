@@ -1,204 +1,230 @@
 import json
 import os
 import random
-import spacy
-from spacy.training import Example
-from spacy.util import minibatch, compounding
+import torch
+import numpy as np
+import matplotlib.pyplot as plt
+from torch.utils.data import DataLoader, Dataset
+from transformers import AutoTokenizer, AutoModelForTokenClassification, AdamW, get_linear_schedule_with_warmup
 
-ENTITY_LABELS = {"PARTY", "MONEY", "DATE", "RATE", "PENALTY", "LAW"}
-def load_training_data(data_path):
-    with open(data_path, "r", encoding="utf-8") as f:
-        raw_data = json.load(f)
+# 1. Config labels
+ENTITY_LABELS = ["O", "PARTY", "MONEY", "DATE", "RATE", "PENALTY", "LAW"]
+LABEL2ID = {label: i for i, label in enumerate(ENTITY_LABELS)}
+ID2LABEL = {i: label for i, label in enumerate(ENTITY_LABELS)}
 
-    training_data = []
-    skipped_labels = set()
+MODEL_CHECKPOINT = "dslim/bert-base-NER"
+MAX_LEN = 128
 
-    for item in raw_data:
+class NERDataset(Dataset):
+    def __init__(self, data, tokenizer, max_len=MAX_LEN):
+        self.data = data
+        self.tokenizer = tokenizer
+        self.max_len = max_len
+
+    def __len__(self):
+        return len(self.data)
+
+    def __getitem__(self, index):
+        item = self.data[index]
         text = item["text"]
-        raw_entities = [tuple(e) for e in item["entities"]]
+        entities = item["entities"]
 
-        valid_entities = []
-        for start, end, label in raw_entities:
-            if label not in ENTITY_LABELS:
-                skipped_labels.add(label)
-                continue
-            valid_entities.append((start, end, label))
-        valid_entities = _remove_overlaps(valid_entities)
+        encoding = self.tokenizer(
+            text,
+            max_length=self.max_len,
+            padding="max_length",
+            truncation=True,
+            return_offsets_mapping=True,
+            return_tensors="pt"
+        )
 
-        if valid_entities:
-            training_data.append((text, {"entities": valid_entities}))
+        labels = [LABEL2ID["O"]] * self.max_len
+        offsets = encoding["offset_mapping"][0]
+        
+        for start, end, label in entities:
+            label_id = LABEL2ID.get(label, LABEL2ID["O"])
+            for idx, (tok_start, tok_end) in enumerate(offsets):
+                if tok_start == 0 and tok_end == 0:
+                    continue
+                # Align character offsets to tokens
+                if tok_start >= start and tok_end <= end:
+                    labels[idx] = label_id
 
-    return training_data
+        return {
+            "input_ids": encoding["input_ids"].flatten(),
+            "attention_mask": encoding["attention_mask"].flatten(),
+            "labels": torch.tensor(labels, dtype=torch.long)
+        }
 
+def load_training_data(data_path):
+    if not os.path.exists(data_path):
+        return []
+    with open(data_path, "r", encoding="utf-8") as f:
+        return json.load(f)
 
-def _remove_overlaps(entities):
-    sorted_ents = sorted(entities, key=lambda e: (e[0], e[1]))
-    result = []
-    last_end = -1
-    for start, end, label in sorted_ents:
-        if start >= last_end:
-            result.append((start, end, label))
-            last_end = end
-    return result
+def train_ner_model(training_data, output_dir, n_iter=10):
+    print(f"Loading base model: {MODEL_CHECKPOINT}")
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_CHECKPOINT)
+    model = AutoModelForTokenClassification.from_pretrained(
+        MODEL_CHECKPOINT, 
+        num_labels=len(ENTITY_LABELS),
+        ignore_mismatched_sizes=True
+    )
 
-def train_ner_model(training_data, output_dir, n_iter=30):
-    nlp = spacy.blank("en")
-    ner = nlp.add_pipe("ner", last=True)
-
-    labels = set()
-    for _, annotations in training_data:
-        for ent in annotations["entities"]:
-            labels.add(ent[2])
-    for label in sorted(labels):
-        ner.add_label(label)
     random.shuffle(training_data)
-    split_idx = int(len(training_data) * 0.8)
-    train_data = training_data[:split_idx]
-    eval_data  = training_data[split_idx:]
+    split = int(len(training_data) * 0.8)
+    train_data = training_data[:split]
+    val_data = training_data[split:]
 
-    optimizer = nlp.begin_training()
+    train_dataset = NERDataset(train_data, tokenizer)
+    val_dataset = NERDataset(val_data, tokenizer)
 
-    epoch_hist = []
-    loss_hist  = []
-    f1_hist    = []
+    train_loader = DataLoader(train_dataset, batch_size=8, shuffle=True)
+    val_loader = DataLoader(val_dataset, batch_size=8)
 
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    model.to(device)
+
+    optimizer = AdamW(model.parameters(), lr=3e-5)
+    total_steps = len(train_loader) * n_iter
+    scheduler = get_linear_schedule_with_warmup(optimizer, num_warmup_steps=0, num_training_steps=total_steps)
+
+    epoch_hist, loss_hist, val_loss_hist = [], [], []
+
+    print(f"Training on {device} for {n_iter} epochs...")
     for epoch in range(n_iter):
-        random.shuffle(train_data)
-        losses = {}
+        model.train()
+        total_loss = 0
+        for batch in train_loader:
+            optimizer.zero_grad()
+            input_ids = batch["input_ids"].to(device)
+            attention_mask = batch["attention_mask"].to(device)
+            labels = batch["labels"].to(device)
 
-        batches = minibatch(train_data, size=compounding(4.0, 32.0, 1.001))
-        for batch in batches:
-            examples = [
-                Example.from_dict(nlp.make_doc(text), ann)
-                for text, ann in batch
-            ]
-            nlp.update(examples, sgd=optimizer, drop=0.35, losses=losses)
+            outputs = model(input_ids, attention_mask=attention_mask, labels=labels)
+            loss = outputs.loss
+            loss.backward()
+            optimizer.step()
+            scheduler.step()
+            total_loss += loss.item()
 
-        if (epoch + 1) % 5 == 0 or epoch == 0:
-            eval_examples = [
-                Example.from_dict(nlp.make_doc(text), ann)
-                for text, ann in eval_data
-            ]
-            scores = nlp.evaluate(eval_examples)
-
-            overall_p  = scores.get("ents_p", 0.0)
-            overall_r  = scores.get("ents_r", 0.0)
-            overall_f1 = scores.get("ents_f", 0.0)
-            per_label  = scores.get("ents_per_type", {})
-
-            epoch_hist.append(epoch + 1)
-            loss_hist.append(losses.get("ner", 0))
-            f1_hist.append(overall_f1)
-
-    _save_training_plot(epoch_hist, loss_hist, f1_hist, output_dir)
+        avg_train_loss = total_loss / len(train_loader)
+        
+        model.eval()
+        val_loss = 0
+        with torch.no_grad():
+            for batch in val_loader:
+                input_ids = batch["input_ids"].to(device)
+                attention_mask = batch["attention_mask"].to(device)
+                labels = batch["labels"].to(device)
+                outputs = model(input_ids, attention_mask=attention_mask, labels=labels)
+                val_loss += outputs.loss.item()
+        
+        avg_val_loss = val_loss / len(val_loader)
+        print(f"Epoch {epoch+1}/{n_iter} - Loss: {avg_train_loss:.4f} - Val Loss: {avg_val_loss:.4f}")
+        
+        epoch_hist.append(epoch + 1)
+        loss_hist.append(avg_train_loss)
+        val_loss_hist.append(avg_val_loss)
 
     os.makedirs(output_dir, exist_ok=True)
-    nlp.to_disk(output_dir)
-    return nlp
+    model.save_pretrained(output_dir)
+    tokenizer.save_pretrained(output_dir)
+    
+    with open(os.path.join(output_dir, "labels.json"), "w") as f:
+        json.dump({"id2label": ID2LABEL, "label2id": LABEL2ID}, f)
 
+    _save_training_plot(epoch_hist, loss_hist, val_loss_hist, output_dir)
+    return model, tokenizer
 
-def _save_training_plot(epoch_hist, loss_hist, f1_hist, model_output_dir):
+def _save_training_plot(epoch_hist, loss_hist, val_loss_hist, model_output_dir):
     try:
-        import matplotlib.pyplot as plt
-
-        fig, ax1 = plt.subplots(figsize=(8, 5))
-
-        ax1.set_xlabel("Epoch")
-        ax1.set_ylabel("Training Loss", color="tab:red")
-        ax1.plot(epoch_hist, loss_hist, color="tab:red", marker="o", label="Loss")
-        ax1.tick_params(axis="y", labelcolor="tab:red")
-        ax1.grid(True, linestyle="--", alpha=0.5)
-
-        ax2 = ax1.twinx()
-        ax2.set_ylabel("Eval F1-Score", color="tab:blue")
-        ax2.plot(epoch_hist, f1_hist, color="tab:blue", marker="s", label="F1")
-        ax2.tick_params(axis="y", labelcolor="tab:blue")
-        ax2.set_ylim(0, 1)
-
-        plt.title("NER Training: Loss vs F1-Score")
-        fig.tight_layout()
-
-        assets_dir = os.path.join(
-            os.path.dirname(os.path.dirname(model_output_dir)), "report_assets"
-        )
+        plt.figure(figsize=(10, 6))
+        plt.plot(epoch_hist, loss_hist, label='Train Loss', color='tab:red', marker='o')
+        plt.plot(epoch_hist, val_loss_hist, label='Val Loss', color='tab:blue', marker='s')
+        plt.xlabel('Epochs')
+        plt.ylabel('Loss')
+        plt.title('BERT NER Training: Loss History')
+        plt.legend()
+        plt.grid(True, linestyle='--', alpha=0.6)
+        
+        assets_dir = os.path.join(os.path.dirname(os.path.dirname(model_output_dir)), "report_assets")
         os.makedirs(assets_dir, exist_ok=True)
-        plot_path = os.path.join(assets_dir, "ner_training_history.png")
-        plt.savefig(plot_path, dpi=300)
+        plt.savefig(os.path.join(assets_dir, "ner_training_history.png"), dpi=300)
         plt.close()
-    except ImportError:
-        pass
+    except Exception as e:
+        print(f"Plotting failed: {e}")
 
+def recognize_entities(text, model, tokenizer):
+    device = next(model.parameters()).device
+    inputs = tokenizer(text, return_tensors="pt", truncation=True, max_length=MAX_LEN).to(device)
+    
+    with torch.no_grad():
+        outputs = model(**inputs)
+    
+    predictions = torch.argmax(outputs.logits, dim=2)[0].cpu().numpy()
+    # Get tokens and their offsets
+    tokens = tokenizer.convert_ids_to_tokens(inputs["input_ids"][0])
+    
+    results = []
+    for token, label_id in zip(tokens, predictions):
+        if token in ["[CLS]", "[SEP]", "[PAD]"]:
+            continue
+        
+        label = ID2LABEL[label_id]
+        if label != "O":
+            # Clean up BERT subword tokens (##)
+            clean_token = token.replace("##", "")
+            results.append({"token": clean_token, "label": label})
+            
+    return {"clause": text, "entities": results}
 
-def load_trained_model(model_dir):
-    return spacy.load(model_dir)
-def recognize_entities(clause_text, nlp):
-    doc = nlp(clause_text.strip())
-    entities = [
-        {
-            "text":       ent.text,
-            "label":      ent.label_,
-            "start_char": ent.start_char,
-            "end_char":   ent.end_char,
-        }
-        for ent in doc.ents
-    ]
-    return {"clause": clause_text.strip(), "entities": entities}
-def train(data_dir, model_dir, n_iter=30):
+def train(data_dir, model_dir, n_iter=10):
     data_path = os.path.join(data_dir, "ner_training_data.json")
-    if not os.path.exists(data_path):
-        raise FileNotFoundError(f"Training data not found: {data_path}")
     training_data = load_training_data(data_path)
+    if not training_data:
+        print("No training data found.")
+        return None, None
     return train_ner_model(training_data, model_dir, n_iter=n_iter)
 
-
-def process_file(input_path, output_path, model_dir=None):
-    if not (model_dir and os.path.exists(model_dir)):
-        raise FileNotFoundError(
-            f"Trained NER model not found at: {model_dir}\n"
-            "  Please run training first (--mode train)."
-        )
-    nlp = load_trained_model(model_dir)
+def process_file(input_path, output_path, model_dir):
+    if not os.path.exists(model_dir):
+        print(f"Model not found at {model_dir}")
+        return
+    
+    model = AutoModelForTokenClassification.from_pretrained(model_dir)
+    tokenizer = AutoTokenizer.from_pretrained(model_dir)
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    model.to(device)
+    model.eval()
 
     with open(input_path, "r", encoding="utf-8") as f:
         clauses = [line.strip() for line in f if line.strip()]
+    
     results = []
     for clause in clauses:
-        result = recognize_entities(clause, nlp)
-        results.append(result)
+        results.append(recognize_entities(clause, model, tokenizer))
 
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
-    return results
+    print(f"Results saved to {output_path}")
+
 if __name__ == "__main__":
     import argparse
-
-    parser = argparse.ArgumentParser(
-        description="Task 2.1: Custom NER — train or run inference",
-        formatter_class=argparse.RawTextHelpFormatter,
-    )
-    parser.add_argument(
-        "--mode",
-        choices=["train", "infer", "all"],
-        default="all",
-        help=(
-            "train — train the NER model only\n"
-            "infer — run inference only (model must exist)\n"
-            "all   — train then infer (default)"
-        ),
-    )
-    parser.add_argument("--iter", type=int, default=30,
-                        help="Number of training iterations (default: 30)")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--mode", choices=["train", "infer", "all"], default="all")
+    parser.add_argument("--iter", type=int, default=10)
     args = parser.parse_args()
 
-    base_dir   = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    data_dir   = os.path.join(base_dir, "data")
-    model_dir  = os.path.join(base_dir, "models", "ner_model")
-    clauses_in = os.path.join(base_dir, "input", "clauses.txt")
-    output_path = os.path.join(base_dir, "output", "ner_results.json")
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    data_dir = os.path.join(base_dir, "data")
+    model_dir = os.path.join(base_dir, "models", "ner_model")
+    input_txt = os.path.join(base_dir, "input", "clauses.txt")
+    output_json = os.path.join(base_dir, "output", "ner_results.json")
 
-    if args.mode in ("train", "all"):
+    if args.mode in ["train", "all"]:
         train(data_dir, model_dir, n_iter=args.iter)
-
-    if args.mode in ("infer", "all"):
-        process_file(clauses_in, output_path, model_dir)
+    
+    if args.mode in ["infer", "all"]:
+        process_file(input_txt, output_json, model_dir)
