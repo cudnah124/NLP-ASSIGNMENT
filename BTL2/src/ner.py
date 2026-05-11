@@ -93,6 +93,7 @@ def train_ner_model(training_data, output_dir, n_iter=10):
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model.to(device)
+    model.train()  # Ensure model is in training mode after loading
 
     optimizer = torch.optim.AdamW(model.parameters(), lr=3e-5)
     total_steps = len(train_loader) * n_iter
@@ -112,6 +113,8 @@ def train_ner_model(training_data, output_dir, n_iter=10):
 
             outputs = model(input_ids, attention_mask=attention_mask, labels=labels)
             loss = outputs.loss
+            if loss is None:
+                continue  # Skip batch if loss is None (label alignment issue)
             loss.backward()
             optimizer.step()
             scheduler.step()
