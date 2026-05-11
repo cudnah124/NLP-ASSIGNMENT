@@ -80,13 +80,30 @@ def train_ner_model(training_data, output_dir, n_iter=10):
         param.requires_grad_(True)
 
     random.shuffle(training_data)
-    n = len(training_data)
-    train_split = int(n * 0.8)
-    val_split = int(n * 0.9)
-    
-    train_data = training_data[:train_split]
-    val_data = training_data[train_split:val_split]
-    test_data = training_data[val_split:]
+
+    # --- Stratified split by label signature ---
+    # Group samples by which labels they contain, then distribute each group
+    # proportionally → rare labels (PENALTY, RATE) appear in all splits.
+    from collections import defaultdict
+    groups = defaultdict(list)
+    for sample in training_data:
+        sig = frozenset(l for _, _, l in sample.get("entities", []))
+        groups[sig].append(sample)
+
+    train_data, val_data, test_data = [], [], []
+    for sig, samples in groups.items():
+        random.shuffle(samples)
+        n_s = len(samples)
+        t1  = max(1, int(n_s * 0.8))
+        t2  = max(t1, int(n_s * 0.9))
+        train_data.extend(samples[:t1])
+        val_data.extend(samples[t1:t2])
+        test_data.extend(samples[t2:])
+
+    random.shuffle(train_data)
+    random.shuffle(val_data)
+    random.shuffle(test_data)
+    # --- End stratified split ---
 
     print(f"Data split: Train={len(train_data)}, Val={len(val_data)}, Test={len(test_data)}")
 
@@ -147,27 +164,32 @@ def train_ner_model(training_data, output_dir, n_iter=10):
                 val_loss += outputs.loss.item()
         
         avg_val_loss = val_loss / len(val_loader)
-        print(f"Epoch {epoch+1}/{n_iter} - Loss: {avg_train_loss:.4f} - Val Loss: {avg_val_loss:.4f}", end="")
 
-        # Early stopping check
-        if avg_val_loss < best_val_loss:
-            best_val_loss = avg_val_loss
-            patience_counter = 0
-            model.save_pretrained(best_model_path)
-            tokenizer.save_pretrained(best_model_path)
-            print(" ✅ best", end="")
-        else:
-            patience_counter += 1
-            print(f" (no improvement {patience_counter}/{patience})", end="")
-        print()
-
-        if patience_counter >= patience:
-            print(f"\nEarly stopping at epoch {epoch+1} — no improvement for {patience} epochs.")
-            break
-
+        # Always record history (before potential break)
         epoch_hist.append(epoch + 1)
         loss_hist.append(avg_train_loss)
         val_loss_hist.append(avg_val_loss)
+
+        # Early stopping check — decide BEFORE printing so we can print a complete line
+        is_best = avg_val_loss < best_val_loss
+        if is_best:
+            best_val_loss = avg_val_loss
+            patience_counter = 0
+            tag = "✅ best"
+        else:
+            patience_counter += 1
+            tag = f"no improvement {patience_counter}/{patience}"
+
+        print(f"Epoch {epoch+1}/{n_iter} - Loss: {avg_train_loss:.4f} - Val Loss: {avg_val_loss:.4f} [{tag}]")
+
+        # Save checkpoint AFTER printing (avoids 'Writing model shards' interrupting the log)
+        if is_best:
+            model.save_pretrained(best_model_path)
+            tokenizer.save_pretrained(best_model_path)
+
+        if patience_counter >= patience:
+            print(f"Early stopping at epoch {epoch+1} — no improvement for {patience} epochs.")
+            break
 
     # Restore best checkpoint before saving final model
     if os.path.exists(best_model_path):
