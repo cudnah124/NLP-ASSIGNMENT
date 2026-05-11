@@ -109,6 +109,7 @@ def train_ner_model(training_data, output_dir, n_iter=10):
     epoch_hist, loss_hist, val_loss_hist = [], [], []
 
     print(f"Training on {device} for {n_iter} epochs...")
+    torch.set_grad_enabled(True)  # Safety: re-enable in case any import disabled it globally
     for epoch in range(n_iter):
         model.train()
         total_loss = 0

@@ -6,7 +6,8 @@ import argparse
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from ner import train as train_ner, process_file as run_ner
-from srl import process_file as run_srl
+# NOTE: srl is imported lazily inside main() to avoid srl_init() running at
+# module load time and potentially disabling torch autograd globally.
 from intent_classification import train as train_intent, process_file as run_intent
 
 
@@ -42,6 +43,7 @@ def main():
     t = time.time()
     run_ner(btl1_clauses, ner_output, ner_model_dir)
     t = time.time()
+    from srl import process_file as run_srl  # Lazy import: keeps srl_init() away from training
     run_srl(btl1_clauses, srl_output, ner_output)
     t = time.time()
     run_intent(btl1_clauses, intent_output, intent_model_dir)
