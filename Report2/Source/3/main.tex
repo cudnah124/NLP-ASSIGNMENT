@@ -1,0 +1,127 @@
+% ============================================================
+%  BTL2 — Source/3/main.tex
+%  Task 2.2: Gán nhãn Vai nghĩa (Semantic Role Labeling)
+% ============================================================
+
+\section{Tác vụ 2.2: Gán nhãn Vai nghĩa (Semantic Role Labeling)}
+
+\subsection{Đặt vấn đề}
+
+NER xác định \textit{thực thể là gì}, nhưng chưa cho biết \textit{thực thể đó đóng vai gì} trong sự kiện pháp lý. SRL giải quyết câu hỏi \textit{``ai làm gì với ai, khi nào, theo điều kiện nào''} -- thông tin thiết yếu để xây dựng hệ thống hỏi đáp tự động về hợp đồng.
+
+Ví dụ với mệnh đề: \textit{``Party A delivers goods to Party B before May 5, 2024.''}
+\begin{itemize}
+    \item \textbf{Agent} (ARG0): \textit{Party A} -- người thực hiện hành động
+    \item \textbf{Predicate} (V): \textit{delivers}
+    \item \textbf{Theme} (ARG1): \textit{goods} -- đối tượng của hành động
+    \item \textbf{Recipient} (ARG2): \textit{Party B} -- người nhận
+    \item \textbf{Time} (ARGM-TMP): \textit{before May 5, 2024}
+\end{itemize}
+
+\subsection{Phương pháp}
+
+\subsubsection{Mô hình}
+
+Sử dụng pretrained model \texttt{yeomtong/srl\_bert\_model} từ HuggingFace Hub:
+\begin{itemize}
+    \item Checkpoint: \texttt{best\_srl\_Sep\_29.ckpt}
+    \item Base model: \texttt{bert-base-cased}
+    \item Không cần fine-tune thêm; mô hình dự đoán BIO tags cho từng frame động từ.
+\end{itemize}
+
+\subsubsection{Ánh xạ vai nghĩa}
+
+\begin{table}[H]
+    \centering
+    \caption{Ánh xạ từ PropBank arguments sang vai nghĩa ngữ nghĩa}
+    \label{tab:role_map}
+    \begin{tabular}{|l|l||l|l|}
+        \hline
+        \textbf{PropBank} & \textbf{Vai nghĩa} & \textbf{PropBank} & \textbf{Vai nghĩa} \\ \hline
+        ARG0     & Agent     & ARGM-TMP & Time      \\ \hline
+        ARG1     & Theme     & ARGM-LOC & Location  \\ \hline
+        ARG2     & Recipient & ARGM-CAU & Cause     \\ \hline
+        ARG3     & Beneficiary & ARGM-ADV & Condition \\ \hline
+        ARG4     & Attribute & ARGM-NEG & Negation  \\ \hline
+        ARG5+    & Extension & ARGM-MOD & Modal     \\ \hline
+    \end{tabular}
+\end{table}
+
+\subsubsection{Pipeline xử lý}
+
+\begin{enumerate}
+    \item Gọi \texttt{prediction\_formatted(clause\_text)} để lấy BIO tags cho từng frame.
+    \item Hàm \texttt{\_decode\_bio\_spans()} giải mã BIO sequence thành các span có vai.
+    \item Hàm \texttt{\_normalize\_role\_span()} loại bỏ giới từ dư thừa ở đầu span (ví dụ: \textit{``to Party B''} $\rightarrow$ \textit{``Party B''}).
+    \item Chọn \textbf{best frame}: frame có nhiều roles nhất được chọn làm đầu ra chính; tất cả frames được lưu trong \texttt{all\_frames}.
+\end{enumerate}
+
+\subsection{Kết quả}
+
+\subsubsection{Ví dụ đầu ra SRL}
+
+\begin{lstlisting}[language=Python, caption={Ví dụ kết quả SRL (output/srl\_results.json)},label=lst:srl_output]
+{
+  "clause": "Party A delivers goods to Party B.",
+  "predicate": "delivers",
+  "roles": {
+    "Agent": "Party A",
+    "Theme": "goods",
+    "Recipient": "Party B"
+  },
+  "method": "hf_bert_srl"
+}
+\end{lstlisting}
+
+\subsubsection{Bảng ví dụ nhiều mệnh đề}
+
+\begin{table}[H]
+    \centering
+    \caption{Kết quả SRL trên các mệnh đề hợp đồng mẫu}
+    \label{tab:srl_examples}
+    \begin{tabularx}{\textwidth}{|X|l|X|}
+        \hline
+        \textbf{Mệnh đề} & \textbf{Predicate} & \textbf{Roles} \\ \hline
+        Party B shall pay the full rental amount before the 5th of each month.
+        & pay
+        & Agent: Party B; Theme: rental amount; Time: before the 5th of each month \\ \hline
+        The Licensor grants the Licensee the right to use the software.
+        & grants
+        & Agent: Licensor; Recipient: Licensee; Theme: right to use the software \\ \hline
+        If payment is delayed, a penalty of 1\% per day shall apply.
+        & apply
+        & Theme: penalty; Condition: if payment is delayed \\ \hline
+        The Lender may declare the loan balance immediately due and payable.
+        & declare
+        & Agent: Lender; Theme: loan balance; Modal: may \\ \hline
+        The Seller shall transfer legal title of the property to the Buyer.
+        & transfer
+        & Agent: Seller; Theme: legal title; Recipient: Buyer \\ \hline
+    \end{tabularx}
+\end{table}
+
+\subsubsection{Trực quan hóa}
+
+\begin{figure}[H]
+    \centering
+    % PLACEHOLDER: Hình trực quan hóa SRL frames (cần sinh bằng script)
+    \fbox{\parbox{0.85\textwidth}{\centering\vspace{2cm}
+    \textbf{[PLACEHOLDER: SRL Frame Visualization]}\\
+    \small Ví dụ: biểu đồ minh họa argument spans trên câu\\
+    Có thể sinh bằng AllenNLP demo hoặc displaCy\\
+    \vspace{2cm}}}
+    \caption{Minh họa các argument frame của mô hình SRL trên mệnh đề mẫu}
+    \label{fig:srl_vis}
+\end{figure}
+
+\subsection{Nhận xét và hạn chế}
+
+\begin{itemize}
+    \item \textbf{Ưu điểm}: Mô hình pretrained BERT-SRL hoạt động tốt trên văn bản tiếng Anh chuẩn; không cần dữ liệu huấn luyện domain pháp lý.
+    \item \textbf{Hạn chế chính}:
+    \begin{itemize}
+        \item Văn bản hợp đồng pháp lý thường có câu rất dài, nhiều mệnh đề lồng nhau -- model có thể bỏ sót hoặc gán sai role.
+        \item Các cấu trúc bị động (\textit{shall be paid by}), modal phức hợp (\textit{may not be required to}) đôi khi không được phân tích đúng.
+        \item Khi một mệnh đề có nhiều vị từ, việc chọn ``best frame'' có thể bỏ qua thông tin từ các frames phụ.
+    \end{itemize}
+\end{itemize}

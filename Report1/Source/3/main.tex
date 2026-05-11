@@ -1,0 +1,174 @@
+% ============================================================
+%  BTL1 — Source/3/main.tex
+%  Task 1.2 & 1.3 + Kết luận
+% ============================================================
+
+\section{Tác vụ 1.2: Chunking Danh ngữ (Noun Phrase Chunking)}
+
+\subsection{Đặt vấn đề}
+
+Danh ngữ (Noun Phrase -- NP) trong hợp đồng pháp lý thường đại diện cho các thực thể quan trọng: bên ký kết, giá trị tài chính, thời hạn, đối tượng hợp đồng. Việc xác định ranh giới danh ngữ là bước cơ bản hỗ trợ NER ở BTL2.
+
+Lược đồ gán nhãn \textbf{IOB} được sử dụng:
+\begin{itemize}
+    \item \textbf{B-NP}: Token đầu tiên của danh ngữ
+    \item \textbf{I-NP}: Token bên trong danh ngữ
+    \item \textbf{O}: Token nằm ngoài danh ngữ
+\end{itemize}
+
+\subsection{Phương pháp}
+
+Sử dụng \texttt{doc.noun\_chunks} của spaCy để phát hiện span danh ngữ, sau đó:
+\begin{enumerate}
+    \item Loại bỏ token PUNCT/CCONJ ở đầu/cuối mỗi chunk.
+    \item Gán B-NP cho token đầu, I-NP cho các token còn lại trong chunk.
+    \item Tất cả token PUNCT luôn được gán O.
+\end{enumerate}
+
+\subsection{Kết quả}
+
+\begin{table}[H]
+    \centering
+    \caption{IOB tagging cho mệnh đề \textit{``Party B shall pay the full rental amount before the 5th of each month.''}}
+    \label{tab:iob_example}
+    \begin{tabular}{|l|c||l|c|}
+        \hline
+        \textbf{Token} & \textbf{IOB} & \textbf{Token} & \textbf{IOB} \\ \hline
+        Party  & B-NP & before & O \\ \hline
+        B      & I-NP & the    & B-NP \\ \hline
+        shall  & O    & 5th    & I-NP \\ \hline
+        pay    & O    & of     & O \\ \hline
+        the    & B-NP & each   & B-NP \\ \hline
+        full   & I-NP & month  & I-NP \\ \hline
+        rental & I-NP & .      & O \\ \hline
+        amount & I-NP &        &   \\ \hline
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Thống kê tổng hợp Noun Phrase Chunking}
+    \label{tab:np_stats}
+    \begin{tabular}{|l|r|}
+        \hline
+        Tổng số mệnh đề & 44 \\ \hline
+        Tổng số danh ngữ phát hiện & 334 \\ \hline
+        Trung bình NP/mệnh đề & $\approx 7.6$ \\ \hline
+    \end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    % PLACEHOLDER: Biểu đồ phân bố số NP trên mỗi mệnh đề
+    \fbox{\parbox{0.75\textwidth}{\centering\vspace{2cm}
+    \textbf{[PLACEHOLDER: Biểu đồ phân bố NP/mệnh đề]}\\
+    \small Histogram số danh ngữ trên mỗi mệnh đề\\
+    Sinh bằng matplotlib từ output/chunks.txt\\
+    \vspace{2cm}}}
+    \caption{Phân bố số lượng danh ngữ (NP) trên mỗi mệnh đề trong dataset BTL1}
+    \label{fig:np_dist}
+\end{figure}
+
+\subsection{Nhận xét}
+\begin{itemize}
+    \item spaCy noun\_chunks xử lý tốt các danh ngữ đơn giản và cụm danh từ phổ biến.
+    \item Hạn chế: cụm như \textit{``Non-Disclosure Agreement''} đôi khi bị tách; danh ngữ lồng nhau không được phân biệt trong IOB phẳng.
+\end{itemize}
+
+% -----------------------------------------------------------
+\section{Tác vụ 1.3: Phân tích Phụ thuộc (Dependency Analysis)}
+% -----------------------------------------------------------
+
+\subsection{Đặt vấn đề}
+
+Phân tích phụ thuộc xác định quan hệ ngữ pháp giữa các từ: ai là chủ ngữ, đâu là động từ gốc, tân ngữ là gì -- nền tảng để SRL xác định vai nghĩa ở BTL2.
+
+\subsection{Phương pháp}
+
+Dùng dependency parser của spaCy, trích xuất:
+\begin{itemize}
+    \item \textbf{Simplified tree}: root, nsubj, obj (xem Bảng~\ref{tab:dep_key_rels})
+    \item \textbf{Full token list}: token, head, dep\_rel cho mọi token
+    \item \texttt{\_collect\_span()}: gộp các phần tên riêng (PROPN + flat/compound) thành nhãn duy nhất (ví dụ \textit{Party\_B})
+\end{itemize}
+
+\begin{table}[H]
+    \centering
+    \caption{Các quan hệ phụ thuộc chính được trích xuất}
+    \label{tab:dep_key_rels}
+    \begin{tabular}{|l|l|l|}
+        \hline
+        \textbf{Quan hệ} & \textbf{Ý nghĩa} & \textbf{Ví dụ} \\ \hline
+        root    & Động từ gốc (vị ngữ chính) & \textit{pay} \\ \hline
+        nsubj   & Chủ ngữ danh nghĩa        & \textit{Party\_B} \\ \hline
+        nsubjpass & Chủ ngữ bị động         & \textit{deposit} \\ \hline
+        obj     & Tân ngữ trực tiếp         & \textit{amount} \\ \hline
+    \end{tabular}
+\end{table}
+
+\subsection{Kết quả}
+
+\subsubsection{Ví dụ simplified tree}
+
+\begin{lstlisting}[language={}, caption={Simplified dependency tree cho mệnh đề mẫu}, label=lst:dep_tree]
+pay     -> root
+Party_B -> nsubj (head: pay)
+amount  -> obj   (head: pay)
+\end{lstlisting}
+
+\subsubsection{Trực quan hóa cây phụ thuộc}
+
+\begin{figure}[H]
+    \centering
+    % PLACEHOLDER: SVG dependency tree (convert sang PNG)
+    \fbox{\parbox{0.82\textwidth}{\centering\vspace{2cm}
+    \textbf{[PLACEHOLDER: Dependency Tree Visualization]}\\
+    \small File nguồn: \texttt{report\_assets/dependency\_tree.svg}\\
+    Cần chuyển sang PNG: \texttt{cairosvg dep.svg -o dep.png}\\
+    \vspace{2cm}}}
+    \caption{Cây phụ thuộc cú pháp của mệnh đề \textit{``Party B shall pay the full rental amount...''} được tạo bởi spaCy}
+    \label{fig:dep_tree}
+\end{figure}
+
+\subsubsection{Thống kê quan hệ phụ thuộc}
+
+\begin{table}[H]
+    \centering
+    \caption{Phân bố các quan hệ phụ thuộc chính trong 44 mệnh đề}
+    \label{tab:dep_stats}
+    \begin{tabular}{|l|r|r|}
+        \hline
+        \textbf{Quan hệ} & \textbf{Số lượng} & \textbf{Tỷ lệ (\%)} \\ \hline
+        nsubj / nsubjpass & 44 & 100.0 \\ \hline
+        obj / dobj        & 38 & 86.4  \\ \hline
+        advcl             & 21 & 47.7  \\ \hline
+        relcl             & 14 & 31.8  \\ \hline
+    \end{tabular}
+\end{table}
+
+\subsection{Nhận xét}
+\begin{itemize}
+    \item 100\% mệnh đề có chủ ngữ nhận dạng được sau bước tách mệnh đề, xác nhận tính đúng đắn của subject propagation ở Task 1.1.
+    \item spaCy đôi khi phân tích sai trên cấu trúc bị động phức tạp trong văn bản pháp lý.
+\end{itemize}
+
+% -----------------------------------------------------------
+\section{Kết luận}
+% -----------------------------------------------------------
+
+\subsection{Tổng kết}
+
+BTL1 xây dựng thành công pipeline tiền xử lý hợp đồng pháp lý gồm ba tầng:
+
+\begin{enumerate}
+    \item \textbf{Clause Splitting}: 16 câu $\rightarrow$ 44 mệnh đề độc lập (dependency-based + subject propagation).
+    \item \textbf{NP Chunking}: 334 danh ngữ với nhãn IOB, phục vụ NER ở BTL2.
+    \item \textbf{Dependency Analysis}: JSON cấu trúc đầy đủ cho 44 mệnh đề, cung cấp nền tảng cho SRL.
+\end{enumerate}
+
+\subsection{Hạn chế và hướng phát triển}
+
+\begin{itemize}
+    \item Cả ba tác vụ đều dùng \texttt{spaCy en\_core\_web\_sm} -- mô hình tổng quát, chưa tối ưu cho domain pháp lý.
+    \item Hướng phát triển: dùng \texttt{legal-bert} cho dependency parsing; áp dụng ML có giám sát cho clause splitting.
+\end{itemize}

@@ -1,0 +1,111 @@
+% ============================================================
+%  BTL1 — Source/2/main.tex
+%  Task 1.1: Tách mệnh đề (Clause Splitting)
+% ============================================================
+
+\section{Tác vụ 1.1: Tách Mệnh đề (Clause Splitting)}
+
+\subsection{Đặt vấn đề}
+
+Trong văn bản hợp đồng pháp lý, một câu thường chứa nhiều mệnh đề phụ, điều kiện và liệt kê. Ví dụ:
+
+\begin{quote}
+\textit{``Party B shall pay the full rental amount before the 5th of each month, and if payment is delayed, a penalty of 1\% per day shall apply.''}
+\end{quote}
+
+Câu này chứa \textbf{hai mệnh đề độc lập}: nghĩa vụ thanh toán và điều kiện phạt. Nếu xử lý cả câu, các tác vụ trích xuất sau sẽ bị nhiễu. Do đó, tách mệnh đề là bước tiền đề quan trọng.
+
+\subsection{Phương pháp}
+
+Thuật toán dựa trên dependency parsing của spaCy, gồm ba bước:
+
+\subsubsection{Xác định điểm tách}
+
+\begin{itemize}
+    \item \textbf{Dấu chấm phẩy (`;`)}: Luôn là điểm tách cứng.
+    \item \textbf{Liên từ phối hợp (`and`, `or`, `but`)}: Chỉ tách khi:
+    \begin{enumerate}[(a)]
+        \item Mệnh đề sau \textbf{không} là liệt kê (hàm \texttt{is\_part\_of\_list()}).
+        \item Mệnh đề sau có chủ ngữ riêng (nsubj/nsubjpass), \textit{hoặc}
+        \item Mệnh đề sau chứa advcl với subtree $> 6$ token, \textit{hoặc}
+        \item Subtree của mệnh đề sau $> 8$ token.
+    \end{enumerate}
+\end{itemize}
+
+\subsubsection{Lan truyền chủ ngữ (Subject Propagation)}
+
+Khi mệnh đề sau điểm tách thiếu chủ ngữ, hệ thống gán chủ ngữ từ mệnh đề trước:
+\[
+\text{output} = \texttt{current\_subject} + \texttt{aux\_phrase} + \texttt{seg\_text}
+\]
+
+\subsubsection{Gộp mệnh đề phụ (Merge Dependent Fragments)}
+
+Mệnh đề chỉ bắt đầu bằng liên từ phụ thuộc (\textit{although, since, provided that...}) và không có independent clause riêng sẽ được gộp vào mệnh đề trước.
+
+\subsection{Kết quả}
+
+\subsubsection{Thống kê}
+
+\begin{table}[H]
+    \centering
+    \caption{Thống kê kết quả tách mệnh đề}
+    \label{tab:clause_stats}
+    \begin{tabular}{|l|r|}
+        \hline
+        \textbf{Chỉ số} & \textbf{Giá trị} \\ \hline
+        Số câu đầu vào & 16 \\ \hline
+        Số mệnh đề sau tách (\texttt{output/clauses.txt}) & 44 \\ \hline
+        Tỷ lệ mở rộng trung bình & $\approx 2.75\times$ \\ \hline
+        Mệnh đề được lan truyền chủ ngữ & $\sim$8 \\ \hline
+    \end{tabular}
+\end{table}
+
+\subsubsection{Ví dụ minh họa}
+
+\textbf{Đầu vào:}
+\begin{quote}
+\textit{``Party B shall pay the full rental amount before the 5th of each month, and if payment is delayed, a penalty of 1\% per day shall apply.''}
+\end{quote}
+
+\textbf{Đầu ra:}
+\begin{lstlisting}[language={},label=lst:clause_ex,caption={Hai mệnh đề tách ra trong output/clauses.txt}]
+Party B shall pay the full rental amount before the 5th of each month.
+If payment is delayed, a penalty of 1% per day shall apply.
+\end{lstlisting}
+
+\textbf{Giải thích}: Hàm \texttt{is\_part\_of\_list()} xác định \textit{and} không nối liệt kê danh từ. Mệnh đề sau \textit{and} chứa chủ ngữ ngầm (\textit{a penalty}) và mệnh đề advcl (\textit{if payment is delayed}) -- điều kiện tách được kích hoạt.
+
+\subsubsection{Ví dụ lan truyền chủ ngữ}
+
+\textbf{Đầu vào:}
+\begin{quote}
+\textit{``The Lessor shall maintain the structural integrity of the building, shall ensure that all common areas are kept in good repair, shall carry adequate property insurance, and shall comply with all relevant health and safety legislation.''}
+\end{quote}
+
+\textbf{Đầu ra (sau propagation):}
+\begin{lstlisting}[language={},label=lst:subj_prop,caption={Subject propagation giữ nguyên chủ ngữ The Lessor}]
+The Lessor shall maintain the structural integrity of the building.
+The Lessor shall ensure that all common areas are kept in good repair.
+The Lessor shall carry adequate property insurance.
+The Lessor shall comply with all relevant health and safety legislation.
+\end{lstlisting}
+
+\begin{figure}[H]
+    \centering
+    % PLACEHOLDER: Flowchart thuật toán Clause Splitting
+    \fbox{\parbox{0.82\textwidth}{\centering\vspace{2.5cm}
+    \textbf{[PLACEHOLDER: Flowchart thuật toán Clause Splitting]}\\
+    \small Sơ đồ luồng: Input sentence $\rightarrow$ Detect split points $\rightarrow$\\
+    Subject propagation $\rightarrow$ Merge fragments $\rightarrow$ Output clauses\\
+    \vspace{2.5cm}}}
+    \caption{Sơ đồ luồng thuật toán tách mệnh đề (Clause Splitting)}
+    \label{fig:clause_flowchart}
+\end{figure}
+
+\subsection{Nhận xét}
+
+\begin{itemize}
+    \item \textbf{Ưu điểm}: Không cần dữ liệu huấn luyện; mỗi quyết định tách đều có thể giải thích qua cây dependency.
+    \item \textbf{Hạn chế}: Phụ thuộc vào chất lượng parser spaCy trên văn bản pháp lý. Câu quá phức tạp (liệt kê lồng nhiều cấp) có thể bị tách sai.
+\end{itemize}

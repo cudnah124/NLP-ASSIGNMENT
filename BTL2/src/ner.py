@@ -42,8 +42,8 @@ class NERDataset(Dataset):
         labels = [LABEL2ID["O"]] * self.max_len
         offsets = encoding["offset_mapping"][0]
         
-        for start, end, label in entities:
-            label_id = LABEL2ID.get(label, LABEL2ID["O"])
+        for start, end, label in
+Entities:            label_id = LABEL2ID.get(label, LABEL2ID["O"])
             for idx, (tok_start, tok_end) in enumerate(offsets):
                 if tok_start == 0 and tok_end == 0:
                     continue

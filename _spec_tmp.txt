@@ -76,7 +76,8 @@ sis
 
 This assignment focuses on building the foundational components for processing legal
 contract documents. Students are required to implement core Natural Language Pro-
-cessing modules that transform unstructured contract text into syntactically structured
+cessing modules that transform unstructured contract
+Text into syntactically structured
 representations. The objective is to prepare the data for higher-level semantic analysis
 in subsequent assignments.
 
@@ -103,7 +104,8 @@ Input:
 
      • File: input/raw_contracts.txt
 
-     • Content: Raw legal contract text selected by the student.
+     • Content: Raw legal contract
+Text selected by the student.
 
 Output:
 
@@ -337,7 +339,8 @@ to the predefined schema.
 2.2.1 Problem Statement and Objective
 
 While NER identifies entities, it does not determine their semantic roles within a sen-
-tence. In legal text processing, it is crucial to understand “who does what to whom”.
+tence. In legal
+Text processing, it is crucial to understand “who does what to whom”.
 The objective of this task is to apply a deep learning model (e.g., BERT-based architec-
 ture) to perform Semantic Role Labeling (SRL), assigning semantic roles to entities with
 respect to the main predicate of each clause.

@@ -1,0 +1,50 @@
+\section{Phân công nhiệm vụ}
+\begin{table}[H]
+    \centering
+    \renewcommand{\arraystretch}{1.3}
+    \caption{Danh sách nhiệm vụ và tiến độ hoàn thành}
+    \label{tab:phancong_btl2}
+    \begin{tabularx}{\textwidth}{|c|l|l|X|c|}
+        \hline
+        \textbf{STT} & \textbf{Họ và tên} & \textbf{MSSV} & \textbf{Nhiệm vụ} & \textbf{Hoàn thành} \\ \hline
+        1 & Phan Đức Nhã & 2312410 & 
+        Toàn bộ: Nhận dạng thực thể có tên (2.1), Gán nhãn vai nghĩa (2.2), Phân loại intent mệnh đề (2.3), Xây dựng dataset, Viết báo cáo & 100\% \\ \hline
+    \end{tabularx}
+\end{table}
+
+\section{Giới thiệu}
+
+\subsection{Bối cảnh và mục tiêu}
+
+Bài tập lớn 2 kế thừa kết quả từ BTL1 (44 mệnh đề đã được tách và phân tích cú pháp) để thực hiện các tác vụ \textbf{trích xuất thông tin ngữ nghĩa cấp cao}. Mục tiêu là chuyển đổi các mệnh đề hợp đồng thành các biểu diễn có cấu trúc, nắm bắt \textit{``ai làm gì với ai''} và \textit{chức năng pháp lý} của từng mệnh đề.
+
+Ba tác vụ chính:
+\begin{enumerate}
+    \item \textbf{Custom NER (2.1)}: Nhận dạng và phân loại thực thể chuyên ngành pháp lý (bên ký, số tiền, ngày tháng, tỷ lệ, điều khoản phạt, luật áp dụng).
+    \item \textbf{Semantic Role Labeling -- SRL (2.2)}: Gán vai nghĩa cho các đối số của từng vị từ trong mệnh đề (Agent, Theme, Recipient, Time, Condition...).
+    \item \textbf{Clause Intent Classification (2.3)}: Phân loại intent pháp lý của mệnh đề (Obligation, Prohibition, Right, Termination Condition).
+\end{enumerate}
+
+\subsection{Dữ liệu}
+
+\begin{table}[H]
+    \centering
+    \caption{Tổng quan dataset sử dụng trong BTL2}
+    \label{tab:dataset_overview}
+    \begin{tabular}{|l|l|r|l|}
+        \hline
+        \textbf{Tác vụ} & \textbf{Nguồn} & \textbf{Số mẫu} & \textbf{File} \\ \hline
+        NER & CUAD + LLM synthetic & 308 & \texttt{ner\_training\_data.json} \\ \hline
+        Intent & CUAD dataset & $\sim$480 & \texttt{intent\_training\_data.json} \\ \hline
+        SRL & Pretrained (HuggingFace) & -- & Không cần training data \\ \hline
+    \end{tabular}
+\end{table}
+
+\subsection{Mô hình và thư viện}
+
+\begin{itemize}
+    \item \textbf{NER}: Fine-tune \texttt{dslim/bert-base-NER} (HuggingFace Transformers + PyTorch).
+    \item \textbf{SRL}: Pretrained \texttt{yeomtong/srl\_bert\_model} (BERT-base-cased).
+    \item \textbf{Intent -- Baseline}: TF-IDF + Logistic Regression (scikit-learn).
+    \item \textbf{Intent -- Nâng cao}: Fine-tune \texttt{distilbert-base-uncased}.
+\end{itemize}
