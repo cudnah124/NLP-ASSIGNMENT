@@ -108,7 +108,13 @@ def train_ner_model(training_data, output_dir, n_iter=10):
 
     epoch_hist, loss_hist, val_loss_hist = [], [], []
 
-    print(f"Training on {device} for {n_iter} epochs...")
+    # Early stopping state
+    patience        = 5
+    best_val_loss   = float("inf")
+    patience_counter = 0
+    best_model_path = os.path.join(output_dir, "best_ckpt")
+
+    print(f"Training on {device} for {n_iter} epochs (patience={patience})...")
     torch.set_grad_enabled(True)  # Safety: re-enable in case any import disabled it globally
     for epoch in range(n_iter):
         model.train()
@@ -141,11 +147,33 @@ def train_ner_model(training_data, output_dir, n_iter=10):
                 val_loss += outputs.loss.item()
         
         avg_val_loss = val_loss / len(val_loader)
-        print(f"Epoch {epoch+1}/{n_iter} - Loss: {avg_train_loss:.4f} - Val Loss: {avg_val_loss:.4f}")
-        
+        print(f"Epoch {epoch+1}/{n_iter} - Loss: {avg_train_loss:.4f} - Val Loss: {avg_val_loss:.4f}", end="")
+
+        # Early stopping check
+        if avg_val_loss < best_val_loss:
+            best_val_loss = avg_val_loss
+            patience_counter = 0
+            model.save_pretrained(best_model_path)
+            tokenizer.save_pretrained(best_model_path)
+            print(" ✅ best", end="")
+        else:
+            patience_counter += 1
+            print(f" (no improvement {patience_counter}/{patience})", end="")
+        print()
+
+        if patience_counter >= patience:
+            print(f"\nEarly stopping at epoch {epoch+1} — no improvement for {patience} epochs.")
+            break
+
         epoch_hist.append(epoch + 1)
         loss_hist.append(avg_train_loss)
         val_loss_hist.append(avg_val_loss)
+
+    # Restore best checkpoint before saving final model
+    if os.path.exists(best_model_path):
+        print(f"Restoring best model (val_loss={best_val_loss:.4f})...")
+        model = type(model).from_pretrained(best_model_path)
+        model.to(device)
 
     os.makedirs(output_dir, exist_ok=True)
     model.save_pretrained(output_dir)
