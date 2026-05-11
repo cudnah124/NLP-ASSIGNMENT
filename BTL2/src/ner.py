@@ -72,6 +72,13 @@ def train_ner_model(training_data, output_dir, n_iter=10):
         ignore_mismatched_sizes=True
     )
 
+    # Force requires_grad=True for ALL parameters.
+    # When ignore_mismatched_sizes=True reinit the classifier layer, some
+    # transformers versions create those new tensors without grad, which
+    # breaks the autograd graph and causes "does not require grad" at loss.backward().
+    for param in model.parameters():
+        param.requires_grad_(True)
+
     random.shuffle(training_data)
     n = len(training_data)
     train_split = int(n * 0.8)
