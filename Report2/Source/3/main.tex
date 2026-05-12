@@ -1,9 +1,4 @@
-% ============================================================
-%  BTL2 — Source/3/main.tex
-%  Task 2.2: Gán nhãn Vai nghĩa (Semantic Role Labeling)
-% ============================================================
-
-\section{Tác vụ 2.2: Gán nhãn Vai nghĩa (Semantic Role Labeling)}
+\section{Gán nhãn vai trò (Semantic Role Labeling)}
 
 \subsection{Đặt vấn đề}
 
@@ -56,22 +51,44 @@ Sử dụng pretrained model \texttt{yeomtong/srl\_bert\_model} từ HuggingFace
     \item Chọn \textbf{best frame}: frame có nhiều roles nhất được chọn làm đầu ra chính; tất cả frames được lưu trong \texttt{all\_frames}.
 \end{enumerate}
 
+\begin{mintbox}{Pipeline xử lý Semantic Role Labeling}
+\begin{minted}[linenos=false, fontsize=\footnotesize]{python}
+def srl_pipeline(clause_text):
+    # 1. Gọi prediction_formatted để lấy BIO tags cho từng frame
+    raw_predictions = prediction_formatted(clause_text)
+    # 2. Giải mã BIO sequence thành các spans có vai nghĩa
+    decoded_spans = _decode_bio_spans(raw_predictions)
+    # 3. Loại bỏ giới từ dư thừa và chuẩn hóa nội dung
+    final_roles = {
+        role: _normalize_role_span(text) 
+        for role, text in decoded_spans.items()
+    }
+    # 4. Chọn best frame làm đầu ra chính
+    return select_best_frame(final_roles)
+\end{minted}
+\end{mintbox}
+
 \subsection{Kết quả}
 
 \subsubsection{Ví dụ đầu ra SRL}
 
-\begin{lstlisting}[language=Python, caption={Ví dụ kết quả SRL (output/srl\_results.json)},label=lst:srl_output]
+\begin{minted}[
+    linenos=false,
+    breaklines,
+    frame=single,
+    label={Ví dụ kết quả SRL (output/srl\_results.json)}
+]{json}
 {
-  "clause": "Party A delivers goods to Party B.",
-  "predicate": "delivers",
+  "clause": "The Seller shall transfer legal title of the property to the Buyer.",
+  "predicate": "transfer",
   "roles": {
-    "Agent": "Party A",
-    "Theme": "goods",
-    "Recipient": "Party B"
+    "Agent": "The Seller",
+    "Theme": "legal title",
+    "Recipient": "the Buyer"
   },
   "method": "hf_bert_srl"
 }
-\end{lstlisting}
+\end{minted}
 
 \subsubsection{Bảng ví dụ nhiều mệnh đề}
 
@@ -104,13 +121,21 @@ Sử dụng pretrained model \texttt{yeomtong/srl\_bert\_model} từ HuggingFace
 
 \begin{figure}[H]
     \centering
-    % PLACEHOLDER: Hình trực quan hóa SRL frames (cần sinh bằng script)
-    \fbox{\parbox{0.85\textwidth}{\centering\vspace{2cm}
-    \textbf{[PLACEHOLDER: SRL Frame Visualization]}\\
-    \small Ví dụ: biểu đồ minh họa argument spans trên câu\\
-    Có thể sinh bằng AllenNLP demo hoặc displaCy\\
-    \vspace{2cm}}}
-    \caption{Minh họa các argument frame của mô hình SRL trên mệnh đề mẫu}
+    \begin{dependency}[theme = simple]
+        \begin{deptext}[column sep=0.3cm]
+            The \& Seller \& shall \& transfer \& legal \& title \& of \& the \& property \& to \& the \& Buyer \\
+        \end{deptext}
+        \deproot{4}{Predicate (V)}
+        \depedge{4}{2}{ARG0}
+        \depedge{4}{6}{ARG1}
+        \depedge{4}{12}{ARG2}
+        
+        % Nhóm các từ để thể hiện vai nghĩa là một cụm (span)
+        \wordgroup{1}{2}{2}{Agent}
+        \wordgroup{1}{5}{6}{Theme}
+        \wordgroup{1}{12}{12}{Recipient}
+    \end{dependency}
+    \caption{Trực quan hóa các semantic roles (spans) trên mệnh đề mẫu mới}
     \label{fig:srl_vis}
 \end{figure}
 
@@ -125,3 +150,23 @@ Sử dụng pretrained model \texttt{yeomtong/srl\_bert\_model} từ HuggingFace
         \item Khi một mệnh đề có nhiều vị từ, việc chọn ``best frame'' có thể bỏ qua thông tin từ các frames phụ.
     \end{itemize}
 \end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \resizebox{\textwidth}{!}{
+        \begin{dependency}[theme = simple]
+            \begin{deptext}[column sep=0.15cm]
+                Any \& dispute \& arising \& out \& of \& this \& Agreement \& shall \& be \& resolved \& by \& arbitration. \\
+            \end{deptext}
+            \deproot{10}{V}
+            % Lỗi: Chỉ lấy "Any dispute" thay vì cả cụm dài
+            \depedge[edge style={red, dashed, thick}, label style={fill=red!10, text=red}]{10}{2}{Theme}
+            \depedge{10}{12}{Agent}
+            
+            \wordgroup[group style={fill=red!10, draw=red, dashed}]{1}{1}{2}{Mô hình chỉ nhận diện cụm ngắn}
+            \wordgroup[group style={fill=blue!5, draw=blue, inner sep=2pt}]{1}{1}{7}{Đúng: Toàn bộ chủ thể tranh chấp}
+        \end{dependency}
+    }
+    \caption{Mô hình bỏ sót các thành phần bổ ngữ trong một cụm danh từ dài}
+    \label{fig:srl_error}
+\end{figure}

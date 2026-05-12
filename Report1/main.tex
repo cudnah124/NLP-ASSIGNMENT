@@ -10,7 +10,8 @@
 \usepackage[lined,boxed,commentsnumbered]{algorithm2e}
 \usepackage{enumerate}
 \usepackage{xcolor}
-\usepackage{graphicx}							% Standard graphics package
+\usepackage{graphicx}
+\usepackage{tikz-dependency}							% Standard graphics package
 \usepackage{array}
 \usepackage{tabularx, caption}
 \usepackage{multirow}
@@ -21,12 +22,23 @@
 \usepackage{setspace}
 \usepackage{epsfig}
 \usepackage{tikz}
+\usetikzlibrary{arrows,shapes,positioning,shadows,trees}
 \usepackage{xfrac}
 \usepackage{bm}
-\usepackage{biblatex}
+% \usepackage{biblatex} % Removed to use manual bibliography
 \usepackage[colorlinks]{hyperref}
 \usepackage{booktabs}
 \usepackage{listings}
+\usepackage{minted}
+\usemintedstyle{friendly}
+\setminted{
+    fontsize=\small,
+    breaklines,
+    frame=lines,
+    framesep=2mm,
+    baselinestretch=1.2,
+    linenos
+}
 \usepackage[
  sort=none,
  abbreviations,
@@ -47,21 +59,10 @@
     \setlength{\labelwidth}{0pt}
     }}{\endlist}
 
-\lstset{
-  basicstyle=\small\ttfamily,
-  breaklines=true,
-  frame=single,
-  numbers=left,
-  numberstyle=\tiny,
-  keywordstyle=\color{blue},
-  commentstyle=\color{gray},
-  stringstyle=\color{red!70!black},
-  showstringspaces=false,
-  tabsize=2
-}
+% Code blocks are now handled by minted
 
-\setlength{\parindent}{0.5cm}
-\addbibresource{citations.bib}
+\setlength{\parindent}{0pt}
+% \addbibresource{citations.bib} % Removed
     
 \hypersetup{urlcolor=blue,linkcolor=black,citecolor=black,colorlinks=true} 
 \usetikzlibrary{arrows,snakes,backgrounds}
@@ -145,17 +146,16 @@ KHOA KHOA HỌC VÀ KỸ THUẬT MÁY TÍNH
 \vspace{1cm}
 
 \begin{center}
-\begin{tabular}{c}
-\multicolumn{1}{l}{\textbf{{Môn học: Xử lý Ngôn ngữ Tự nhiên (CO3085)}}}\\ 
-~~\\
-\hline
-\\
-\multicolumn{1}{l}{\textbf{{Bài tập lớn 1}}}\\ 
-~~\\
-\textbf{\textit{{\Large Tiền xử lý và Phân tích Cú pháp Hợp đồng Pháp lý}}}\\
-\\
-\hline
-\end{tabular}
+    \begin{minipage}{0.9\textwidth}
+        \centering
+        \textbf{\large Môn học: Xử lý Ngôn ngữ Tự nhiên (CO3085)} \\[0.5cm]
+        \hrule
+        \vspace{0.3cm}
+        \textbf{\Large Bài tập lớn 1} \\[0.5cm]
+        \textbf{\Large Tiền xử lý và phân tích cú pháp } \\[0.5cm]
+        \textbf{\Large Hợp đồng Pháp lý} \\[0.5cm]
+        \hrule
+    \end{minipage}
 \end{center}
 
 \vspace{2cm}
@@ -164,7 +164,7 @@ KHOA KHOA HỌC VÀ KỸ THUẬT MÁY TÍNH
 \centering
     \begin{tabular}{rl}
     \hspace{3 cm}\textbf{Giảng viên hướng dẫn}:
-    & \textit{[Tên giảng viên]}\\
+    & DƯƠNG HỒ NAM\\
 
     & \\[10pt]
     \textbf{Sinh viên}: &  Phan Đức Nhã -- 2312410 \\
@@ -183,16 +183,30 @@ KHOA KHOA HỌC VÀ KỸ THUẬT MÁY TÍNH
 \pagebreak
 
 % }
-\input{Source/1/main}   % Phân công + Giới thiệu
-\pagebreak
 \input{Source/2/main}   % Task 1.1: Clause Splitting
-\pagebreak
 \input{Source/3/main}   % Task 1.2 NP Chunking + 1.3 Dependency + Kết luận
 \pagebreak
 
-% REFERENCES
-\printbibliography[title={Tài liệu tham khảo}]
+% REFERENCES (MANUAL)
+\addcontentsline{toc}{section}{Tài liệu tham khảo}
+\begin{thebibliography}{99}
+
+\bibitem{spacy2017}
+Honnibal, Matthew and Montani, Ines. \textit{spaCy 2: Natural language understanding with Bloom embeddings, convolutional neural networks and incremental parsing}. 2017. \url{https://spacy.io}
+
+\bibitem{nivre2016universal}
+Nivre, Joakim and others. \textit{Universal Dependencies v1: A Multilingual Treebank Collection}. Proceedings of LREC. 2016.
+
+\bibitem{hcmut_spec}
+HCMUT -- Faculty of CSE. \textit{Assignment Specification: Legal Contract Information Extraction and Semantic Analysis}. Course CO3085 -- Natural Language Processing. 2026.
+
+\bibitem{cuad2021}
+Hendrycks, Dan and others. \textit{CUAD: An Expert-Annotated NLP Dataset for Legal Contract Review}. arXiv preprint arXiv:2103.06268. 2021.
+
+\bibitem{bert2018}
+Devlin, Jacob and others. \textit{BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding}. arXiv preprint arXiv:1810.04805. 2018.
+
+\end{thebibliography}
 
 \pagebreak
-\nocite{*}
 \end{document}

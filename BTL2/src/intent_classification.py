@@ -196,6 +196,8 @@ def train(data_dir, model_dir, train_transformer=True):
     print("TF-IDF + LOGISTIC REGRESSION EVALUATION")
     print("="*50)
     print(classification_report(test_labels, y_pred_tfidf))
+    plot_confusion_matrix(test_labels, y_pred_tfidf, LABELS, "Confusion Matrix: TF-IDF + LogReg", 
+                          os.path.join(os.path.dirname(model_dir), "..", "report_assets", "intent_confusion_matrix.png"))
 
     if train_transformer:
         transformer_dir = os.path.join(model_dir, "distilbert")
@@ -208,8 +210,30 @@ def train(data_dir, model_dir, train_transformer=True):
             print("TRANSFORMER (DistilBERT) FINAL TEST EVALUATION")
             print("="*50)
             print(classification_report(test_labels, y_pred_trans))
+            plot_confusion_matrix(test_labels, y_pred_trans, LABELS, "Confusion Matrix: DistilBERT", 
+                                  os.path.join(os.path.dirname(model_dir), "..", "report_assets", "intent_confusion_matrix_distilbert.png"))
         else:
             print("Transformer training skipped or failed.")
+
+def plot_confusion_matrix(y_true, y_pred, labels, title, save_path):
+    try:
+        import matplotlib.pyplot as plt
+        import seaborn as sns
+        from sklearn.metrics import confusion_matrix
+        
+        cm = confusion_matrix(y_true, y_pred, labels=labels)
+        plt.figure(figsize=(10, 8))
+        sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=labels, yticklabels=labels)
+        plt.title(title)
+        plt.ylabel('Actual')
+        plt.xlabel('Predicted')
+        
+        os.makedirs(os.path.dirname(save_path), exist_ok=True)
+        plt.savefig(save_path, dpi=300, bbox_inches='tight')
+        plt.close()
+        print(f"Confusion matrix saved to {save_path}")
+    except Exception as e:
+        print(f"Failed to plot confusion matrix: {e}")
 
 
 def process_file(input_path, output_path, model_dir=None):

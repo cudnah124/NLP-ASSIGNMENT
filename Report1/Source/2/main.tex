@@ -1,111 +1,270 @@
-% ============================================================
-%  BTL1 — Source/2/main.tex
-%  Task 1.1: Tách mệnh đề (Clause Splitting)
-% ============================================================
-
-\section{Tác vụ 1.1: Tách Mệnh đề (Clause Splitting)}
+\section{Tách Mệnh đề}
+\label{sec:clause-splitting}
 
 \subsection{Đặt vấn đề}
 
-Trong văn bản hợp đồng pháp lý, một câu thường chứa nhiều mệnh đề phụ, điều kiện và liệt kê. Ví dụ:
+Trong các văn bản hợp đồng pháp lý, một câu thường chứa nhiều mệnh đề
+mô tả các nghĩa vụ, điều kiện hoặc ngoại lệ khác nhau. Những mệnh đề này
+thường được liên kết bằng liên từ phối hợp hoặc các cấu trúc liệt kê phức
+tạp, khiến cho việc xử lý toàn bộ câu như một đơn vị trở nên kém hiệu quả.
+
+Ví dụ, câu dưới đây đồng thời mô tả nghĩa vụ thanh toán và điều khoản xử
+phạt trong trường hợp vi phạm:
 
 \begin{quote}
-\textit{``Party B shall pay the full rental amount before the 5th of each month, and if payment is delayed, a penalty of 1\% per day shall apply.''}
+    \textit{``Party B shall pay the full rental amount before the 5th
+    of each month, and if payment is delayed, a penalty of 1\% per day
+    shall apply.''}
 \end{quote}
 
-Câu này chứa \textbf{hai mệnh đề độc lập}: nghĩa vụ thanh toán và điều kiện phạt. Nếu xử lý cả câu, các tác vụ trích xuất sau sẽ bị nhiễu. Do đó, tách mệnh đề là bước tiền đề quan trọng.
+Nếu hệ thống trích xuất thông tin xử lý trực tiếp toàn bộ câu trên, các
+thành phần nghĩa vụ và điều kiện có thể bị trộn lẫn với nhau, làm giảm độ
+chính xác của các tác vụ phía sau như nhận diện nghĩa vụ, trích xuất điều
+khoản hoặc xây dựng cơ sở tri thức pháp lý. Vì vậy, việc tách câu thành
+các mệnh đề độc lập là bước tiền xử lý cần thiết nhằm chuẩn hoá đầu vào
+cho toàn bộ pipeline xử lý ngôn ngữ pháp lý.
 
 \subsection{Phương pháp}
 
-Thuật toán dựa trên dependency parsing của spaCy, gồm ba bước:
+Phương pháp đề xuất sử dụng cây phụ thuộc cú pháp (dependency parse tree)
+được sinh bởi thư viện spaCy. Toàn bộ quá trình được triển khai qua ba
+giai đoạn chính: xác định điểm tách, lan truyền chủ ngữ và hậu xử lý các
+mảnh phụ thuộc.
 
 \subsubsection{Xác định điểm tách}
 
+Ở giai đoạn đầu tiên, hệ thống xác định các vị trí có khả năng phân chia
+câu thành những mệnh đề độc lập. Hai nhóm tín hiệu chính được sử dụng gồm
+dấu câu và liên từ phối hợp.
+
 \begin{itemize}
-    \item \textbf{Dấu chấm phẩy (`;`)}: Luôn là điểm tách cứng.
-    \item \textbf{Liên từ phối hợp (`and`, `or`, `but`)}: Chỉ tách khi:
-    \begin{enumerate}[(a)]
-        \item Mệnh đề sau \textbf{không} là liệt kê (hàm \texttt{is\_part\_of\_list()}).
-        \item Mệnh đề sau có chủ ngữ riêng (nsubj/nsubjpass), \textit{hoặc}
-        \item Mệnh đề sau chứa advcl với subtree $> 6$ token, \textit{hoặc}
-        \item Subtree của mệnh đề sau $> 8$ token.
-    \end{enumerate}
+    \item \textbf{Dấu chấm phẩy} (``;''): luôn được xem là điểm tách cứng
+    vì trong văn bản pháp lý, dấu chấm phẩy thường ngăn cách các nghĩa vụ
+    hoặc điều khoản độc lập.
+
+    \item \textbf{Liên từ phối hợp} (\textit{and}, \textit{or},
+    \textit{but}): chỉ được xem là điểm tách khi không đóng vai trò nối
+    các phần tử liệt kê. Điều này được kiểm tra thông qua hàm
+    \texttt{is\_part\_of\_list()}.
 \end{itemize}
 
-\subsubsection{Lan truyền chủ ngữ (Subject Propagation)}
+Sau khi vượt qua bước kiểm tra liệt kê, hệ thống tiếp tục đánh giá cấu
+trúc cú pháp của mệnh đề phía sau liên từ. Một điểm tách chỉ được chấp
+nhận nếu thoả ít nhất một trong ba điều kiện sau:
 
-Khi mệnh đề sau điểm tách thiếu chủ ngữ, hệ thống gán chủ ngữ từ mệnh đề trước:
-\[
-\text{output} = \texttt{current\_subject} + \texttt{aux\_phrase} + \texttt{seg\_text}
-\]
+\begin{enumerate}[(i)]
+    \item mệnh đề có chủ ngữ riêng (nhãn \texttt{nsubj} hoặc
+          \texttt{nsubjpass});
 
-\subsubsection{Gộp mệnh đề phụ (Merge Dependent Fragments)}
+    \item mệnh đề chứa mệnh đề trạng ngữ (\texttt{advcl}) với
+          cây con lớn hơn 6 token;
 
-Mệnh đề chỉ bắt đầu bằng liên từ phụ thuộc (\textit{although, since, provided that...}) và không có independent clause riêng sẽ được gộp vào mệnh đề trước.
+    \item cây con của mệnh đề có độ dài vượt quá 8 token.
+\end{enumerate}
 
-\subsection{Kết quả}
+Các điều kiện trên giúp hạn chế việc tách nhầm trong các cấu trúc liệt kê
+đơn giản, đồng thời ưu tiên giữ lại những mệnh đề có ý nghĩa pháp lý độc
+lập.
 
-\subsubsection{Thống kê}
+\subsubsection{Lan truyền chủ ngữ}
+
+Sau bước tách, nhiều mệnh đề thu được có thể không chứa chủ ngữ tường
+minh do hiện tượng lược bỏ chủ ngữ trong câu gốc. Đây là đặc điểm phổ
+biến trong các văn bản pháp lý sử dụng cấu trúc liệt kê nghĩa vụ.
+
+Để đảm bảo mỗi mệnh đề đều hoàn chỉnh về mặt ngữ nghĩa, hệ thống thực hiện
+cơ chế lan truyền chủ ngữ từ mệnh đề liền trước. Cụ thể, chủ ngữ của
+mệnh đề trước sẽ được ghép với cụm trợ động từ và nội dung của mệnh đề
+hiện tại theo công thức:
+
+\begin{equation}
+    \hat{s}_i = \texttt{subject}_{i-1}
+                \mathbin{\|} \texttt{aux\_phrase}_{i}
+                \mathbin{\|} \texttt{seg\_text}_{i}
+    \label{eq:subj-prop}
+\end{equation}
+
+trong đó $\mathbin{\|}$ biểu diễn phép nối chuỗi.
+
+Cơ chế này giúp khôi phục đầy đủ cấu trúc cú pháp của từng mệnh đề sau
+khi tách, đồng thời tạo đầu ra dễ đọc và thuận lợi cho các bước xử lý tiếp
+theo.
+
+\subsubsection{Gộp mảnh phụ thuộc}
+
+Trong một số trường hợp, quá trình tách có thể tạo ra các mảnh câu phụ
+thuộc bắt đầu bằng liên từ như \textit{although}, \textit{since},
+\textit{provided that} hoặc \textit{unless}. Những mảnh này thường không
+mang ý nghĩa độc lập nếu đứng riêng.
+
+Vì vậy, ở bước hậu xử lý, hệ thống sẽ kiểm tra và gộp các mảnh phụ thuộc
+vào mệnh đề đứng trước nhằm đảm bảo tính hoàn chỉnh về ngữ nghĩa của đầu
+ra cuối cùng.
+
+\begin{algorithm}[H]
+    \DontPrintSemicolon
+    \SetAlgoLined
+    \KwIn{Câu đầu vào $S$}
+    \KwOut{Danh sách mệnh đề $\mathcal{C}$}
+
+    $\mathcal{C} \leftarrow [\,]$\;
+
+    Phân tích dependency parse của $S$\;
+
+    \ForEach{token $t$ trong $S$}{
+        \If{\normalfont$t$ là điểm tách hợp lệ}{
+            Tách tại $t$; thêm mảnh vào $\mathcal{C}$\;
+        }
+    }
+
+    \ForEach{$c_i \in \mathcal{C}$ thiếu chủ ngữ}{
+        Áp dụng lan truyền chủ ngữ theo \eqref{eq:subj-prop}\;
+    }
+
+    Gộp các mảnh phụ thuộc vào mệnh đề đứng trước\;
+
+    \Return{$\mathcal{C}$}
+
+    \caption{Thuật toán tách mệnh đề}
+    \label{alg:clause-split}
+\end{algorithm}
+
+\subsection{Kết quả thực nghiệm}
+
+Để đánh giá hiệu quả của phương pháp, hệ thống được thử nghiệm trên tập
+gồm 16 câu hợp đồng pháp lý có độ dài và cấu trúc cú pháp khác nhau.
+Kết quả cho thấy số lượng mệnh đề sau khi tách tăng đáng kể, phản ánh khả
+năng phân rã hiệu quả các câu phức thành những đơn vị thông tin nhỏ hơn.
+
+\subsubsection{Thống kê tổng quan}
 
 \begin{table}[H]
     \centering
-    \caption{Thống kê kết quả tách mệnh đề}
-    \label{tab:clause_stats}
-    \begin{tabular}{|l|r|}
+    \caption{Thống kê kết quả tách mệnh đề trên tập dữ liệu thực nghiệm}
+    \label{tab:clause-stats}
+    \begin{tabular}{|l|c|}
         \hline
-        \textbf{Chỉ số} & \textbf{Giá trị} \\ \hline
-        Số câu đầu vào & 16 \\ \hline
-        Số mệnh đề sau tách (\texttt{output/clauses.txt}) & 44 \\ \hline
-        Tỷ lệ mở rộng trung bình & $\approx 2.75\times$ \\ \hline
-        Mệnh đề được lan truyền chủ ngữ & $\sim$8 \\ \hline
+        \textbf{Chỉ số} & \textbf{Giá trị} \\
+        \hline
+        Số câu đầu vào                    & 16 \\
+        Số mệnh đề sau tách               & 44 \\
+        Tỉ lệ mở rộng trung bình          & $2{,}75\times$ \\
+        Mệnh đề được lan truyền chủ ngữ   & ${\approx}8$ \\
+        \hline
     \end{tabular}
 \end{table}
 
-\subsubsection{Ví dụ minh họa}
+Kết quả thống kê cho thấy trung bình mỗi câu được phân tách thành khoảng
+2 đến 3 mệnh đề độc lập. Ngoài ra, cơ chế lan truyền chủ ngữ được kích
+hoạt tương đối thường xuyên, cho thấy hiện tượng lược bỏ chủ ngữ xuất hiện
+phổ biến trong các văn bản hợp đồng.
 
-\textbf{Đầu vào:}
+\subsubsection{Ví dụ minh hoạ}
+
+\textbf{Ví dụ 1. Tách mệnh đề cơ bản}
+
+Ví dụ dưới đây minh hoạ trường hợp câu chứa hai mệnh đề độc lập được nối
+bởi liên từ \textit{and}.
+
+\hspace*{0.5cm}\textit{Đầu vào:}
+
 \begin{quote}
-\textit{``Party B shall pay the full rental amount before the 5th of each month, and if payment is delayed, a penalty of 1\% per day shall apply.''}
+    \textit{``Party B shall pay the full rental amount before the 5th
+    of each month, and if payment is delayed, a penalty of 1\% per day
+    shall apply.''}
 \end{quote}
 
-\textbf{Đầu ra:}
-\begin{lstlisting}[language={},label=lst:clause_ex,caption={Hai mệnh đề tách ra trong output/clauses.txt}]
-Party B shall pay the full rental amount before the 5th of each month.
-If payment is delayed, a penalty of 1% per day shall apply.
-\end{lstlisting}
+\hspace*{0.5cm}\textit{Đầu ra} (tệp \texttt{output/clauses.txt}):
 
-\textbf{Giải thích}: Hàm \texttt{is\_part\_of\_list()} xác định \textit{and} không nối liệt kê danh từ. Mệnh đề sau \textit{and} chứa chủ ngữ ngầm (\textit{a penalty}) và mệnh đề advcl (\textit{if payment is delayed}) -- điều kiện tách được kích hoạt.
+\begin{minted}[
+    linenos=false,
+    breaklines,
+    frame=single,
+    label={Hai mệnh đề được tách từ câu đầu vào}
+]{text}
+Party B shall pay the full rental amount before the
+5th of each month.
 
-\subsubsection{Ví dụ lan truyền chủ ngữ}
+If payment is delayed, a penalty of 1% per day shall
+apply.
+\end{minted}
 
-\textbf{Đầu vào:}
+Trong ví dụ này, hàm \texttt{is\_part\_of\_list()} xác định rằng liên từ
+\textit{and} không đóng vai trò nối các phần tử liệt kê. Đồng thời, phần
+sau liên từ chứa mệnh đề trạng ngữ \textit{if payment is delayed} cùng
+một chủ thể nghĩa vụ độc lập (\textit{a penalty}), do đó điều kiện tách
+được kích hoạt.
+
+\vspace{0.5em}
+
+\textbf{Ví dụ 2. Lan truyền chủ ngữ}
+
+Ví dụ tiếp theo minh hoạ cơ chế khôi phục chủ ngữ trong các cấu trúc
+liệt kê nghĩa vụ.
+
+\hspace*{0.5cm}\textit{Đầu vào:}
+
 \begin{quote}
-\textit{``The Lessor shall maintain the structural integrity of the building, shall ensure that all common areas are kept in good repair, shall carry adequate property insurance, and shall comply with all relevant health and safety legislation.''}
+    \textit{``The Lessor shall maintain the structural integrity of the
+    building, shall ensure that all common areas are kept in good
+    repair, shall carry adequate property insurance, and shall comply
+    with all relevant health and safety legislation.''}
 \end{quote}
 
-\textbf{Đầu ra (sau propagation):}
-\begin{lstlisting}[language={},label=lst:subj_prop,caption={Subject propagation giữ nguyên chủ ngữ The Lessor}]
-The Lessor shall maintain the structural integrity of the building.
-The Lessor shall ensure that all common areas are kept in good repair.
+\hspace*{0.5cm}\textit{Đầu ra sau lan truyền chủ ngữ:}
+
+\begin{minted}[
+    linenos=false,
+    breaklines,
+    frame=single,
+    label={Chủ ngữ \textit{The Lessor} được khôi phục ở mỗi mệnh đề}
+]{text}
+The Lessor shall maintain the structural integrity of
+the building.
+
+The Lessor shall ensure that all common areas are kept
+in good repair.
+
 The Lessor shall carry adequate property insurance.
-The Lessor shall comply with all relevant health and safety legislation.
-\end{lstlisting}
 
-\begin{figure}[H]
-    \centering
-    % PLACEHOLDER: Flowchart thuật toán Clause Splitting
-    \fbox{\parbox{0.82\textwidth}{\centering\vspace{2.5cm}
-    \textbf{[PLACEHOLDER: Flowchart thuật toán Clause Splitting]}\\
-    \small Sơ đồ luồng: Input sentence $\rightarrow$ Detect split points $\rightarrow$\\
-    Subject propagation $\rightarrow$ Merge fragments $\rightarrow$ Output clauses\\
-    \vspace{2.5cm}}}
-    \caption{Sơ đồ luồng thuật toán tách mệnh đề (Clause Splitting)}
-    \label{fig:clause_flowchart}
-\end{figure}
+The Lessor shall comply with all relevant health and
+safety legislation.
+\end{minted}
 
-\subsection{Nhận xét}
+Có thể thấy rằng mặc dù câu gốc chỉ xuất hiện chủ ngữ \textit{The Lessor}
+một lần, hệ thống vẫn có khả năng khôi phục đầy đủ chủ ngữ cho từng mệnh
+đề sau khi tách. Điều này giúp đầu ra rõ nghĩa hơn và phù hợp với các tác
+vụ xử lý thông tin ở bước tiếp theo.
 
+
+\subsection{Phân tích và nhận xét}
 \begin{itemize}
-    \item \textbf{Ưu điểm}: Không cần dữ liệu huấn luyện; mỗi quyết định tách đều có thể giải thích qua cây dependency.
-    \item \textbf{Hạn chế}: Phụ thuộc vào chất lượng parser spaCy trên văn bản pháp lý. Câu quá phức tạp (liệt kê lồng nhiều cấp) có thể bị tách sai.
+
+    \item \textbf{Ưu điểm:}
+    \begin{itemize}
+
+        \item Phương pháp được xây dựng hoàn toàn dựa trên thông tin cú pháp nên không
+        yêu cầu dữ liệu huấn luyện hoặc mô hình học sâu chuyên biệt. Mỗi quyết
+        định tách đều có thể giải thích rõ ràng thông qua các nhãn trong cây
+        dependency, giúp hệ thống dễ kiểm tra và hiệu chỉnh khi xảy ra lỗi.
+
+        \item Ngoài ra, cơ chế lan truyền chủ ngữ giúp cải thiện đáng kể tính hoàn
+        chỉnh của các mệnh đề sau tách, đặc biệt trong các câu liệt kê nghĩa vụ
+        thường gặp ở hợp đồng pháp lý.
+
+    \end{itemize}
+
+    \item \textbf{Hạn chế}
+    \begin{itemize}
+
+        \item Hiệu quả của phương pháp phụ thuộc trực tiếp vào chất lượng phân tích cú
+        pháp của spaCy. Đối với các câu pháp lý quá dài hoặc có cấu trúc lồng
+        nhiều tầng, dependency parse đôi khi không phản ánh chính xác quan hệ cú
+        pháp thực tế, dẫn đến hiện tượng tách sai hoặc bỏ sót mệnh đề.
+
+        \item Bên cạnh đó, thuật toán hiện tại vẫn gặp khó khăn với các cấu trúc liệt
+        kê phức tạp có nhiều cấp lồng nhau, đặc biệt khi các liên từ phối hợp vừa
+        đóng vai trò nối nghĩa vụ vừa tham gia vào cấu trúc liệt kê danh từ.
+    \end{itemize}
+    
 \end{itemize}

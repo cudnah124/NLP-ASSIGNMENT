@@ -3,7 +3,7 @@
 %  Task 2.1: Nhận dạng Thực thể có Tên (Custom NER)
 % ============================================================
 
-\section{Tác vụ 2.1: Nhận dạng Thực thể có Tên (Custom NER)}
+\section{Nhận dạng thực thể có Tên (Custom NER)}
 
 \subsection{Đặt vấn đề}
 
@@ -48,24 +48,23 @@ Pipeline annotation sử dụng kiến trúc \textbf{Delta Operation}:
 
 \subsubsection{Thống kê dataset}
 
+Dataset cuối cùng gồm \textbf{1.458 mẫu} token-level (tổng số token có nhãn entity trên toàn bộ văn bản huấn luyện), được chia theo tỉ lệ 80/10/10:
+
 \begin{table}[H]
     \centering
-    \caption{Phân bố dataset NER sau annotation}
-    \label{tab:ner_dataset}
+    \caption{Phân chia tập dữ liệu NER}
+    \label{tab:ner_split}
     \begin{tabular}{|l|r|r|}
         \hline
-        \textbf{Nhãn} & \textbf{Số entity} & \textbf{Tỷ lệ (\%)} \\ \hline
-        PARTY   & -- & -- \\ \hline
-        MONEY   & -- & -- \\ \hline
-        DATE    & -- & -- \\ \hline
-        RATE    & -- & -- \\ \hline
-        PENALTY & -- & -- \\ \hline
-        LAW     & -- & -- \\ \hline
-        \textbf{Tổng mẫu} & \textbf{308} & \textbf{100} \\ \hline
+        \textbf{Tập} & \textbf{Số mẫu (câu)} & \textbf{Tỷ lệ} \\ \hline
+        Train & 1.145 & 80\% \\ \hline
+        Validation & 141 & 10\% \\ \hline
+        Test & 172 & 10\% \\ \hline
+        \textbf{Tổng} & \textbf{1.458} & \textbf{100\%} \\ \hline
     \end{tabular}
 \end{table}
 
-\textit{Lưu ý: Phân bố chi tiết từng nhãn sẽ được điền sau khi chạy script thống kê.}
+Số lượng entity trong tập test (6.776 token) phân bố theo nhãn như Bảng~\ref{tab:ner_results} (cột Support).
 
 \subsection{Mô hình và Huấn luyện}
 
@@ -83,17 +82,19 @@ Sử dụng \texttt{return\_offsets\_mapping=True} của HuggingFace tokenizer �
     \centering
     \caption{Siêu tham số huấn luyện NER}
     \label{tab:ner_hyperparams}
-    \begin{tabular}{|l|r|}
+    \begin{tabular}{|l|l|}
         \hline
         \textbf{Tham số} & \textbf{Giá trị} \\ \hline
-        Base model       & \texttt{dslim/bert-base-NER} \\ \hline
-        Max sequence length & 128 \\ \hline
-        Batch size       & 8 \\ \hline
-        Learning rate    & 3e-5 \\ \hline
-        Optimizer        & AdamW \\ \hline
-        Scheduler        & Linear warmup \\ \hline
-        Epochs           & 10 \\ \hline
-        Train / Val / Test split & 80\% / 10\% / 10\% \\ \hline
+        Base model          & \texttt{dslim/bert-base-NER} \\ \hline
+        Max sequence length & 128 tokens \\ \hline
+        Batch size          & 8 \\ \hline
+        Learning rate       & 3e-5 \\ \hline
+        Optimizer           & AdamW \\ \hline
+        Scheduler           & Linear warmup \\ \hline
+        Max epochs          & 30 \\ \hline
+        Early stopping      & Patience = 5 (theo Val Loss) \\ \hline
+        Epoch dừng thực tế  & 8 (best: epoch 3, val\_loss = 0.0799) \\ \hline
+        Train / Val / Test  & 80\% / 10\% / 10\% \\ \hline
     \end{tabular}
 \end{table}
 
@@ -101,36 +102,57 @@ Sử dụng \texttt{return\_offsets\_mapping=True} của HuggingFace tokenizer �
 
 \subsubsection{Lịch sử huấn luyện}
 
-Hình~\ref{fig:ner_training} thể hiện train loss và validation loss qua 10 epochs.
+Mô hình được huấn luyện tối đa 30 epochs với early stopping (patience = 5). Quá trình hội tụ nhanh: validation loss đạt mức tốt nhất tại epoch 3 (val\_loss = 0.0799), sau đó tăng dần do overfitting, dừng tại epoch 8.
+
+\begin{table}[H]
+    \centering
+    \caption{Lịch sử Train/Val Loss qua các epoch}
+    \label{tab:ner_loss_hist}
+    \begin{tabular}{|c|r|r|l|}
+        \hline
+        \textbf{Epoch} & \textbf{Train Loss} & \textbf{Val Loss} & \textbf{Ghi chú} \\ \hline
+        1 & 0.2103 & 0.0896 & Best (1) \\ \hline
+        2 & 0.0781 & 0.0817 & Best (2) \\ \hline
+        3 & 0.0560 & 0.0799 & \textbf{Best (3) -- model saved} \\ \hline
+        4 & 0.0386 & 0.0938 & No improvement 1/5 \\ \hline
+        5 & 0.0250 & 0.0911 & No improvement 2/5 \\ \hline
+        6 & 0.0161 & 0.1028 & No improvement 3/5 \\ \hline
+        7 & 0.0113 & 0.1065 & No improvement 4/5 \\ \hline
+        8 & 0.0089 & 0.1169 & \textbf{Early stop} (5/5) \\ \hline
+    \end{tabular}
+\end{table}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.85\textwidth]{../BTL2/report_assets/ner_training_history.png}
-    \caption{Lịch sử Train Loss và Validation Loss của mô hình NER qua 10 epochs}
+    \caption{Lịch sử Train Loss và Validation Loss của mô hình NER (dừng sớm tại epoch 8, best epoch 3)}
     \label{fig:ner_training}
 \end{figure}
 
 \subsubsection{Kết quả phân loại}
 
+Mô hình đạt \textbf{accuracy 93\%} và weighted F1 = 0.93 trên tập test (6.776 token):
+
 \begin{table}[H]
     \centering
-    \caption{Kết quả classification report trên tập test NER}
+    \caption{Kết quả classification report trên tập test NER (172 câu, 6.776 token)}
     \label{tab:ner_results}
     \begin{tabular}{|l|r|r|r|r|}
         \hline
         \textbf{Nhãn} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-score} & \textbf{Support} \\ \hline
-        O       & -- & -- & -- & -- \\ \hline
-        PARTY   & -- & -- & -- & -- \\ \hline
-        MONEY   & -- & -- & -- & -- \\ \hline
-        DATE    & -- & -- & -- & -- \\ \hline
-        RATE    & -- & -- & -- & -- \\ \hline
-        PENALTY & -- & -- & -- & -- \\ \hline
-        LAW     & -- & -- & -- & -- \\ \hline
-        \textbf{Weighted avg} & -- & -- & -- & -- \\ \hline
+        O             & 0.96 & 0.94 & 0.95 & 4.476 \\ \hline
+        PARTY         & 0.88 & 0.89 & 0.89 &   339 \\ \hline
+        MONEY         & 0.95 & 0.91 & 0.93 &   494 \\ \hline
+        DATE          & 0.97 & 0.82 & 0.89 &   233 \\ \hline
+        RATE          & 0.89 & 0.93 & 0.91 &   236 \\ \hline
+        PENALTY       & 0.66 & 0.77 & 0.71 &   313 \\ \hline
+        LAW           & 0.89 & 0.97 & 0.93 &   685 \\ \hline
+        \hline
+        \textbf{Accuracy}     & \multicolumn{3}{r|}{} & 0.93 \\ \hline
+        \textbf{Macro avg}    & 0.89 & 0.89 & 0.89 & 6.776 \\ \hline
+        \textbf{Weighted avg} & 0.93 & 0.93 & 0.93 & 6.776 \\ \hline
     \end{tabular}
 \end{table}
-
-\textit{Lưu ý: Kết quả sẽ được điền sau khi chạy \texttt{python src/ner.py -{}-mode all}.}
 
 \subsubsection{Ví dụ đầu ra NER}
 
@@ -141,20 +163,16 @@ Hình~\ref{fig:ner_training} thể hiện train loss và validation loss qua 10 
     \begin{tabularx}{\textwidth}{|X|l|l|}
         \hline
         \textbf{Đoạn văn bản} & \textbf{Thực thể} & \textbf{Nhãn} \\ \hline
-        \textit{This Agreement shall be governed by the laws of the State of \textbf{California}} & California & LAW \\ \hline
-        \textit{...governed by the laws of \textbf{Delaware}} & Delaware & LAW \\ \hline
-        \textit{...governed by the laws of \textbf{Ontario, Canada}} & Ontario, Canada & LAW \\ \hline
+        \textit{This Agreement is made between \textbf{Apple Inc.} and the \textbf{Supplier}.} & Apple Inc., Supplier & PARTY \\ \hline
+        \textit{The Tenant shall pay a monthly rent of \textbf{1,200 USD}.} & 1,200 USD & MONEY \\ \hline
+        \textit{The term starts from \textbf{July 1, 2024} and lasts for \textbf{12 months}.} & July 1, 2024, 12 months & DATE \\ \hline
+        \textit{...subject to \textbf{liquidated damages} as per the contract.} & liquidated damages & PENALTY \\ \hline
     \end{tabularx}
-\end{table>
+\end{table}
 
 \begin{figure}[H]
     \centering
-    % PLACEHOLDER: Confusion matrix NER (cần sinh ra khi chạy evaluate)
-    \fbox{\parbox{0.7\textwidth}{\centering\vspace{2cm}
-    \textbf{[PLACEHOLDER: NER Confusion Matrix]}\\
-    \small Sinh ra khi chạy: \texttt{python src/ner.py -{}-mode all}\\
-    Lưu tại: \texttt{models/ner\_model/test\_metrics.txt}\\
-    \vspace{2cm}}}
+    \includegraphics[width=0.55\textwidth]{../report_assets/ner_confusion_matrix.png}
     \caption{Confusion matrix của mô hình NER trên tập test}
     \label{fig:ner_confusion}
 \end{figure}
@@ -162,7 +180,9 @@ Hình~\ref{fig:ner_training} thể hiện train loss và validation loss qua 10 
 \subsection{Nhận xét}
 
 \begin{itemize}
-    \item Nhãn \textbf{LAW} và \textbf{PARTY} thường được nhận dạng tốt do pattern rõ ràng và xuất hiện nhiều trong training data.
-    \item Nhãn \textbf{PENALTY} và \textbf{RATE} khó hơn vì context đa dạng và số mẫu ít hơn trong dataset.
-    \item Token alignment với offset mapping giúp tránh lỗi căn chỉnh khi BERT WordPiece tách từ.
+    \item \textbf{LAW} (F1 = 0.93) và \textbf{MONEY} (F1 = 0.93) đạt hiệu quả cao nhờ pattern từ vựng rõ ràng (tên quốc gia/tiểu bang, đơn vị tiền tệ).
+    \item \textbf{PENALTY} đạt F1 thấp nhất (0.71): nhãn này có biên ngữ nghĩa mơ hồ -- ranh giới giữa mô tả hành vi vi phạm và điều khoản phạt đôi khi không rõ ràng.
+    \item \textbf{DATE} có recall thấp (0.82): mô hình bỏ sót một số cụm thời gian gián tiếp như \textit{``within 30 days''}, \textit{``annually''}.
+    \item Early stopping hiệu quả: ngăn overfitting sau epoch 3, train loss giảm nhưng val loss tăng từ epoch 4.
+    \item Token alignment với offset mapping đảm bảo không có span drift khi BERT WordPiece tách từ phức hợp.
 \end{itemize}

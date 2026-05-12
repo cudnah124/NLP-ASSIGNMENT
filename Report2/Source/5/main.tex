@@ -1,8 +1,3 @@
-% ============================================================
-%  BTL2 — Source/5/main.tex
-%  Kết luận
-% ============================================================
-
 \section{Kết luận}
 
 \subsection{Tổng kết pipeline BTL2}
@@ -16,10 +11,10 @@ Bài tập lớn 2 đã xây dựng thành công ba tầng xử lý ngữ nghĩa
     \begin{tabularx}{\textwidth}{|l|X|X|}
         \hline
         \textbf{Tác vụ} & \textbf{Đầu vào} & \textbf{Đầu ra} \\ \hline
-        Clause Splitting (BTL1) & raw\_contracts.txt & 44 mệnh đề \\ \hline
-        NER (2.1) & 44 mệnh đề + 308 mẫu training & ner\_results.json \\ \hline
-        SRL (2.2) & 44 mệnh đề + ner\_results.json & srl\_results.json \\ \hline
-        Intent (2.3) & 44 mệnh đề + 480 mẫu training & intent\_classification.txt/.json \\ \hline
+        Clause Splitting (BTL1) & \texttt{raw\_contracts.txt} & 44 mệnh đề \\ \hline
+        NER (2.1) & 44 mệnh đề + 308 mẫu training & \texttt{ner\_results.json} \\ \hline
+        SRL (2.2) & 44 mệnh đề + \texttt{ner\_results.json} & \texttt{srl\_results.json} \\ \hline
+        Intent (2.3) & 44 mệnh đề + 480 mẫu training & \texttt{intent\_classification} \texttt{.txt/.json} \\ \hline
     \end{tabularx}
 \end{table}
 
