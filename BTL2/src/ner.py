@@ -246,30 +246,6 @@ def evaluate_ner_model(model, tokenizer, test_loader, test_raw_data, output_dir)
     # Save Confusion Matrix
     plot_confusion_matrix(all_labels, all_preds, ENTITY_LABELS, "Confusion Matrix: BERT NER", 
                           os.path.join(os.path.dirname(os.path.dirname(output_dir)), "report_assets", "ner_confusion_matrix.png"))
-
-def plot_confusion_matrix(y_true, y_pred, labels, title, save_path):
-    try:
-        import matplotlib.pyplot as plt
-        import seaborn as sns
-        from sklearn.metrics import confusion_matrix
-        
-        # Convert numeric IDs back to labels if needed
-        y_true_labels = [ID2LABEL[i] if isinstance(i, (int, np.integer)) else i for i in y_true]
-        y_pred_labels = [ID2LABEL[i] if isinstance(i, (int, np.integer)) else i for i in y_pred]
-        
-        cm = confusion_matrix(y_true_labels, y_pred_labels, labels=labels)
-        plt.figure(figsize=(10, 8))
-        sns.heatmap(cm, annot=True, fmt='d', cmap='Greens', xticklabels=labels, yticklabels=labels)
-        plt.title(title)
-        plt.ylabel('Actual')
-        plt.xlabel('Predicted')
-        
-        os.makedirs(os.path.dirname(save_path), exist_ok=True)
-        plt.savefig(save_path, dpi=300, bbox_inches='tight')
-        plt.close()
-        print(f"Confusion matrix saved to {save_path}")
-    except Exception as e:
-        print(f"Failed to plot confusion matrix: {e}")
     
     # Error Analysis: Compare predicted entities vs ground truth for each test sample
     error_analysis = []
@@ -300,6 +276,30 @@ def plot_confusion_matrix(y_true, y_pred, labels, title, save_path):
     with open(error_file, "w", encoding="utf-8") as f:
         json.dump(error_analysis, f, indent=2, ensure_ascii=False, cls=NumpyEncoder)
     print(f"Error analysis saved to {error_file}")
+
+def plot_confusion_matrix(y_true, y_pred, labels, title, save_path):
+    try:
+        import matplotlib.pyplot as plt
+        import seaborn as sns
+        from sklearn.metrics import confusion_matrix
+        
+        # Convert numeric IDs back to labels if needed
+        y_true_labels = [ID2LABEL[i] if isinstance(i, (int, np.integer)) else i for i in y_true]
+        y_pred_labels = [ID2LABEL[i] if isinstance(i, (int, np.integer)) else i for i in y_pred]
+        
+        cm = confusion_matrix(y_true_labels, y_pred_labels, labels=labels)
+        plt.figure(figsize=(10, 8))
+        sns.heatmap(cm, annot=True, fmt='d', cmap='Greens', xticklabels=labels, yticklabels=labels)
+        plt.title(title)
+        plt.ylabel('Actual')
+        plt.xlabel('Predicted')
+        
+        os.makedirs(os.path.dirname(save_path), exist_ok=True)
+        plt.savefig(save_path, dpi=300, bbox_inches='tight')
+        plt.close()
+        print(f"Confusion matrix saved to {save_path}")
+    except Exception as e:
+        print(f"Failed to plot confusion matrix: {e}")
 
 def _save_training_plot(epoch_hist, loss_hist, val_loss_hist, model_output_dir):
     try:
