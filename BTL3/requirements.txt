@@ -5,3 +5,5 @@ langchain-google-genai
 sentence-transformers
 streamlit
 python-dotenv
+torch
+torchvision
