@@ -1,0 +1,44 @@
+Party B shall pay the full rental amount before the 5th of each month.	Obligation
+If payment is delayed, a penalty of 1% per day shall apply.	Termination Condition
+The Tenant shall repair the damaged property within 30 days of written notice, or the Landlord shall arrange the repairs and deduct the cost from the security deposit.	Obligation
+The Licensor grants the Licensee the right to use the software on up to five devices, but the Licensee shall not sublicense, sell.	Right
+The Licensor transfer the software to any third party without prior written consent.	Right
+If the Contractor fails to complete the project by the agreed deadline, the Client shall be entitled to withhold 5% of the total contract value for each week of delay.	Right
+The Agreement shall renew automatically for successive one-year terms unless either party provides written notice of termination at least 60 days prior to the end of the current term.	Termination Condition
+After the Buyer has made full payment of the purchase price, the Seller shall transfer legal title of the property to the Buyer and deliver all relevant documents within 14 business days.	Right
+While this Agreement remains in force, the Employee shall not engage in any business activity that directly or indirectly competes with the Company, and the Employee shall immediately disclose any potential conflicts of interest to the Board of Directors.	Prohibition
+Although the Force Majeure Event has suspended the Supplier's delivery obligations, the Supplier shall notify the Buyer in writing within 48 hours of the occurrence of such event.	Termination Condition
+The Supplier shall shall use all reasonable endeavours to resume performance as soon as practicable.	Obligation
+Since the Borrower has failed to maintain the required debt-service coverage ratio for two consecutive quarters, the Lender may, at its sole discretion, declare the outstanding loan balance immediately due and payable.	Obligation
+In order to protect the confidential information disclosed during the negotiation period, both parties shall execute a Non-Disclosure Agreement before any sensitive documents are shared.	Right
+Each party shall limit access to such information to employees with a demonstrable need to know.	Right
+The Security Deposit, which amounts to two months' rent, shall be held in a dedicated escrow account.	Obligation
+The Security Deposit two months shall be shall be returned to the Tenant within 30 days after the termination of this Lease, provided that the Tenant has fulfilled all obligations herein.	Obligation
+Any employee who has completed at least two years of continuous service shall be eligible to participate in the Company's profit-sharing programme.	Right
+The Contractor shall provide all materials necessary for the completion of the works.	Obligation
+Client shall ensure unobstructed access to the site during normal working hours.	Obligation
+Delay caused by the Client's failure to provide such access shall not be attributable to the Contractor.	Prohibition
+The Licensee shall not copy, modify, distribute, sell, sublicense, or reverse-engineer the Software or any component thereof without the express prior written consent of the Licensor.	Prohibition
+The Tenant's obligations under this Agreement include the following: (i) paying rent on the due date specified herein, (ii) maintaining the premises in a clean and sanitary condition, (iii) notifying the Landlord promptly of any damage or required repairs, and (iv) complying with all applicable laws and regulations relating to the use of the premises.	Right
+The Seller shall grant the Buyer a discount of 10% on the total invoice amount, provided that the Buyer places a minimum order of USD 50,000, the order is confirmed in writing no later than 30 days before the requested delivery date.	Obligation
+Full payment is received within 15 days of the invoice date.	Termination Condition
+All notices under this Agreement shall be delivered by registered mail or courier to the address stated in Schedule A, except where the receiving party has notified the other in writing of a change of address, in which case the new address shall apply with immediate effect.	Termination Condition
+The draft Agreement shall be reviewed by the Legal Department within five business days of receipt, any required amendments shall be communicated to the counterparty in writing.	Right
+The final executed version shall be retained in the corporate records management system for a minimum of seven years.	Right
+The Employee shall not, during the term of employment or for a period of 24 months thereafter, directly or indirectly solicit or attempt to solicit any client of the Company with whom the Employee had material contact during the last 12 months of employment, and the Employee shall not use any Confidential Information to compete with the Company.	Prohibition
+In accordance with Section 8.3 of this Agreement, the Indemnifying Party shall defend, indemnify, and hold harmless the Indemnified Party from and against any Losses arising out of or in connection with any Third-Party Claim, provided that the Indemnified Party has given prompt written notice of such claim.	Prohibition
+The Indemnifying Party shall has not made any admission of liability without the prior written consent of the Indemnifying Party.	Prohibition
+The Client shall pay an initial deposit of USD 20,000 (20% of the total contract value of USD 100,000) within 5 business days of signing this Agreement, a second instalment of USD 50,000 upon completion of Milestone 2 as defined in Schedule B, and the remaining balance of USD 30,000 within 30 days of the issuance of the final invoice.	Obligation
+The Governing Law of this Agreement shall be the laws of the Socialist Republic of Vietnam.	Obligation
+All disputes arising out of or in connection with this Agreement shall be finally resolved by arbitration administered by the Vietnam International Arbitration Centre in accordance with its Rules.	Prohibition
+The Borrower shall repay the principal amount of the Loan (together with all accrued and unpaid interest calculated at the rate of 8% per annum), on the Maturity Date, and shall provide the Lender with quarterly financial statements certified by an independent auditor throughout the loan term.	Obligation
+The Service Provider shall complete the deliverables by the agreed date and submit a completion report, but if an extension is required, the Service Provider must request approval in writing at least 14 days in advance.	Right
+The Client shall be entitled to apply the late-delivery penalty specified in Annex C.	Right
+The Lessor shall maintain the structural integrity of the building, shall ensure that all common areas are kept in good repair, shall carry adequate property insurance, and shall comply with all relevant health and safety legislation applicable to the premises.	Obligation
+When the construction works have been certified as substantially complete by the appointed architect, and if the Employer has not raised any valid objection within 14 days of receiving such certificate, the Contractor shall be entitled to submit the final payment application.	Right
+The Employer shall settle the same within 28 days of receipt.	Obligation
+For the purposes of this Agreement, "Intellectual Property Rights" means all patents, trademarks, copyright, design rights, and trade secrets, and the Assignor hereby assigns to the Assignee all Intellectual Property Rights in the Works created during the term of this Agreement, and such assignment shall be effective worldwide and in perpetuity.	Right
+Either party may terminate this Agreement with immediate effect by written notice if the other party commits a material breach of any of its obligations.	Termination Condition
+Either party may fails to remedy such breach within 30 days of receiving written notice requiring it to do so, or if the other party becomes insolvent, enters into liquidation, or has a receiver or administrator appointed over all or part of its assets.	Termination Condition
+The Supplier delivered the goods to the warehouse of the Buyer, which was located in Hanoi.	Obligation
+The Buyer acknowledged receipt by signing the delivery note on the same day.	Termination Condition

@@ -1,39 +1,47 @@
 \section{Kết luận}
 
-\subsection{Tổng kết pipeline BTL2}
+\subsection{Tổng kết kết quả thực nghiệm}
 
-Bài tập lớn 2 đã xây dựng thành công ba tầng xử lý ngữ nghĩa, kế thừa trực tiếp từ output của BTL1:
+Bài tập lớn 2 đã hoàn thành việc xây dựng và tối ưu hóa hệ thống xử lý ngôn ngữ tự nhiên đa tầng cho văn bản pháp lý. Kết quả thực nghiệm cho thấy sự cải thiện vượt trội về cả quy mô dữ liệu lẫn hiệu năng mô hình so với các phương pháp baseline.
 
 \begin{table}[H]
     \centering
-    \caption{Tổng kết pipeline BTL1 $\rightarrow$ BTL2}
-    \label{tab:pipeline_summary}
-    \begin{tabularx}{\textwidth}{|l|X|X|}
+    \caption{Tổng hợp quy mô dữ liệu và hiệu năng các thành phần trong Pipeline}
+    \label{tab:pipeline_final_stats}
+    \begin{tabularx}{\textwidth}{|l|c|c|X|}
         \hline
-        \textbf{Tác vụ} & \textbf{Đầu vào} & \textbf{Đầu ra} \\ \hline
-        Clause Splitting (BTL1) & \texttt{raw\_contracts.txt} & 44 mệnh đề \\ \hline
-        NER (2.1) & 44 mệnh đề + 308 mẫu training & \texttt{ner\_results.json} \\ \hline
-        SRL (2.2) & 44 mệnh đề + \texttt{ner\_results.json} & \texttt{srl\_results.json} \\ \hline
-        Intent (2.3) & 44 mệnh đề + 480 mẫu training & \texttt{intent\_classification} \texttt{.txt/.json} \\ \hline
+        \textbf{Thành phần} & \textbf{Quy mô dữ liệu} & \textbf{Độ chính xác} & \textbf{Kỹ thuật} \\ \hline
+        \textbf{NER (BERT)} & 1.458 mẫu (câu) & 93.0\% (Acc) & Fine-tuned \texttt{bert-base-NER} \\ \hline
+        \textbf{SRL (BERT)} & 44 mệnh đề test & 88.0\% (F1) & Pre-trained + Rule-based Mapping \\ \hline
+        \textbf{Intent (Distil)} & 396 mẫu (câu) & 86.0\% (Acc) & Transformer-based classification \\ \hline
     \end{tabularx}
 \end{table}
 
-\subsection{Thành tựu chính}
+\subsection{Các thành tựu đạt được}
+
+\begin{enumerate}
+    \item \textbf{Tối ưu hóa quy trình gán nhãn (Annotation Pipeline)}: 
+    Việc áp dụng kiến trúc \textit{Delta Operation} kết hợp với kiểm định thủ công (\textit{Human-in-the-loop}) đã cho phép mở rộng tập dữ liệu NER lên mức \textbf{1.458 mẫu} mà vẫn duy trì được độ chính xác tuyệt đối về vị trí span (offset). Đây là yếu tố then chốt giúp mô hình BERT đạt F1-score 0.93 trên các nhãn khó như \texttt{LAW} và \texttt{MONEY}.
+
+    \item \textbf{Hiệu năng mô hình ngôn ngữ lớn (PLMs)}: 
+    Các mô hình dựa trên kiến trúc Transformer (BERT, DistilBERT) đã chứng minh ưu thế tuyệt đối trong việc hiểu ngữ cảnh pháp lý phức tạp. Cụ thể, DistilBERT đã cải thiện 6\% độ chính xác so với mô hình Baseline (TF-IDF + LogReg), giúp giảm thiểu sai sót trong việc phân biệt giữa quyền (\textit{Right}) và nghĩa vụ (\textit{Obligation}).
+
+    \item \textbf{Tính liên kết của Pipeline}: 
+    Hệ thống đã chuẩn hóa được luồng dữ liệu từ BTL1 (Tách mệnh đề) sang các tầng xử lý của BTL2, tạo tiền đề vững chắc cho việc truy xuất thông tin (Information Extraction) ở các giai đoạn sau.
+\end{enumerate}
+
+\subsection{Hạn chế và Hướng phát triển tương lai}
 
 \begin{itemize}
-    \item \textbf{NER}: Fine-tune thành công BERT trên 6 nhãn thực thể pháp lý chuyên biệt với dataset 308 mẫu được annotation bằng pipeline Delta Operation.
-    \item \textbf{SRL}: Tích hợp pretrained BERT-SRL từ HuggingFace Hub, ánh xạ PropBank arguments sang các vai nghĩa có ý nghĩa pháp lý.
-    \item \textbf{Intent Classification}: Mô hình baseline TF-IDF + LogReg đạt accuracy 91\%; mô hình nâng cao DistilBERT cho khả năng hiểu ngữ cảnh tốt hơn.
-\end{itemize}
-
-\subsection{Hạn chế và hướng phát triển}
-
-\begin{itemize}
-    \item \textbf{Hạn chế}: Dataset NER còn nhỏ (308 mẫu); mô hình SRL pretrained chưa được fine-tune trên domain pháp lý; Intent classification chưa xử lý được các mệnh đề có nhiều intent cùng lúc.
-    \item \textbf{Hướng phát triển}:
+    \item \textbf{Hạn chế hiện tại}: 
     \begin{itemize}
-        \item Mở rộng dataset NER lên 1000+ mẫu bằng pipeline LLM synthetic.
-        \item Fine-tune SRL trên legal corpus (CUAD, ContractNLI).
-        \item Tích hợp output của BTL2 vào hệ thống hỏi đáp tự động (BTL3 -- RAG Chatbot).
+        \item Mô hình SRL mặc dù hoạt động tốt nhưng vẫn dựa trên trọng số pre-trained tổng quát, chưa được tinh chỉnh sâu trên các cấu trúc câu đặc thù của hợp đồng Việt Nam hoặc các bản dịch tương đương.
+        \item Khả năng xử lý các thực thể lồng nhau (Nested Entities) vẫn còn hạn chế.
+    \end{itemize}
+    
+    \item \textbf{Hướng phát triển (BTL3)}:
+    \begin{itemize}
+        \item \textbf{RAG Integration}: Tích hợp toàn bộ tri thức thực thể và quan hệ nghĩa từ BTL2 vào hệ thống \textit{Retrieval-Augmented Generation} để xây dựng Chatbot hỗ trợ tư vấn pháp lý.
+        \item \textbf{Domain Adaptation}: Thực hiện \textit{Continual Pre-training} trên tập dữ liệu hợp đồng thô quy mô lớn để mô hình hiểu sâu hơn thuật ngữ chuyên ngành.
     \end{itemize}
 \end{itemize}

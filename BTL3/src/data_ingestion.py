@@ -6,8 +6,8 @@ from langchain_huggingface import HuggingFaceEmbeddings
 def run_ingestion():
     print("Starting data ingestion...")
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    clauses_path = os.path.join(base_dir, "..", "BTL1", "output", "clauses.txt")
-    intents_path = os.path.join(base_dir, "..", "BTL2", "output", "intent_classification.txt")
+    clauses_path = os.path.join(base_dir, "data1", "BTL1", "clauses.txt")
+    intents_path = os.path.join(base_dir, "data1", "BTL2", "intent_classification.txt")
     
     # Read data
     clauses = []
