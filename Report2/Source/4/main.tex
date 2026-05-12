@@ -63,7 +63,7 @@ Mô hình baseline đạt accuracy \textbf{80\%} trên tập test 80 mẫu:
         Prohibition           & 0.65 & 0.58 & 0.61 & 19 \\ \hline
         Right                 & 0.66 & 0.95 & 0.78 & 20 \\ \hline
         Termination Condition & 1.00 & 1.00 & 1.00 & 19 \\ \hline
-        \textbf{Accuracy}     & \multicolumn{3}{r|}{} & 0.80 \\ \hline
+        \textbf{Accuracy}     & \multicolumn{3}{r|}{} & \textbf{0.80} \\ \hline
         \textbf{Macro avg}    & 0.83 & 0.80 & 0.80 & 80 \\ \hline
         \textbf{Weighted avg} & 0.83 & 0.80 & 0.80 & 80 \\ \hline
     \end{tabular}
@@ -91,13 +91,13 @@ DistilBERT đạt accuracy \textbf{88\%} -- cải thiện rõ rệt so với bas
     \begin{tabular}{|l|r|r|r|r|}
         \hline
         \textbf{Nhãn} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} & \textbf{Support} \\ \hline
-        Obligation            & 0.91 & 0.95 & 0.93 & 22 \\ \hline
-        Prohibition           & 0.87 & 0.68 & 0.76 & 19 \\ \hline
-        Right                 & 0.77 & 0.85 & 0.81 & 20 \\ \hline
+        Obligation            & 1.00 & 0.91 & 0.95 & 22 \\ \hline
+        Prohibition           & 0.80 & 0.63 & 0.71 & 19 \\ \hline
+        Right                 & 0.72 & 0.90 & 0.80 & 20 \\ \hline
         Termination Condition & 0.95 & 1.00 & 0.97 & 19 \\ \hline
-        \textbf{Accuracy}     & \multicolumn{3}{r|}{} & 0.88 \\ \hline
-        \textbf{Macro avg}    & 0.88 & 0.87 & 0.87 & 80 \\ \hline
-        \textbf{Weighted avg} & 0.88 & 0.88 & 0.87 & 80 \\ \hline
+        \textbf{Accuracy}     & \multicolumn{3}{r|}{} & \textbf{0.86} \\ \hline
+        \textbf{Macro avg}    & 0.87 & 0.86 & 0.86 & 80 \\ \hline
+        \textbf{Weighted avg} & 0.87 & 0.86 & 0.86 & 80 \\ \hline
     \end{tabular}
 \end{table}
 
@@ -111,7 +111,7 @@ DistilBERT đạt accuracy \textbf{88\%} -- cải thiện rõ rệt so với bas
         \hline
         \textbf{Mô hình} & \textbf{Accuracy} & \textbf{Macro F1} & \textbf{Weighted F1} & \textbf{Thời gian train} \\ \hline
         TF-IDF + LogReg & 80\% & 0.80 & 0.80 & $< 5$s \\ \hline
-        DistilBERT      & \textbf{88\%} & \textbf{0.87} & \textbf{0.87} & $\approx 21$s (GPU) \\ \hline
+        DistilBERT      & \textbf{86\%} & \textbf{0.86} & \textbf{0.86} & $\approx 20$s (GPU) \\ \hline
     \end{tabular}
 \end{table}
 
@@ -119,23 +119,31 @@ DistilBERT vượt trội hơn TF-IDF +8\% accuracy nhờ khả năng nắm bắ
 
 \subsection{Phân tích lỗi}
 
-\subsubsection{Confusion Matrix}
-
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=0.35\textwidth, keepaspectratio]{../report_assets/intent_confusion_matrix.png}
-    \caption{Confusion matrix của mô hình TF-IDF + Logistic Regression trên tập test}
-    \label{fig:intent_confusion}
-\end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.45\textwidth]{../report_assets/intent_confusion_matrix_distilbert.png}
-    \caption{Confusion matrix của mô hình DistilBERT trên tập test}
-    \label{fig:distilbert_confusion}
-\end{figure}
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[
+            width=\linewidth,
+            keepaspectratio
+        ]{report_assets/intent_confusion_matrix.png}
+        \caption{TF-IDF + Logistic Regression}
+        \label{fig:intent_confusion}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[
+            width=\linewidth,
+            keepaspectratio
+        ]{report_assets/intent_confusion_matrix_distilbert.png}
+        \caption{DistilBERT}
+        \label{fig:distilbert_confusion}
+    \end{subfigure}
 
-\subsubsection{Nhận xét lỗi phổ biến}
+    \caption{So sánh confusion matrix của hai mô hình trên tập test}
+\end{figure}
 
 \begin{itemize}
     \item \textbf{TF-IDF: Prohibition recall thấp (0.58)}: Mô hình nhầm với Obligation vì cả hai dựng câu \textit{``shall''} -- TF-IDF không phân biệt được \textit{``shall pay''} và \textit{``shall not disclose''}.
