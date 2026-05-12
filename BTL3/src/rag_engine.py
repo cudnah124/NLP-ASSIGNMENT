@@ -28,7 +28,7 @@ class RAGEngine:
         # Setup Retriever with MMR Strategy
         self.retriever = self.vectorstore.as_retriever(
             search_type="mmr",
-            search_kwargs={'k': 3, 'fetch_k': 10}
+            search_kwargs={'k': 5, 'fetch_k': 20}
         )
         
         # Setup LLM
