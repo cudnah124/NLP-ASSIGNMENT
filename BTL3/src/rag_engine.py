@@ -1,4 +1,6 @@
 import os
+import transformers
+transformers.utils.logging.set_verbosity_error()
 from dotenv import load_dotenv
 from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
