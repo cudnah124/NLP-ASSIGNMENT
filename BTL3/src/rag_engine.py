@@ -16,7 +16,7 @@ class RAGEngine:
         persist_directory = os.path.join(base_dir, "chroma_db")
         
         # Initialize Google Gemini embeddings
-        self.embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+        self.embeddings = GoogleGenerativeAIEmbeddings(model="gemini-embedding-001")
         
         # Load Vector Store
         self.vectorstore = Chroma(

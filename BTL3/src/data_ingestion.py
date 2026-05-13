@@ -43,7 +43,7 @@ def run_ingestion():
         return
 
     print(f"Loaded {len(docs)} documents. Initializing Gemini embedding model...")
-    embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+    embeddings = GoogleGenerativeAIEmbeddings(model="gemini-embedding-001")
     
     persist_directory = os.path.join(base_dir, "chroma_db")
     
