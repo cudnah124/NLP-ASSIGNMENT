@@ -12,7 +12,7 @@ st.title("⚖️ Legal Contract Assistant (RAG)")
 st.markdown("Ask questions about the contract based on the analyzed clauses.")
 
 # Initialize RAG Engine
-@st.cache_resource
+@st.cache_resource(show_spinner="Initializing Legal AI Engine...")
 def get_rag_engine():
     return RAGEngine()
 
@@ -40,9 +40,10 @@ if prompt := st.chat_input("Ask a question about the contract..."):
 
     # Generate response
     with st.chat_message("assistant"):
-        with st.spinner("Searching the contract..."):
+        with st.status("Searching the contract...", expanded=True) as status:
             response = engine.ask(prompt)
-            st.markdown(response)
+            status.update(label="Information retrieved!", state="complete", expanded=False)
+        st.markdown(response)
             
     # Add assistant response to chat history
     st.session_state.messages.append({"role": "assistant", "content": response})
