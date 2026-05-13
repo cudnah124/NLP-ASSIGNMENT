@@ -10,6 +10,30 @@ An end-to-end pipeline for analyzing English legal contracts, featuring syntax p
 - **`main.ipynb`**: Integrated notebook for experimental runs and visualization.
 - **`requirements.txt`**: Global dependencies for the project.
 
+## 📊 Data Management
+
+The project follows a structured data flow where outputs from earlier assignments serve as inputs for subsequent ones.
+
+### BTL1: Preprocessing
+- **Input**: `BTL1/input/raw_contracts.txt` (Unstructured legal text)
+- **Outputs**:
+  - `BTL1/output/clauses.txt`: Cleaned independent clauses.
+  - `BTL1/output/chunks.txt`: Noun phrase chunks (IOB format).
+  - `BTL1/output/dependency.json`: Syntactic dependency trees.
+
+### BTL2: Extraction & Semantics
+- **Training Data**: `BTL2/data/` (Contains annotated JSON files for NER and Intent training).
+- **Inference Input**: Uses `BTL1/output/clauses.txt`.
+- **Outputs**:
+  - `BTL2/output/ner_results.json`: Extracted legal entities.
+  - `BTL2/output/srl_results.json`: Semantic roles mapped to clauses.
+  - `BTL2/output/intent_classification.txt`: Classified legal intents.
+
+### BTL3: Question Answering (RAG)
+- **Source Data**: Consumes data from `BTL1/output/` and `BTL2/output/` to build the knowledge base.
+- **Vector Database**: `BTL3/chroma_db/` (Generated after running `data_ingestion.py`).
+
+
 ## ⚙️ Installation
 
 To set up the core environments for BTL1 and BTL2:
