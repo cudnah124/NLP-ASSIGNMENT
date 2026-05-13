@@ -1,7 +1,10 @@
 import os
 from langchain_core.documents import Document
 from langchain_chroma import Chroma
-from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def run_ingestion():
     print("Starting data ingestion...")
@@ -39,8 +42,8 @@ def run_ingestion():
         print("No documents to ingest!")
         return
 
-    print(f"Loaded {len(docs)} documents. Initializing embedding model...")
-    embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+    print(f"Loaded {len(docs)} documents. Initializing Gemini embedding model...")
+    embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
     
     persist_directory = os.path.join(base_dir, "chroma_db")
     

@@ -3,8 +3,7 @@ import transformers
 transformers.utils.logging.set_verbosity_error()
 from dotenv import load_dotenv
 from langchain_chroma import Chroma
-from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
@@ -16,8 +15,8 @@ class RAGEngine:
         base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         persist_directory = os.path.join(base_dir, "chroma_db")
         
-        # Initialize embeddings
-        self.embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+        # Initialize Google Gemini embeddings
+        self.embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
         
         # Load Vector Store
         self.vectorstore = Chroma(
