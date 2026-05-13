@@ -1,64 +1,74 @@
-# NLP Legal Contract Analysis
+# NLP Legal Contract Analysis Pipeline
 
-Pipeline phân tích văn bản hợp đồng pháp lý tiếng Anh.
+An end-to-end pipeline for analyzing English legal contracts, featuring syntax parsing, information extraction, and a Retrieval-Augmented Generation (RAG) Question Answering system.
 
-## Cấu trúc dự án
+## 📁 Project Structure
 
-- **BTL1/**: Tiền xử lý văn bản. Xử lý tách câu (Clause Splitting), nhận diện cụm danh từ (Noun Chunking) và phân tích cú pháp (Dependency Analysis) bằng spaCy.
-- **BTL2/**: Trích xuất thông tin & Phân tích ngữ nghĩa. Huấn luyện và dự đoán nhận diện thực thể (NER), gán nhãn vai trò ngữ nghĩa (SRL) và phân loại câu (Intent Classification).
-- **BTL3/**: Hệ thống Question Answering sử dụng RAG (Retrieval-Augmented Generation) kết hợp LangChain, ChromaDB và Google Gemini.
-- **data/**: Dữ liệu huấn luyện và file dữ liệu thô.
-- **report_assets/**: Nơi lưu biểu đồ, hình ảnh trực quan dùng để viết báo cáo.
+- **[BTL1](./BTL1)**: **Syntax Analysis & Preprocessing**. Handles clause splitting, noun phrase chunking, and dependency parsing using spaCy.
+- **[BTL2](./BTL2)**: **Information Extraction & Semantics**. Features custom NER (Named Entity Recognition), SRL (Semantic Role Labeling), and Intent Classification using DistilBERT and spaCy.
+- **[BTL3](./BTL3)**: **Contract QA Application**. A RAG-based chatbot interface built with LangChain, ChromaDB, and Google Gemini API.
+- **`main.ipynb`**: Integrated notebook for experimental runs and visualization.
+- **`requirements.txt`**: Global dependencies for the project.
 
-## Cài đặt chung
+## ⚙️ Installation
 
-Cài đặt thư viện cơ bản cho BTL1 & BTL2:
+To set up the core environments for BTL1 and BTL2:
+
 ```bash
+# Install core dependencies
 pip install spacy scikit-learn pandas matplotlib seaborn
+# Download spaCy model
 python -m spacy download en_core_web_sm
 ```
 
-## Hướng dẫn sử dụng
+*Note: BTL3 requires additional dependencies. See the [BTL3 README](./BTL3/README.md) for details.*
 
-### 1. Chạy BTL1 (Tiền xử lý)
-Đọc file `BTL1/input/raw_contracts.txt` và phân tích cú pháp:
+## 🚀 Usage Guide
+
+### Option 1: Quick Start with Jupyter Notebook (Recommended)
+For an integrated experience with visualizations and step-by-step execution for **BTL1** and **BTL2**, use the provided notebook at the root:
+- **`main.ipynb`**: Contains the full pipeline from preprocessing to semantic analysis.
+
+### Option 2: Command Line Interface (CLI)
+
+#### 1. Preprocessing (BTL1)
+Process raw contract text (`BTL1/input/raw_contracts.txt`) into structured clauses:
 ```bash
 cd BTL1
 python src/main.py
 ```
 
-### 2. Chạy BTL2 (Trích xuất & Huấn luyện)
-Đọc kết quả từ BTL1 và tiến hành chạy mô hình NER, SRL, Intent:
+#### 2. Extraction & Training (BTL2)
+Perform entity extraction and intent classification on processed clauses:
 ```bash
 cd BTL2
-# Train và Inference (chạy mặc định)
+# Full Run (Train + Inference)
 python src/main.py 
 
-# Chạy nhanh Inference (bỏ qua train mô hình DistilBERT)
+# Quick Inference Only (Skip DistilBERT training)
 python src/main.py --no-transformer
 ```
 
-### 3. Chạy BTL3 (Chatbot RAG)
-Phần ứng dụng Chatbot yêu cầu cài thêm thư viện chuyên dụng và cấu hình API Key.
+### 3. Interactive Chatbot (BTL3)
+The RAG-powered chatbot requires a separate setup and execution flow.
 
-**Cài đặt thư viện:**
-```bash
-cd BTL3
-pip install -r requirements.txt
-```
-
-**Cấu hình API Key:**
-Cập nhật file `.env` trong thư mục `BTL3` với API Key của Google Gemini:
+**Step A: Configure API Key**
+Update `.env` in the `BTL3` directory with your Google Gemini API Key:
 ```env
 GOOGLE_API_KEY=your_api_key_here
 ```
 
-**Khởi tạo Database (Chỉ chạy 1 lần):**
+**Step B: Ingest Data (First run only)**
 ```bash
+cd BTL3
 python src/data_ingestion.py
 ```
 
-**Khởi chạy Giao diện Chatbot:**
+**Step C: Start UI**
 ```bash
 streamlit run src/app.py
 ```
+
+
+## 📊 Results & Visualization
+Detailed performance metrics and visualizations for NER, SRL, and Intent Classification are available in the respective assignment folders and integrated into the final report.

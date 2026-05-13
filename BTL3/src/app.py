@@ -9,7 +9,7 @@ from rag_engine import RAGEngine
 st.set_page_config(page_title="Contract QA Bot", page_icon="⚖️", layout="centered")
 
 st.title("⚖️ Legal Contract Assistant (RAG)")
-st.markdown("Hỏi đáp thông tin về hợp đồng dựa trên các điều khoản đã được phân tích.")
+st.markdown("Ask questions about the contract based on the analyzed clauses.")
 
 # Initialize RAG Engine
 @st.cache_resource
@@ -40,7 +40,7 @@ if prompt := st.chat_input("Ask a question about the contract..."):
 
     # Generate response
     with st.chat_message("assistant"):
-        with st.spinner("Đang tra cứu hợp đồng..."):
+        with st.spinner("Searching the contract..."):
             response = engine.ask(prompt)
             st.markdown(response)
             

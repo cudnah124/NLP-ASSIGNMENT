@@ -1,20 +1,27 @@
-# Assignment 1: Preprocessing and Syntax Analysis
+# Assignment 1: Syntax Analysis & Preprocessing
 
-## Objective
-This assignment focuses on building the foundational components for processing legal contract documents. Transform unstructured contract text into syntactically structured representations.
+## 🎯 Objective
+This component builds the foundational layer for processing legal contracts by transforming unstructured text into syntactically structured representations.
 
-## Tasks
-1. **Clause Splitting (1.1)**
-   - **Input:** `input/raw_contracts.txt`
-   - **Output:** `output/clauses.txt` (One independent clause per line)
-   - **Goal:** Split a complex sentence into semantically independent clauses.
+## 🛠️ Key Tasks
 
-2. **Noun Phrase Chunking (1.2)**
-   - **Input:** `output/clauses.txt`
-   - **Output:** `output/chunks.txt`
-   - **Goal:** Detect and label noun phrases in each clause using the IOB tagging scheme (B-NP, I-NP, O).
+### 1. Clause Splitting
+- **Input**: `input/raw_contracts.txt`
+- **Output**: `output/clauses.txt`
+- **Goal**: Decompose complex sentences into semantically independent clauses to simplify downstream analysis.
 
-3. **Dependency Analysis (1.3)**
-   - **Input:** `output/clauses.txt`
-   - **Output:** `output/dependency.json` (or CoNLL-U format)
-   - **Goal:** Perform dependency parsing to determine head-dependent relationships and syntactic roles.
+### 2. Noun Phrase (NP) Chunking
+- **Input**: `output/clauses.txt`
+- **Output**: `output/chunks.txt`
+- **Goal**: Identify and label noun phrases using the **IOB tagging scheme** (B-NP, I-NP, O).
+
+### 3. Dependency Parsing
+- **Input**: `output/clauses.txt`
+- **Output**: `output/dependency.json`
+- **Goal**: Map syntactic relationships (head-dependent) and grammatical roles (nsubj, dobj, etc.) to understand sentence structure.
+
+## 🚀 Execution
+Run the preprocessing pipeline:
+```bash
+python src/main.py
+```
