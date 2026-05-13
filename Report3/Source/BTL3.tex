@@ -1,0 +1,137 @@
+\section{Giới thiệu}
+Bài tập lớn 3 (BTL3) đặt ra mục tiêu thiết kế và triển khai một hệ thống Trợ lý ảo Hỏi - Đáp (Question Answering Chatbot) chuyên dụng cho lĩnh vực hợp đồng pháp lý. Khác với các hệ thống tìm kiếm từ khóa truyền thống (Keyword-based Search), hệ thống này được xây dựng dựa trên kiến trúc \textbf{RAG (Retrieval-Augmented Generation)}.
+
+Trong lĩnh vực pháp lý, tính chính xác tuyệt đối là yêu cầu tiên quyết. Các Mô hình Ngôn ngữ Lớn (LLM) thông thường thường gặp phải vấn đề "ảo giác" (Hallucination) - tức là tự bịa ra thông tin khi không biết câu trả lời. Kiến trúc RAG giải quyết triệt để vấn đề này bằng cách buộc LLM chỉ được phép trả lời dựa trên những bằng chứng cụ thể được trích xuất trực tiếp từ văn bản hợp đồng.
+
+Hệ thống được thiết kế nguyên khối (monolithic) nhưng phân tách rõ ràng thành 3 thành phần chính:
+\begin{itemize}
+    \item \textbf{Nạp dữ liệu}: Chịu trách nhiệm số hóa, gắn thẻ siêu dữ liệu (metadata), chuyển đổi ngữ nghĩa thành vector (embedding) và lưu trữ vào cơ sở dữ liệu.
+    \item \textbf{RAG Engine}: Đóng vai trò là bộ não của hệ thống, điều phối luồng truy vấn từ người dùng, tìm kiếm thông tin tương đồng và điều khiển LLM sinh câu trả lời.
+    \item \textbf{Giao diện Web Chatbot}: Cung cấp trải nghiệm tương tác thân thiện thông qua giao diện Web thời gian thực.
+\end{itemize}
+
+\section{Quá trình nạp dữ liệu}
+Dữ liệu đầu vào không phải là toàn bộ văn bản hợp đồng thô, mà tận dụng trực tiếp kết quả từ các giai đoạn trước: danh sách các mệnh đề độc lập (clauses) từ BTL1 và nhãn phân loại ý định (intent labels) từ BTL2. Việc chia nhỏ hợp đồng thành từng mệnh đề giúp hệ thống đạt được độ hạt (granularity) lý tưởng, đảm bảo thông tin truy xuất ra luôn cô đọng và đi thẳng vào vấn đề.
+
+\subsection{Gắn thẻ Siêu dữ liệu}
+Mỗi mệnh đề được chuyển đổi thành một đối tượng \texttt{Document} trong hệ sinh thái LangChain. Điểm nổi bật trong thiết kế là việc tích hợp nhãn ý định (Obligation, Right, Prohibition,...) vào trường \texttt{metadata}. Việc này không chỉ cung cấp thêm ngữ cảnh cho LLM (ví dụ: giúp LLM hiểu rằng mệnh đề nó đang đọc là một hình phạt) mà còn tạo tiền đề để truy xuất nguồn gốc (citation) một cách minh bạch.
+
+\begin{minted}[frame=lines, fontsize=\small, linenos, breaklines]{python}
+from langchain_core.documents import Document
+
+docs = []
+for i, clause in enumerate(clauses):
+    intent = intents[i] if i < len(intents) else "Unknown"
+    doc = Document(
+        page_content=clause,
+        metadata={
+            "intent": intent, 
+            "source": f"Clause {i+1}"
+        }
+    )
+    docs.append(doc)
+\end{minted}
+
+\subsection{Embedding \& Vector Store}
+Thay vì sử dụng các mô hình mã nguồn mở nhẹ, hệ thống sử dụng trực tiếp mô hình \texttt{gemini-embedding-001} của Google thông qua lớp \texttt{GoogleGenerativeAIEmbeddings}. Mô hình này có khả năng biểu diễn ngữ nghĩa vượt trội với không gian vector đa chiều, cho phép nắm bắt chính xác các sắc thái pháp lý phức tạp.
+
+Cơ sở dữ liệu \textbf{ChromaDB} được lựa chọn để lưu trữ các vector này nhờ vào kiến trúc tối ưu cho hoạt động tra cứu (vector similarity search) và khả năng hoạt động cục bộ (local-first), đảm bảo tính bảo mật cho dữ liệu hợp đồng.
+
+\begin{minted}[frame=lines, fontsize=\small, linenos, breaklines]{python}
+from langchain_chroma import Chroma
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
+
+embeddings = GoogleGenerativeAIEmbeddings(model="gemini-embedding-001")
+vectorstore = Chroma.from_documents(
+    documents=docs,
+    embedding=embeddings,
+    persist_directory="chroma_db"
+)
+\end{minted}
+
+\section{RAG Engine}
+
+\subsection{Chiến lược tìm kiếm MMR (Maximal Marginal Relevance)}
+Một thách thức lớn trong tra cứu văn bản pháp lý là tính lặp lại (redundancy) của các điều khoản. Nếu chỉ sử dụng tìm kiếm tương đồng (Similarity Search) thông thường, hệ thống có thể trả về nhiều kết quả mang nội dung gần giống hệt nhau, làm thu hẹp góc nhìn của LLM.
+
+Để khắc phục, hệ thống áp dụng thuật toán \textbf{MMR}. Khi người dùng đặt câu hỏi, hệ thống sẽ thực hiện hai bước:
+\begin{enumerate}
+    \item \textbf{Fetch}: Lấy ra 20 mệnh đề có độ tương đồng cosine cao nhất với câu hỏi (\texttt{fetch\_k=20}).
+    \item \textbf{Optimize}: Từ 20 mệnh đề đó, thuật toán tối ưu hóa để chọn ra 5 mệnh đề (\texttt{k=5}) sao cho chúng vừa liên quan đến câu hỏi, nhưng đồng thời \textit{phải khác biệt lẫn nhau} nhiều nhất có thể.
+\end{enumerate}
+
+\begin{minted}[frame=lines, fontsize=\small, linenos, breaklines]{python}
+self.retriever = self.vectorstore.as_retriever(
+    search_type="mmr",
+    search_kwargs={'k': 5, 'fetch_k': 20}
+)
+\end{minted}
+
+\subsection{Kỹ thuật Prompt Engineering Chống Ảo Giác}
+Mô hình \texttt{gemini-2.5-flash} được cấu hình với độ sáng tạo bằng không (\texttt{temperature=0}) để ép mô hình suy luận một cách logic và rập khuôn. Đặc biệt, System Prompt được thiết kế cực kỳ khắt khe:
+
+\begin{minted}[frame=lines, fontsize=\small, breaklines]{text}
+You are a professional legal assistant. Use the FOLLOWING CONTEXT to answer the user's question.
+If the context does not contain the information to answer, CLEARLY STATE THAT YOU DO NOT KNOW or that the information is not in the contract. ABSOLUTELY DO NOT invent an answer.
+At the end of your answer, YOU MUST cite the original text used as the source in the format: '(Source: [Original contract clause])'.
+\end{minted}
+
+Đoạn Prompt trên cài cắm 3 lớp rào chắn:
+\begin{enumerate}
+    \item \textit{Role-playing}: Định hướng AI đóng vai chuyên gia pháp lý.
+    \item \textit{Fallback condition}: Bắt buộc thừa nhận không biết thay vì suy đoán ("CLEARLY STATE THAT YOU DO NOT KNOW").
+    \item \textit{Citation enforcement}: Ràng buộc chặt chẽ việc xuất ra trích dẫn bằng cú pháp định trước để người dùng có thể đối chiếu chéo (cross-check).
+\end{enumerate}
+
+\section{Giao diện Web Chatbot}
+Nhằm cung cấp trải nghiệm sử dụng thực tế, hệ thống không chạy trên giao diện dòng lệnh (CLI) thô sơ mà được tích hợp vào nền tảng Web thông qua thư viện \texttt{Streamlit}.
+
+Luồng tương tác được quản lý bởi \texttt{st.session\_state}, đóng vai trò như bộ nhớ ngắn hạn của phiên làm việc. Nó giúp lưu trữ toàn bộ lịch sử trò chuyện (các cặp tin nhắn của user và assistant), đảm bảo khi ứng dụng load lại (rerun) mỗi lần có tin nhắn mới, lịch sử cũ không bị xóa mất.
+
+\begin{minted}[frame=lines, fontsize=\small, linenos, breaklines]{python}
+import streamlit as st
+
+# Khởi tạo bộ nhớ phiên bản (Session State)
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+# Vòng lặp hiển thị lịch sử chat
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
+
+# Xử lý truy vấn mới thời gian thực
+if prompt := st.chat_input("Nhập câu hỏi về hợp đồng..."):
+    st.session_state.messages.append({"role": "user", "content": prompt})
+    
+    with st.chat_message("assistant"):
+        with st.spinner("Đang tra cứu cơ sở dữ liệu..."):
+            response = engine.ask(prompt) # Kích hoạt LCEL Chain
+            st.markdown(response)
+            
+    st.session_state.messages.append({"role": "assistant", "content": response})
+\end{minted}
+
+\section{Thử nghiệm và Đánh giá}
+Hệ thống đã được đánh giá chéo qua nhiều kịch bản phức tạp để đo lường giới hạn của mô hình. Dưới đây là log ghi nhận thực tế từ các phiên thử nghiệm:
+
+\begin{minted}[frame=lines, fontsize=\small, breaklines]{text}
+[User]: What happens if the payment is delayed?
+[Bot]: If payment is delayed, a penalty of 1% per day shall apply. 
+(Source: [Clause 2]: If payment is delayed, a penalty of 1% per day shall apply.)
+
+[User]: Tiền đặt cọc là bao nhiêu và được giữ ở đâu?
+[Bot]: Tiền đặt cọc ban đầu là 20.000 USD. 
+(Source: [Clause 31]: The Client shall pay an initial deposit of USD 20,000...)
+Thông tin về việc tiền đặt cọc được giữ ở đâu không có trong các điều khoản được cung cấp.
+
+[User]: Ai là người đẹp trai nhất thế giới?
+[Bot]: Tôi không có thông tin về việc ai là người đẹp trai nhất thế giới trong các điều khoản hợp đồng được cung cấp.
+\end{minted}
+
+Từ các kết quả thử nghiệm trên, ta có thể rút ra các kết luận đánh giá chuyên sâu:
+\begin{itemize}
+    \item \textbf{Độ chính xác trong truy xuất}: Hệ thống lấy đúng điều khoản phạt 1\% cho câu hỏi về thanh toán trễ hạn, chứng minh Vector Database đã nhúng chuẩn xác ngữ nghĩa của câu hỏi.
+    \item \textbf{Khả năng chống ảo giác}: Đối với câu hỏi về tiền đặt cọc, mô hình tìm thấy dữ liệu về số tiền nhưng không tìm thấy dữ liệu về "nơi giữ". Thay vì tự ý bịa ra một ngân hàng nào đó, nó đã trung thực phản hồi là không có thông tin. Đối với câu hỏi hoàn toàn phi lý (out-of-domain) như "người đẹp trai nhất", các rào chắn từ Prompt Constraint đã hoạt động hoàn hảo.
+    \item \textbf{Năng lực Đa ngôn ngữ}: Điểm sáng lớn nhất của hệ thống là khả năng xử lý truy vấn bằng tiếng Việt một cách tự nhiên. Khi người dùng hỏi bằng tiếng Việt, bộ nhúng (Embedding) tự động ánh xạ ngữ nghĩa sang không gian vector chung, tìm ra mệnh đề tiếng Anh tương ứng (Clause 31), sau đó LLM tự động tổng hợp câu trả lời bằng tiếng Việt mà không cần bất kỳ bước trung gian dịch thuật (translation layer) rườm rà nào.
+\end{itemize}

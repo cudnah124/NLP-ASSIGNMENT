@@ -11,6 +11,7 @@
 \usepackage{enumerate}
 \usepackage{xcolor}
 \usepackage{graphicx}							% Standard graphics package
+\usepackage{minted}
 \usepackage{array}
 \usepackage{tabularx, caption}
 \usepackage{multirow}
@@ -145,17 +146,15 @@ KHOA KHOA HỌC VÀ KỸ THUẬT MÁY TÍNH
 
 
 \begin{center}
-\begin{tabular}{c}
-\multicolumn{1}{l}{\textbf{{XXXXXXXX}}}\\
-~~\\
-\hline
-\\
-\multicolumn{1}{l}{\textbf{{XXXXXXX}}}\\
-~~\\
-\textbf{\textit{{\Large XXXXXXX }}}\\
-\\
-\hline
-\end{tabular}
+    \begin{minipage}{0.9\textwidth}
+        \centering
+        \textbf{\large Môn học: Xử lý Ngôn ngữ Tự nhiên (CO3085)} \\[0.5cm]
+        \hrule
+        \vspace{0.3cm}
+        \textbf{\Large Bài tập lớn 3} \\[0.5cm]
+        \textbf{\Large Contract Question Answering Application} \\[0.5cm]
+        \hrule
+    \end{minipage}
 \end{center}
 
 \vspace{2cm}
@@ -164,7 +163,7 @@ KHOA KHOA HỌC VÀ KỸ THUẬT MÁY TÍNH
 \centering
     \begin{tabular}{rl}
     \hspace{3 cm}\textbf{Instructor(s)}:
-    & XXXXXXX\\
+    & Dương Hồ Nam\\
 
     & \\[10pt]
     \textbf{Students}: &  Phan Đức Nhã - 2312410 \\
@@ -183,10 +182,11 @@ KHOA KHOA HỌC VÀ KỸ THUẬT MÁY TÍNH
 \pagebreak
 
 % }
-\input{Source/1/main}
+
 \pagebreak
 
-% for testing
+% BTL3 Content
+\input{Source/BTL3.tex}
 
 % REFERENCES
 
